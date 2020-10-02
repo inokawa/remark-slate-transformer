@@ -46,12 +46,7 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
       case "thematicBreak":
         return {
           type: node.type,
-          [VOID_KEY]: true,
-          children: [
-            {
-              text: "",
-            },
-          ],
+          ...createVoidFields(),
         };
       case "blockquote": {
         return {
@@ -126,14 +121,22 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
       case "definition": {
         const { type, identifier, label, url, title } = node;
         return {
-          children: [{ text: "" }],
           identifier,
           label,
           url,
           title,
+          ...createVoidFields(),
         };
       }
-      // case "footnoteDefinition":
+      case "footnoteDefinition": {
+        const { type, children, identifier, label } = node;
+        return {
+          type,
+          children: convertMdastNodes(children),
+          identifier,
+          label,
+        };
+      }
       case "text":
         return {
           text: node.value,
@@ -154,13 +157,65 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
           [type]: true,
         };
       }
-      // case "break":
-      // case "link":
-      // case "image":
-      // case "linkReference":
-      // case "imageReference":
-      // case "footnote":
-      // case "footnoteReference":
+      case "break":
+        return {
+          type: node.type,
+          ...createVoidFields(),
+        };
+      case "link": {
+        const { type, children, url, title } = node;
+        return {
+          type,
+          children: convertMdastNodes(children),
+          url,
+          title,
+        };
+      }
+      case "image": {
+        const { type, url, title, alt } = node;
+        return {
+          url,
+          title,
+          alt,
+          ...createVoidFields(),
+        };
+      }
+      case "linkReference": {
+        const { type, children, referenceType, identifier, label } = node;
+        return {
+          type,
+          children: convertMdastNodes(children),
+          referenceType,
+          identifier,
+          label,
+        };
+      }
+      case "imageReference": {
+        const { type, alt, referenceType, identifier, label } = node;
+        return {
+          alt,
+          referenceType,
+          identifier,
+          label,
+          ...createVoidFields(),
+        };
+      }
+      case "footnote": {
+        const { type, children } = node;
+        return {
+          type,
+          children: convertMdastNodes(children),
+        };
+      }
+      case "footnoteReference": {
+        const { type, identifier, label } = node;
+        return {
+          type,
+          identifier,
+          label,
+          ...createVoidFields(),
+        };
+      }
       default: {
         return null;
       }
@@ -168,3 +223,9 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
   }
 }
 
+function createVoidFields() {
+  return {
+    [VOID_KEY]: true,
+    children: [{ text: "" }],
+  };
+}
