@@ -13,12 +13,15 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
     "@types/jest": "^26.0.14",
+    "@types/unist": "^2.0.3",
     "babel-jest": "^26.3.0",
     "jest": "^26.4.2",
+    "remark-parse": "^8.0.3",
     "slate": "^0.59.0",
     "slate-react": "^0.59.0",
     "ts-loader": "^8.0.4",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "unified": "^9.2.0"
   },
   "repository": {
     "type": "git",
