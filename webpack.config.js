@@ -4,8 +4,10 @@ module.exports = {
   mode: "production",
   entry: "./src",
   output: {
-    path: path.join(__dirname, "build"),
-    filename: "bundle.js",
+    path: path.join(__dirname, "lib"),
+    filename: "index.js",
+    library: "slate-remark",
+    libraryTarget: "umd",
   },
   module: {
     rules: [

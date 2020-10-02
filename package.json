@@ -2,6 +2,10 @@
   "name": "slate-remark",
   "version": "0.0.1",
   "main": "src/index.js",
+  "module": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "webpack",
     "test": "jest",
@@ -21,7 +25,9 @@
     "slate-react": "^0.59.0",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3",
-    "unified": "^9.2.0"
+    "unified": "^9.2.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   },
   "repository": {
     "type": "git",
