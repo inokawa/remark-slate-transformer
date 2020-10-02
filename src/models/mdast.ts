@@ -118,7 +118,7 @@ export interface Link extends Parent, Resource {
   children: StaticPhrasingContent[];
 }
 
-export interface Image extends Resource, Association {
+export interface Image extends Resource, Alternative {
   type: "image";
 }
 
