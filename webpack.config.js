@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "lib"),
     filename: "index.js",
-    library: "slate-remark",
+    library: "[name]",
     libraryTarget: "umd",
   },
   module: {
