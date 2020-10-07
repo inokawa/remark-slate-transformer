@@ -174,6 +174,7 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
       case "image": {
         const { type, url, title, alt } = node;
         return {
+          type,
           url,
           title,
           alt,
@@ -193,6 +194,7 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
       case "imageReference": {
         const { type, alt, referenceType, identifier, label } = node;
         return {
+          type,
           alt,
           referenceType,
           identifier,
