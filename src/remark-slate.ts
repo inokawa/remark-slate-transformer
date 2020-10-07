@@ -121,6 +121,7 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
       case "definition": {
         const { type, identifier, label, url, title } = node;
         return {
+          type,
           identifier,
           label,
           url,
