@@ -2,8 +2,7 @@
   "name": "slate-remark",
   "version": "0.0.1",
   "description": "remark plugin to transform remark synthax tree (mdast) to slate document tree, and also slate to remark.",
-  "main": "src/index.js",
-  "module": "lib/index.js",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
