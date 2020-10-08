@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
