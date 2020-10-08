@@ -74,7 +74,7 @@ Array [
       Object {
         "children": Array [
           Object {
-            "text": "aaaaaaaaaaaaaaaaa",
+            "text": "bold",
           },
         ],
         "strong": true,
@@ -86,10 +86,30 @@ Array [
       Object {
         "children": Array [
           Object {
-            "text": "aaaaaaaaaaaaaaaaa",
+            "text": "emphasis",
+          },
+        ],
+        "emphasis": true,
+      },
+      Object {
+        "text": "
+",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "delete",
           },
         ],
         "delete": true,
+      },
+      Object {
+        "text": "
+",
+      },
+      Object {
+        "inlineCode": true,
+        "text": "inline code",
       },
     ],
     "type": "paragraph",
@@ -193,7 +213,7 @@ Array [
           Object {
             "children": Array [
               Object {
-                "text": "check",
+                "text": "checked",
               },
             ],
             "type": "paragraph",
@@ -208,7 +228,7 @@ Array [
           Object {
             "children": Array [
               Object {
-                "text": "check",
+                "text": "not checked",
               },
             ],
             "type": "paragraph",
@@ -231,7 +251,7 @@ Array [
           Object {
             "children": Array [
               Object {
-                "text": "list",
+                "text": "ordered list",
               },
             ],
             "type": "paragraph",
@@ -246,7 +266,7 @@ Array [
           Object {
             "children": Array [
               Object {
-                "text": "list",
+                "text": "ordered list",
               },
             ],
             "type": "paragraph",
@@ -261,7 +281,7 @@ Array [
           Object {
             "children": Array [
               Object {
-                "text": "list",
+                "text": "ordered list",
               },
             ],
             "type": "paragraph",
@@ -290,7 +310,7 @@ Array [
       Object {
         "children": Array [
           Object {
-            "text": "GitHub.com",
+            "text": "link to GitHub.com",
           },
         ],
         "title": null,
@@ -303,16 +323,16 @@ Array [
   Object {
     "children": Array [
       Object {
-        "text": "aa",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "inlineCode": true,
-        "text": "aaaaa",
+        "alt": "image",
+        "children": Array [
+          Object {
+            "text": "",
+          },
+        ],
+        "title": "image",
+        "type": "image",
+        "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+        "void": true,
       },
     ],
     "type": "paragraph",
@@ -323,9 +343,9 @@ Array [
         "children": Array [
           Object {
             "text": "quote
-aaaa
-bbbb
-cccc",
+quote
+quote
+quote",
           },
         ],
         "type": "paragraph",
@@ -348,7 +368,7 @@ cccc",
           Object {
             "children": Array [
               Object {
-                "text": "quote",
+                "text": "quoted quote",
               },
             ],
             "type": "paragraph",
@@ -593,14 +613,6 @@ cccc",
   Object {
     "children": Array [
       Object {
-        "text": "border",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
         "text": "",
       },
     ],
@@ -757,7 +769,7 @@ Array [
   Object {
     "children": Array [
       Object {
-        "text": "aaaa",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       },
     ],
     "type": "paragraph",
@@ -765,23 +777,7 @@ Array [
   Object {
     "children": Array [
       Object {
-        "text": "bbbb",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "cccc",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "dddd",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       },
     ],
     "type": "paragraph",

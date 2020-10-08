@@ -13,8 +13,10 @@
 # Test
 
 aaaaaaaaaaaaaaaaa
-**aaaaaaaaaaaaaaaaa**
-~~aaaaaaaaaaaaaaaaa~~
+**bold**
+_emphasis_
+~~delete~~
+`inline code`
 
 - list
 
@@ -23,29 +25,27 @@ aaaaaaaaaaaaaaaaa
   - list
   - list
 
-- [ ] check
-- [x] check
+- [ ] checked
+- [x] not checked
 
-1. list
-1. list
-1. list
+1. ordered list
+1. ordered list
+1. ordered list
 
 ## bbbb
 
-[GitHub.com](https://github.com/)
+[link to GitHub.com](https://github.com/)
 
-aa
-
-`aaaaa`
+![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png "image")
 
 > quote
-> aaaa
-> bbbb
-> cccc
+> quote
+> quote
+> quote
 
 > quote
 >
-> > quote
+> > quoted quote
 
 | Left align | Right align | Center align |
 | :--------- | ----------: | :----------: |
@@ -59,8 +59,6 @@ aa
 ## cccc
 
 ---
-
-border
 
 ---
 
