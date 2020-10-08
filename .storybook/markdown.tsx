@@ -10,9 +10,8 @@ const processor = unified()
   .use(html);
 
 const style: React.CSSProperties = {
-  width: "100vw",
-  height: "100vh",
-  padding: 10,
+  flex: 1,
+  margin: 10,
 };
 
 type Props = {

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { createEditor, Node } from "slate";
 import {
   Slate,
@@ -8,11 +8,12 @@ import {
   RenderLeafProps,
 } from "slate-react";
 import { withHistory } from "slate-history";
+import "github-markdown-css";
 
 const style: React.CSSProperties = {
-  width: "100vw",
-  height: "100vh",
-  padding: 10,
+  flex: 1,
+  margin: 10,
+  overflowY: "scroll",
 };
 
 type Props = {
@@ -58,7 +59,14 @@ const renderElement = ({
       }
     case "listItem":
       return (
-        <li {...attributes}>
+        <li
+          {...attributes}
+          // style={{
+          //   display: "flex",
+          //   flexDirection: "row",
+          //   alignItems: "center",
+          // }}
+        >
           {element.checked === true ? (
             <input type="checkbox" readOnly checked />
           ) : element.checked === false ? (
@@ -152,9 +160,12 @@ export default ({ initialValue }: Props) => {
   }, []);
 
   const [value, setValue] = useState<Node[]>(initialValue);
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
 
   return (
-    <div style={style}>
+    <div className="markdown-body" style={style}>
       <Slate editor={editor} value={value} onChange={setValue}>
         <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
       </Slate>
