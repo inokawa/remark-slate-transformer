@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
+  target: "node",
   entry: "./src",
   output: {
     path: path.join(__dirname, "lib"),
