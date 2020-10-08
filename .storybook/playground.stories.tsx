@@ -9,7 +9,7 @@ import text from "../fixture/article.md";
 
 const processor = unified()
   .use(markdown, { commonmark: true })
-  .use(remarkToSlate as any);
+  .use(remarkToSlate);
 
 export default {
   title: "playground",

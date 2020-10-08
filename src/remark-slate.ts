@@ -1,12 +1,12 @@
 import { Node } from "unist";
-import { Compiler } from "unified";
 import * as slate from "slate";
 import * as mdast from "./models/mdast";
 
 const VOID_KEY = "void";
 
-export default function plugin(this: { Compiler: Compiler }) {
-  this.Compiler = (compiler as any) as Compiler;
+export default function plugin() {
+  // @ts-ignore
+  this.Compiler = compiler;
 
   function compiler(node: Node) {
     return remarkToSlate((node as any) as mdast.Root);
