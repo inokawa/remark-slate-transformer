@@ -7,6 +7,7 @@ import {
   RenderElementProps,
   RenderLeafProps,
 } from "slate-react";
+import { withHistory } from "slate-history";
 
 const style: React.CSSProperties = {
   width: "100vw",
@@ -139,7 +140,17 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
 };
 
 export default ({ initialValue }: Props) => {
-  const editor = useMemo(() => withReact(createEditor()), []);
+  const editor = useMemo(() => {
+    const e = withHistory(withReact(createEditor()));
+    e.isInline = (element) => {
+      return false;
+    };
+    e.isVoid = (element) => {
+      return element.type === "image";
+    };
+    return e;
+  }, []);
+
   const [value, setValue] = useState<Node[]>(initialValue);
 
   return (
