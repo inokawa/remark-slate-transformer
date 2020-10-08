@@ -87,10 +87,25 @@ const renderElement = ({
       return <td {...attributes}>{children}</td>;
     case "html":
       break;
+    case "code":
+      // TODO lang meta
+      return (
+        <pre>
+          <code {...attributes}>{children}</code>
+        </pre>
+      );
     case "yaml":
       break;
     case "definition":
     case "footnoteDefinition":
+    case "emphasis":
+      return <em {...attributes}>{children}</em>;
+    case "strong":
+      return <strong {...attributes}>{children}</strong>;
+    case "delete":
+      return <del {...attributes}>{children}</del>;
+    case "inlineCode":
+      return <code {...attributes}>{children}</code>;
     case "break":
       break;
     case "link":
@@ -124,26 +139,6 @@ const renderElement = ({
 };
 
 const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
-  if (leaf.strong) {
-    children = <strong>{children}</strong>;
-  }
-  if (leaf.emphasis) {
-    children = <em>{children}</em>;
-  }
-  if (leaf.delete) {
-    children = <del>{children}</del>;
-  }
-  if (leaf.inlineCode) {
-    children = <code>{children}</code>;
-  }
-  if (leaf.code) {
-    // TODO lang meta
-    children = (
-      <pre>
-        <code {...attributes}>{children}</code>
-      </pre>
-    );
-  }
   return <span {...attributes}>{children}</span>;
 };
 

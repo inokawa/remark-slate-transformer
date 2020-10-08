@@ -77,7 +77,7 @@ Array [
             "text": "bold",
           },
         ],
-        "strong": true,
+        "type": "strong",
       },
       Object {
         "text": "
@@ -89,7 +89,7 @@ Array [
             "text": "emphasis",
           },
         ],
-        "emphasis": true,
+        "type": "emphasis",
       },
       Object {
         "text": "
@@ -101,15 +101,19 @@ Array [
             "text": "delete",
           },
         ],
-        "delete": true,
+        "type": "delete",
       },
       Object {
         "text": "
 ",
       },
       Object {
-        "inlineCode": true,
-        "text": "inline code",
+        "children": Array [
+          Object {
+            "text": "inline code",
+          },
+        ],
+        "type": "inlineCode",
       },
     ],
     "type": "paragraph",
@@ -620,10 +624,9 @@ quote",
     "void": true,
   },
   Object {
-    "code": true,
-    "lang": "css",
-    "meta": null,
-    "text": "@font-face {
+    "children": Array [
+      Object {
+        "text": "@font-face {
   font-family: Chunkfive;
   src: url(\\"Chunkfive.otf\\");
 }
@@ -642,12 +645,16 @@ body,
     content: attr(href);
   }
 }",
+      },
+    ],
+    "lang": "css",
+    "meta": null,
+    "type": "code",
   },
   Object {
-    "code": true,
-    "lang": "javascript",
-    "meta": null,
-    "text": "function $initHighlight(block, cls) {
+    "children": Array [
+      Object {
+        "text": "function $initHighlight(block, cls) {
   try {
     if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
       return process(block, true, 0x0F) +
@@ -668,12 +675,16 @@ body,
 }
 
 export  $initHighlight;",
+      },
+    ],
+    "lang": "javascript",
+    "meta": null,
+    "type": "code",
   },
   Object {
-    "code": true,
-    "lang": "typescript",
-    "meta": null,
-    "text": "class MyClass {
+    "children": Array [
+      Object {
+        "text": "class MyClass {
   public static myValue: string;
   constructor(init: string) {
     this.myValue = init;
@@ -687,6 +698,11 @@ module MyModule {
 }
 declare magicNumber number;
 myArray.forEach(() => { }); // fat arrow syntax",
+      },
+    ],
+    "lang": "typescript",
+    "meta": null,
+    "type": "code",
   },
 ]
 `;

@@ -105,10 +105,14 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
       case "code": {
         const { type, value, lang, meta } = node;
         return {
-          text: value,
-          [type]: true,
+          type,
           lang,
           meta,
+          children: [
+            {
+              text: value,
+            },
+          ],
         };
       }
       case "yaml": {
@@ -147,15 +151,19 @@ function convertMdastNodes(nodes: mdast.Content[]): slate.Node[] {
       case "delete": {
         const { type, children } = node;
         return {
-          [type]: true,
+          type,
           children: convertMdastNodes(children),
         };
       }
       case "inlineCode": {
         const { type, value } = node;
         return {
-          text: value,
-          [type]: true,
+          type,
+          children: [
+            {
+              text: value,
+            },
+          ],
         };
       }
       case "break":
