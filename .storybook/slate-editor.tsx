@@ -120,12 +120,15 @@ const renderElement = ({
       );
     case "image":
       return (
-        <img
-          {...attributes}
-          src={element.url as string}
-          title={element.title as string}
-          alt={element.alt as string}
-        />
+        <>
+          <img
+            {...attributes}
+            src={element.url as string}
+            title={element.title as string}
+            alt={element.alt as string}
+          />
+          {children}
+        </>
       );
     case "linkReference":
     case "imageReference":
