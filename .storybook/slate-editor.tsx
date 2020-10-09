@@ -143,14 +143,16 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
 };
 
 export default forwardRef(
-  (
-    { initialValue }: Props,
-    ref: React.MutableRefObject<Node[]>
-  ) => {
+  ({ initialValue }: Props, ref: React.MutableRefObject<Node[]>) => {
     const editor = useMemo(() => {
       const e = withHistory(withReact(createEditor()));
       e.isInline = (element) => {
-        return false;
+        return (
+          element.type === "emphasis" ||
+          element.type === "strong" ||
+          element.type === "delete" ||
+          element.type === "inlineCode"
+        );
       };
       e.isVoid = (element) => {
         return element.type === "image";
