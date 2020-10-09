@@ -2,16 +2,18 @@ import fs from "fs";
 import path from "path";
 import unified from "unified";
 import markdown from "remark-parse";
-import * as module from "./";
+import { remarkToSlate, slateToRemark } from "./";
 
-describe(module.remarkToSlate.name, () => {
+describe("remark to slate", () => {
   const processor = unified()
     .use(markdown, { commonmark: true })
-    .use(module.remarkToSlate);
+    .use(remarkToSlate);
 
   it("plain text", () => {
     return processor
-      .process(fs.readFileSync(path.join(__dirname, "../fixture/plain-text.md")))
+      .process(
+        fs.readFileSync(path.join(__dirname, "../fixture/plain-text.md"))
+      )
       .then((res) => {
         expect(res.result).toMatchSnapshot();
       });
@@ -30,6 +32,52 @@ describe(module.remarkToSlate.name, () => {
       .process(fs.readFileSync(path.join(__dirname, "../fixture/article.md")))
       .then((res) => {
         expect(res.result).toMatchSnapshot();
+      });
+  });
+});
+
+describe("slate to remark", () => {
+  const processor = unified()
+    .use(markdown, { commonmark: true })
+    .use(remarkToSlate);
+  const parser = unified().use(slateToRemark);
+
+  it("plain text", () => {
+    return parser
+      .run({
+        type: "root",
+        children: processor.processSync(
+          fs.readFileSync(path.join(__dirname, "../fixture/plain-text.md"))
+        ).result,
+      })
+      .then((res) => {
+        expect(res).toMatchSnapshot();
+      });
+  });
+
+  it("headings", () => {
+    return parser
+      .run({
+        type: "root",
+        children: processor.processSync(
+          fs.readFileSync(path.join(__dirname, "../fixture/headings.md"))
+        ).result,
+      })
+      .then((res) => {
+        expect(res).toMatchSnapshot();
+      });
+  });
+
+  it("article", () => {
+    return parser
+      .run({
+        type: "root",
+        children: processor.processSync(
+          fs.readFileSync(path.join(__dirname, "../fixture/article.md"))
+        ).result,
+      })
+      .then((res) => {
+        expect(res).toMatchSnapshot();
       });
   });
 });

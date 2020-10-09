@@ -5,17 +5,17 @@ import { SlateNode } from "./remark-slate";
 
 export default function plugin() {
   // @ts-ignore
-  this.Parser = parser;
+  return transformer;
 
-  function parser(nodes: slate.Node[]): Node {
-    return createMdastRoot(nodes);
+  function transformer(node: slate.Node): Node {
+    return createMdastRoot(node);
   }
 }
 
-function createMdastRoot(nodes: slate.Node[]): Node {
+function createMdastRoot(node: slate.Node): Node {
   const root: mdast.Root = {
     type: "root",
-    children: convertNodes(nodes) as mdast.Root["children"],
+    children: convertNodes((node as any).children) as mdast.Root["children"],
   };
   return (root as any) as Node;
 }
