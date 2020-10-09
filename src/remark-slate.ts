@@ -240,3 +240,5 @@ function createVoidFields() {
     children: [{ text: "" }],
   };
 }
+
+export type SlateNode = Exclude<ReturnType<typeof createSlateNode>, null>;
