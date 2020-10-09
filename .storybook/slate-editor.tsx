@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { createEditor, Node } from "slate";
 import {
   Slate,
@@ -142,28 +142,34 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
   return <span {...attributes}>{children}</span>;
 };
 
-export default ({ initialValue }: Props) => {
-  const editor = useMemo(() => {
-    const e = withHistory(withReact(createEditor()));
-    e.isInline = (element) => {
-      return false;
-    };
-    e.isVoid = (element) => {
-      return element.type === "image";
-    };
-    return e;
-  }, []);
+export default forwardRef(
+  (
+    { initialValue }: Props,
+    ref: React.MutableRefObject<Node[]>
+  ) => {
+    const editor = useMemo(() => {
+      const e = withHistory(withReact(createEditor()));
+      e.isInline = (element) => {
+        return false;
+      };
+      e.isVoid = (element) => {
+        return element.type === "image";
+      };
+      return e;
+    }, []);
 
-  const [value, setValue] = useState<Node[]>(initialValue);
-  useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
+    const [value, setValue] = useState<Node[]>(initialValue);
+    ref.current = value;
+    useEffect(() => {
+      setValue(initialValue);
+    }, [initialValue]);
 
-  return (
-    <div className="markdown-body" style={style}>
-      <Slate editor={editor} value={value} onChange={setValue}>
-        <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
-      </Slate>
-    </div>
-  );
-};
+    return (
+      <div className="markdown-body" style={style}>
+        <Slate editor={editor} value={value} onChange={setValue}>
+          <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
+        </Slate>
+      </div>
+    );
+  }
+);
