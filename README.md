@@ -33,8 +33,24 @@ console.log(res);
 
 ### Transform slate to remark
 
-```
-Not implemented yet.
+```javascript
+import unified from "unified";
+import stringify from "remark-stringify";
+import { slateToRemark } from "slate-remark";
+
+const processor = unified().use(slateToRemark).use(stringify, {
+  bullet: "*",
+  fence: "~",
+  fences: true,
+  incrementListMarker: false,
+});
+
+const tree = await processor.run({
+  type: "root",
+  children: value,
+});
+const res = toRemarkProcessor.stringify(tree);
+console.log(res);
 ```
 
 ## Demo
