@@ -49,7 +49,7 @@ const tree = processor.runSync({
   type: "root",
   children: value,
 });
-const res = toRemarkProcessor.stringify(tree);
+const res = processor.stringify(tree);
 console.log(res);
 ```
 
