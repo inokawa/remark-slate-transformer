@@ -217,7 +217,7 @@ Array [
           Object {
             "children": Array [
               Object {
-                "text": "checked",
+                "text": "not checked",
               },
             ],
             "type": "paragraph",
@@ -232,7 +232,7 @@ Array [
           Object {
             "children": Array [
               Object {
-                "text": "not checked",
+                "text": "checked",
               },
             ],
             "type": "paragraph",
@@ -941,7 +941,7 @@ Object {
               "children": Array [
                 Object {
                   "type": "text",
-                  "value": "checked",
+                  "value": "not checked",
                 },
               ],
               "type": "paragraph",
@@ -957,7 +957,7 @@ Object {
               "children": Array [
                 Object {
                   "type": "text",
-                  "value": "not checked",
+                  "value": "checked",
                 },
               ],
               "type": "paragraph",
@@ -1462,9 +1462,9 @@ _emphasis_
     -   list
     -   list
 
--   [ ] checked
+-   [ ] not checked
 
--   [x] not checked
+-   [x] checked
 
 1.  ordered list
 2.  ordered list

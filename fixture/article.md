@@ -25,8 +25,8 @@ _emphasis_
   - list
   - list
 
-- [ ] checked
-- [x] not checked
+- [ ] not checked
+- [x] checked
 
 1. ordered list
 1. ordered list
