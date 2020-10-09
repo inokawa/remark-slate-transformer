@@ -45,7 +45,7 @@ const processor = unified().use(slateToRemark).use(stringify, {
   incrementListMarker: false,
 });
 
-const tree = await processor.run({
+const tree = processor.runSync({
   type: "root",
   children: value,
 });
