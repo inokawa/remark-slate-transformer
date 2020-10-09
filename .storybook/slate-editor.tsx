@@ -59,14 +59,7 @@ const renderElement = ({
       }
     case "listItem":
       return (
-        <li
-          {...attributes}
-          // style={{
-          //   display: "flex",
-          //   flexDirection: "row",
-          //   alignItems: "center",
-          // }}
-        >
+        <li {...attributes}>
           {element.checked === true ? (
             <input type="checkbox" readOnly checked />
           ) : element.checked === false ? (
@@ -97,7 +90,9 @@ const renderElement = ({
     case "yaml":
       break;
     case "definition":
+      break;
     case "footnoteDefinition":
+      break;
     case "emphasis":
       return <em {...attributes}>{children}</em>;
     case "strong":
@@ -131,8 +126,11 @@ const renderElement = ({
         </>
       );
     case "linkReference":
+      break;
     case "imageReference":
+      break;
     case "footnote":
+      break;
     case "footnoteReference":
       break;
     default:
