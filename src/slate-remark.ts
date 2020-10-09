@@ -2,15 +2,17 @@ import * as slate from "slate";
 import * as mdast from "./models/mdast";
 import { Node } from "unist";
 import { SlateNode } from "./remark-slate";
+import { Plugin } from "unified";
 
-export default function plugin() {
+const plugin: Plugin<[{}?]> = function (settings?: {}) {
   // @ts-ignore
   return transformer;
 
-  function transformer(node: slate.Node): Node {
+  function transformer(node: any): Node {
     return createMdastRoot(node);
   }
-}
+};
+export default plugin;
 
 function createMdastRoot(node: slate.Node): Node {
   const root: mdast.Root = {
