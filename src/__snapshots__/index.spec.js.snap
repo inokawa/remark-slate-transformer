@@ -59,16 +59,15 @@ Array [
   Object {
     "children": Array [
       Object {
-        "text": "Test",
+        "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       },
     ],
-    "depth": 1,
-    "type": "heading",
+    "type": "paragraph",
   },
   Object {
     "children": Array [
       Object {
-        "text": "aaaaaaaaaaaaaaaaa
+        "text": "aaaaaaaa
 ",
       },
       Object {
@@ -299,15 +298,6 @@ Array [
     "spread": false,
     "start": 1,
     "type": "list",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "bbbb",
-      },
-    ],
-    "depth": 2,
-    "type": "heading",
   },
   Object {
     "children": Array [
@@ -599,15 +589,6 @@ quote",
   Object {
     "children": Array [
       Object {
-        "text": "cccc",
-      },
-    ],
-    "depth": 2,
-    "type": "heading",
-  },
-  Object {
-    "children": Array [
-      Object {
         "text": "",
       },
     ],
@@ -774,17 +755,16 @@ Object {
       "children": Array [
         Object {
           "type": "text",
-          "value": "Test",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         },
       ],
-      "depth": 1,
-      "type": "heading",
+      "type": "paragraph",
     },
     Object {
       "children": Array [
         Object {
           "type": "text",
-          "value": "aaaaaaaaaaaaaaaaa
+          "value": "aaaaaaaa
 ",
         },
         Object {
@@ -1027,16 +1007,6 @@ Object {
       "spread": false,
       "start": 1,
       "type": "list",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "bbbb",
-        },
-      ],
-      "depth": 2,
-      "type": "heading",
     },
     Object {
       "children": Array [
@@ -1345,16 +1315,6 @@ quote",
       "type": "table",
     },
     Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "cccc",
-        },
-      ],
-      "depth": 2,
-      "type": "heading",
-    },
-    Object {
       "type": "thematicBreak",
     },
     Object {
@@ -1447,9 +1407,9 @@ exports[`e2e article 3`] = `
 
 ###### heading 6
 
-# Test
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-aaaaaaaaaaaaaaaaa
+aaaaaaaa
 **bold**
 _emphasis_
 ~~delete~~
@@ -1469,8 +1429,6 @@ _emphasis_
 1.  ordered list
 2.  ordered list
 3.  ordered list
-
-## bbbb
 
 [link to GitHub.com](https://github.com/)
 
@@ -1493,8 +1451,6 @@ _emphasis_
 | be         |          be |      be      |
 | left       |       right |    center    |
 | aligned    |     aligned |    aligned   |
-
-## cccc
 
 * * *
 
