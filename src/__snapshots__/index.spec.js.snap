@@ -1745,6 +1745,438 @@ myArray.forEach(() => { }); // fat arrow syntax
 "
 `;
 
+exports[`e2e decoration.md 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "text": "aaa ",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "aaaaaaa",
+          },
+        ],
+        "type": "strong",
+      },
+      Object {
+        "text": " aaaaaa ",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "aaaaaaaa",
+          },
+        ],
+        "type": "emphasis",
+      },
+      Object {
+        "text": " aaaaaaaa ",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "aaaaaaa",
+          },
+        ],
+        "type": "delete",
+      },
+      Object {
+        "text": " aaaa ",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "aaaaaaaa",
+          },
+        ],
+        "type": "inlineCode",
+      },
+      Object {
+        "text": " aaa
+aaaaaaaaaa ",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "aa ",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "text": "a ",
+              },
+              Object {
+                "children": Array [
+                  Object {
+                    "text": "aa",
+                  },
+                ],
+                "type": "delete",
+              },
+              Object {
+                "text": " aa ",
+              },
+              Object {
+                "children": Array [
+                  Object {
+                    "text": "aaa",
+                  },
+                ],
+                "type": "inlineCode",
+              },
+              Object {
+                "text": " aaaaa",
+              },
+            ],
+            "type": "strong",
+          },
+          Object {
+            "text": " aaaa",
+          },
+        ],
+        "type": "emphasis",
+      },
+      Object {
+        "text": " aaaaaa",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "text": "heading",
+          },
+        ],
+        "type": "strong",
+      },
+    ],
+    "depth": 1,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "checked": null,
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  Object {
+                    "text": "list",
+                  },
+                ],
+                "type": "strong",
+              },
+            ],
+            "type": "paragraph",
+          },
+        ],
+        "spread": false,
+        "type": "listItem",
+      },
+    ],
+    "ordered": false,
+    "spread": false,
+    "start": null,
+    "type": "list",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "text": "quote",
+              },
+            ],
+            "type": "strong",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+    "type": "blockquote",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "text": "link to GitHub.com",
+              },
+            ],
+            "title": null,
+            "type": "link",
+            "url": "https://github.com/",
+          },
+        ],
+        "type": "strong",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "alt": "image",
+            "children": Array [
+              Object {
+                "text": "",
+              },
+            ],
+            "title": "image",
+            "type": "image",
+            "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+            "void": true,
+          },
+        ],
+        "type": "strong",
+      },
+    ],
+    "type": "paragraph",
+  },
+]
+`;
+
+exports[`e2e decoration.md 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "aaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaa",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaaa",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaa",
+            },
+          ],
+          "type": "delete",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaa ",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "aaaaaaaa",
+        },
+        Object {
+          "type": "text",
+          "value": " aaa
+aaaaaaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aa ",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "a ",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "text",
+                      "value": "aa",
+                    },
+                  ],
+                  "type": "delete",
+                },
+                Object {
+                  "type": "text",
+                  "value": " aa ",
+                },
+                Object {
+                  "type": "inlineCode",
+                  "value": "aaa",
+                },
+                Object {
+                  "type": "text",
+                  "value": " aaaaa",
+                },
+              ],
+              "type": "strong",
+            },
+            Object {
+              "type": "text",
+              "value": " aaaa",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaaaa",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "heading",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "depth": 1,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "text",
+                      "value": "list",
+                    },
+                  ],
+                  "type": "strong",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "ordered": false,
+      "spread": false,
+      "start": null,
+      "type": "list",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "quote",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "blockquote",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "link to GitHub.com",
+                },
+              ],
+              "title": null,
+              "type": "link",
+              "url": "https://github.com/",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "alt": "image",
+              "title": "image",
+              "type": "image",
+              "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e decoration.md 3`] = `
+"aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
+aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aaaaaa
+
+# **heading**
+
+-   **list**
+
+> **quote**
+
+**[link to GitHub.com](https://github.com/)**
+
+**![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\")**
+"
+`;
+
 exports[`e2e headings.md 1`] = `
 Array [
   Object {
