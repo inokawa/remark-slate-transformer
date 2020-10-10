@@ -38,9 +38,9 @@ _emphasis_
    1. aaa
 1. ordered list
 
-[link to GitHub.com](https://github.com/)
+This is [link to GitHub.com](https://github.com/).
 
-![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png "image")
+This is ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png "image").
 
 > quote
 > quote

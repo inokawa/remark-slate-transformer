@@ -408,6 +408,9 @@ Array [
   Object {
     "children": Array [
       Object {
+        "text": "This is ",
+      },
+      Object {
         "children": Array [
           Object {
             "text": "link to GitHub.com",
@@ -417,11 +420,17 @@ Array [
         "type": "link",
         "url": "https://github.com/",
       },
+      Object {
+        "text": ".",
+      },
     ],
     "type": "paragraph",
   },
   Object {
     "children": Array [
+      Object {
+        "text": "This is ",
+      },
       Object {
         "alt": "image",
         "children": Array [
@@ -433,6 +442,9 @@ Array [
         "type": "image",
         "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
         "void": true,
+      },
+      Object {
+        "text": ".",
       },
     ],
     "type": "paragraph",
@@ -1229,6 +1241,10 @@ Object {
     Object {
       "children": Array [
         Object {
+          "type": "text",
+          "value": "This is ",
+        },
+        Object {
           "children": Array [
             Object {
               "type": "text",
@@ -1239,16 +1255,28 @@ Object {
           "type": "link",
           "url": "https://github.com/",
         },
+        Object {
+          "type": "text",
+          "value": ".",
+        },
       ],
       "type": "paragraph",
     },
     Object {
       "children": Array [
         Object {
+          "type": "text",
+          "value": "This is ",
+        },
+        Object {
           "alt": "image",
           "title": "image",
           "type": "image",
           "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+        },
+        Object {
+          "type": "text",
+          "value": ".",
         },
       ],
       "type": "paragraph",
@@ -1654,9 +1682,9 @@ _emphasis_
     3.  aaa
 4.  ordered list
 
-[link to GitHub.com](https://github.com/)
+This is [link to GitHub.com](https://github.com/).
 
-![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\")
+This is ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\").
 
 > quote
 > quote
