@@ -4,9 +4,9 @@ import unified from "unified";
 import markdown from "remark-parse";
 import stringify from "remark-stringify";
 import { remarkToSlate, slateToRemark } from "../src";
-import SlateEditor from "./slate-editor";
-import TextEditor from "./text-editor";
-import Text from "./text";
+import SlateEditor from "./components/slate-editor";
+import TextEditor from "./components/text-editor";
+import Text from "./components/text";
 import text from "../fixture/article.md";
 
 const toSlateProcessor = unified()
