@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`e2e article 1`] = `
+exports[`e2e article.md 1`] = `
 Array [
   Object {
     "children": Array [
@@ -794,7 +794,7 @@ myArray.forEach(() => { }); // fat arrow syntax",
 ]
 `;
 
-exports[`e2e article 2`] = `
+exports[`e2e article.md 2`] = `
 Object {
   "children": Array [
     Object {
@@ -1612,7 +1612,7 @@ myArray.forEach(() => { }); // fat arrow syntax",
 }
 `;
 
-exports[`e2e article 3`] = `
+exports[`e2e article.md 3`] = `
 "# heading 1
 
 ## heading 2
@@ -1745,7 +1745,7 @@ myArray.forEach(() => { }); // fat arrow syntax
 "
 `;
 
-exports[`e2e headings 1`] = `
+exports[`e2e headings.md 1`] = `
 Array [
   Object {
     "children": Array [
@@ -1818,7 +1818,7 @@ Array [
 ]
 `;
 
-exports[`e2e headings 2`] = `
+exports[`e2e headings.md 2`] = `
 Object {
   "children": Array [
     Object {
@@ -1902,7 +1902,7 @@ Object {
 }
 `;
 
-exports[`e2e headings 3`] = `
+exports[`e2e headings.md 3`] = `
 "# Alpha
 
 aaaa
@@ -1921,7 +1921,7 @@ dddd
 "
 `;
 
-exports[`e2e plain text 1`] = `
+exports[`e2e plain-text.md 1`] = `
 Array [
   Object {
     "children": Array [
@@ -1943,7 +1943,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ]
 `;
 
-exports[`e2e plain text 2`] = `
+exports[`e2e plain-text.md 2`] = `
 Object {
   "children": Array [
     Object {
@@ -1970,7 +1970,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 }
 `;
 
-exports[`e2e plain text 3`] = `
+exports[`e2e plain-text.md 3`] = `
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

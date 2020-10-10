@@ -11,41 +11,9 @@ describe("e2e", () => {
     .use(remarkToSlate);
   const toRemarkProcessor = unified().use(slateToRemark).use(stringify);
 
-  it("plain text", () => {
+  it.each([["article.md"], ["headings.md"], ["plain-text.md"]])("%s", (p) => {
     const slateNodes = toSlateProcessor.processSync(
-      fs.readFileSync(path.join(__dirname, "../fixture/plain-text.md"))
-    ).result;
-    expect(slateNodes).toMatchSnapshot();
-
-    const mdastTree = toRemarkProcessor.runSync({
-      type: "root",
-      children: slateNodes,
-    });
-    expect(mdastTree).toMatchSnapshot();
-
-    const text = toRemarkProcessor.stringify(mdastTree);
-    expect(text).toMatchSnapshot();
-  });
-
-  it("headings", () => {
-    const slateNodes = toSlateProcessor.processSync(
-      fs.readFileSync(path.join(__dirname, "../fixture/headings.md"))
-    ).result;
-    expect(slateNodes).toMatchSnapshot();
-
-    const mdastTree = toRemarkProcessor.runSync({
-      type: "root",
-      children: slateNodes,
-    });
-    expect(mdastTree).toMatchSnapshot();
-
-    const text = toRemarkProcessor.stringify(mdastTree);
-    expect(text).toMatchSnapshot();
-  });
-
-  it("article", () => {
-    const slateNodes = toSlateProcessor.processSync(
-      fs.readFileSync(path.join(__dirname, "../fixture/article.md"))
+      fs.readFileSync(path.join(__dirname, "../fixture/", p))
     ).result;
     expect(slateNodes).toMatchSnapshot();
 
