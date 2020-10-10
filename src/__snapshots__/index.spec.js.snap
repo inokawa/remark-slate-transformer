@@ -289,6 +289,112 @@ Array [
             ],
             "type": "paragraph",
           },
+          Object {
+            "children": Array [
+              Object {
+                "checked": null,
+                "children": Array [
+                  Object {
+                    "children": Array [
+                      Object {
+                        "text": "aaa",
+                      },
+                    ],
+                    "type": "paragraph",
+                  },
+                ],
+                "spread": false,
+                "type": "listItem",
+              },
+              Object {
+                "checked": null,
+                "children": Array [
+                  Object {
+                    "children": Array [
+                      Object {
+                        "text": "aaa",
+                      },
+                    ],
+                    "type": "paragraph",
+                  },
+                  Object {
+                    "children": Array [
+                      Object {
+                        "checked": null,
+                        "children": Array [
+                          Object {
+                            "children": Array [
+                              Object {
+                                "text": "eeeee",
+                              },
+                            ],
+                            "type": "paragraph",
+                          },
+                        ],
+                        "spread": false,
+                        "type": "listItem",
+                      },
+                      Object {
+                        "checked": null,
+                        "children": Array [
+                          Object {
+                            "children": Array [
+                              Object {
+                                "text": "eeeee",
+                              },
+                            ],
+                            "type": "paragraph",
+                          },
+                        ],
+                        "spread": false,
+                        "type": "listItem",
+                      },
+                    ],
+                    "ordered": true,
+                    "spread": false,
+                    "start": 1,
+                    "type": "list",
+                  },
+                ],
+                "spread": false,
+                "type": "listItem",
+              },
+              Object {
+                "checked": null,
+                "children": Array [
+                  Object {
+                    "children": Array [
+                      Object {
+                        "text": "aaa",
+                      },
+                    ],
+                    "type": "paragraph",
+                  },
+                ],
+                "spread": false,
+                "type": "listItem",
+              },
+            ],
+            "ordered": true,
+            "spread": false,
+            "start": 1,
+            "type": "list",
+          },
+        ],
+        "spread": false,
+        "type": "listItem",
+      },
+      Object {
+        "checked": null,
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "text": "ordered list",
+              },
+            ],
+            "type": "paragraph",
+          },
         ],
         "spread": false,
         "type": "listItem",
@@ -998,6 +1104,118 @@ Object {
               ],
               "type": "paragraph",
             },
+            Object {
+              "children": Array [
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "aaa",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "aaa",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "checked": null,
+                          "children": Array [
+                            Object {
+                              "children": Array [
+                                Object {
+                                  "type": "text",
+                                  "value": "eeeee",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                          ],
+                          "spread": false,
+                          "type": "listItem",
+                        },
+                        Object {
+                          "checked": null,
+                          "children": Array [
+                            Object {
+                              "children": Array [
+                                Object {
+                                  "type": "text",
+                                  "value": "eeeee",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                          ],
+                          "spread": false,
+                          "type": "listItem",
+                        },
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "aaa",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+              ],
+              "ordered": true,
+              "spread": false,
+              "start": 1,
+              "type": "list",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "ordered list",
+                },
+              ],
+              "type": "paragraph",
+            },
           ],
           "spread": false,
           "type": "listItem",
@@ -1429,6 +1647,12 @@ _emphasis_
 1.  ordered list
 2.  ordered list
 3.  ordered list
+    1.  aaa
+    2.  aaa
+        1.  eeeee
+        2.  eeeee
+    3.  aaa
+4.  ordered list
 
 [link to GitHub.com](https://github.com/)
 
