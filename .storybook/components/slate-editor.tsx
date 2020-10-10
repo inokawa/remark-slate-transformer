@@ -148,11 +148,14 @@ export default forwardRef(
     const editor = useMemo(() => {
       const e = withHistory(withReact(createEditor()));
       e.isInline = (element) => {
+        const { type } = element;
         return (
-          element.type === "emphasis" ||
-          element.type === "strong" ||
-          element.type === "delete" ||
-          element.type === "inlineCode"
+          type === "emphasis" ||
+          type === "strong" ||
+          type === "delete" ||
+          type === "inlineCode" ||
+          type === "link" ||
+          type === "image"
         );
       };
       e.isVoid = (element) => {
