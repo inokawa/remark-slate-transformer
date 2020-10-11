@@ -1,4 +1,3 @@
-import { Node } from "unist";
 import * as slate from "slate";
 import * as mdast from "./models/mdast";
 
@@ -11,13 +10,8 @@ type Decoration = {
   )["type"]]?: true;
 };
 
-export default function plugin() {
-  // @ts-ignore
-  this.Compiler = compiler;
-
-  function compiler(node: Node): slate.Node[] {
-    return createSlateRoot((node as any) as mdast.Root);
-  }
+export function remarkToSlate(node: any): slate.Node[] {
+  return createSlateRoot(node as mdast.Root);
 }
 
 function createSlateRoot(root: mdast.Root): slate.Node[] {
