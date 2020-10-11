@@ -1,22 +1,22 @@
 import * as slate from "slate";
 import * as mdast from "./models/mdast";
-import { Node } from "unist";
+import { Node as UnistNode } from "unist";
 import { SlateNode } from "./remark-slate";
 
-export function slateToRemark(node: any): Node {
+export function slateToRemark(node: any): UnistNode {
   return createMdastRoot(node as slate.Node);
 }
 
-function createMdastRoot(node: slate.Node): Node {
+function createMdastRoot(node: slate.Node): UnistNode {
   const root: mdast.Root = {
     type: "root",
     children: convertNodes((node as any).children) as mdast.Root["children"],
   };
-  return (root as any) as Node;
+  return (root as any) as UnistNode;
 }
 
-function convertNodes(nodes: slate.Node[]): Node[] {
-  return nodes.reduce<Node[]>((acc, n) => {
+function convertNodes(nodes: slate.Node[]): UnistNode[] {
+  return nodes.reduce<UnistNode[]>((acc, n) => {
     const node = createMdastNode(n as SlateNode);
     if (node) {
       acc.push(node);
@@ -25,7 +25,7 @@ function convertNodes(nodes: slate.Node[]): Node[] {
   }, []);
 }
 
-function createMdastNode(node: SlateNode): Node | null {
+function createMdastNode(node: SlateNode): UnistNode | null {
   if ("text" in node) {
     let res:
       | mdast.Text
@@ -60,7 +60,7 @@ function createMdastNode(node: SlateNode): Node | null {
         children: [res],
       };
     }
-    return (res as any) as Node;
+    return (res as any) as UnistNode;
   }
 
   switch (node.type) {
@@ -72,7 +72,7 @@ function createMdastNode(node: SlateNode): Node | null {
           children
         ) as any) as mdast.Paragraph["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "heading": {
       const { type, depth, children } = node;
@@ -81,14 +81,14 @@ function createMdastNode(node: SlateNode): Node | null {
         depth,
         children: (convertNodes(children) as any) as mdast.Heading["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "thematicBreak": {
       const { type } = node;
       const res: mdast.ThematicBreak = {
         type,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "blockquote": {
       const { type, children } = node;
@@ -98,7 +98,7 @@ function createMdastNode(node: SlateNode): Node | null {
           children
         ) as any) as mdast.Blockquote["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "list": {
       const { type, ordered, start, spread, children } = node;
@@ -109,7 +109,7 @@ function createMdastNode(node: SlateNode): Node | null {
         spread,
         children: (convertNodes(children) as any) as mdast.List["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "listItem": {
       const { type, checked, spread, children } = node;
@@ -119,7 +119,7 @@ function createMdastNode(node: SlateNode): Node | null {
         spread,
         children: (convertNodes(children) as any) as mdast.ListItem["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "table": {
       const { type, align, children } = node;
@@ -128,7 +128,7 @@ function createMdastNode(node: SlateNode): Node | null {
         align,
         children: (convertNodes(children) as any) as mdast.Table["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "tableRow": {
       const { type, children } = node;
@@ -136,7 +136,7 @@ function createMdastNode(node: SlateNode): Node | null {
         type,
         children: (convertNodes(children) as any) as mdast.TableRow["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "tableCell": {
       const { type, children } = node;
@@ -146,7 +146,7 @@ function createMdastNode(node: SlateNode): Node | null {
           children
         ) as any) as mdast.TableCell["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "html": {
       const { type, children } = node;
@@ -154,7 +154,7 @@ function createMdastNode(node: SlateNode): Node | null {
         type,
         value: children[0].text,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "code": {
       const { type, lang, meta, children } = node;
@@ -164,7 +164,7 @@ function createMdastNode(node: SlateNode): Node | null {
         meta,
         value: children[0].text,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "yaml": {
       const { type, children } = node;
@@ -172,7 +172,7 @@ function createMdastNode(node: SlateNode): Node | null {
         type,
         value: children[0].text,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "definition": {
       const { type, identifier, label, url, title } = node;
@@ -183,7 +183,7 @@ function createMdastNode(node: SlateNode): Node | null {
         url,
         title,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "footnoteDefinition": {
       const { type, identifier, label, children } = node;
@@ -195,14 +195,14 @@ function createMdastNode(node: SlateNode): Node | null {
           children
         ) as any) as mdast.FootnoteDefinition["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "break": {
       const { type } = node;
       const res: mdast.Break = {
         type,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "link": {
       const { type, url, title, children } = node;
@@ -212,7 +212,7 @@ function createMdastNode(node: SlateNode): Node | null {
         title,
         children: (convertNodes(children) as any) as mdast.Link["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "image": {
       const { type, url, title, alt } = node;
@@ -222,7 +222,7 @@ function createMdastNode(node: SlateNode): Node | null {
         title,
         alt,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "linkReference": {
       const { type, identifier, label, referenceType, children } = node;
@@ -235,7 +235,7 @@ function createMdastNode(node: SlateNode): Node | null {
           children
         ) as any) as mdast.LinkReference["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "imageReference": {
       const { type, identifier, label, alt, referenceType } = node;
@@ -246,7 +246,7 @@ function createMdastNode(node: SlateNode): Node | null {
         alt,
         referenceType,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "footnote": {
       const { type, children } = node;
@@ -254,7 +254,7 @@ function createMdastNode(node: SlateNode): Node | null {
         type,
         children: (convertNodes(children) as any) as mdast.Footnote["children"],
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     case "footnoteReference": {
       const { type, identifier, label } = node;
@@ -263,7 +263,7 @@ function createMdastNode(node: SlateNode): Node | null {
         identifier,
         label,
       };
-      return (res as any) as Node;
+      return (res as any) as UnistNode;
     }
     default:
       break;
