@@ -1,6 +1,7 @@
 import { Plugin } from "unified";
 import { remarkToSlate } from "./remark-slate";
 import { slateToRemark } from "./slate-remark";
+import { remarkToSlateLegacy } from "./legacy/remark-slate";
 
 function remarkToSlatePlugin() {
   // @ts-ignore
@@ -13,3 +14,9 @@ const slateToRemarkPlugin: Plugin<[{}?]> = function (settings?: {}) {
   return slateToRemark;
 };
 export { slateToRemarkPlugin as slateToRemark };
+
+function remarkToSlateLegacyPlugin() {
+  // @ts-ignore
+  this.Compiler = remarkToSlateLegacy;
+}
+export { remarkToSlateLegacyPlugin as remarkToSlateLegacy };

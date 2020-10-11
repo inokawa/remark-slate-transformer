@@ -1,7 +1,7 @@
 import * as slate from "slate";
 import * as mdast from "./models/mdast";
 
-type Decoration = {
+export type Decoration = {
   [key in (
     | mdast.Emphasis
     | mdast.Strong

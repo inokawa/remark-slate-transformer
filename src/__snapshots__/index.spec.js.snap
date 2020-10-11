@@ -2381,6 +2381,3394 @@ dddd
 "
 `;
 
+exports[`e2e legacy article.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {
+          "depth": 1,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "heading 1",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 2,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "heading 2",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 3,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "heading 3",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 4,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "heading 4",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 5,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "heading 5",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 6,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "heading 6",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "aaaaaaaa",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+            ],
+            "object": "text",
+            "text": "bold",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+            ],
+            "object": "text",
+            "text": "emphasis",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "delete",
+              },
+            ],
+            "object": "text",
+            "text": "delete",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "inlineCode",
+              },
+            ],
+            "object": "text",
+            "text": "inline code",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "ordered": false,
+          "spread": true,
+          "start": null,
+        },
+        "nodes": Array [
+          Object {
+            "data": Object {
+              "checked": null,
+              "spread": true,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "list",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+              Object {
+                "data": Object {
+                  "ordered": false,
+                  "spread": false,
+                  "start": null,
+                },
+                "nodes": Array [
+                  Object {
+                    "data": Object {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "nodes": Array [
+                      Object {
+                        "data": Object {},
+                        "nodes": Array [
+                          Object {
+                            "marks": Array [],
+                            "object": "text",
+                            "text": "list",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "paragraph",
+                      },
+                      Object {
+                        "data": Object {
+                          "ordered": false,
+                          "spread": false,
+                          "start": null,
+                        },
+                        "nodes": Array [
+                          Object {
+                            "data": Object {
+                              "checked": null,
+                              "spread": false,
+                            },
+                            "nodes": Array [
+                              Object {
+                                "data": Object {},
+                                "nodes": Array [
+                                  Object {
+                                    "marks": Array [],
+                                    "object": "text",
+                                    "text": "list",
+                                  },
+                                ],
+                                "object": "block",
+                                "type": "paragraph",
+                              },
+                            ],
+                            "object": "block",
+                            "type": "listItem",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "list",
+                      },
+                    ],
+                    "object": "block",
+                    "type": "listItem",
+                  },
+                  Object {
+                    "data": Object {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "nodes": Array [
+                      Object {
+                        "data": Object {},
+                        "nodes": Array [
+                          Object {
+                            "marks": Array [],
+                            "object": "text",
+                            "text": "list",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "paragraph",
+                      },
+                    ],
+                    "object": "block",
+                    "type": "listItem",
+                  },
+                  Object {
+                    "data": Object {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "nodes": Array [
+                      Object {
+                        "data": Object {},
+                        "nodes": Array [
+                          Object {
+                            "marks": Array [],
+                            "object": "text",
+                            "text": "list",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "paragraph",
+                      },
+                    ],
+                    "object": "block",
+                    "type": "listItem",
+                  },
+                ],
+                "object": "block",
+                "type": "list",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+          Object {
+            "data": Object {
+              "checked": false,
+              "spread": false,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "not checked",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+          Object {
+            "data": Object {
+              "checked": true,
+              "spread": false,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "checked",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+        ],
+        "object": "block",
+        "type": "list",
+      },
+      Object {
+        "data": Object {
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+        },
+        "nodes": Array [
+          Object {
+            "data": Object {
+              "checked": null,
+              "spread": false,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "ordered list",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+          Object {
+            "data": Object {
+              "checked": null,
+              "spread": false,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "ordered list",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+          Object {
+            "data": Object {
+              "checked": null,
+              "spread": false,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "ordered list",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+              Object {
+                "data": Object {
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                },
+                "nodes": Array [
+                  Object {
+                    "data": Object {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "nodes": Array [
+                      Object {
+                        "data": Object {},
+                        "nodes": Array [
+                          Object {
+                            "marks": Array [],
+                            "object": "text",
+                            "text": "aaa",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "paragraph",
+                      },
+                    ],
+                    "object": "block",
+                    "type": "listItem",
+                  },
+                  Object {
+                    "data": Object {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "nodes": Array [
+                      Object {
+                        "data": Object {},
+                        "nodes": Array [
+                          Object {
+                            "marks": Array [],
+                            "object": "text",
+                            "text": "aaa",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "paragraph",
+                      },
+                      Object {
+                        "data": Object {
+                          "ordered": true,
+                          "spread": false,
+                          "start": 1,
+                        },
+                        "nodes": Array [
+                          Object {
+                            "data": Object {
+                              "checked": null,
+                              "spread": false,
+                            },
+                            "nodes": Array [
+                              Object {
+                                "data": Object {},
+                                "nodes": Array [
+                                  Object {
+                                    "marks": Array [],
+                                    "object": "text",
+                                    "text": "eeeee",
+                                  },
+                                ],
+                                "object": "block",
+                                "type": "paragraph",
+                              },
+                            ],
+                            "object": "block",
+                            "type": "listItem",
+                          },
+                          Object {
+                            "data": Object {
+                              "checked": null,
+                              "spread": false,
+                            },
+                            "nodes": Array [
+                              Object {
+                                "data": Object {},
+                                "nodes": Array [
+                                  Object {
+                                    "marks": Array [],
+                                    "object": "text",
+                                    "text": "eeeee",
+                                  },
+                                ],
+                                "object": "block",
+                                "type": "paragraph",
+                              },
+                            ],
+                            "object": "block",
+                            "type": "listItem",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "list",
+                      },
+                    ],
+                    "object": "block",
+                    "type": "listItem",
+                  },
+                  Object {
+                    "data": Object {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "nodes": Array [
+                      Object {
+                        "data": Object {},
+                        "nodes": Array [
+                          Object {
+                            "marks": Array [],
+                            "object": "text",
+                            "text": "aaa",
+                          },
+                        ],
+                        "object": "block",
+                        "type": "paragraph",
+                      },
+                    ],
+                    "object": "block",
+                    "type": "listItem",
+                  },
+                ],
+                "object": "block",
+                "type": "list",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+          Object {
+            "data": Object {
+              "checked": null,
+              "spread": false,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "ordered list",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+        ],
+        "object": "block",
+        "type": "list",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "This is ",
+          },
+          Object {
+            "data": Object {
+              "title": null,
+              "url": "https://github.com/",
+            },
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "link to GitHub.com",
+              },
+            ],
+            "object": "inline",
+            "type": "link",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": ".",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "This is ",
+          },
+          Object {
+            "data": Object {
+              "alt": "image",
+              "title": "image",
+              "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+              "void": true,
+            },
+            "isVoid": true,
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "",
+              },
+            ],
+            "object": "inline",
+            "type": "image",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": ".",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "quote
+quote
+quote
+quote",
+              },
+            ],
+            "object": "block",
+            "type": "paragraph",
+          },
+        ],
+        "object": "block",
+        "type": "blockquote",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "quote",
+              },
+            ],
+            "object": "block",
+            "type": "paragraph",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "quoted quote",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+            ],
+            "object": "block",
+            "type": "blockquote",
+          },
+        ],
+        "object": "block",
+        "type": "blockquote",
+      },
+      Object {
+        "data": Object {
+          "align": Array [
+            "left",
+            "right",
+            "center",
+          ],
+        },
+        "nodes": Array [
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "Left align",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "Right align",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "Center align",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+            ],
+            "object": "block",
+            "type": "tableRow",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "This",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "This",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "This",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+            ],
+            "object": "block",
+            "type": "tableRow",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "column",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "column",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "column",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+            ],
+            "object": "block",
+            "type": "tableRow",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "will",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "will",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "will",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+            ],
+            "object": "block",
+            "type": "tableRow",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "be",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "be",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "be",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+            ],
+            "object": "block",
+            "type": "tableRow",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "left",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "right",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "center",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+            ],
+            "object": "block",
+            "type": "tableRow",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "aligned",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "aligned",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [],
+                    "object": "text",
+                    "text": "aligned",
+                  },
+                ],
+                "object": "block",
+                "type": "tableCell",
+              },
+            ],
+            "object": "block",
+            "type": "tableRow",
+          },
+        ],
+        "object": "block",
+        "type": "table",
+      },
+      Object {
+        "data": Object {
+          "void": true,
+        },
+        "isVoid": true,
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "",
+          },
+        ],
+        "object": "block",
+        "type": "thematicBreak",
+      },
+      Object {
+        "data": Object {
+          "void": true,
+        },
+        "isVoid": true,
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "",
+          },
+        ],
+        "object": "block",
+        "type": "thematicBreak",
+      },
+      Object {
+        "data": Object {
+          "lang": "css",
+          "meta": null,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}",
+          },
+        ],
+        "object": "block",
+        "type": "code",
+      },
+      Object {
+        "data": Object {
+          "lang": "javascript",
+          "meta": null,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+          },
+        ],
+        "object": "block",
+        "type": "code",
+      },
+      Object {
+        "data": Object {
+          "lang": "typescript",
+          "meta": null,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax",
+          },
+        ],
+        "object": "block",
+        "type": "code",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy article.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "0",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 1,
+        },
+        "key": "1",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "2",
+            "marks": Immutable.Set [],
+            "text": "heading 1",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 2,
+        },
+        "key": "3",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "4",
+            "marks": Immutable.Set [],
+            "text": "heading 2",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 3,
+        },
+        "key": "5",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "6",
+            "marks": Immutable.Set [],
+            "text": "heading 3",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 4,
+        },
+        "key": "7",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "8",
+            "marks": Immutable.Set [],
+            "text": "heading 4",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 5,
+        },
+        "key": "9",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "10",
+            "marks": Immutable.Set [],
+            "text": "heading 5",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 6,
+        },
+        "key": "11",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "12",
+            "marks": Immutable.Set [],
+            "text": "heading 6",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "13",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "14",
+            "marks": Immutable.Set [],
+            "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "15",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "16",
+            "marks": Immutable.Set [],
+            "text": "aaaaaaaa",
+          },
+          Immutable.Record {
+            "key": "17",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+            ],
+            "text": "bold",
+          },
+          Immutable.Record {
+            "key": "18",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+            ],
+            "text": "emphasis",
+          },
+          Immutable.Record {
+            "key": "19",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "delete",
+              },
+            ],
+            "text": "delete",
+          },
+          Immutable.Record {
+            "key": "20",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "inlineCode",
+              },
+            ],
+            "text": "inline code",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "ordered": false,
+          "start": null,
+          "spread": true,
+        },
+        "key": "21",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": null,
+              "spread": true,
+            },
+            "key": "22",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "23",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "24",
+                    "marks": Immutable.Set [],
+                    "text": "list",
+                  },
+                ],
+                "type": "paragraph",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {
+                  "ordered": false,
+                  "start": null,
+                  "spread": false,
+                },
+                "key": "25",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "data": Immutable.Map {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "key": "26",
+                    "nodes": Immutable.List [
+                      Immutable.Record {
+                        "data": Immutable.Map {},
+                        "key": "27",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "key": "28",
+                            "marks": Immutable.Set [],
+                            "text": "list",
+                          },
+                        ],
+                        "type": "paragraph",
+                      },
+                      Immutable.Record {
+                        "data": Immutable.Map {
+                          "ordered": false,
+                          "start": null,
+                          "spread": false,
+                        },
+                        "key": "29",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "data": Immutable.Map {
+                              "checked": null,
+                              "spread": false,
+                            },
+                            "key": "30",
+                            "nodes": Immutable.List [
+                              Immutable.Record {
+                                "data": Immutable.Map {},
+                                "key": "31",
+                                "nodes": Immutable.List [
+                                  Immutable.Record {
+                                    "key": "32",
+                                    "marks": Immutable.Set [],
+                                    "text": "list",
+                                  },
+                                ],
+                                "type": "paragraph",
+                              },
+                            ],
+                            "type": "listItem",
+                          },
+                        ],
+                        "type": "list",
+                      },
+                    ],
+                    "type": "listItem",
+                  },
+                  Immutable.Record {
+                    "data": Immutable.Map {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "key": "33",
+                    "nodes": Immutable.List [
+                      Immutable.Record {
+                        "data": Immutable.Map {},
+                        "key": "34",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "key": "35",
+                            "marks": Immutable.Set [],
+                            "text": "list",
+                          },
+                        ],
+                        "type": "paragraph",
+                      },
+                    ],
+                    "type": "listItem",
+                  },
+                  Immutable.Record {
+                    "data": Immutable.Map {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "key": "36",
+                    "nodes": Immutable.List [
+                      Immutable.Record {
+                        "data": Immutable.Map {},
+                        "key": "37",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "key": "38",
+                            "marks": Immutable.Set [],
+                            "text": "list",
+                          },
+                        ],
+                        "type": "paragraph",
+                      },
+                    ],
+                    "type": "listItem",
+                  },
+                ],
+                "type": "list",
+              },
+            ],
+            "type": "listItem",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": false,
+              "spread": false,
+            },
+            "key": "39",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "40",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "41",
+                    "marks": Immutable.Set [],
+                    "text": "not checked",
+                  },
+                ],
+                "type": "paragraph",
+              },
+            ],
+            "type": "listItem",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": true,
+              "spread": false,
+            },
+            "key": "42",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "43",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "44",
+                    "marks": Immutable.Set [],
+                    "text": "checked",
+                  },
+                ],
+                "type": "paragraph",
+              },
+            ],
+            "type": "listItem",
+          },
+        ],
+        "type": "list",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "ordered": true,
+          "start": 1,
+          "spread": false,
+        },
+        "key": "45",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": null,
+              "spread": false,
+            },
+            "key": "46",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "47",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "48",
+                    "marks": Immutable.Set [],
+                    "text": "ordered list",
+                  },
+                ],
+                "type": "paragraph",
+              },
+            ],
+            "type": "listItem",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": null,
+              "spread": false,
+            },
+            "key": "49",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "50",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "51",
+                    "marks": Immutable.Set [],
+                    "text": "ordered list",
+                  },
+                ],
+                "type": "paragraph",
+              },
+            ],
+            "type": "listItem",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": null,
+              "spread": false,
+            },
+            "key": "52",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "53",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "54",
+                    "marks": Immutable.Set [],
+                    "text": "ordered list",
+                  },
+                ],
+                "type": "paragraph",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {
+                  "ordered": true,
+                  "start": 1,
+                  "spread": false,
+                },
+                "key": "55",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "data": Immutable.Map {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "key": "56",
+                    "nodes": Immutable.List [
+                      Immutable.Record {
+                        "data": Immutable.Map {},
+                        "key": "57",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "key": "58",
+                            "marks": Immutable.Set [],
+                            "text": "aaa",
+                          },
+                        ],
+                        "type": "paragraph",
+                      },
+                    ],
+                    "type": "listItem",
+                  },
+                  Immutable.Record {
+                    "data": Immutable.Map {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "key": "59",
+                    "nodes": Immutable.List [
+                      Immutable.Record {
+                        "data": Immutable.Map {},
+                        "key": "60",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "key": "61",
+                            "marks": Immutable.Set [],
+                            "text": "aaa",
+                          },
+                        ],
+                        "type": "paragraph",
+                      },
+                      Immutable.Record {
+                        "data": Immutable.Map {
+                          "ordered": true,
+                          "start": 1,
+                          "spread": false,
+                        },
+                        "key": "62",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "data": Immutable.Map {
+                              "checked": null,
+                              "spread": false,
+                            },
+                            "key": "63",
+                            "nodes": Immutable.List [
+                              Immutable.Record {
+                                "data": Immutable.Map {},
+                                "key": "64",
+                                "nodes": Immutable.List [
+                                  Immutable.Record {
+                                    "key": "65",
+                                    "marks": Immutable.Set [],
+                                    "text": "eeeee",
+                                  },
+                                ],
+                                "type": "paragraph",
+                              },
+                            ],
+                            "type": "listItem",
+                          },
+                          Immutable.Record {
+                            "data": Immutable.Map {
+                              "checked": null,
+                              "spread": false,
+                            },
+                            "key": "66",
+                            "nodes": Immutable.List [
+                              Immutable.Record {
+                                "data": Immutable.Map {},
+                                "key": "67",
+                                "nodes": Immutable.List [
+                                  Immutable.Record {
+                                    "key": "68",
+                                    "marks": Immutable.Set [],
+                                    "text": "eeeee",
+                                  },
+                                ],
+                                "type": "paragraph",
+                              },
+                            ],
+                            "type": "listItem",
+                          },
+                        ],
+                        "type": "list",
+                      },
+                    ],
+                    "type": "listItem",
+                  },
+                  Immutable.Record {
+                    "data": Immutable.Map {
+                      "checked": null,
+                      "spread": false,
+                    },
+                    "key": "69",
+                    "nodes": Immutable.List [
+                      Immutable.Record {
+                        "data": Immutable.Map {},
+                        "key": "70",
+                        "nodes": Immutable.List [
+                          Immutable.Record {
+                            "key": "71",
+                            "marks": Immutable.Set [],
+                            "text": "aaa",
+                          },
+                        ],
+                        "type": "paragraph",
+                      },
+                    ],
+                    "type": "listItem",
+                  },
+                ],
+                "type": "list",
+              },
+            ],
+            "type": "listItem",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": null,
+              "spread": false,
+            },
+            "key": "72",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "73",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "74",
+                    "marks": Immutable.Set [],
+                    "text": "ordered list",
+                  },
+                ],
+                "type": "paragraph",
+              },
+            ],
+            "type": "listItem",
+          },
+        ],
+        "type": "list",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "75",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "76",
+            "marks": Immutable.Set [],
+            "text": "This is ",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "url": "https://github.com/",
+              "title": null,
+            },
+            "key": "77",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "78",
+                "marks": Immutable.Set [],
+                "text": "link to GitHub.com",
+              },
+            ],
+            "type": "link",
+          },
+          Immutable.Record {
+            "key": "79",
+            "marks": Immutable.Set [],
+            "text": ".",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "80",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "81",
+            "marks": Immutable.Set [],
+            "text": "This is ",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+              "title": "image",
+              "alt": "image",
+              "void": true,
+            },
+            "key": "82",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "83",
+                "marks": Immutable.Set [],
+                "text": "",
+              },
+            ],
+            "type": "image",
+          },
+          Immutable.Record {
+            "key": "84",
+            "marks": Immutable.Set [],
+            "text": ".",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "85",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "86",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "87",
+                "marks": Immutable.Set [],
+                "text": "quote
+quote
+quote
+quote",
+              },
+            ],
+            "type": "paragraph",
+          },
+        ],
+        "type": "blockquote",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "88",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "89",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "90",
+                "marks": Immutable.Set [],
+                "text": "quote",
+              },
+            ],
+            "type": "paragraph",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "91",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "92",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "93",
+                    "marks": Immutable.Set [],
+                    "text": "quoted quote",
+                  },
+                ],
+                "type": "paragraph",
+              },
+            ],
+            "type": "blockquote",
+          },
+        ],
+        "type": "blockquote",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "align": Array [
+            "left",
+            "right",
+            "center",
+          ],
+        },
+        "key": "94",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "95",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "96",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "97",
+                    "marks": Immutable.Set [],
+                    "text": "Left align",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "98",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "99",
+                    "marks": Immutable.Set [],
+                    "text": "Right align",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "100",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "101",
+                    "marks": Immutable.Set [],
+                    "text": "Center align",
+                  },
+                ],
+                "type": "tableCell",
+              },
+            ],
+            "type": "tableRow",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "102",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "103",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "104",
+                    "marks": Immutable.Set [],
+                    "text": "This",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "105",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "106",
+                    "marks": Immutable.Set [],
+                    "text": "This",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "107",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "108",
+                    "marks": Immutable.Set [],
+                    "text": "This",
+                  },
+                ],
+                "type": "tableCell",
+              },
+            ],
+            "type": "tableRow",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "109",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "110",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "111",
+                    "marks": Immutable.Set [],
+                    "text": "column",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "112",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "113",
+                    "marks": Immutable.Set [],
+                    "text": "column",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "114",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "115",
+                    "marks": Immutable.Set [],
+                    "text": "column",
+                  },
+                ],
+                "type": "tableCell",
+              },
+            ],
+            "type": "tableRow",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "116",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "117",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "118",
+                    "marks": Immutable.Set [],
+                    "text": "will",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "119",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "120",
+                    "marks": Immutable.Set [],
+                    "text": "will",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "121",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "122",
+                    "marks": Immutable.Set [],
+                    "text": "will",
+                  },
+                ],
+                "type": "tableCell",
+              },
+            ],
+            "type": "tableRow",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "123",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "124",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "125",
+                    "marks": Immutable.Set [],
+                    "text": "be",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "126",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "127",
+                    "marks": Immutable.Set [],
+                    "text": "be",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "128",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "129",
+                    "marks": Immutable.Set [],
+                    "text": "be",
+                  },
+                ],
+                "type": "tableCell",
+              },
+            ],
+            "type": "tableRow",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "130",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "131",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "132",
+                    "marks": Immutable.Set [],
+                    "text": "left",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "133",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "134",
+                    "marks": Immutable.Set [],
+                    "text": "right",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "135",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "136",
+                    "marks": Immutable.Set [],
+                    "text": "center",
+                  },
+                ],
+                "type": "tableCell",
+              },
+            ],
+            "type": "tableRow",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "137",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "138",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "139",
+                    "marks": Immutable.Set [],
+                    "text": "aligned",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "140",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "141",
+                    "marks": Immutable.Set [],
+                    "text": "aligned",
+                  },
+                ],
+                "type": "tableCell",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "142",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "143",
+                    "marks": Immutable.Set [],
+                    "text": "aligned",
+                  },
+                ],
+                "type": "tableCell",
+              },
+            ],
+            "type": "tableRow",
+          },
+        ],
+        "type": "table",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "void": true,
+        },
+        "key": "144",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "145",
+            "marks": Immutable.Set [],
+            "text": "",
+          },
+        ],
+        "type": "thematicBreak",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "void": true,
+        },
+        "key": "146",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "147",
+            "marks": Immutable.Set [],
+            "text": "",
+          },
+        ],
+        "type": "thematicBreak",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "lang": "css",
+          "meta": null,
+        },
+        "key": "148",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "149",
+            "marks": Immutable.Set [],
+            "text": "@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}",
+          },
+        ],
+        "type": "code",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "lang": "javascript",
+          "meta": null,
+        },
+        "key": "150",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "151",
+            "marks": Immutable.Set [],
+            "text": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+          },
+        ],
+        "type": "code",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "lang": "typescript",
+          "meta": null,
+        },
+        "key": "152",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "153",
+            "marks": Immutable.Set [],
+            "text": "class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax",
+          },
+        ],
+        "type": "code",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "2",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "2",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy decoration.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "aaa ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+            ],
+            "object": "text",
+            "text": "aaaaaaa",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": " aaaaaa ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+            ],
+            "object": "text",
+            "text": "aaaaaaaa",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": " aaaaaaaa ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "delete",
+              },
+            ],
+            "object": "text",
+            "text": "aaaaaaa",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": " aaaa ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "inlineCode",
+              },
+            ],
+            "object": "text",
+            "text": "aaaaaaaa",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": " aaa
+aaaaaaaaaa ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+            ],
+            "object": "text",
+            "text": "aa ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+            ],
+            "object": "text",
+            "text": "a ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+              Object {
+                "object": "mark",
+                "type": "delete",
+              },
+            ],
+            "object": "text",
+            "text": "aa",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+            ],
+            "object": "text",
+            "text": " aa ",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+              Object {
+                "object": "mark",
+                "type": "inlineCode",
+              },
+            ],
+            "object": "text",
+            "text": "aaa",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+            ],
+            "object": "text",
+            "text": " aaaaa",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "emphasis",
+              },
+            ],
+            "object": "text",
+            "text": " aaaa",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": " aa",
+          },
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "inlineCode",
+              },
+            ],
+            "object": "text",
+            "text": "a*aa*aa_aa_a~~aa~~a",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 1,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
+            ],
+            "object": "text",
+            "text": "heading",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "ordered": false,
+          "spread": false,
+          "start": null,
+        },
+        "nodes": Array [
+          Object {
+            "data": Object {
+              "checked": null,
+              "spread": false,
+            },
+            "nodes": Array [
+              Object {
+                "data": Object {},
+                "nodes": Array [
+                  Object {
+                    "marks": Array [
+                      Object {
+                        "object": "mark",
+                        "type": "strong",
+                      },
+                    ],
+                    "object": "text",
+                    "text": "list",
+                  },
+                ],
+                "object": "block",
+                "type": "paragraph",
+              },
+            ],
+            "object": "block",
+            "type": "listItem",
+          },
+        ],
+        "object": "block",
+        "type": "list",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "marks": Array [
+                  Object {
+                    "object": "mark",
+                    "type": "strong",
+                  },
+                ],
+                "object": "text",
+                "text": "quote",
+              },
+            ],
+            "object": "block",
+            "type": "paragraph",
+          },
+        ],
+        "object": "block",
+        "type": "blockquote",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "data": Object {
+              "title": null,
+              "url": "https://github.com/",
+            },
+            "nodes": Array [
+              Object {
+                "marks": Array [
+                  Object {
+                    "object": "mark",
+                    "type": "strong",
+                  },
+                ],
+                "object": "text",
+                "text": "link to GitHub.com",
+              },
+            ],
+            "object": "inline",
+            "type": "link",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "data": Object {
+              "title": null,
+              "url": "https://github.com/",
+            },
+            "nodes": Array [
+              Object {
+                "marks": Array [
+                  Object {
+                    "object": "mark",
+                    "type": "strong",
+                  },
+                ],
+                "object": "text",
+                "text": "link to GitHub.com",
+              },
+            ],
+            "object": "inline",
+            "type": "link",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "data": Object {
+              "alt": "image",
+              "title": "image",
+              "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+              "void": true,
+            },
+            "isVoid": true,
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "",
+              },
+            ],
+            "object": "inline",
+            "type": "image",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy decoration.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "154",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "155",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "156",
+            "marks": Immutable.Set [],
+            "text": "aaa ",
+          },
+          Immutable.Record {
+            "key": "157",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+            ],
+            "text": "aaaaaaa",
+          },
+          Immutable.Record {
+            "key": "158",
+            "marks": Immutable.Set [],
+            "text": " aaaaaa ",
+          },
+          Immutable.Record {
+            "key": "159",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+            ],
+            "text": "aaaaaaaa",
+          },
+          Immutable.Record {
+            "key": "160",
+            "marks": Immutable.Set [],
+            "text": " aaaaaaaa ",
+          },
+          Immutable.Record {
+            "key": "161",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "delete",
+              },
+            ],
+            "text": "aaaaaaa",
+          },
+          Immutable.Record {
+            "key": "162",
+            "marks": Immutable.Set [],
+            "text": " aaaa ",
+          },
+          Immutable.Record {
+            "key": "163",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "inlineCode",
+              },
+            ],
+            "text": "aaaaaaaa",
+          },
+          Immutable.Record {
+            "key": "164",
+            "marks": Immutable.Set [],
+            "text": " aaa
+aaaaaaaaaa ",
+          },
+          Immutable.Record {
+            "key": "165",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+            ],
+            "text": "aa ",
+          },
+          Immutable.Record {
+            "key": "166",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+            ],
+            "text": "a ",
+          },
+          Immutable.Record {
+            "key": "167",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "delete",
+              },
+            ],
+            "text": "aa",
+          },
+          Immutable.Record {
+            "key": "168",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+            ],
+            "text": " aa ",
+          },
+          Immutable.Record {
+            "key": "169",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "inlineCode",
+              },
+            ],
+            "text": "aaa",
+          },
+          Immutable.Record {
+            "key": "170",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+            ],
+            "text": " aaaaa",
+          },
+          Immutable.Record {
+            "key": "171",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+            ],
+            "text": " aaaa",
+          },
+          Immutable.Record {
+            "key": "172",
+            "marks": Immutable.Set [],
+            "text": " aa",
+          },
+          Immutable.Record {
+            "key": "173",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "inlineCode",
+              },
+            ],
+            "text": "a*aa*aa_aa_a~~aa~~a",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 1,
+        },
+        "key": "174",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "175",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+            ],
+            "text": "heading",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "ordered": false,
+          "start": null,
+          "spread": false,
+        },
+        "key": "176",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {
+              "checked": null,
+              "spread": false,
+            },
+            "key": "177",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "key": "178",
+                "nodes": Immutable.List [
+                  Immutable.Record {
+                    "key": "179",
+                    "marks": Immutable.Set [
+                      Immutable.Record {
+                        "data": Immutable.Map {},
+                        "type": "strong",
+                      },
+                    ],
+                    "text": "list",
+                  },
+                ],
+                "type": "paragraph",
+              },
+            ],
+            "type": "listItem",
+          },
+        ],
+        "type": "list",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "180",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "181",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "182",
+                "marks": Immutable.Set [
+                  Immutable.Record {
+                    "data": Immutable.Map {},
+                    "type": "strong",
+                  },
+                ],
+                "text": "quote",
+              },
+            ],
+            "type": "paragraph",
+          },
+        ],
+        "type": "blockquote",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "183",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {
+              "url": "https://github.com/",
+              "title": null,
+            },
+            "key": "184",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "185",
+                "marks": Immutable.Set [
+                  Immutable.Record {
+                    "data": Immutable.Map {},
+                    "type": "strong",
+                  },
+                ],
+                "text": "link to GitHub.com",
+              },
+            ],
+            "type": "link",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "186",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {
+              "url": "https://github.com/",
+              "title": null,
+            },
+            "key": "187",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "188",
+                "marks": Immutable.Set [
+                  Immutable.Record {
+                    "data": Immutable.Map {},
+                    "type": "strong",
+                  },
+                ],
+                "text": "link to GitHub.com",
+              },
+            ],
+            "type": "link",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "189",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {
+              "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+              "title": "image",
+              "alt": "image",
+              "void": true,
+            },
+            "key": "190",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "191",
+                "marks": Immutable.Set [],
+                "text": "",
+              },
+            ],
+            "type": "image",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "156",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "156",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy headings.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {
+          "depth": 1,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Alpha",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "aaaa",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 2,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Bravo",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "bbbb",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 3,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Charlie",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "cccc",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 2,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Delta",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "dddd",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy headings.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "192",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 1,
+        },
+        "key": "193",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "194",
+            "marks": Immutable.Set [],
+            "text": "Alpha",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "195",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "196",
+            "marks": Immutable.Set [],
+            "text": "aaaa",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 2,
+        },
+        "key": "197",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "198",
+            "marks": Immutable.Set [],
+            "text": "Bravo",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "199",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "200",
+            "marks": Immutable.Set [],
+            "text": "bbbb",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 3,
+        },
+        "key": "201",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "202",
+            "marks": Immutable.Set [],
+            "text": "Charlie",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "203",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "204",
+            "marks": Immutable.Set [],
+            "text": "cccc",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 2,
+        },
+        "key": "205",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "206",
+            "marks": Immutable.Set [],
+            "text": "Delta",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "207",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "208",
+            "marks": Immutable.Set [],
+            "text": "dddd",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "194",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "194",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy plain-text.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy plain-text.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "209",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "210",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "211",
+            "marks": Immutable.Set [],
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "212",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "213",
+            "marks": Immutable.Set [],
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "211",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "211",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
 exports[`e2e plain-text.md 1`] = `
 Array [
   Object {
