@@ -1796,7 +1796,11 @@ aaaaaaaaaa ",
         "text": " aaaa",
       },
       Object {
-        "text": " aaaaaa",
+        "text": " aa",
+      },
+      Object {
+        "inlineCode": true,
+        "text": "a*aa*aa_aa_a~~aa~~a",
       },
     ],
     "type": "paragraph",
@@ -2053,7 +2057,11 @@ aaaaaaaaaa ",
         },
         Object {
           "type": "text",
-          "value": " aaaaaa",
+          "value": " aa",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "a*aa*aa_aa_a~~aa~~a",
         },
       ],
       "type": "paragraph",
@@ -2181,7 +2189,7 @@ aaaaaaaaaa ",
 
 exports[`e2e decoration.md 3`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaaaaaaaaa _aa _**_a _**~~**_aa_**~~**_ aa _****_\`aaa\`_****_ aaaaa_**_ aaaa_ aaaaaa
+aaaaaaaaaa _aa _**_a _**~~**_aa_**~~**_ aa _****_\`aaa\`_****_ aaaaa_**_ aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
