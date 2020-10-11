@@ -9,4 +9,6 @@ aaaaaaaaaa _aa **a ~~aa~~ aa `aaa` aaaaa** aaaa_ aaaaaa
 
 **[link to GitHub.com](https://github.com/)**
 
+[**link to GitHub.com**](https://github.com/)
+
 **![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png "image")**
