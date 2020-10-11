@@ -71,48 +71,32 @@ Array [
 ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "bold",
-          },
-        ],
-        "type": "strong",
+        "strong": true,
+        "text": "bold",
       },
       Object {
         "text": "
 ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "emphasis",
-          },
-        ],
-        "type": "emphasis",
+        "emphasis": true,
+        "text": "emphasis",
       },
       Object {
         "text": "
 ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "delete",
-          },
-        ],
-        "type": "delete",
+        "delete": true,
+        "text": "delete",
       },
       Object {
         "text": "
 ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "inline code",
-          },
-        ],
-        "type": "inlineCode",
+        "inlineCode": true,
+        "text": "inline code",
       },
     ],
     "type": "paragraph",
@@ -1781,90 +1765,68 @@ Array [
         "text": "aaa ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "aaaaaaa",
-          },
-        ],
-        "type": "strong",
+        "strong": true,
+        "text": "aaaaaaa",
       },
       Object {
         "text": " aaaaaa ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "aaaaaaaa",
-          },
-        ],
-        "type": "emphasis",
+        "emphasis": true,
+        "text": "aaaaaaaa",
       },
       Object {
         "text": " aaaaaaaa ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "aaaaaaa",
-          },
-        ],
-        "type": "delete",
+        "delete": true,
+        "text": "aaaaaaa",
       },
       Object {
         "text": " aaaa ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "aaaaaaaa",
-          },
-        ],
-        "type": "inlineCode",
+        "inlineCode": true,
+        "text": "aaaaaaaa",
       },
       Object {
         "text": " aaa
 aaaaaaaaaa ",
       },
       Object {
-        "children": Array [
-          Object {
-            "text": "aa ",
-          },
-          Object {
-            "children": Array [
-              Object {
-                "text": "a ",
-              },
-              Object {
-                "children": Array [
-                  Object {
-                    "text": "aa",
-                  },
-                ],
-                "type": "delete",
-              },
-              Object {
-                "text": " aa ",
-              },
-              Object {
-                "children": Array [
-                  Object {
-                    "text": "aaa",
-                  },
-                ],
-                "type": "inlineCode",
-              },
-              Object {
-                "text": " aaaaa",
-              },
-            ],
-            "type": "strong",
-          },
-          Object {
-            "text": " aaaa",
-          },
-        ],
-        "type": "emphasis",
+        "emphasis": true,
+        "text": "aa ",
+      },
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": "a ",
+      },
+      Object {
+        "delete": true,
+        "emphasis": true,
+        "strong": true,
+        "text": "aa",
+      },
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": " aa ",
+      },
+      Object {
+        "emphasis": true,
+        "inlineCode": true,
+        "strong": true,
+        "text": "aaa",
+      },
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": " aaaaa",
+      },
+      Object {
+        "emphasis": true,
+        "text": " aaaa",
       },
       Object {
         "text": " aaaaaa",
@@ -1875,12 +1837,8 @@ aaaaaaaaaa ",
   Object {
     "children": Array [
       Object {
-        "children": Array [
-          Object {
-            "text": "heading",
-          },
-        ],
-        "type": "strong",
+        "strong": true,
+        "text": "heading",
       },
     ],
     "depth": 1,
@@ -1894,12 +1852,8 @@ aaaaaaaaaa ",
           Object {
             "children": Array [
               Object {
-                "children": Array [
-                  Object {
-                    "text": "list",
-                  },
-                ],
-                "type": "strong",
+                "strong": true,
+                "text": "list",
               },
             ],
             "type": "paragraph",
@@ -1919,12 +1873,8 @@ aaaaaaaaaa ",
       Object {
         "children": Array [
           Object {
-            "children": Array [
-              Object {
-                "text": "quote",
-              },
-            ],
-            "type": "strong",
+            "strong": true,
+            "text": "quote",
           },
         ],
         "type": "paragraph",
@@ -1937,32 +1887,8 @@ aaaaaaaaaa ",
       Object {
         "children": Array [
           Object {
-            "children": Array [
-              Object {
-                "text": "link to GitHub.com",
-              },
-            ],
-            "title": null,
-            "type": "link",
-            "url": "https://github.com/",
-          },
-        ],
-        "type": "strong",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "children": Array [
-              Object {
-                "text": "link to GitHub.com",
-              },
-            ],
-            "type": "strong",
+            "strong": true,
+            "text": "link to GitHub.com",
           },
         ],
         "title": null,
@@ -1977,19 +1903,30 @@ aaaaaaaaaa ",
       Object {
         "children": Array [
           Object {
-            "alt": "image",
-            "children": Array [
-              Object {
-                "text": "",
-              },
-            ],
-            "title": "image",
-            "type": "image",
-            "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-            "void": true,
+            "strong": true,
+            "text": "link to GitHub.com",
           },
         ],
-        "type": "strong",
+        "title": null,
+        "type": "link",
+        "url": "https://github.com/",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "alt": "image",
+        "children": Array [
+          Object {
+            "text": "",
+          },
+        ],
+        "title": "image",
+        "type": "image",
+        "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+        "void": true,
       },
     ],
     "type": "paragraph",
@@ -2060,12 +1997,27 @@ aaaaaaaaaa ",
               "type": "text",
               "value": "aa ",
             },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "children": Array [
             Object {
               "children": Array [
                 Object {
                   "type": "text",
                   "value": "a ",
                 },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
                 Object {
                   "children": Array [
                     Object {
@@ -2073,23 +2025,58 @@ aaaaaaaaaa ",
                       "value": "aa",
                     },
                   ],
-                  "type": "delete",
+                  "type": "emphasis",
                 },
+              ],
+              "type": "strong",
+            },
+          ],
+          "type": "delete",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
                 Object {
                   "type": "text",
                   "value": " aa ",
                 },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
                 Object {
                   "type": "inlineCode",
                   "value": "aaa",
                 },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
                 Object {
                   "type": "text",
                   "value": " aaaaa",
                 },
               ],
-              "type": "strong",
+              "type": "emphasis",
             },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
             Object {
               "type": "text",
               "value": " aaaa",
@@ -2178,12 +2165,12 @@ aaaaaaaaaa ",
                   "value": "link to GitHub.com",
                 },
               ],
-              "title": null,
-              "type": "link",
-              "url": "https://github.com/",
+              "type": "strong",
             },
           ],
-          "type": "strong",
+          "title": null,
+          "type": "link",
+          "url": "https://github.com/",
         },
       ],
       "type": "paragraph",
@@ -2212,15 +2199,10 @@ aaaaaaaaaa ",
     Object {
       "children": Array [
         Object {
-          "children": Array [
-            Object {
-              "alt": "image",
-              "title": "image",
-              "type": "image",
-              "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-            },
-          ],
-          "type": "strong",
+          "alt": "image",
+          "title": "image",
+          "type": "image",
+          "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
         },
       ],
       "type": "paragraph",
@@ -2232,7 +2214,7 @@ aaaaaaaaaa ",
 
 exports[`e2e decoration.md 3`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aaaaaa
+aaaaaaaaaa _aa _**_a _**~~**_aa_**~~**_ aa _****_\`aaa\`_****_ aaaaa_**_ aaaa_ aaaaaa
 
 # **heading**
 
@@ -2240,11 +2222,11 @@ aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aaaaaa
 
 > **quote**
 
-**[link to GitHub.com](https://github.com/)**
+[**link to GitHub.com**](https://github.com/)
 
 [**link to GitHub.com**](https://github.com/)
 
-**![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\")**
+![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\")
 "
 `;
 

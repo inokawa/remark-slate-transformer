@@ -33,6 +33,43 @@ function convertNodes(nodes: slate.Node[]): Node[] {
 }
 
 function createMdastNode(node: SlateNode): Node | null {
+  if ("text" in node) {
+    let res:
+      | mdast.Text
+      | mdast.Emphasis
+      | mdast.Strong
+      | mdast.Delete
+      | mdast.InlineCode = {
+      type: "text",
+      value: node.text,
+    };
+    if (node.inlineCode) {
+      res = {
+        type: "inlineCode",
+        value: res.value,
+      };
+    }
+    if (node.emphasis) {
+      res = {
+        type: "emphasis",
+        children: [res],
+      };
+    }
+    if (node.strong) {
+      res = {
+        type: "strong",
+        children: [res],
+      };
+    }
+    if (node.delete) {
+      res = {
+        type: "delete",
+        children: [res],
+      };
+    }
+    return (res as any) as Node;
+  }
+
   switch (node.type) {
     case "paragraph": {
       const { type, children } = node;
@@ -167,39 +204,6 @@ function createMdastNode(node: SlateNode): Node | null {
       };
       return (res as any) as Node;
     }
-    // case "text":
-    case "emphasis": {
-      const { type, children } = node;
-      const res: mdast.Emphasis = {
-        type,
-        children: (convertNodes(children) as any) as mdast.Emphasis["children"],
-      };
-      return (res as any) as Node;
-    }
-    case "strong": {
-      const { type, children } = node;
-      const res: mdast.Strong = {
-        type,
-        children: (convertNodes(children) as any) as mdast.Strong["children"],
-      };
-      return (res as any) as Node;
-    }
-    case "delete": {
-      const { type, children } = node;
-      const res: mdast.Delete = {
-        type,
-        children: (convertNodes(children) as any) as mdast.Delete["children"],
-      };
-      return (res as any) as Node;
-    }
-    case "inlineCode": {
-      const { type, children } = node;
-      const res: mdast.InlineCode = {
-        type,
-        value: children[0].text,
-      };
-      return (res as any) as Node;
-    }
     case "break": {
       const { type } = node;
       const res: mdast.Break = {
@@ -270,13 +274,6 @@ function createMdastNode(node: SlateNode): Node | null {
     }
     default:
       break;
-  }
-  if (!!node.text) {
-    const res: mdast.Text = {
-      type: "text",
-      value: node.text,
-    };
-    return (res as any) as Node;
   }
   return null;
 }
