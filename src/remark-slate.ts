@@ -2,8 +2,6 @@ import { Node } from "unist";
 import * as slate from "slate";
 import * as mdast from "./models/mdast";
 
-const VOID_KEY = "void";
-
 type Decoration = {
   [key in (
     | mdast.Emphasis
@@ -105,7 +103,7 @@ function createSlateNode(
 
 function createVoidFields() {
   return {
-    [VOID_KEY]: true,
+    void: true,
     children: [{ text: "" }],
   };
 }
@@ -223,11 +221,7 @@ function createCode(node: mdast.Code) {
     type,
     lang,
     meta,
-    children: [
-      {
-        text: value,
-      },
-    ],
+    children: [{ text: value }],
   };
 }
 
