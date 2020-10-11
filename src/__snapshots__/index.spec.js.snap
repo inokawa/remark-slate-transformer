@@ -4688,6 +4688,953 @@ myArray.forEach(() => { }); // fat arrow syntax",
 }
 `;
 
+exports[`e2e legacy article.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "heading 1",
+        },
+      ],
+      "depth": 1,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "heading 2",
+        },
+      ],
+      "depth": 2,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "heading 3",
+        },
+      ],
+      "depth": 3,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "heading 4",
+        },
+      ],
+      "depth": 4,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "heading 5",
+        },
+      ],
+      "depth": 5,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "heading 6",
+        },
+      ],
+      "depth": 6,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "aaaaaaaa",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "bold",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "emphasis",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "delete",
+            },
+          ],
+          "type": "delete",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "inline code",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "list",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "list",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "checked": null,
+                          "children": Array [
+                            Object {
+                              "children": Array [
+                                Object {
+                                  "type": "text",
+                                  "value": "list",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                          ],
+                          "spread": false,
+                          "type": "listItem",
+                        },
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": null,
+                      "type": "list",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "list",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "list",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": null,
+              "type": "list",
+            },
+          ],
+          "spread": true,
+          "type": "listItem",
+        },
+        Object {
+          "checked": false,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "not checked",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+        Object {
+          "checked": true,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "checked",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "ordered": false,
+      "spread": true,
+      "start": null,
+      "type": "list",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "ordered list",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "ordered list",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "ordered list",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "aaa",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "aaa",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                    Object {
+                      "children": Array [
+                        Object {
+                          "checked": null,
+                          "children": Array [
+                            Object {
+                              "children": Array [
+                                Object {
+                                  "type": "text",
+                                  "value": "eeeee",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                          ],
+                          "spread": false,
+                          "type": "listItem",
+                        },
+                        Object {
+                          "checked": null,
+                          "children": Array [
+                            Object {
+                              "children": Array [
+                                Object {
+                                  "type": "text",
+                                  "value": "eeeee",
+                                },
+                              ],
+                              "type": "paragraph",
+                            },
+                          ],
+                          "spread": false,
+                          "type": "listItem",
+                        },
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "aaa",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+              ],
+              "ordered": true,
+              "spread": false,
+              "start": 1,
+              "type": "list",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "ordered list",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "ordered": true,
+      "spread": false,
+      "start": 1,
+      "type": "list",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "This is ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "link to GitHub.com",
+            },
+          ],
+          "title": null,
+          "type": "link",
+          "url": "https://github.com/",
+        },
+        Object {
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "This is ",
+        },
+        Object {
+          "alt": "image",
+          "title": "image",
+          "type": "image",
+          "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+        },
+        Object {
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "quote
+quote
+quote
+quote",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "blockquote",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "quote",
+            },
+          ],
+          "type": "paragraph",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "quoted quote",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "blockquote",
+        },
+      ],
+      "type": "blockquote",
+    },
+    Object {
+      "align": Array [
+        "left",
+        "right",
+        "center",
+      ],
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "Left align",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "Right align",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "Center align",
+                },
+              ],
+              "type": "tableCell",
+            },
+          ],
+          "type": "tableRow",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "This",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "This",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "This",
+                },
+              ],
+              "type": "tableCell",
+            },
+          ],
+          "type": "tableRow",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "column",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "column",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "column",
+                },
+              ],
+              "type": "tableCell",
+            },
+          ],
+          "type": "tableRow",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "will",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "will",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "will",
+                },
+              ],
+              "type": "tableCell",
+            },
+          ],
+          "type": "tableRow",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "be",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "be",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "be",
+                },
+              ],
+              "type": "tableCell",
+            },
+          ],
+          "type": "tableRow",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "left",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "right",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "center",
+                },
+              ],
+              "type": "tableCell",
+            },
+          ],
+          "type": "tableRow",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "aligned",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "aligned",
+                },
+              ],
+              "type": "tableCell",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "aligned",
+                },
+              ],
+              "type": "tableCell",
+            },
+          ],
+          "type": "tableRow",
+        },
+      ],
+      "type": "table",
+    },
+    Object {
+      "type": "thematicBreak",
+    },
+    Object {
+      "type": "thematicBreak",
+    },
+    Object {
+      "lang": "css",
+      "meta": null,
+      "type": "code",
+      "value": "@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}",
+    },
+    Object {
+      "lang": "javascript",
+      "meta": null,
+      "type": "code",
+      "value": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+    },
+    Object {
+      "lang": "typescript",
+      "meta": null,
+      "type": "code",
+      "value": "class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy article.md 4`] = `
+"# heading 1
+
+## heading 2
+
+### heading 3
+
+#### heading 4
+
+##### heading 5
+
+###### heading 6
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+aaaaaaaa**bold**_emphasis_~~delete~~\`inline code\`
+
+-   list
+
+    -   list
+        -   list
+    -   list
+    -   list
+
+-   [ ] not checked
+
+-   [x] checked
+
+1.  ordered list
+2.  ordered list
+3.  ordered list
+    1.  aaa
+    2.  aaa
+        1.  eeeee
+        2.  eeeee
+    3.  aaa
+4.  ordered list
+
+This is [link to GitHub.com](https://github.com/).
+
+This is ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\").
+
+> quote
+> quote
+> quote
+> quote
+
+> quote
+>
+> > quoted quote
+
+| Left align | Right align | Center align |
+| :--------- | ----------: | :----------: |
+| This       |        This |     This     |
+| column     |      column |    column    |
+| will       |        will |     will     |
+| be         |          be |      be      |
+| left       |       right |    center    |
+| aligned    |     aligned |    aligned   |
+
+* * *
+
+* * *
+
+\`\`\`css
+@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}
+\`\`\`
+
+\`\`\`javascript
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;
+\`\`\`
+
+\`\`\`typescript
+class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax
+\`\`\`
+"
+`;
+
 exports[`e2e legacy decoration.md 1`] = `
 Object {
   "document": Object {
@@ -5423,6 +6370,306 @@ aaaaaaaaaa ",
 }
 `;
 
+exports[`e2e legacy decoration.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "aaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaa",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaaa",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaa",
+            },
+          ],
+          "type": "delete",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaa ",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "aaaaaaaa",
+        },
+        Object {
+          "type": "text",
+          "value": " aaa
+aaaaaaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aa ",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "a ",
+                },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "text",
+                      "value": "aa",
+                    },
+                  ],
+                  "type": "emphasis",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "type": "delete",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": " aa ",
+                },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "inlineCode",
+                  "value": "aaa",
+                },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": " aaaaa",
+                },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": " aaaa",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " aa",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "a*aa*aa_aa_a~~aa~~a",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "heading",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "depth": 1,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "text",
+                      "value": "list",
+                    },
+                  ],
+                  "type": "strong",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "ordered": false,
+      "spread": false,
+      "start": null,
+      "type": "list",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "quote",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "blockquote",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "link to GitHub.com",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "title": null,
+          "type": "link",
+          "url": "https://github.com/",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "link to GitHub.com",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "title": null,
+          "type": "link",
+          "url": "https://github.com/",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "alt": "image",
+          "title": "image",
+          "type": "image",
+          "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy decoration.md 4`] = `
+"aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
+aaaaaaaaaa _aa _**_a _**~~**_aa_**~~**_ aa _****_\`aaa\`_****_ aaaaa_**_ aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+
+# **heading**
+
+-   **list**
+
+> **quote**
+
+[**link to GitHub.com**](https://github.com/)
+
+[**link to GitHub.com**](https://github.com/)
+
+![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\")
+"
+`;
+
 exports[`e2e legacy headings.md 1`] = `
 Object {
   "document": Object {
@@ -5675,6 +6922,109 @@ Immutable.Record {
 }
 `;
 
+exports[`e2e legacy headings.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Alpha",
+        },
+      ],
+      "depth": 1,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "aaaa",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Bravo",
+        },
+      ],
+      "depth": 2,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "bbbb",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Charlie",
+        },
+      ],
+      "depth": 3,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "cccc",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Delta",
+        },
+      ],
+      "depth": 2,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "dddd",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy headings.md 4`] = `
+"# Alpha
+
+aaaa
+
+## Bravo
+
+bbbb
+
+### Charlie
+
+cccc
+
+## Delta
+
+dddd
+"
+`;
+
 exports[`e2e legacy plain-text.md 1`] = `
 Object {
   "document": Object {
@@ -5767,6 +7117,41 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     "marks": null,
   },
 }
+`;
+
+exports[`e2e legacy plain-text.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy plain-text.md 4`] = `
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"
 `;
 
 exports[`e2e plain-text.md 1`] = `
