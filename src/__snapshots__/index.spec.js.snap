@@ -67,32 +67,19 @@ Array [
   Object {
     "children": Array [
       Object {
-        "text": "aaaaaaaa
-",
+        "text": "aaaaaaaa",
       },
       Object {
         "strong": true,
         "text": "bold",
       },
       Object {
-        "text": "
-",
-      },
-      Object {
         "emphasis": true,
         "text": "emphasis",
       },
       Object {
-        "text": "
-",
-      },
-      Object {
         "delete": true,
         "text": "delete",
-      },
-      Object {
-        "text": "
-",
       },
       Object {
         "inlineCode": true,
@@ -866,8 +853,7 @@ Object {
       "children": Array [
         Object {
           "type": "text",
-          "value": "aaaaaaaa
-",
+          "value": "aaaaaaaa",
         },
         Object {
           "children": Array [
@@ -879,11 +865,6 @@ Object {
           "type": "strong",
         },
         Object {
-          "type": "text",
-          "value": "
-",
-        },
-        Object {
           "children": Array [
             Object {
               "type": "text",
@@ -893,11 +874,6 @@ Object {
           "type": "emphasis",
         },
         Object {
-          "type": "text",
-          "value": "
-",
-        },
-        Object {
           "children": Array [
             Object {
               "type": "text",
@@ -905,11 +881,6 @@ Object {
             },
           ],
           "type": "delete",
-        },
-        Object {
-          "type": "text",
-          "value": "
-",
         },
         Object {
           "type": "inlineCode",
@@ -1639,11 +1610,7 @@ exports[`e2e article.md 3`] = `
 
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-aaaaaaaa
-**bold**
-_emphasis_
-~~delete~~
-\`inline code\`
+aaaaaaaa**bold**_emphasis_~~delete~~\`inline code\`
 
 -   list
 

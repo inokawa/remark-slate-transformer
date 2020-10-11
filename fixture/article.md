@@ -12,11 +12,7 @@
 
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-aaaaaaaa
-**bold**
-_emphasis_
-~~delete~~
-`inline code`
+aaaaaaaa**bold**_emphasis_~~delete~~`inline code`
 
 - list
 
