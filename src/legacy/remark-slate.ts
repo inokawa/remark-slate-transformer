@@ -1,6 +1,5 @@
 import {
   ValueJSON,
-  DocumentJSON,
   BlockJSON,
   InlineJSON,
   TextJSON,
@@ -18,13 +17,12 @@ export function remarkToSlateLegacy(node: any): ValueJSON {
 }
 
 function createValue(nodes: SlateNode[]) {
-  const document: DocumentJSON = {
-    object: "document",
-    nodes: convertNodes(nodes),
-  };
   const value: ValueJSON = {
     object: "value",
-    document,
+    document: {
+      object: "document",
+      nodes: convertNodes(nodes),
+    },
   };
   return value;
 }
