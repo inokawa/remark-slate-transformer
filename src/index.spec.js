@@ -9,7 +9,7 @@ import {
   remarkToSlateLegacy,
   slateToRemarkLegacy,
 } from "./";
-import { Value } from "slate0.47";
+import { Value } from "slate_legacy";
 
 const FIXTURE_PATH = "../fixture";
 

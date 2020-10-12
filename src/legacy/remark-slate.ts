@@ -5,7 +5,7 @@ import {
   InlineJSON,
   TextJSON,
   MarkJSON,
-} from "slate0.47";
+} from "slate_legacy";
 import * as mdast from "../models/mdast";
 import { Decoration, remarkToSlate, SlateNode } from "../remark-slate";
 

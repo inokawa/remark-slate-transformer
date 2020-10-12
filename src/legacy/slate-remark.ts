@@ -1,4 +1,4 @@
-import { BlockJSON, InlineJSON, TextJSON } from "slate0.47";
+import { BlockJSON, InlineJSON, TextJSON } from "slate_legacy";
 import { Node as UnistNode } from "unist";
 import * as slate from "slate";
 import { slateToRemark } from "../slate-remark";

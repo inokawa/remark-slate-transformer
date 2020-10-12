@@ -24,7 +24,7 @@ const toMd = (value: Node[]) => {
 };
 
 export default {
-  title: "playground",
+  title: "Playground/Slate 0.50+",
 };
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
