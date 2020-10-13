@@ -1968,27 +1968,12 @@ aaaaaaaaaa ",
               "type": "text",
               "value": "aa ",
             },
-          ],
-          "type": "emphasis",
-        },
-        Object {
-          "children": Array [
             Object {
               "children": Array [
                 Object {
                   "type": "text",
                   "value": "a ",
                 },
-              ],
-              "type": "emphasis",
-            },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "children": Array [
                     Object {
@@ -1996,58 +1981,23 @@ aaaaaaaaaa ",
                       "value": "aa",
                     },
                   ],
-                  "type": "emphasis",
+                  "type": "delete",
                 },
-              ],
-              "type": "strong",
-            },
-          ],
-          "type": "delete",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "type": "text",
                   "value": " aa ",
                 },
-              ],
-              "type": "emphasis",
-            },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "type": "inlineCode",
                   "value": "aaa",
                 },
-              ],
-              "type": "emphasis",
-            },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "type": "text",
                   "value": " aaaaa",
                 },
               ],
-              "type": "emphasis",
+              "type": "strong",
             },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
             Object {
               "type": "text",
               "value": " aaaa",
@@ -2189,7 +2139,7 @@ aaaaaaaaaa ",
 
 exports[`e2e decoration.md 3`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaaaaaaaaa _aa _**_a _**~~**_aa_**~~**_ aa _****_\`aaa\`_****_ aaaaa_**_ aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
@@ -6433,27 +6383,12 @@ aaaaaaaaaa ",
               "type": "text",
               "value": "aa ",
             },
-          ],
-          "type": "emphasis",
-        },
-        Object {
-          "children": Array [
             Object {
               "children": Array [
                 Object {
                   "type": "text",
                   "value": "a ",
                 },
-              ],
-              "type": "emphasis",
-            },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "children": Array [
                     Object {
@@ -6461,58 +6396,23 @@ aaaaaaaaaa ",
                       "value": "aa",
                     },
                   ],
-                  "type": "emphasis",
+                  "type": "delete",
                 },
-              ],
-              "type": "strong",
-            },
-          ],
-          "type": "delete",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "type": "text",
                   "value": " aa ",
                 },
-              ],
-              "type": "emphasis",
-            },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "type": "inlineCode",
                   "value": "aaa",
                 },
-              ],
-              "type": "emphasis",
-            },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
                 Object {
                   "type": "text",
                   "value": " aaaaa",
                 },
               ],
-              "type": "emphasis",
+              "type": "strong",
             },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "children": Array [
             Object {
               "type": "text",
               "value": " aaaa",
@@ -6654,7 +6554,7 @@ aaaaaaaaaa ",
 
 exports[`e2e legacy decoration.md 4`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaaaaaaaaa _aa _**_a _**~~**_aa_**~~**_ aa _****_\`aaa\`_****_ aaaaa_**_ aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 

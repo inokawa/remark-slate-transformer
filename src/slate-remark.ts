@@ -1,7 +1,16 @@
 import * as slate from "slate";
 import * as mdast from "./models/mdast";
 import { Node as UnistNode } from "unist";
-import { SlateNode } from "./remark-slate";
+import { Decoration, SlateNode, SlateText } from "./remark-slate";
+
+type DecorationType = keyof Decoration;
+
+type TextOrDecoration =
+  | mdast.Text
+  | mdast.Emphasis
+  | mdast.Strong
+  | mdast.Delete
+  | mdast.InlineCode;
 
 export function slateToRemark(node: any): UnistNode {
   return createMdastRoot(node as slate.Node);
@@ -16,23 +25,139 @@ function createMdastRoot(node: slate.Node): UnistNode {
 }
 
 function convertNodes(nodes: slate.Node[]): UnistNode[] {
-  return nodes.reduce<UnistNode[]>((acc, n) => {
-    const node = createMdastNode(n as SlateNode);
-    if (node) {
-      acc.push(node);
+  const mdastNodes: UnistNode[] = [];
+  let textQueue: SlateText[] = [];
+  for (let i = 0; i <= nodes.length; i++) {
+    const n = nodes[i] as SlateNode;
+    if (n && isText(n)) {
+      textQueue.push(n);
+    } else {
+      const mdastTexts: TextOrDecoration[] = [];
+      const starts: DecorationType[] = [];
+      let textTemp: string = "";
+      for (let j = 0; j < textQueue.length; j++) {
+        const cur = textQueue[j];
+        textTemp += cur.text;
+
+        const prev = textQueue[j - 1];
+        const next = textQueue[j + 1];
+        const ends: DecorationType[] = [];
+        if (cur.inlineCode) {
+          if (!prev || !prev.inlineCode) {
+            starts.push("inlineCode");
+          }
+          if (!next || !next.inlineCode) {
+            ends.push("inlineCode");
+          }
+        }
+        if (cur.emphasis) {
+          if (!prev || !prev.emphasis) {
+            starts.push("emphasis");
+          }
+          if (!next || !next.emphasis) {
+            ends.push("emphasis");
+          }
+        }
+        if (cur.strong) {
+          if (!prev || !prev.strong) {
+            starts.push("strong");
+          }
+          if (!next || !next.strong) {
+            ends.push("strong");
+          }
+        }
+        if (cur.delete) {
+          if (!prev || !prev.delete) {
+            starts.push("delete");
+          }
+          if (!next || !next.delete) {
+            ends.push("delete");
+          }
+        }
+        if (starts.length > 0) {
+          let res: TextOrDecoration = {
+            type: "text",
+            value: textTemp,
+          };
+          textTemp = "";
+          const startsReversed = starts.slice().reverse();
+          startsReversed.forEach((k) => {
+            if (k === "inlineCode") {
+              res = {
+                type: k,
+                value: (res as any).value,
+              };
+            } else {
+              res = {
+                type: k,
+                children: [res],
+              };
+            }
+          });
+          mdastTexts.push(res);
+        }
+
+        if (starts.length > 0 && ends.length > 0) {
+          const endsToRemove = starts.reduce<
+            { key: DecorationType; index: number }[]
+          >((acc, k, kIndex) => {
+            if (ends.includes(k)) {
+              acc.push({ key: k, index: kIndex });
+            }
+            return acc;
+          }, []);
+
+          endsToRemove.reverse().forEach((e) => {
+            starts.splice(e.index, 1);
+          });
+        } else {
+          mdastTexts.push({ type: "text", value: textTemp });
+          textTemp = "";
+        }
+      }
+      if (textTemp) {
+        mdastTexts.push({ type: "text", value: textTemp });
+        textTemp = "";
+      }
+
+      const mergeTexts = (nts: TextOrDecoration[]): TextOrDecoration[] => {
+        const ntts: TextOrDecoration[] = [];
+        for (const cur of nts) {
+          const last = ntts[ntts.length - 1];
+          if (last && last.type === cur.type) {
+            if (last.type === "text") {
+              last.value += (cur as typeof last).value;
+            } else if (last.type === "inlineCode") {
+              last.value += (cur as typeof last).value;
+            } else {
+              last.children = mergeTexts(
+                last.children.concat((cur as typeof last).children) as any
+              );
+            }
+          } else {
+            if (cur.type === "text" && cur.value === "") continue;
+            ntts.push(cur);
+          }
+        }
+        return ntts;
+      };
+
+      mdastNodes.push(...((mergeTexts(mdastTexts) as any) as UnistNode[]));
+      textQueue = [];
+      if (!n) continue;
+      const node = createMdastNode(n as SlateNode);
+      if (node) {
+        mdastNodes.push(node);
+      }
     }
-    return acc;
-  }, []);
+  }
+
+  return mdastNodes;
 }
 
 function createMdastNode(node: SlateNode): UnistNode | null {
-  if ("text" in node) {
-    let res:
-      | mdast.Text
-      | mdast.Emphasis
-      | mdast.Strong
-      | mdast.Delete
-      | mdast.InlineCode = {
+  if (isText(node)) {
+    let res: TextOrDecoration = {
       type: "text",
       value: node.text,
     };
@@ -269,4 +394,8 @@ function createMdastNode(node: SlateNode): UnistNode | null {
       break;
   }
   return null;
+}
+
+function isText(node: SlateNode): node is SlateText {
+  return "text" in node;
 }
