@@ -45,27 +45,27 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-export const MarkdownToSlate = () => {
-  const [value, setValue] = useState(toSlate(text));
-  const ref = useRef<HTMLTextAreaElement>(null);
-  return (
-    <Wrapper>
-      <TextEditor ref={ref} initialValue={text} />
-      <div style={{ padding: 10 }}>
-        <button
-          style={{ height: "100%" }}
-          onClick={() => {
-            if (!ref.current) return;
-            setValue(toSlate(ref.current.value));
-          }}
-        >
-          {"md -> slate"}
-        </button>
-      </div>
-      <SlateEditor ref={useRef(null)} initialValue={value} />
-    </Wrapper>
-  );
-};
+// export const MarkdownToSlate = () => {
+//   const [value, setValue] = useState(toSlate(text));
+//   const ref = useRef<HTMLTextAreaElement>(null);
+//   return (
+//     <Wrapper>
+//       <TextEditor ref={ref} initialValue={text} />
+//       <div style={{ padding: 10 }}>
+//         <button
+//           style={{ height: "100%" }}
+//           onClick={() => {
+//             if (!ref.current) return;
+//             setValue(toSlate(ref.current.value));
+//           }}
+//         >
+//           {"md -> slate"}
+//         </button>
+//       </div>
+//       <SlateEditor ref={useRef(null)} initialValue={value} />
+//     </Wrapper>
+//   );
+// };
 
 export const MarkdownToSlateJson = () => {
   const [value, setValue] = useState(toSlate(text));
@@ -89,25 +89,25 @@ export const MarkdownToSlateJson = () => {
   );
 };
 
-export const SlateToMarkdown = () => {
-  const [value, setValue] = useState(toSlate(text));
-  const [md, setMd] = useState(toMd(value));
-  const ref = useRef<Value>(null);
-  return (
-    <Wrapper>
-      <SlateEditor ref={ref} initialValue={value} />
-      <div style={{ padding: 10 }}>
-        <button
-          style={{ height: "100%" }}
-          onClick={() => {
-            if (!ref.current) return;
-            setMd(toMd(ref.current));
-          }}
-        >
-          {"slate -> md"}
-        </button>
-      </div>
-      <Text>{md}</Text>
-    </Wrapper>
-  );
-};
+// export const SlateToMarkdown = () => {
+//   const [value, setValue] = useState(toSlate(text));
+//   const [md, setMd] = useState(toMd(value));
+//   const ref = useRef<Value>(null);
+//   return (
+//     <Wrapper>
+//       <SlateEditor ref={ref} initialValue={value} />
+//       <div style={{ padding: 10 }}>
+//         <button
+//           style={{ height: "100%" }}
+//           onClick={() => {
+//             if (!ref.current) return;
+//             setMd(toMd(ref.current));
+//           }}
+//         >
+//           {"slate -> md"}
+//         </button>
+//       </div>
+//       <Text>{md}</Text>
+//     </Wrapper>
+//   );
+// };
