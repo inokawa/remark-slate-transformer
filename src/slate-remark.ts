@@ -120,28 +120,6 @@ function convertNodes(nodes: slate.Node[]): UnistNode[] {
         textTemp = "";
       }
 
-      const mergeTexts = (nts: TextOrDecoration[]): TextOrDecoration[] => {
-        const ntts: TextOrDecoration[] = [];
-        for (const cur of nts) {
-          const last = ntts[ntts.length - 1];
-          if (last && last.type === cur.type) {
-            if (last.type === "text") {
-              last.value += (cur as typeof last).value;
-            } else if (last.type === "inlineCode") {
-              last.value += (cur as typeof last).value;
-            } else {
-              last.children = mergeTexts(
-                last.children.concat((cur as typeof last).children) as any
-              );
-            }
-          } else {
-            if (cur.type === "text" && cur.value === "") continue;
-            ntts.push(cur);
-          }
-        }
-        return ntts;
-      };
-
       mdastNodes.push(...((mergeTexts(mdastTexts) as any) as UnistNode[]));
       textQueue = [];
       if (!n) continue;
@@ -398,4 +376,28 @@ function createMdastNode(node: SlateNode): UnistNode | null {
 
 function isText(node: SlateNode): node is SlateText {
   return "text" in node;
+}
+
+function mergeTexts(nodes: TextOrDecoration[]): TextOrDecoration[] {
+  const res: TextOrDecoration[] = [];
+  for (const cur of nodes) {
+    const last = res[res.length - 1];
+    if (last && last.type === cur.type) {
+      if (last.type === "text") {
+        last.value += (cur as typeof last).value;
+      } else if (last.type === "inlineCode") {
+        last.value += (cur as typeof last).value;
+      } else {
+        last.children = mergeTexts(
+          last.children.concat(
+            (cur as typeof last).children
+          ) as TextOrDecoration[]
+        );
+      }
+    } else {
+      if (cur.type === "text" && cur.value === "") continue;
+      res.push(cur);
+    }
+  }
+  return res;
 }
