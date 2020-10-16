@@ -2,6 +2,8 @@
 <span>This is <b>html</b></span>
 </div>
 
+<!--comment-->
+
 ---
 
 title: "This is yaml"
