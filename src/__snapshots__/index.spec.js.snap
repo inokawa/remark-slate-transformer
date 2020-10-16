@@ -696,34 +696,6 @@ quote",
   Object {
     "children": Array [
       Object {
-        "text": "@font-face {
-  font-family: Chunkfive;
-  src: url(\\"Chunkfive.otf\\");
-}
-
-body,
-.usertext {
-  color: #f0f0f0;
-  background: #600;
-  font-family: Chunkfive, sans;
-  --heading-1: 30px/32px Helvetica, sans-serif;
-}
-
-@import url(print.css);
-@media print {
-  a[href^=\\"http\\"]::after {
-    content: attr(href);
-  }
-}",
-      },
-    ],
-    "lang": "css",
-    "meta": null,
-    "type": "code",
-  },
-  Object {
-    "children": Array [
-      Object {
         "text": "function $initHighlight(block, cls) {
   try {
     if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
@@ -748,29 +720,6 @@ export  $initHighlight;",
       },
     ],
     "lang": "javascript",
-    "meta": null,
-    "type": "code",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "class MyClass {
-  public static myValue: string;
-  constructor(init: string) {
-    this.myValue = init;
-  }
-}
-import fs = require(\\"fs\\");
-module MyModule {
-  export interface MyInterface extends Other {
-    myProperty: any;
-  }
-}
-declare magicNumber number;
-myArray.forEach(() => { }); // fat arrow syntax",
-      },
-    ],
-    "lang": "typescript",
     "meta": null,
     "type": "code",
   },
@@ -1522,30 +1471,6 @@ quote",
       "type": "thematicBreak",
     },
     Object {
-      "lang": "css",
-      "meta": null,
-      "type": "code",
-      "value": "@font-face {
-  font-family: Chunkfive;
-  src: url(\\"Chunkfive.otf\\");
-}
-
-body,
-.usertext {
-  color: #f0f0f0;
-  background: #600;
-  font-family: Chunkfive, sans;
-  --heading-1: 30px/32px Helvetica, sans-serif;
-}
-
-@import url(print.css);
-@media print {
-  a[href^=\\"http\\"]::after {
-    content: attr(href);
-  }
-}",
-    },
-    Object {
       "lang": "javascript",
       "meta": null,
       "type": "code",
@@ -1570,25 +1495,6 @@ body,
 }
 
 export  $initHighlight;",
-    },
-    Object {
-      "lang": "typescript",
-      "meta": null,
-      "type": "code",
-      "value": "class MyClass {
-  public static myValue: string;
-  constructor(init: string) {
-    this.myValue = init;
-  }
-}
-import fs = require(\\"fs\\");
-module MyModule {
-  export interface MyInterface extends Other {
-    myProperty: any;
-  }
-}
-declare magicNumber number;
-myArray.forEach(() => { }); // fat arrow syntax",
     },
   ],
   "type": "root",
@@ -1659,28 +1565,6 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 
 * * *
 
-\`\`\`css
-@font-face {
-  font-family: Chunkfive;
-  src: url(\\"Chunkfive.otf\\");
-}
-
-body,
-.usertext {
-  color: #f0f0f0;
-  background: #600;
-  font-family: Chunkfive, sans;
-  --heading-1: 30px/32px Helvetica, sans-serif;
-}
-
-@import url(print.css);
-@media print {
-  a[href^=\\"http\\"]::after {
-    content: attr(href);
-  }
-}
-\`\`\`
-
 \`\`\`javascript
 function $initHighlight(block, cls) {
   try {
@@ -1704,630 +1588,6 @@ function $initHighlight(block, cls) {
 
 export  $initHighlight;
 \`\`\`
-
-\`\`\`typescript
-class MyClass {
-  public static myValue: string;
-  constructor(init: string) {
-    this.myValue = init;
-  }
-}
-import fs = require(\\"fs\\");
-module MyModule {
-  export interface MyInterface extends Other {
-    myProperty: any;
-  }
-}
-declare magicNumber number;
-myArray.forEach(() => { }); // fat arrow syntax
-\`\`\`
-"
-`;
-
-exports[`e2e decoration.md 1`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "text": "aaa ",
-      },
-      Object {
-        "strong": true,
-        "text": "aaaaaaa",
-      },
-      Object {
-        "text": " aaaaaa ",
-      },
-      Object {
-        "emphasis": true,
-        "text": "aaaaaaaa",
-      },
-      Object {
-        "text": " aaaaaaaa ",
-      },
-      Object {
-        "delete": true,
-        "text": "aaaaaaa",
-      },
-      Object {
-        "text": " aaaa ",
-      },
-      Object {
-        "inlineCode": true,
-        "text": "aaaaaaaa",
-      },
-      Object {
-        "text": " aaa
-aaaaaaaaaa ",
-      },
-      Object {
-        "emphasis": true,
-        "text": "aa ",
-      },
-      Object {
-        "emphasis": true,
-        "strong": true,
-        "text": "a ",
-      },
-      Object {
-        "delete": true,
-        "emphasis": true,
-        "strong": true,
-        "text": "aa",
-      },
-      Object {
-        "emphasis": true,
-        "strong": true,
-        "text": " aa ",
-      },
-      Object {
-        "emphasis": true,
-        "inlineCode": true,
-        "strong": true,
-        "text": "aaa",
-      },
-      Object {
-        "emphasis": true,
-        "strong": true,
-        "text": " aaaaa",
-      },
-      Object {
-        "emphasis": true,
-        "text": " aaaa",
-      },
-      Object {
-        "text": " aa",
-      },
-      Object {
-        "inlineCode": true,
-        "text": "a*aa*aa_aa_a~~aa~~a",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "strong": true,
-        "text": "heading",
-      },
-    ],
-    "depth": 1,
-    "type": "heading",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "checked": null,
-        "children": Array [
-          Object {
-            "children": Array [
-              Object {
-                "strong": true,
-                "text": "list",
-              },
-            ],
-            "type": "paragraph",
-          },
-        ],
-        "spread": false,
-        "type": "listItem",
-      },
-    ],
-    "ordered": false,
-    "spread": false,
-    "start": null,
-    "type": "list",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "strong": true,
-            "text": "quote",
-          },
-        ],
-        "type": "paragraph",
-      },
-    ],
-    "type": "blockquote",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "strong": true,
-            "text": "link to GitHub.com",
-          },
-        ],
-        "title": null,
-        "type": "link",
-        "url": "https://github.com/",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "strong": true,
-            "text": "link to GitHub.com",
-          },
-        ],
-        "title": null,
-        "type": "link",
-        "url": "https://github.com/",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "alt": "image",
-        "children": Array [
-          Object {
-            "text": "",
-          },
-        ],
-        "title": "image",
-        "type": "image",
-        "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-        "void": true,
-      },
-    ],
-    "type": "paragraph",
-  },
-]
-`;
-
-exports[`e2e decoration.md 2`] = `
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "aaa ",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "aaaaaaa",
-            },
-          ],
-          "type": "strong",
-        },
-        Object {
-          "type": "text",
-          "value": " aaaaaa ",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "aaaaaaaa",
-            },
-          ],
-          "type": "emphasis",
-        },
-        Object {
-          "type": "text",
-          "value": " aaaaaaaa ",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "aaaaaaa",
-            },
-          ],
-          "type": "delete",
-        },
-        Object {
-          "type": "text",
-          "value": " aaaa ",
-        },
-        Object {
-          "type": "inlineCode",
-          "value": "aaaaaaaa",
-        },
-        Object {
-          "type": "text",
-          "value": " aaa
-aaaaaaaaaa ",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "aa ",
-            },
-            Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "a ",
-                },
-                Object {
-                  "children": Array [
-                    Object {
-                      "type": "text",
-                      "value": "aa",
-                    },
-                  ],
-                  "type": "delete",
-                },
-                Object {
-                  "type": "text",
-                  "value": " aa ",
-                },
-                Object {
-                  "type": "inlineCode",
-                  "value": "aaa",
-                },
-                Object {
-                  "type": "text",
-                  "value": " aaaaa",
-                },
-              ],
-              "type": "strong",
-            },
-            Object {
-              "type": "text",
-              "value": " aaaa",
-            },
-          ],
-          "type": "emphasis",
-        },
-        Object {
-          "type": "text",
-          "value": " aa",
-        },
-        Object {
-          "type": "inlineCode",
-          "value": "a*aa*aa_aa_a~~aa~~a",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "heading",
-            },
-          ],
-          "type": "strong",
-        },
-      ],
-      "depth": 1,
-      "type": "heading",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "checked": null,
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
-                  "children": Array [
-                    Object {
-                      "type": "text",
-                      "value": "list",
-                    },
-                  ],
-                  "type": "strong",
-                },
-              ],
-              "type": "paragraph",
-            },
-          ],
-          "spread": false,
-          "type": "listItem",
-        },
-      ],
-      "ordered": false,
-      "spread": false,
-      "start": null,
-      "type": "list",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "quote",
-                },
-              ],
-              "type": "strong",
-            },
-          ],
-          "type": "paragraph",
-        },
-      ],
-      "type": "blockquote",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "link to GitHub.com",
-                },
-              ],
-              "type": "strong",
-            },
-          ],
-          "title": null,
-          "type": "link",
-          "url": "https://github.com/",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "link to GitHub.com",
-                },
-              ],
-              "type": "strong",
-            },
-          ],
-          "title": null,
-          "type": "link",
-          "url": "https://github.com/",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "alt": "image",
-          "title": "image",
-          "type": "image",
-          "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-        },
-      ],
-      "type": "paragraph",
-    },
-  ],
-  "type": "root",
-}
-`;
-
-exports[`e2e decoration.md 3`] = `
-"aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
-
-# **heading**
-
--   **list**
-
-> **quote**
-
-[**link to GitHub.com**](https://github.com/)
-
-[**link to GitHub.com**](https://github.com/)
-
-![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\")
-"
-`;
-
-exports[`e2e headings.md 1`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "text": "Alpha",
-      },
-    ],
-    "depth": 1,
-    "type": "heading",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "aaaa",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "Bravo",
-      },
-    ],
-    "depth": 2,
-    "type": "heading",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "bbbb",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "Charlie",
-      },
-    ],
-    "depth": 3,
-    "type": "heading",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "cccc",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "Delta",
-      },
-    ],
-    "depth": 2,
-    "type": "heading",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "text": "dddd",
-      },
-    ],
-    "type": "paragraph",
-  },
-]
-`;
-
-exports[`e2e headings.md 2`] = `
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "Alpha",
-        },
-      ],
-      "depth": 1,
-      "type": "heading",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "aaaa",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "Bravo",
-        },
-      ],
-      "depth": 2,
-      "type": "heading",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "bbbb",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "Charlie",
-        },
-      ],
-      "depth": 3,
-      "type": "heading",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "cccc",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "Delta",
-        },
-      ],
-      "depth": 2,
-      "type": "heading",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "dddd",
-        },
-      ],
-      "type": "paragraph",
-    },
-  ],
-  "type": "root",
-}
-`;
-
-exports[`e2e headings.md 3`] = `
-"# Alpha
-
-aaaa
-
-## Bravo
-
-bbbb
-
-### Charlie
-
-cccc
-
-## Delta
-
-dddd
 "
 `;
 
@@ -3374,39 +2634,6 @@ quote",
       },
       Object {
         "data": Object {
-          "lang": "css",
-          "meta": null,
-        },
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "@font-face {
-  font-family: Chunkfive;
-  src: url(\\"Chunkfive.otf\\");
-}
-
-body,
-.usertext {
-  color: #f0f0f0;
-  background: #600;
-  font-family: Chunkfive, sans;
-  --heading-1: 30px/32px Helvetica, sans-serif;
-}
-
-@import url(print.css);
-@media print {
-  a[href^=\\"http\\"]::after {
-    content: attr(href);
-  }
-}",
-          },
-        ],
-        "object": "block",
-        "type": "code",
-      },
-      Object {
-        "data": Object {
           "lang": "javascript",
           "meta": null,
         },
@@ -3435,34 +2662,6 @@ body,
 }
 
 export  $initHighlight;",
-          },
-        ],
-        "object": "block",
-        "type": "code",
-      },
-      Object {
-        "data": Object {
-          "lang": "typescript",
-          "meta": null,
-        },
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "class MyClass {
-  public static myValue: string;
-  constructor(init: string) {
-    this.myValue = init;
-  }
-}
-import fs = require(\\"fs\\");
-module MyModule {
-  export interface MyInterface extends Other {
-    myProperty: any;
-  }
-}
-declare magicNumber number;
-myArray.forEach(() => { }); // fat arrow syntax",
           },
         ],
         "object": "block",
@@ -4519,46 +3718,13 @@ quote",
       },
       Immutable.Record {
         "data": Immutable.Map {
-          "lang": "css",
+          "lang": "javascript",
           "meta": null,
         },
         "key": "148",
         "nodes": Immutable.List [
           Immutable.Record {
             "key": "149",
-            "marks": Immutable.Set [],
-            "text": "@font-face {
-  font-family: Chunkfive;
-  src: url(\\"Chunkfive.otf\\");
-}
-
-body,
-.usertext {
-  color: #f0f0f0;
-  background: #600;
-  font-family: Chunkfive, sans;
-  --heading-1: 30px/32px Helvetica, sans-serif;
-}
-
-@import url(print.css);
-@media print {
-  a[href^=\\"http\\"]::after {
-    content: attr(href);
-  }
-}",
-          },
-        ],
-        "type": "code",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "lang": "javascript",
-          "meta": null,
-        },
-        "key": "150",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "151",
             "marks": Immutable.Set [],
             "text": "function $initHighlight(block, cls) {
   try {
@@ -4581,34 +3747,6 @@ body,
 }
 
 export  $initHighlight;",
-          },
-        ],
-        "type": "code",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "lang": "typescript",
-          "meta": null,
-        },
-        "key": "152",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "153",
-            "marks": Immutable.Set [],
-            "text": "class MyClass {
-  public static myValue: string;
-  constructor(init: string) {
-    this.myValue = init;
-  }
-}
-import fs = require(\\"fs\\");
-module MyModule {
-  export interface MyInterface extends Other {
-    myProperty: any;
-  }
-}
-declare magicNumber number;
-myArray.forEach(() => { }); // fat arrow syntax",
           },
         ],
         "type": "code",
@@ -5383,6 +4521,366 @@ quote",
       "type": "thematicBreak",
     },
     Object {
+      "lang": "javascript",
+      "meta": null,
+      "type": "code",
+      "value": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy article.md 4`] = `
+"# heading 1
+
+## heading 2
+
+### heading 3
+
+#### heading 4
+
+##### heading 5
+
+###### heading 6
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+aaaaaaaa**bold**_emphasis_~~delete~~\`inline code\`
+
+-   list
+
+    -   list
+        -   list
+    -   list
+    -   list
+
+-   [ ] not checked
+
+-   [x] checked
+
+1.  ordered list
+2.  ordered list
+3.  ordered list
+    1.  aaa
+    2.  aaa
+        1.  eeeee
+        2.  eeeee
+    3.  aaa
+4.  ordered list
+
+This is [link to GitHub.com](https://github.com/).
+
+This is ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\").
+
+> quote
+> quote
+> quote
+> quote
+
+> quote
+>
+> > quoted quote
+
+| Left align | Right align | Center align |
+| :--------- | ----------: | :----------: |
+| This       |        This |     This     |
+| column     |      column |    column    |
+| will       |        will |     will     |
+| be         |          be |      be      |
+| left       |       right |    center    |
+| aligned    |     aligned |    aligned   |
+
+* * *
+
+* * *
+
+\`\`\`javascript
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;
+\`\`\`
+"
+`;
+
+exports[`e2e legacy node-code.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {
+          "lang": "css",
+          "meta": null,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}",
+          },
+        ],
+        "object": "block",
+        "type": "code",
+      },
+      Object {
+        "data": Object {
+          "lang": "javascript",
+          "meta": null,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+          },
+        ],
+        "object": "block",
+        "type": "code",
+      },
+      Object {
+        "data": Object {
+          "lang": "typescript",
+          "meta": null,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax",
+          },
+        ],
+        "object": "block",
+        "type": "code",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy node-code.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "150",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {
+          "lang": "css",
+          "meta": null,
+        },
+        "key": "151",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "152",
+            "marks": Immutable.Set [],
+            "text": "@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}",
+          },
+        ],
+        "type": "code",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "lang": "javascript",
+          "meta": null,
+        },
+        "key": "153",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "154",
+            "marks": Immutable.Set [],
+            "text": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+          },
+        ],
+        "type": "code",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "lang": "typescript",
+          "meta": null,
+        },
+        "key": "155",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "156",
+            "marks": Immutable.Set [],
+            "text": "class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax",
+          },
+        ],
+        "type": "code",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "152",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "152",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy node-code.md 3`] = `
+Object {
+  "children": Array [
+    Object {
       "lang": "css",
       "meta": null,
       "type": "code",
@@ -5456,71 +4954,8 @@ myArray.forEach(() => { }); // fat arrow syntax",
 }
 `;
 
-exports[`e2e legacy article.md 4`] = `
-"# heading 1
-
-## heading 2
-
-### heading 3
-
-#### heading 4
-
-##### heading 5
-
-###### heading 6
-
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-aaaaaaaa**bold**_emphasis_~~delete~~\`inline code\`
-
--   list
-
-    -   list
-        -   list
-    -   list
-    -   list
-
--   [ ] not checked
-
--   [x] checked
-
-1.  ordered list
-2.  ordered list
-3.  ordered list
-    1.  aaa
-    2.  aaa
-        1.  eeeee
-        2.  eeeee
-    3.  aaa
-4.  ordered list
-
-This is [link to GitHub.com](https://github.com/).
-
-This is ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\").
-
-> quote
-> quote
-> quote
-> quote
-
-> quote
->
-> > quoted quote
-
-| Left align | Right align | Center align |
-| :--------- | ----------: | :----------: |
-| This       |        This |     This     |
-| column     |      column |    column    |
-| will       |        will |     will     |
-| be         |          be |      be      |
-| left       |       right |    center    |
-| aligned    |     aligned |    aligned   |
-
-* * *
-
-* * *
-
-\`\`\`css
+exports[`e2e legacy node-code.md 4`] = `
+"\`\`\`css
 @font-face {
   font-family: Chunkfive;
   src: url(\\"Chunkfive.otf\\");
@@ -5585,7 +5020,651 @@ myArray.forEach(() => { }); // fat arrow syntax
 "
 `;
 
-exports[`e2e legacy decoration.md 1`] = `
+exports[`e2e legacy node-heading.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {
+          "depth": 1,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Alpha",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "aaaa",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 2,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Bravo",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "bbbb",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 3,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Charlie",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "cccc",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 2,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Delta",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "dddd",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "depth": 3,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "E",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 4,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "F",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 5,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "G",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+      Object {
+        "data": Object {
+          "depth": 6,
+        },
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "H",
+          },
+        ],
+        "object": "block",
+        "type": "heading",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy node-heading.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "157",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 1,
+        },
+        "key": "158",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "159",
+            "marks": Immutable.Set [],
+            "text": "Alpha",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "160",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "161",
+            "marks": Immutable.Set [],
+            "text": "aaaa",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 2,
+        },
+        "key": "162",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "163",
+            "marks": Immutable.Set [],
+            "text": "Bravo",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "164",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "165",
+            "marks": Immutable.Set [],
+            "text": "bbbb",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 3,
+        },
+        "key": "166",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "167",
+            "marks": Immutable.Set [],
+            "text": "Charlie",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "168",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "169",
+            "marks": Immutable.Set [],
+            "text": "cccc",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 2,
+        },
+        "key": "170",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "171",
+            "marks": Immutable.Set [],
+            "text": "Delta",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "172",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "173",
+            "marks": Immutable.Set [],
+            "text": "dddd",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 3,
+        },
+        "key": "174",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "175",
+            "marks": Immutable.Set [],
+            "text": "E",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 4,
+        },
+        "key": "176",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "177",
+            "marks": Immutable.Set [],
+            "text": "F",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 5,
+        },
+        "key": "178",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "179",
+            "marks": Immutable.Set [],
+            "text": "G",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 6,
+        },
+        "key": "180",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "181",
+            "marks": Immutable.Set [],
+            "text": "H",
+          },
+        ],
+        "type": "heading",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "159",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "159",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy node-heading.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Alpha",
+        },
+      ],
+      "depth": 1,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "aaaa",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Bravo",
+        },
+      ],
+      "depth": 2,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "bbbb",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Charlie",
+        },
+      ],
+      "depth": 3,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "cccc",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Delta",
+        },
+      ],
+      "depth": 2,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "dddd",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "E",
+        },
+      ],
+      "depth": 3,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "F",
+        },
+      ],
+      "depth": 4,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "G",
+        },
+      ],
+      "depth": 5,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "H",
+        },
+      ],
+      "depth": 6,
+      "type": "heading",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy node-heading.md 4`] = `
+"# Alpha
+
+aaaa
+
+## Bravo
+
+bbbb
+
+### Charlie
+
+cccc
+
+## Delta
+
+dddd
+
+### E
+
+#### F
+
+##### G
+
+###### H
+"
+`;
+
+exports[`e2e legacy node-paragraph.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy node-paragraph.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "182",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "183",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "184",
+            "marks": Immutable.Set [],
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "185",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "186",
+            "marks": Immutable.Set [],
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "184",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "184",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy node-paragraph.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy node-paragraph.md 4`] = `
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"
+`;
+
+exports[`e2e legacy node-phrasing-1.md 1`] = `
 Object {
   "document": Object {
     "nodes": Array [
@@ -5942,25 +6021,25 @@ aaaaaaaaaa ",
 }
 `;
 
-exports[`e2e legacy decoration.md 2`] = `
+exports[`e2e legacy node-phrasing-1.md 2`] = `
 Immutable.Record {
   "annotations": Immutable.Map {},
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "154",
+    "key": "187",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "155",
+        "key": "188",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "156",
+            "key": "189",
             "marks": Immutable.Set [],
             "text": "aaa ",
           },
           Immutable.Record {
-            "key": "157",
+            "key": "190",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -5970,12 +6049,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "158",
+            "key": "191",
             "marks": Immutable.Set [],
             "text": " aaaaaa ",
           },
           Immutable.Record {
-            "key": "159",
+            "key": "192",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -5985,12 +6064,12 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "160",
+            "key": "193",
             "marks": Immutable.Set [],
             "text": " aaaaaaaa ",
           },
           Immutable.Record {
-            "key": "161",
+            "key": "194",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6000,12 +6079,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "162",
+            "key": "195",
             "marks": Immutable.Set [],
             "text": " aaaa ",
           },
           Immutable.Record {
-            "key": "163",
+            "key": "196",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6015,13 +6094,13 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "164",
+            "key": "197",
             "marks": Immutable.Set [],
             "text": " aaa
 aaaaaaaaaa ",
           },
           Immutable.Record {
-            "key": "165",
+            "key": "198",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6031,7 +6110,7 @@ aaaaaaaaaa ",
             "text": "aa ",
           },
           Immutable.Record {
-            "key": "166",
+            "key": "199",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6045,7 +6124,7 @@ aaaaaaaaaa ",
             "text": "a ",
           },
           Immutable.Record {
-            "key": "167",
+            "key": "200",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6063,7 +6142,7 @@ aaaaaaaaaa ",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "168",
+            "key": "201",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6077,7 +6156,7 @@ aaaaaaaaaa ",
             "text": " aa ",
           },
           Immutable.Record {
-            "key": "169",
+            "key": "202",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6095,7 +6174,7 @@ aaaaaaaaaa ",
             "text": "aaa",
           },
           Immutable.Record {
-            "key": "170",
+            "key": "203",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6109,7 +6188,7 @@ aaaaaaaaaa ",
             "text": " aaaaa",
           },
           Immutable.Record {
-            "key": "171",
+            "key": "204",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6119,12 +6198,12 @@ aaaaaaaaaa ",
             "text": " aaaa",
           },
           Immutable.Record {
-            "key": "172",
+            "key": "205",
             "marks": Immutable.Set [],
             "text": " aa",
           },
           Immutable.Record {
-            "key": "173",
+            "key": "206",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6140,10 +6219,10 @@ aaaaaaaaaa ",
         "data": Immutable.Map {
           "depth": 1,
         },
-        "key": "174",
+        "key": "207",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "175",
+            "key": "208",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6161,21 +6240,21 @@ aaaaaaaaaa ",
           "start": null,
           "spread": false,
         },
-        "key": "176",
+        "key": "209",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "checked": null,
               "spread": false,
             },
-            "key": "177",
+            "key": "210",
             "nodes": Immutable.List [
               Immutable.Record {
                 "data": Immutable.Map {},
-                "key": "178",
+                "key": "211",
                 "nodes": Immutable.List [
                   Immutable.Record {
-                    "key": "179",
+                    "key": "212",
                     "marks": Immutable.Set [
                       Immutable.Record {
                         "data": Immutable.Map {},
@@ -6195,14 +6274,14 @@ aaaaaaaaaa ",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "180",
+        "key": "213",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {},
-            "key": "181",
+            "key": "214",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "182",
+                "key": "215",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -6219,17 +6298,17 @@ aaaaaaaaaa ",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "183",
+        "key": "216",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "184",
+            "key": "217",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "185",
+                "key": "218",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -6246,17 +6325,17 @@ aaaaaaaaaa ",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "186",
+        "key": "219",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "187",
+            "key": "220",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "188",
+                "key": "221",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -6273,7 +6352,7 @@ aaaaaaaaaa ",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "189",
+        "key": "222",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -6282,10 +6361,10 @@ aaaaaaaaaa ",
               "alt": "image",
               "void": true,
             },
-            "key": "190",
+            "key": "223",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "191",
+                "key": "224",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -6299,7 +6378,7 @@ aaaaaaaaaa ",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "156",
+      "key": "189",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6307,7 +6386,7 @@ aaaaaaaaaa ",
       ],
     },
     "focus": Immutable.Record {
-      "key": "156",
+      "key": "189",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6320,7 +6399,7 @@ aaaaaaaaaa ",
 }
 `;
 
-exports[`e2e legacy decoration.md 3`] = `
+exports[`e2e legacy node-phrasing-1.md 3`] = `
 Object {
   "children": Array [
     Object {
@@ -6552,7 +6631,7 @@ aaaaaaaaaa ",
 }
 `;
 
-exports[`e2e legacy decoration.md 4`] = `
+exports[`e2e legacy node-phrasing-1.md 4`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
 aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
@@ -6570,259 +6649,345 @@ aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 "
 `;
 
-exports[`e2e legacy headings.md 1`] = `
+exports[`e2e node-code.md 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "text": "@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}",
+      },
+    ],
+    "lang": "css",
+    "meta": null,
+    "type": "code",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+      },
+    ],
+    "lang": "javascript",
+    "meta": null,
+    "type": "code",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax",
+      },
+    ],
+    "lang": "typescript",
+    "meta": null,
+    "type": "code",
+  },
+]
+`;
+
+exports[`e2e node-code.md 2`] = `
 Object {
-  "document": Object {
-    "nodes": Array [
-      Object {
-        "data": Object {
-          "depth": 1,
-        },
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "Alpha",
-          },
-        ],
-        "object": "block",
-        "type": "heading",
-      },
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "aaaa",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-      Object {
-        "data": Object {
-          "depth": 2,
-        },
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "Bravo",
-          },
-        ],
-        "object": "block",
-        "type": "heading",
-      },
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "bbbb",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-      Object {
-        "data": Object {
-          "depth": 3,
-        },
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "Charlie",
-          },
-        ],
-        "object": "block",
-        "type": "heading",
-      },
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "cccc",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-      Object {
-        "data": Object {
-          "depth": 2,
-        },
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "Delta",
-          },
-        ],
-        "object": "block",
-        "type": "heading",
-      },
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "dddd",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-    ],
-    "object": "document",
-  },
-  "object": "value",
+  "children": Array [
+    Object {
+      "lang": "css",
+      "meta": null,
+      "type": "code",
+      "value": "@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}",
+    },
+    Object {
+      "lang": "javascript",
+      "meta": null,
+      "type": "code",
+      "value": "function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;",
+    },
+    Object {
+      "lang": "typescript",
+      "meta": null,
+      "type": "code",
+      "value": "class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax",
+    },
+  ],
+  "type": "root",
 }
 `;
 
-exports[`e2e legacy headings.md 2`] = `
-Immutable.Record {
-  "annotations": Immutable.Map {},
-  "data": Immutable.Map {},
-  "document": Immutable.Record {
-    "data": Immutable.Map {},
-    "key": "192",
-    "nodes": Immutable.List [
-      Immutable.Record {
-        "data": Immutable.Map {
-          "depth": 1,
-        },
-        "key": "193",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "194",
-            "marks": Immutable.Set [],
-            "text": "Alpha",
-          },
-        ],
-        "type": "heading",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "195",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "196",
-            "marks": Immutable.Set [],
-            "text": "aaaa",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "depth": 2,
-        },
-        "key": "197",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "198",
-            "marks": Immutable.Set [],
-            "text": "Bravo",
-          },
-        ],
-        "type": "heading",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "199",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "200",
-            "marks": Immutable.Set [],
-            "text": "bbbb",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "depth": 3,
-        },
-        "key": "201",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "202",
-            "marks": Immutable.Set [],
-            "text": "Charlie",
-          },
-        ],
-        "type": "heading",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "203",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "204",
-            "marks": Immutable.Set [],
-            "text": "cccc",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "depth": 2,
-        },
-        "key": "205",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "206",
-            "marks": Immutable.Set [],
-            "text": "Delta",
-          },
-        ],
-        "type": "heading",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "207",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "208",
-            "marks": Immutable.Set [],
-            "text": "dddd",
-          },
-        ],
-        "type": "paragraph",
-      },
-    ],
-  },
-  "selection": Immutable.Record {
-    "anchor": Immutable.Record {
-      "key": "194",
-      "offset": 0,
-      "path": Immutable.List [
-        0,
-        0,
-      ],
-    },
-    "focus": Immutable.Record {
-      "key": "194",
-      "offset": 0,
-      "path": Immutable.List [
-        0,
-        0,
-      ],
-    },
-    "isFocused": false,
-    "marks": null,
-  },
+exports[`e2e node-code.md 3`] = `
+"\`\`\`css
+@font-face {
+  font-family: Chunkfive;
+  src: url(\\"Chunkfive.otf\\");
 }
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+  --heading-1: 30px/32px Helvetica, sans-serif;
+}
+
+@import url(print.css);
+@media print {
+  a[href^=\\"http\\"]::after {
+    content: attr(href);
+  }
+}
+\`\`\`
+
+\`\`\`javascript
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\\\\bno\\\\-highlight\\\\b/) != -1)
+      return process(block, true, 0x0F) +
+             \` class=\\"\${cls}\\"\`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;
+\`\`\`
+
+\`\`\`typescript
+class MyClass {
+  public static myValue: string;
+  constructor(init: string) {
+    this.myValue = init;
+  }
+}
+import fs = require(\\"fs\\");
+module MyModule {
+  export interface MyInterface extends Other {
+    myProperty: any;
+  }
+}
+declare magicNumber number;
+myArray.forEach(() => { }); // fat arrow syntax
+\`\`\`
+"
 `;
 
-exports[`e2e legacy headings.md 3`] = `
+exports[`e2e node-heading.md 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "text": "Alpha",
+      },
+    ],
+    "depth": 1,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "aaaa",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "Bravo",
+      },
+    ],
+    "depth": 2,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "bbbb",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "Charlie",
+      },
+    ],
+    "depth": 3,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "cccc",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "Delta",
+      },
+    ],
+    "depth": 2,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "dddd",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "E",
+      },
+    ],
+    "depth": 3,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "F",
+      },
+    ],
+    "depth": 4,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "G",
+      },
+    ],
+    "depth": 5,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "H",
+      },
+    ],
+    "depth": 6,
+    "type": "heading",
+  },
+]
+`;
+
+exports[`e2e node-heading.md 2`] = `
 Object {
   "children": Array [
     Object {
@@ -6901,12 +7066,52 @@ Object {
       ],
       "type": "paragraph",
     },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "E",
+        },
+      ],
+      "depth": 3,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "F",
+        },
+      ],
+      "depth": 4,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "G",
+        },
+      ],
+      "depth": 5,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "H",
+        },
+      ],
+      "depth": 6,
+      "type": "heading",
+    },
   ],
   "type": "root",
 }
 `;
 
-exports[`e2e legacy headings.md 4`] = `
+exports[`e2e node-heading.md 3`] = `
 "# Alpha
 
 aaaa
@@ -6922,139 +7127,18 @@ cccc
 ## Delta
 
 dddd
+
+### E
+
+#### F
+
+##### G
+
+###### H
 "
 `;
 
-exports[`e2e legacy plain-text.md 1`] = `
-Object {
-  "document": Object {
-    "nodes": Array [
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-    ],
-    "object": "document",
-  },
-  "object": "value",
-}
-`;
-
-exports[`e2e legacy plain-text.md 2`] = `
-Immutable.Record {
-  "annotations": Immutable.Map {},
-  "data": Immutable.Map {},
-  "document": Immutable.Record {
-    "data": Immutable.Map {},
-    "key": "209",
-    "nodes": Immutable.List [
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "210",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "211",
-            "marks": Immutable.Set [],
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "212",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "213",
-            "marks": Immutable.Set [],
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          },
-        ],
-        "type": "paragraph",
-      },
-    ],
-  },
-  "selection": Immutable.Record {
-    "anchor": Immutable.Record {
-      "key": "211",
-      "offset": 0,
-      "path": Immutable.List [
-        0,
-        0,
-      ],
-    },
-    "focus": Immutable.Record {
-      "key": "211",
-      "offset": 0,
-      "path": Immutable.List [
-        0,
-        0,
-      ],
-    },
-    "isFocused": false,
-    "marks": null,
-  },
-}
-`;
-
-exports[`e2e legacy plain-text.md 3`] = `
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "type": "text",
-          "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        },
-      ],
-      "type": "paragraph",
-    },
-  ],
-  "type": "root",
-}
-`;
-
-exports[`e2e legacy plain-text.md 4`] = `
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-"
-`;
-
-exports[`e2e plain-text.md 1`] = `
+exports[`e2e node-paragraph.md 1`] = `
 Array [
   Object {
     "children": Array [
@@ -7076,7 +7160,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ]
 `;
 
-exports[`e2e plain-text.md 2`] = `
+exports[`e2e node-paragraph.md 2`] = `
 Object {
   "children": Array [
     Object {
@@ -7103,10 +7187,441 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 }
 `;
 
-exports[`e2e plain-text.md 3`] = `
+exports[`e2e node-paragraph.md 3`] = `
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"
+`;
+
+exports[`e2e node-phrasing-1.md 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "text": "aaa ",
+      },
+      Object {
+        "strong": true,
+        "text": "aaaaaaa",
+      },
+      Object {
+        "text": " aaaaaa ",
+      },
+      Object {
+        "emphasis": true,
+        "text": "aaaaaaaa",
+      },
+      Object {
+        "text": " aaaaaaaa ",
+      },
+      Object {
+        "delete": true,
+        "text": "aaaaaaa",
+      },
+      Object {
+        "text": " aaaa ",
+      },
+      Object {
+        "inlineCode": true,
+        "text": "aaaaaaaa",
+      },
+      Object {
+        "text": " aaa
+aaaaaaaaaa ",
+      },
+      Object {
+        "emphasis": true,
+        "text": "aa ",
+      },
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": "a ",
+      },
+      Object {
+        "delete": true,
+        "emphasis": true,
+        "strong": true,
+        "text": "aa",
+      },
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": " aa ",
+      },
+      Object {
+        "emphasis": true,
+        "inlineCode": true,
+        "strong": true,
+        "text": "aaa",
+      },
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": " aaaaa",
+      },
+      Object {
+        "emphasis": true,
+        "text": " aaaa",
+      },
+      Object {
+        "text": " aa",
+      },
+      Object {
+        "inlineCode": true,
+        "text": "a*aa*aa_aa_a~~aa~~a",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "strong": true,
+        "text": "heading",
+      },
+    ],
+    "depth": 1,
+    "type": "heading",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "checked": null,
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "strong": true,
+                "text": "list",
+              },
+            ],
+            "type": "paragraph",
+          },
+        ],
+        "spread": false,
+        "type": "listItem",
+      },
+    ],
+    "ordered": false,
+    "spread": false,
+    "start": null,
+    "type": "list",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "strong": true,
+            "text": "quote",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+    "type": "blockquote",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "strong": true,
+            "text": "link to GitHub.com",
+          },
+        ],
+        "title": null,
+        "type": "link",
+        "url": "https://github.com/",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "strong": true,
+            "text": "link to GitHub.com",
+          },
+        ],
+        "title": null,
+        "type": "link",
+        "url": "https://github.com/",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "alt": "image",
+        "children": Array [
+          Object {
+            "text": "",
+          },
+        ],
+        "title": "image",
+        "type": "image",
+        "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+        "void": true,
+      },
+    ],
+    "type": "paragraph",
+  },
+]
+`;
+
+exports[`e2e node-phrasing-1.md 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "aaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaa",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaaa",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aaaaaaa",
+            },
+          ],
+          "type": "delete",
+        },
+        Object {
+          "type": "text",
+          "value": " aaaa ",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "aaaaaaaa",
+        },
+        Object {
+          "type": "text",
+          "value": " aaa
+aaaaaaaaaa ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "aa ",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "a ",
+                },
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "text",
+                      "value": "aa",
+                    },
+                  ],
+                  "type": "delete",
+                },
+                Object {
+                  "type": "text",
+                  "value": " aa ",
+                },
+                Object {
+                  "type": "inlineCode",
+                  "value": "aaa",
+                },
+                Object {
+                  "type": "text",
+                  "value": " aaaaa",
+                },
+              ],
+              "type": "strong",
+            },
+            Object {
+              "type": "text",
+              "value": " aaaa",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " aa",
+        },
+        Object {
+          "type": "inlineCode",
+          "value": "a*aa*aa_aa_a~~aa~~a",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "heading",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "depth": 1,
+      "type": "heading",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "children": Array [
+                    Object {
+                      "type": "text",
+                      "value": "list",
+                    },
+                  ],
+                  "type": "strong",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "ordered": false,
+      "spread": false,
+      "start": null,
+      "type": "list",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "quote",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "blockquote",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "link to GitHub.com",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "title": null,
+          "type": "link",
+          "url": "https://github.com/",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "link to GitHub.com",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "title": null,
+          "type": "link",
+          "url": "https://github.com/",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "alt": "image",
+          "title": "image",
+          "type": "image",
+          "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e node-phrasing-1.md 3`] = `
+"aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
+aaaaaaaaaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+
+# **heading**
+
+-   **list**
+
+> **quote**
+
+[**link to GitHub.com**](https://github.com/)
+
+[**link to GitHub.com**](https://github.com/)
+
+![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image\\")
 "
 `;

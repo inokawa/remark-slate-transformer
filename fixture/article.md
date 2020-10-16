@@ -60,28 +60,6 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 
 ---
 
-```css
-@font-face {
-  font-family: Chunkfive;
-  src: url("Chunkfive.otf");
-}
-
-body,
-.usertext {
-  color: #f0f0f0;
-  background: #600;
-  font-family: Chunkfive, sans;
-  --heading-1: 30px/32px Helvetica, sans-serif;
-}
-
-@import url(print.css);
-@media print {
-  a[href^="http"]::after {
-    content: attr(href);
-  }
-}
-```
-
 ```javascript
 function $initHighlight(block, cls) {
   try {
@@ -104,21 +82,4 @@ function $initHighlight(block, cls) {
 }
 
 export  $initHighlight;
-```
-
-```typescript
-class MyClass {
-  public static myValue: string;
-  constructor(init: string) {
-    this.myValue = init;
-  }
-}
-import fs = require("fs");
-module MyModule {
-  export interface MyInterface extends Other {
-    myProperty: any;
-  }
-}
-declare magicNumber number;
-myArray.forEach(() => { }); // fat arrow syntax
 ```
