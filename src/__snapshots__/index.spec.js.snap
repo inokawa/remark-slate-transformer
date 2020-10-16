@@ -7059,7 +7059,7 @@ Object {
         "nodes": Array [
           Object {
             "data": Object {
-              "title": "title",
+              "title": "link-title",
               "url": "https://github.com/",
             },
             "nodes": Array [
@@ -7087,7 +7087,7 @@ Object {
           Object {
             "data": Object {
               "alt": "image",
-              "title": "title",
+              "title": "image-title",
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
               "void": true,
             },
@@ -7167,8 +7167,8 @@ Object {
         "nodes": Array [
           Object {
             "data": Object {
-              "identifier": "bravo",
-              "label": "bravo",
+              "identifier": "link-title",
+              "label": "link-title",
               "referenceType": "full",
             },
             "nodes": Array [
@@ -7191,8 +7191,8 @@ Object {
           Object {
             "data": Object {
               "alt": "alpha",
-              "identifier": "bravo",
-              "label": "bravo",
+              "identifier": "image-title",
+              "label": "image-title",
               "referenceType": "full",
               "void": true,
             },
@@ -7256,7 +7256,7 @@ Immutable.Record {
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
-              "title": "title",
+              "title": "link-title",
             },
             "key": "245",
             "nodes": Immutable.List [
@@ -7283,7 +7283,7 @@ Immutable.Record {
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-              "title": "title",
+              "title": "image-title",
               "alt": "image",
               "void": true,
             },
@@ -7363,8 +7363,8 @@ Immutable.Record {
           Immutable.Record {
             "data": Immutable.Map {
               "referenceType": "full",
-              "identifier": "bravo",
-              "label": "bravo",
+              "identifier": "link-title",
+              "label": "link-title",
             },
             "key": "259",
             "nodes": Immutable.List [
@@ -7387,8 +7387,8 @@ Immutable.Record {
             "data": Immutable.Map {
               "alt": "alpha",
               "referenceType": "full",
-              "identifier": "bravo",
-              "label": "bravo",
+              "identifier": "image-title",
+              "label": "image-title",
               "void": true,
             },
             "key": "262",
@@ -7471,7 +7471,7 @@ Object {
               "type": "strong",
             },
           ],
-          "title": "title",
+          "title": "link-title",
           "type": "link",
           "url": "https://github.com/",
         },
@@ -7482,7 +7482,7 @@ Object {
       "children": Array [
         Object {
           "alt": "image",
-          "title": "title",
+          "title": "image-title",
           "type": "image",
           "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
         },
@@ -7540,8 +7540,8 @@ Object {
               "value": "alpha",
             },
           ],
-          "identifier": "bravo",
-          "label": "bravo",
+          "identifier": "link-title",
+          "label": "link-title",
           "referenceType": "full",
           "type": "linkReference",
         },
@@ -7552,8 +7552,8 @@ Object {
       "children": Array [
         Object {
           "alt": "alpha",
-          "identifier": "bravo",
-          "label": "bravo",
+          "identifier": "image-title",
+          "label": "image-title",
           "referenceType": "full",
           "type": "imageReference",
         },
@@ -7583,17 +7583,17 @@ Object {
 `;
 
 exports[`e2e legacy node-phrasing-2.md 4`] = `
-"[**link to GitHub.com**](https://github.com/ \\"title\\")
+"[**link to GitHub.com**](https://github.com/ \\"link-title\\")
 
-![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"title\\")
+![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image-title\\")
 
 ^[this is footnote]
 
 [^alpha]&#x3A; this is footnote
 
-[alpha][bravo]
+[alpha][link-title]
 
-![alpha][bravo]
+![alpha][image-title]
 
 [^alpha]
 "
@@ -8757,7 +8757,7 @@ Array [
             "text": "link to GitHub.com",
           },
         ],
-        "title": "title",
+        "title": "link-title",
         "type": "link",
         "url": "https://github.com/",
       },
@@ -8773,7 +8773,7 @@ Array [
             "text": "",
           },
         ],
-        "title": "title",
+        "title": "image-title",
         "type": "image",
         "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
         "void": true,
@@ -8827,8 +8827,8 @@ Array [
             "text": "alpha",
           },
         ],
-        "identifier": "bravo",
-        "label": "bravo",
+        "identifier": "link-title",
+        "label": "link-title",
         "referenceType": "full",
         "type": "linkReference",
       },
@@ -8844,8 +8844,8 @@ Array [
             "text": "",
           },
         ],
-        "identifier": "bravo",
-        "label": "bravo",
+        "identifier": "image-title",
+        "label": "image-title",
         "referenceType": "full",
         "type": "imageReference",
         "void": true,
@@ -8889,7 +8889,7 @@ Object {
               "type": "strong",
             },
           ],
-          "title": "title",
+          "title": "link-title",
           "type": "link",
           "url": "https://github.com/",
         },
@@ -8900,7 +8900,7 @@ Object {
       "children": Array [
         Object {
           "alt": "image",
-          "title": "title",
+          "title": "image-title",
           "type": "image",
           "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
         },
@@ -8958,8 +8958,8 @@ Object {
               "value": "alpha",
             },
           ],
-          "identifier": "bravo",
-          "label": "bravo",
+          "identifier": "link-title",
+          "label": "link-title",
           "referenceType": "full",
           "type": "linkReference",
         },
@@ -8970,8 +8970,8 @@ Object {
       "children": Array [
         Object {
           "alt": "alpha",
-          "identifier": "bravo",
-          "label": "bravo",
+          "identifier": "image-title",
+          "label": "image-title",
           "referenceType": "full",
           "type": "imageReference",
         },
@@ -9001,17 +9001,17 @@ Object {
 `;
 
 exports[`e2e node-phrasing-2.md 3`] = `
-"[**link to GitHub.com**](https://github.com/ \\"title\\")
+"[**link to GitHub.com**](https://github.com/ \\"link-title\\")
 
-![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"title\\")
+![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image-title\\")
 
 ^[this is footnote]
 
 [^alpha]&#x3A; this is footnote
 
-[alpha][bravo]
+[alpha][link-title]
 
-![alpha][bravo]
+![alpha][image-title]
 
 [^alpha]
 "
