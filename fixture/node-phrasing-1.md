@@ -11,4 +11,4 @@ aaaaaaaaaa _aa **a ~~aa~~ aa `aaa` aaaaa** aaaa_ aa`a*aa*aa_aa_a~~aa~~a`
 
 [**link to GitHub.com**](https://github.com/)
 
-**![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png "image")**
+**![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png)**

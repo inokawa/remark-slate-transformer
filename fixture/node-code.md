@@ -1,4 +1,4 @@
-```css
+```css metadata="12345"
 @font-face {
   font-family: Chunkfive;
   src: url("Chunkfive.otf");
