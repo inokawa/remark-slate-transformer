@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import unified from "unified";
 import markdown from "remark-parse";
+import gfm from "remark-gfm";
+import footnotes from "remark-footnotes";
 import stringify from "remark-stringify";
 import {
   remarkToSlate,
@@ -16,8 +18,14 @@ const FIXTURE_PATH = "../fixture";
 describe("e2e", () => {
   const toSlateProcessor = unified()
     .use(markdown, { commonmark: true })
+    .use(gfm)
+    .use(footnotes, { inlineNotes: true })
     .use(remarkToSlate);
-  const toRemarkProcessor = unified().use(slateToRemark).use(stringify);
+  const toRemarkProcessor = unified()
+    .use(slateToRemark)
+    .use(gfm)
+    .use(footnotes, { inlineNotes: true })
+    .use(stringify, { bullet: "-", emphasis: "_" });
 
   const fixtureDir = path.join(__dirname, FIXTURE_PATH);
   const filenames = fs.readdirSync(fixtureDir);
@@ -43,8 +51,14 @@ describe("e2e", () => {
 describe("e2e legacy", () => {
   const toSlateProcessor = unified()
     .use(markdown, { commonmark: true })
+    .use(gfm)
+    .use(footnotes, { inlineNotes: true })
     .use(remarkToSlateLegacy);
-  const toRemarkProcessor = unified().use(slateToRemarkLegacy).use(stringify);
+  const toRemarkProcessor = unified()
+    .use(slateToRemarkLegacy)
+    .use(gfm)
+    .use(footnotes, { inlineNotes: true })
+    .use(stringify, { bullet: "-", emphasis: "_" });
 
   const fixtureDir = path.join(__dirname, FIXTURE_PATH);
   const filenames = fs.readdirSync(fixtureDir);

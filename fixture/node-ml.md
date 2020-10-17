@@ -4,6 +4,8 @@
 
 <!--comment-->
 
+<mailto:foobarbaz>
+
 ---
 
 title: "This is yaml"

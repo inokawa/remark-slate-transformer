@@ -2,12 +2,9 @@
 
 ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png "image-title")
 
-^[this is footnote]
+[alpha][link-ref]
 
-[^alpha]: this is footnote
+![blavo][image-ref]
 
-[alpha][link-title]
-
-![alpha][image-title]
-
-[^alpha]
+[link-ref]: example.com
+[image-ref]: example.gif

@@ -2,6 +2,7 @@ import React, { useMemo, useRef, useState } from "react";
 import { Node } from "slate";
 import unified from "unified";
 import markdown from "remark-parse";
+import gfm from "remark-gfm";
 import stringify from "remark-stringify";
 import { remarkToSlate, slateToRemark } from "../src";
 import SlateEditor from "./components/slate-editor";
@@ -9,10 +10,8 @@ import TextEditor from "./components/text-editor";
 import Text from "./components/text";
 import text from "../fixture/article.md";
 
-const toSlateProcessor = unified()
-  .use(markdown, { commonmark: true })
-  .use(remarkToSlate);
-const toRemarkProcessor = unified().use(slateToRemark).use(stringify);
+const toSlateProcessor = unified().use(markdown).use(gfm).use(remarkToSlate);
+const toRemarkProcessor = unified().use(slateToRemark).use(gfm).use(stringify);
 
 const toSlate = (s: string) => toSlateProcessor.processSync(s).result as Node[];
 const toMd = (value: Node[]) => {

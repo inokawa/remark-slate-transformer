@@ -2,6 +2,7 @@ import React, { useMemo, useRef, useState } from "react";
 import { Value } from "slate_legacy";
 import unified from "unified";
 import markdown from "remark-parse";
+import gfm from "remark-gfm";
 import stringify from "remark-stringify";
 import { remarkToSlateLegacy, slateToRemarkLegacy } from "../src";
 import SlateEditor from "./components/slate0.47-editor";
@@ -10,9 +11,13 @@ import Text from "./components/text";
 import text from "../fixture/article.md";
 
 const toSlateProcessor = unified()
-  .use(markdown, { commonmark: true })
+  .use(markdown)
+  .use(gfm)
   .use(remarkToSlateLegacy);
-const toRemarkProcessor = unified().use(slateToRemarkLegacy).use(stringify);
+const toRemarkProcessor = unified()
+  .use(slateToRemarkLegacy)
+  .use(gfm)
+  .use(stringify);
 
 const toSlate = (s: string) =>
   Value.fromJSON(toSlateProcessor.processSync(s).result);

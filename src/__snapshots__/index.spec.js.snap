@@ -1561,9 +1561,9 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 | left       |       right |    center    |
 | aligned    |     aligned |    aligned   |
 
-* * *
+***
 
-* * *
+***
 
 \`\`\`javascript
 function $initHighlight(block, cls) {
@@ -4611,9 +4611,9 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 | left       |       right |    center    |
 | aligned    |     aligned |    aligned   |
 
-* * *
+***
 
-* * *
+***
 
 \`\`\`javascript
 function $initHighlight(block, cls) {
@@ -4758,9 +4758,9 @@ Object {
 `;
 
 exports[`e2e legacy node-break.md 4`] = `
-"* * *
+"***
 
-* * *
+***
 "
 `;
 
@@ -5143,6 +5143,257 @@ myArray.forEach(() => { }); // fat arrow syntax
 "
 `;
 
+exports[`e2e legacy node-footnotes.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "This is footnote",
+          },
+          Object {
+            "data": Object {
+              "identifier": "1",
+              "label": "1",
+              "void": true,
+            },
+            "isVoid": true,
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "",
+              },
+            ],
+            "object": "inline",
+            "type": "footnoteReference",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": ". And this is also ",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "inline footnote",
+              },
+            ],
+            "object": "inline",
+            "type": "footnote",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": ".",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {
+          "identifier": "1",
+          "label": "1",
+        },
+        "nodes": Array [
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "Here is the footnote.",
+              },
+            ],
+            "object": "block",
+            "type": "paragraph",
+          },
+        ],
+        "object": "inline",
+        "type": "footnoteDefinition",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy node-footnotes.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "162",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "163",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "164",
+            "marks": Immutable.Set [],
+            "text": "This is footnote",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {
+              "identifier": "1",
+              "label": "1",
+              "void": true,
+            },
+            "key": "165",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "166",
+                "marks": Immutable.Set [],
+                "text": "",
+              },
+            ],
+            "type": "footnoteReference",
+          },
+          Immutable.Record {
+            "key": "167",
+            "marks": Immutable.Set [],
+            "text": ". And this is also ",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "168",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "169",
+                "marks": Immutable.Set [],
+                "text": "inline footnote",
+              },
+            ],
+            "type": "footnote",
+          },
+          Immutable.Record {
+            "key": "170",
+            "marks": Immutable.Set [],
+            "text": ".",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "identifier": "1",
+          "label": "1",
+        },
+        "key": "171",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "172",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "173",
+                "marks": Immutable.Set [],
+                "text": "Here is the footnote.",
+              },
+            ],
+            "type": "paragraph",
+          },
+        ],
+        "type": "footnoteDefinition",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "164",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "164",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy node-footnotes.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "This is footnote",
+        },
+        Object {
+          "identifier": "1",
+          "label": "1",
+          "type": "footnoteReference",
+        },
+        Object {
+          "type": "text",
+          "value": ". And this is also ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "inline footnote",
+            },
+          ],
+          "type": "footnote",
+        },
+        Object {
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "Here is the footnote.",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "identifier": "1",
+      "label": "1",
+      "type": "footnoteDefinition",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy node-footnotes.md 4`] = `
+"This is footnote[^1]. And this is also ^[inline footnote].
+
+[^1]: Here is the footnote.
+"
+`;
+
 exports[`e2e legacy node-heading.md 1`] = `
 Object {
   "document": Object {
@@ -5320,96 +5571,18 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "162",
+    "key": "174",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {
           "depth": 1,
-        },
-        "key": "163",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "164",
-            "marks": Immutable.Set [],
-            "text": "Alpha",
-          },
-        ],
-        "type": "heading",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "165",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "166",
-            "marks": Immutable.Set [],
-            "text": "aaaa",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "depth": 2,
-        },
-        "key": "167",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "168",
-            "marks": Immutable.Set [],
-            "text": "Bravo",
-          },
-        ],
-        "type": "heading",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "169",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "170",
-            "marks": Immutable.Set [],
-            "text": "bbbb",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "depth": 3,
-        },
-        "key": "171",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "172",
-            "marks": Immutable.Set [],
-            "text": "Charlie",
-          },
-        ],
-        "type": "heading",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "173",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "174",
-            "marks": Immutable.Set [],
-            "text": "cccc",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {
-          "depth": 2,
         },
         "key": "175",
         "nodes": Immutable.List [
           Immutable.Record {
             "key": "176",
             "marks": Immutable.Set [],
-            "text": "Delta",
+            "text": "Alpha",
           },
         ],
         "type": "heading",
@@ -5421,6 +5594,84 @@ Immutable.Record {
           Immutable.Record {
             "key": "178",
             "marks": Immutable.Set [],
+            "text": "aaaa",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 2,
+        },
+        "key": "179",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "180",
+            "marks": Immutable.Set [],
+            "text": "Bravo",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "181",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "182",
+            "marks": Immutable.Set [],
+            "text": "bbbb",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 3,
+        },
+        "key": "183",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "184",
+            "marks": Immutable.Set [],
+            "text": "Charlie",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "185",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "186",
+            "marks": Immutable.Set [],
+            "text": "cccc",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "depth": 2,
+        },
+        "key": "187",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "188",
+            "marks": Immutable.Set [],
+            "text": "Delta",
+          },
+        ],
+        "type": "heading",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "189",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "190",
+            "marks": Immutable.Set [],
             "text": "dddd",
           },
         ],
@@ -5430,10 +5681,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 3,
         },
-        "key": "179",
+        "key": "191",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "180",
+            "key": "192",
             "marks": Immutable.Set [],
             "text": "E",
           },
@@ -5444,10 +5695,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 4,
         },
-        "key": "181",
+        "key": "193",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "182",
+            "key": "194",
             "marks": Immutable.Set [],
             "text": "F",
           },
@@ -5458,10 +5709,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 5,
         },
-        "key": "183",
+        "key": "195",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "184",
+            "key": "196",
             "marks": Immutable.Set [],
             "text": "G",
           },
@@ -5472,10 +5723,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 6,
         },
-        "key": "185",
+        "key": "197",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "186",
+            "key": "198",
             "marks": Immutable.Set [],
             "text": "H",
           },
@@ -5486,7 +5737,7 @@ Immutable.Record {
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "164",
+      "key": "176",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5494,7 +5745,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "164",
+      "key": "176",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5689,6 +5940,28 @@ Object {
         "type": "html",
       },
       Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "data": Object {
+              "title": null,
+              "url": "mailto:foobarbaz",
+            },
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "mailto:foobarbaz",
+              },
+            ],
+            "object": "inline",
+            "type": "link",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
         "data": Object {
           "void": true,
         },
@@ -5711,23 +5984,7 @@ Object {
             "object": "text",
             "text": "title: \\"This is yaml\\"
 date: 2020-04-30 22:34
-categories: ",
-          },
-          Object {
-            "data": Object {
-              "identifier": "javascript, react",
-              "label": "JavaScript, React",
-              "referenceType": "shortcut",
-            },
-            "nodes": Array [
-              Object {
-                "marks": Array [],
-                "object": "text",
-                "text": "JavaScript, React",
-              },
-            ],
-            "object": "inline",
-            "type": "linkReference",
+categories: [JavaScript, React]",
           },
         ],
         "object": "block",
@@ -5761,14 +6018,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "187",
+    "key": "199",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "188",
+        "key": "200",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "189",
+            "key": "201",
             "marks": Immutable.Set [],
             "text": "<div>
 <span>This is <b>html</b></span>
@@ -5779,10 +6036,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "190",
+        "key": "202",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "191",
+            "key": "203",
             "marks": Immutable.Set [],
             "text": "<!--comment-->",
           },
@@ -5790,45 +6047,23 @@ Immutable.Record {
         "type": "html",
       },
       Immutable.Record {
-        "data": Immutable.Map {
-          "void": true,
-        },
-        "key": "192",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "193",
-            "marks": Immutable.Set [],
-            "text": "",
-          },
-        ],
-        "type": "thematicBreak",
-      },
-      Immutable.Record {
         "data": Immutable.Map {},
-        "key": "194",
+        "key": "204",
         "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "195",
-            "marks": Immutable.Set [],
-            "text": "title: \\"This is yaml\\"
-date: 2020-04-30 22:34
-categories: ",
-          },
           Immutable.Record {
             "data": Immutable.Map {
-              "referenceType": "shortcut",
-              "identifier": "javascript, react",
-              "label": "JavaScript, React",
+              "url": "mailto:foobarbaz",
+              "title": null,
             },
-            "key": "196",
+            "key": "205",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "197",
+                "key": "206",
                 "marks": Immutable.Set [],
-                "text": "JavaScript, React",
+                "text": "mailto:foobarbaz",
               },
             ],
-            "type": "linkReference",
+            "type": "link",
           },
         ],
         "type": "paragraph",
@@ -5837,10 +6072,38 @@ categories: ",
         "data": Immutable.Map {
           "void": true,
         },
-        "key": "198",
+        "key": "207",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "199",
+            "key": "208",
+            "marks": Immutable.Set [],
+            "text": "",
+          },
+        ],
+        "type": "thematicBreak",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "209",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "210",
+            "marks": Immutable.Set [],
+            "text": "title: \\"This is yaml\\"
+date: 2020-04-30 22:34
+categories: [JavaScript, React]",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "void": true,
+        },
+        "key": "211",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "212",
             "marks": Immutable.Set [],
             "text": "",
           },
@@ -5851,7 +6114,7 @@ categories: ",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "189",
+      "key": "201",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5859,7 +6122,7 @@ categories: ",
       ],
     },
     "focus": Immutable.Record {
-      "key": "189",
+      "key": "201",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5886,6 +6149,22 @@ Object {
       "value": "<!--comment-->",
     },
     Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "mailto:foobarbaz",
+            },
+          ],
+          "title": null,
+          "type": "link",
+          "url": "mailto:foobarbaz",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
       "type": "thematicBreak",
     },
     Object {
@@ -5894,19 +6173,7 @@ Object {
           "type": "text",
           "value": "title: \\"This is yaml\\"
 date: 2020-04-30 22:34
-categories: ",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "JavaScript, React",
-            },
-          ],
-          "identifier": "javascript, react",
-          "label": "JavaScript, React",
-          "referenceType": "shortcut",
-          "type": "linkReference",
+categories: [JavaScript, React]",
         },
       ],
       "type": "paragraph",
@@ -5926,13 +6193,15 @@ exports[`e2e legacy node-ml.md 4`] = `
 
 <!--comment-->
 
-* * *
+<mailto:foobarbaz>
+
+***
 
 title: \\"This is yaml\\"
 date: 2020-04-30 22:34
-categories: [JavaScript, React]
+categories: \\\\[JavaScript, React]
 
-* * *
+***
 "
 `;
 
@@ -5978,14 +6247,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "200",
+    "key": "213",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "201",
+        "key": "214",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "202",
+            "key": "215",
             "marks": Immutable.Set [],
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           },
@@ -5994,10 +6263,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "203",
+        "key": "216",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "204",
+            "key": "217",
             "marks": Immutable.Set [],
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -6009,7 +6278,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "202",
+      "key": "215",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6017,7 +6286,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       ],
     },
     "focus": Immutable.Record {
-      "key": "202",
+      "key": "215",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6136,14 +6405,10 @@ Object {
             "marks": Array [],
             "object": "text",
             "text": " aaa
-aaa",
+aaa**",
           },
           Object {
             "marks": Array [
-              Object {
-                "object": "mark",
-                "type": "strong",
-              },
               Object {
                 "object": "mark",
                 "type": "emphasis",
@@ -6156,10 +6421,6 @@ aaa",
             "marks": Array [
               Object {
                 "object": "mark",
-                "type": "strong",
-              },
-              Object {
-                "object": "mark",
                 "type": "delete",
               },
             ],
@@ -6169,7 +6430,7 @@ aaa",
           Object {
             "marks": Array [],
             "object": "text",
-            "text": "aaa ",
+            "text": "**aaa ",
           },
           Object {
             "marks": Array [
@@ -6461,19 +6722,19 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "205",
+    "key": "218",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "206",
+        "key": "219",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "207",
+            "key": "220",
             "marks": Immutable.Set [],
             "text": "aaa ",
           },
           Immutable.Record {
-            "key": "208",
+            "key": "221",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6483,12 +6744,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "209",
+            "key": "222",
             "marks": Immutable.Set [],
             "text": " aaaaaa ",
           },
           Immutable.Record {
-            "key": "210",
+            "key": "223",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6498,12 +6759,12 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "211",
+            "key": "224",
             "marks": Immutable.Set [],
             "text": " aaaaaaaa ",
           },
           Immutable.Record {
-            "key": "212",
+            "key": "225",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6513,12 +6774,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "213",
+            "key": "226",
             "marks": Immutable.Set [],
             "text": " aaaa ",
           },
           Immutable.Record {
-            "key": "214",
+            "key": "227",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6528,18 +6789,14 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "215",
+            "key": "228",
             "marks": Immutable.Set [],
             "text": " aaa
-aaa",
+aaa**",
           },
           Immutable.Record {
-            "key": "216",
+            "key": "229",
             "marks": Immutable.Set [
-              Immutable.Record {
-                "data": Immutable.Map {},
-                "type": "strong",
-              },
               Immutable.Record {
                 "data": Immutable.Map {},
                 "type": "emphasis",
@@ -6548,12 +6805,8 @@ aaa",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "217",
+            "key": "230",
             "marks": Immutable.Set [
-              Immutable.Record {
-                "data": Immutable.Map {},
-                "type": "strong",
-              },
               Immutable.Record {
                 "data": Immutable.Map {},
                 "type": "delete",
@@ -6562,12 +6815,12 @@ aaa",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "218",
+            "key": "231",
             "marks": Immutable.Set [],
-            "text": "aaa ",
+            "text": "**aaa ",
           },
           Immutable.Record {
-            "key": "219",
+            "key": "232",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6577,7 +6830,7 @@ aaa",
             "text": "aa ",
           },
           Immutable.Record {
-            "key": "220",
+            "key": "233",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6591,7 +6844,7 @@ aaa",
             "text": "a ",
           },
           Immutable.Record {
-            "key": "221",
+            "key": "234",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6609,7 +6862,7 @@ aaa",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "222",
+            "key": "235",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6623,7 +6876,7 @@ aaa",
             "text": " aa ",
           },
           Immutable.Record {
-            "key": "223",
+            "key": "236",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6641,7 +6894,7 @@ aaa",
             "text": "aaa",
           },
           Immutable.Record {
-            "key": "224",
+            "key": "237",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6655,7 +6908,7 @@ aaa",
             "text": " aaaaa",
           },
           Immutable.Record {
-            "key": "225",
+            "key": "238",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6665,12 +6918,12 @@ aaa",
             "text": " aaaa",
           },
           Immutable.Record {
-            "key": "226",
+            "key": "239",
             "marks": Immutable.Set [],
             "text": " aa",
           },
           Immutable.Record {
-            "key": "227",
+            "key": "240",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6686,10 +6939,10 @@ aaa",
         "data": Immutable.Map {
           "depth": 1,
         },
-        "key": "228",
+        "key": "241",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "229",
+            "key": "242",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -6707,21 +6960,21 @@ aaa",
           "start": null,
           "spread": false,
         },
-        "key": "230",
+        "key": "243",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "checked": null,
               "spread": false,
             },
-            "key": "231",
+            "key": "244",
             "nodes": Immutable.List [
               Immutable.Record {
                 "data": Immutable.Map {},
-                "key": "232",
+                "key": "245",
                 "nodes": Immutable.List [
                   Immutable.Record {
-                    "key": "233",
+                    "key": "246",
                     "marks": Immutable.Set [
                       Immutable.Record {
                         "data": Immutable.Map {},
@@ -6741,14 +6994,14 @@ aaa",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "234",
+        "key": "247",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {},
-            "key": "235",
+            "key": "248",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "236",
+                "key": "249",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -6765,17 +7018,17 @@ aaa",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "237",
+        "key": "250",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "238",
+            "key": "251",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "239",
+                "key": "252",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -6792,17 +7045,17 @@ aaa",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "240",
+        "key": "253",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "241",
+            "key": "254",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "242",
+                "key": "255",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -6819,7 +7072,7 @@ aaa",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "243",
+        "key": "256",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -6828,10 +7081,10 @@ aaa",
               "alt": "image",
               "void": true,
             },
-            "key": "244",
+            "key": "257",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "245",
+                "key": "258",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -6845,7 +7098,7 @@ aaa",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "207",
+      "key": "220",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6853,7 +7106,7 @@ aaa",
       ],
     },
     "focus": Immutable.Record {
-      "key": "207",
+      "key": "220",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6921,18 +7174,13 @@ Object {
         Object {
           "type": "text",
           "value": " aaa
-aaa",
+aaa**",
         },
         Object {
           "children": Array [
             Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "aa",
-                },
-              ],
-              "type": "strong",
+              "type": "text",
+              "value": "aa",
             },
           ],
           "type": "emphasis",
@@ -6940,20 +7188,15 @@ aaa",
         Object {
           "children": Array [
             Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "aa",
-                },
-              ],
-              "type": "delete",
+              "type": "text",
+              "value": "aa",
             },
           ],
-          "type": "strong",
+          "type": "delete",
         },
         Object {
           "type": "text",
-          "value": "aaa ",
+          "value": "**aaa ",
         },
         Object {
           "children": Array [
@@ -7132,7 +7375,7 @@ aaa",
 
 exports[`e2e legacy node-phrasing-1.md 4`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaa_**aa**_**~~aa~~**aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aaa\\\\*\\\\*_aa_~~aa~~\\\\*\\\\*aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
@@ -7208,65 +7451,9 @@ Object {
         "data": Object {},
         "nodes": Array [
           Object {
-            "marks": Array [],
-            "object": "text",
-            "text": "^",
-          },
-          Object {
             "data": Object {
-              "identifier": "this is footnote",
-              "label": "this is footnote",
-              "referenceType": "shortcut",
-            },
-            "nodes": Array [
-              Object {
-                "marks": Array [],
-                "object": "text",
-                "text": "this is footnote",
-              },
-            ],
-            "object": "inline",
-            "type": "linkReference",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "data": Object {
-              "identifier": "^alpha",
-              "label": "^alpha",
-              "referenceType": "shortcut",
-            },
-            "nodes": Array [
-              Object {
-                "marks": Array [],
-                "object": "text",
-                "text": "^alpha",
-              },
-            ],
-            "object": "inline",
-            "type": "linkReference",
-          },
-          Object {
-            "marks": Array [],
-            "object": "text",
-            "text": ": this is footnote",
-          },
-        ],
-        "object": "block",
-        "type": "paragraph",
-      },
-      Object {
-        "data": Object {},
-        "nodes": Array [
-          Object {
-            "data": Object {
-              "identifier": "link-title",
-              "label": "link-title",
+              "identifier": "link-ref",
+              "label": "link-ref",
               "referenceType": "full",
             },
             "nodes": Array [
@@ -7288,9 +7475,9 @@ Object {
         "nodes": Array [
           Object {
             "data": Object {
-              "alt": "alpha",
-              "identifier": "image-title",
-              "label": "image-title",
+              "alt": "blavo",
+              "identifier": "image-ref",
+              "label": "image-ref",
               "referenceType": "full",
               "void": true,
             },
@@ -7310,27 +7497,42 @@ Object {
         "type": "paragraph",
       },
       Object {
-        "data": Object {},
+        "data": Object {
+          "identifier": "link-ref",
+          "label": "link-ref",
+          "title": null,
+          "url": "example.com",
+          "void": true,
+        },
+        "isVoid": true,
         "nodes": Array [
           Object {
-            "data": Object {
-              "identifier": "^alpha",
-              "label": "^alpha",
-              "referenceType": "shortcut",
-            },
-            "nodes": Array [
-              Object {
-                "marks": Array [],
-                "object": "text",
-                "text": "^alpha",
-              },
-            ],
-            "object": "inline",
-            "type": "linkReference",
+            "marks": Array [],
+            "object": "text",
+            "text": "",
           },
         ],
         "object": "block",
-        "type": "paragraph",
+        "type": "definition",
+      },
+      Object {
+        "data": Object {
+          "identifier": "image-ref",
+          "label": "image-ref",
+          "title": null,
+          "url": "example.gif",
+          "void": true,
+        },
+        "isVoid": true,
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "",
+          },
+        ],
+        "object": "block",
+        "type": "definition",
       },
     ],
     "object": "document",
@@ -7345,21 +7547,21 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "246",
+    "key": "259",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "247",
+        "key": "260",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": "link-title",
             },
-            "key": "248",
+            "key": "261",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "249",
+                "key": "262",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7376,7 +7578,7 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "250",
+        "key": "263",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7385,10 +7587,10 @@ Immutable.Record {
               "alt": "image",
               "void": true,
             },
-            "key": "251",
+            "key": "264",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "252",
+                "key": "265",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7400,74 +7602,18 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "253",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "254",
-            "marks": Immutable.Set [],
-            "text": "^",
-          },
-          Immutable.Record {
-            "data": Immutable.Map {
-              "referenceType": "shortcut",
-              "identifier": "this is footnote",
-              "label": "this is footnote",
-            },
-            "key": "255",
-            "nodes": Immutable.List [
-              Immutable.Record {
-                "key": "256",
-                "marks": Immutable.Set [],
-                "text": "this is footnote",
-              },
-            ],
-            "type": "linkReference",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "257",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "data": Immutable.Map {
-              "referenceType": "shortcut",
-              "identifier": "^alpha",
-              "label": "^alpha",
-            },
-            "key": "258",
-            "nodes": Immutable.List [
-              Immutable.Record {
-                "key": "259",
-                "marks": Immutable.Set [],
-                "text": "^alpha",
-              },
-            ],
-            "type": "linkReference",
-          },
-          Immutable.Record {
-            "key": "260",
-            "marks": Immutable.Set [],
-            "text": ": this is footnote",
-          },
-        ],
-        "type": "paragraph",
-      },
-      Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "261",
+        "key": "266",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "referenceType": "full",
-              "identifier": "link-title",
-              "label": "link-title",
+              "identifier": "link-ref",
+              "label": "link-ref",
             },
-            "key": "262",
+            "key": "267",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "263",
+                "key": "268",
                 "marks": Immutable.Set [],
                 "text": "alpha",
               },
@@ -7479,20 +7625,20 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "264",
+        "key": "269",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
-              "alt": "alpha",
+              "alt": "blavo",
               "referenceType": "full",
-              "identifier": "image-title",
-              "label": "image-title",
+              "identifier": "image-ref",
+              "label": "image-ref",
               "void": true,
             },
-            "key": "265",
+            "key": "270",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "266",
+                "key": "271",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7503,33 +7649,46 @@ Immutable.Record {
         "type": "paragraph",
       },
       Immutable.Record {
-        "data": Immutable.Map {},
-        "key": "267",
+        "data": Immutable.Map {
+          "identifier": "link-ref",
+          "label": "link-ref",
+          "url": "example.com",
+          "title": null,
+          "void": true,
+        },
+        "key": "272",
         "nodes": Immutable.List [
           Immutable.Record {
-            "data": Immutable.Map {
-              "referenceType": "shortcut",
-              "identifier": "^alpha",
-              "label": "^alpha",
-            },
-            "key": "268",
-            "nodes": Immutable.List [
-              Immutable.Record {
-                "key": "269",
-                "marks": Immutable.Set [],
-                "text": "^alpha",
-              },
-            ],
-            "type": "linkReference",
+            "key": "273",
+            "marks": Immutable.Set [],
+            "text": "",
           },
         ],
-        "type": "paragraph",
+        "type": "definition",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "identifier": "image-ref",
+          "label": "image-ref",
+          "url": "example.gif",
+          "title": null,
+          "void": true,
+        },
+        "key": "274",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "275",
+            "marks": Immutable.Set [],
+            "text": "",
+          },
+        ],
+        "type": "definition",
       },
     ],
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "249",
+      "key": "262",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7538,7 +7697,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "249",
+      "key": "262",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7590,56 +7749,14 @@ Object {
     Object {
       "children": Array [
         Object {
-          "type": "text",
-          "value": "^",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "this is footnote",
-            },
-          ],
-          "identifier": "this is footnote",
-          "label": "this is footnote",
-          "referenceType": "shortcut",
-          "type": "linkReference",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "^alpha",
-            },
-          ],
-          "identifier": "^alpha",
-          "label": "^alpha",
-          "referenceType": "shortcut",
-          "type": "linkReference",
-        },
-        Object {
-          "type": "text",
-          "value": ": this is footnote",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
           "children": Array [
             Object {
               "type": "text",
               "value": "alpha",
             },
           ],
-          "identifier": "link-title",
-          "label": "link-title",
+          "identifier": "link-ref",
+          "label": "link-ref",
           "referenceType": "full",
           "type": "linkReference",
         },
@@ -7649,9 +7766,9 @@ Object {
     Object {
       "children": Array [
         Object {
-          "alt": "alpha",
-          "identifier": "image-title",
-          "label": "image-title",
+          "alt": "blavo",
+          "identifier": "image-ref",
+          "label": "image-ref",
           "referenceType": "full",
           "type": "imageReference",
         },
@@ -7659,21 +7776,18 @@ Object {
       "type": "paragraph",
     },
     Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "^alpha",
-            },
-          ],
-          "identifier": "^alpha",
-          "label": "^alpha",
-          "referenceType": "shortcut",
-          "type": "linkReference",
-        },
-      ],
-      "type": "paragraph",
+      "identifier": "link-ref",
+      "label": "link-ref",
+      "title": null,
+      "type": "definition",
+      "url": "example.com",
+    },
+    Object {
+      "identifier": "image-ref",
+      "label": "image-ref",
+      "title": null,
+      "type": "definition",
+      "url": "example.gif",
     },
   ],
   "type": "root",
@@ -7685,15 +7799,13 @@ exports[`e2e legacy node-phrasing-2.md 4`] = `
 
 ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image-title\\")
 
-^[this is footnote]
+[alpha][link-ref]
 
-[^alpha]&#x3A; this is footnote
+![blavo][image-ref]
 
-[alpha][link-title]
+[link-ref]: example.com
 
-![alpha][image-title]
-
-[^alpha]
+[image-ref]: example.gif
 "
 `;
 
@@ -7735,9 +7847,9 @@ Object {
 `;
 
 exports[`e2e node-break.md 3`] = `
-"* * *
+"***
 
-* * *
+***
 "
 `;
 
@@ -7967,6 +8079,121 @@ module MyModule {
 declare magicNumber number;
 myArray.forEach(() => { }); // fat arrow syntax
 \`\`\`
+"
+`;
+
+exports[`e2e node-footnotes.md 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "text": "This is footnote",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "",
+          },
+        ],
+        "identifier": "1",
+        "label": "1",
+        "type": "footnoteReference",
+        "void": true,
+      },
+      Object {
+        "text": ". And this is also ",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "inline footnote",
+          },
+        ],
+        "type": "footnote",
+      },
+      Object {
+        "text": ".",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "text": "Here is the footnote.",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+    "identifier": "1",
+    "label": "1",
+    "type": "footnoteDefinition",
+  },
+]
+`;
+
+exports[`e2e node-footnotes.md 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "This is footnote",
+        },
+        Object {
+          "identifier": "1",
+          "label": "1",
+          "type": "footnoteReference",
+        },
+        Object {
+          "type": "text",
+          "value": ". And this is also ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "inline footnote",
+            },
+          ],
+          "type": "footnote",
+        },
+        Object {
+          "type": "text",
+          "value": ".",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "Here is the footnote.",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "identifier": "1",
+      "label": "1",
+      "type": "footnoteDefinition",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e node-footnotes.md 3`] = `
+"This is footnote[^1]. And this is also ^[inline footnote].
+
+[^1]: Here is the footnote.
 "
 `;
 
@@ -8253,6 +8480,21 @@ Array [
   Object {
     "children": Array [
       Object {
+        "children": Array [
+          Object {
+            "text": "mailto:foobarbaz",
+          },
+        ],
+        "title": null,
+        "type": "link",
+        "url": "mailto:foobarbaz",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
         "text": "",
       },
     ],
@@ -8264,18 +8506,7 @@ Array [
       Object {
         "text": "title: \\"This is yaml\\"
 date: 2020-04-30 22:34
-categories: ",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "text": "JavaScript, React",
-          },
-        ],
-        "identifier": "javascript, react",
-        "label": "JavaScript, React",
-        "referenceType": "shortcut",
-        "type": "linkReference",
+categories: [JavaScript, React]",
       },
     ],
     "type": "paragraph",
@@ -8306,6 +8537,22 @@ Object {
       "value": "<!--comment-->",
     },
     Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "mailto:foobarbaz",
+            },
+          ],
+          "title": null,
+          "type": "link",
+          "url": "mailto:foobarbaz",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
       "type": "thematicBreak",
     },
     Object {
@@ -8314,19 +8561,7 @@ Object {
           "type": "text",
           "value": "title: \\"This is yaml\\"
 date: 2020-04-30 22:34
-categories: ",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "JavaScript, React",
-            },
-          ],
-          "identifier": "javascript, react",
-          "label": "JavaScript, React",
-          "referenceType": "shortcut",
-          "type": "linkReference",
+categories: [JavaScript, React]",
         },
       ],
       "type": "paragraph",
@@ -8346,13 +8581,15 @@ exports[`e2e node-ml.md 3`] = `
 
 <!--comment-->
 
-* * *
+<mailto:foobarbaz>
+
+***
 
 title: \\"This is yaml\\"
 date: 2020-04-30 22:34
-categories: [JavaScript, React]
+categories: \\\\[JavaScript, React]
 
-* * *
+***
 "
 `;
 
@@ -8447,20 +8684,18 @@ Array [
       },
       Object {
         "text": " aaa
-aaa",
+aaa**",
       },
       Object {
         "emphasis": true,
-        "strong": true,
         "text": "aa",
       },
       Object {
         "delete": true,
-        "strong": true,
         "text": "aa",
       },
       Object {
-        "text": "aaa ",
+        "text": "**aaa ",
       },
       Object {
         "emphasis": true,
@@ -8662,18 +8897,13 @@ Object {
         Object {
           "type": "text",
           "value": " aaa
-aaa",
+aaa**",
         },
         Object {
           "children": Array [
             Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "aa",
-                },
-              ],
-              "type": "strong",
+              "type": "text",
+              "value": "aa",
             },
           ],
           "type": "emphasis",
@@ -8681,20 +8911,15 @@ aaa",
         Object {
           "children": Array [
             Object {
-              "children": Array [
-                Object {
-                  "type": "text",
-                  "value": "aa",
-                },
-              ],
-              "type": "delete",
+              "type": "text",
+              "value": "aa",
             },
           ],
-          "type": "strong",
+          "type": "delete",
         },
         Object {
           "type": "text",
-          "value": "aaa ",
+          "value": "**aaa ",
         },
         Object {
           "children": Array [
@@ -8873,7 +9098,7 @@ aaa",
 
 exports[`e2e node-phrasing-1.md 3`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaa_**aa**_**~~aa~~**aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aaa\\\\*\\\\*_aa_~~aa~~\\\\*\\\\*aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
@@ -8927,51 +9152,13 @@ Array [
   Object {
     "children": Array [
       Object {
-        "text": "^",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "text": "this is footnote",
-          },
-        ],
-        "identifier": "this is footnote",
-        "label": "this is footnote",
-        "referenceType": "shortcut",
-        "type": "linkReference",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "text": "^alpha",
-          },
-        ],
-        "identifier": "^alpha",
-        "label": "^alpha",
-        "referenceType": "shortcut",
-        "type": "linkReference",
-      },
-      Object {
-        "text": ": this is footnote",
-      },
-    ],
-    "type": "paragraph",
-  },
-  Object {
-    "children": Array [
-      Object {
         "children": Array [
           Object {
             "text": "alpha",
           },
         ],
-        "identifier": "link-title",
-        "label": "link-title",
+        "identifier": "link-ref",
+        "label": "link-ref",
         "referenceType": "full",
         "type": "linkReference",
       },
@@ -8981,14 +9168,14 @@ Array [
   Object {
     "children": Array [
       Object {
-        "alt": "alpha",
+        "alt": "blavo",
         "children": Array [
           Object {
             "text": "",
           },
         ],
-        "identifier": "image-title",
-        "label": "image-title",
+        "identifier": "image-ref",
+        "label": "image-ref",
         "referenceType": "full",
         "type": "imageReference",
         "void": true,
@@ -8999,18 +9186,28 @@ Array [
   Object {
     "children": Array [
       Object {
-        "children": Array [
-          Object {
-            "text": "^alpha",
-          },
-        ],
-        "identifier": "^alpha",
-        "label": "^alpha",
-        "referenceType": "shortcut",
-        "type": "linkReference",
+        "text": "",
       },
     ],
-    "type": "paragraph",
+    "identifier": "link-ref",
+    "label": "link-ref",
+    "title": null,
+    "type": "definition",
+    "url": "example.com",
+    "void": true,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "",
+      },
+    ],
+    "identifier": "image-ref",
+    "label": "image-ref",
+    "title": null,
+    "type": "definition",
+    "url": "example.gif",
+    "void": true,
   },
 ]
 `;
@@ -9053,56 +9250,14 @@ Object {
     Object {
       "children": Array [
         Object {
-          "type": "text",
-          "value": "^",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "this is footnote",
-            },
-          ],
-          "identifier": "this is footnote",
-          "label": "this is footnote",
-          "referenceType": "shortcut",
-          "type": "linkReference",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "^alpha",
-            },
-          ],
-          "identifier": "^alpha",
-          "label": "^alpha",
-          "referenceType": "shortcut",
-          "type": "linkReference",
-        },
-        Object {
-          "type": "text",
-          "value": ": this is footnote",
-        },
-      ],
-      "type": "paragraph",
-    },
-    Object {
-      "children": Array [
-        Object {
           "children": Array [
             Object {
               "type": "text",
               "value": "alpha",
             },
           ],
-          "identifier": "link-title",
-          "label": "link-title",
+          "identifier": "link-ref",
+          "label": "link-ref",
           "referenceType": "full",
           "type": "linkReference",
         },
@@ -9112,9 +9267,9 @@ Object {
     Object {
       "children": Array [
         Object {
-          "alt": "alpha",
-          "identifier": "image-title",
-          "label": "image-title",
+          "alt": "blavo",
+          "identifier": "image-ref",
+          "label": "image-ref",
           "referenceType": "full",
           "type": "imageReference",
         },
@@ -9122,21 +9277,18 @@ Object {
       "type": "paragraph",
     },
     Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "type": "text",
-              "value": "^alpha",
-            },
-          ],
-          "identifier": "^alpha",
-          "label": "^alpha",
-          "referenceType": "shortcut",
-          "type": "linkReference",
-        },
-      ],
-      "type": "paragraph",
+      "identifier": "link-ref",
+      "label": "link-ref",
+      "title": null,
+      "type": "definition",
+      "url": "example.com",
+    },
+    Object {
+      "identifier": "image-ref",
+      "label": "image-ref",
+      "title": null,
+      "type": "definition",
+      "url": "example.gif",
     },
   ],
   "type": "root",
@@ -9148,14 +9300,12 @@ exports[`e2e node-phrasing-2.md 3`] = `
 
 ![image](https://github.githubassets.com/images/modules/logos_page/Octocat.png \\"image-title\\")
 
-^[this is footnote]
+[alpha][link-ref]
 
-[^alpha]&#x3A; this is footnote
+![blavo][image-ref]
 
-[alpha][link-title]
+[link-ref]: example.com
 
-![alpha][image-title]
-
-[^alpha]
+[image-ref]: example.gif
 "
 `;
