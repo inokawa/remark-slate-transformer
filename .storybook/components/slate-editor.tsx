@@ -88,7 +88,12 @@ const renderElement = ({
         </pre>
       );
     case "yaml":
-      break;
+    case "toml":
+      return (
+        <pre>
+          <code {...attributes}>{children}</code>
+        </pre>
+      );
     case "definition":
       break;
     case "footnoteDefinition":

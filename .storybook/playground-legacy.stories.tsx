@@ -3,6 +3,7 @@ import { Value } from "slate_legacy";
 import unified from "unified";
 import markdown from "remark-parse";
 import gfm from "remark-gfm";
+import frontmatter from "remark-frontmatter";
 import stringify from "remark-stringify";
 import { remarkToSlateLegacy, slateToRemarkLegacy } from "../src";
 import SlateEditor from "./components/slate0.47-editor";
@@ -13,10 +14,12 @@ import text from "../fixture/article.md";
 const toSlateProcessor = unified()
   .use(markdown)
   .use(gfm)
+  .use(frontmatter)
   .use(remarkToSlateLegacy);
 const toRemarkProcessor = unified()
   .use(slateToRemarkLegacy)
   .use(gfm)
+  .use(frontmatter)
   .use(stringify);
 
 const toSlate = (s: string) =>
