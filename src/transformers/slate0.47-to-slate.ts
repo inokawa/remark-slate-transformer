@@ -1,13 +1,10 @@
 import { BlockJSON, InlineJSON, TextJSON } from "slate_legacy";
-import { Node as UnistNode } from "unist";
 import * as slate from "slate";
-import { slateToRemark } from "../slate-remark";
 
-export function slateToRemarkLegacy(node: any): UnistNode {
-  return slateToRemark({
-    type: "root",
-    children: convertNodes(node.children),
-  });
+export function slate047ToSlate(
+  nodes: (BlockJSON | InlineJSON | TextJSON)[]
+): slate.Node[] {
+  return convertNodes(nodes);
 }
 
 function convertNodes(

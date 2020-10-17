@@ -1,5 +1,5 @@
 import * as slateLib from "slate";
-import * as mdast from "./models/mdast";
+import * as mdast from "../models/mdast";
 
 export type Decoration = {
   [key in (
@@ -10,8 +10,8 @@ export type Decoration = {
   )["type"]]?: true;
 };
 
-export function remarkToSlate(node: any): slateLib.Node[] {
-  return createSlateRoot(node as mdast.Root);
+export function mdastToSlate(node: mdast.Root): slateLib.Node[] {
+  return createSlateRoot(node);
 }
 
 function createSlateRoot(root: mdast.Root): slateLib.Node[] {

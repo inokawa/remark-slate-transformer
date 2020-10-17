@@ -1,7 +1,7 @@
 import * as slateLib from "slate";
 import * as unistLib from "unist";
-import * as mdast from "./models/mdast";
-import * as slate from "./remark-slate";
+import * as mdast from "../models/mdast";
+import * as slate from "./mdast-to-slate";
 
 type DecorationType = keyof slate.Decoration;
 
@@ -12,8 +12,8 @@ type TextOrDecoration =
   | mdast.Delete
   | mdast.InlineCode;
 
-export function slateToRemark(node: any): unistLib.Node {
-  return createMdastRoot(node as slateLib.Node);
+export function slateToMdast(node: slateLib.Node): unistLib.Node {
+  return createMdastRoot(node);
 }
 
 function createMdastRoot(node: slateLib.Node): unistLib.Node {

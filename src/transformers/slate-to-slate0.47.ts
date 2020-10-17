@@ -5,26 +5,19 @@ import {
   TextJSON,
   MarkJSON,
 } from "slate_legacy";
-import * as mdast from "../models/mdast";
-import { Decoration, remarkToSlate, SlateNode } from "../remark-slate";
+import { Decoration, SlateNode } from "./mdast-to-slate";
 
 type VoidBlockJSON = BlockJSON & { isVoid: boolean };
 type VoidInlineJSON = InlineJSON & { isVoid: boolean };
 
-export function remarkToSlateLegacy(node: any): ValueJSON {
-  const slateNodes = remarkToSlate(node as mdast.Root);
-  return createValue(slateNodes as SlateNode[]);
-}
-
-function createValue(nodes: SlateNode[]) {
-  const value: ValueJSON = {
+export function slateToSlate047(nodes: SlateNode[]): ValueJSON {
+  return {
     object: "value",
     document: {
       object: "document",
       nodes: convertNodes(nodes),
     },
   };
-  return value;
 }
 
 function convertNodes(
