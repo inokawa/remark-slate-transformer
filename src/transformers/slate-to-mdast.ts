@@ -161,6 +161,8 @@ function createMdastNode(
       return (createCode(node) as any) as unistLib.Node;
     case "yaml":
       return (createYaml(node) as any) as unistLib.Node;
+    case "toml":
+      return (createToml(node) as any) as unistLib.Node;
     case "definition":
       return (createDefinition(node) as any) as unistLib.Node;
     case "footnoteDefinition":
@@ -310,6 +312,14 @@ function createCode(node: slate.Code): mdast.Code {
 }
 
 function createYaml(node: slate.Yaml): mdast.YAML {
+  const { type, children } = node;
+  return {
+    type,
+    value: children[0].text,
+  };
+}
+
+function createToml(node: slate.Toml): mdast.TOML {
   const { type, children } = node;
   return {
     type,

@@ -77,6 +77,10 @@ export interface YAML extends Literal {
   type: "yaml";
 }
 
+export interface TOML extends Literal {
+  type: "toml";
+}
+
 export interface Definition extends Association, Resource {
   type: "definition";
 }
@@ -180,7 +184,7 @@ export type BlockContent =
   | HTML
   | Code;
 
-export type FrontmatterContent = YAML;
+export type FrontmatterContent = YAML | TOML;
 
 export type DefinitionContent = Definition | FootnoteDefinition;
 

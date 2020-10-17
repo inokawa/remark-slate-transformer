@@ -57,6 +57,8 @@ function createSlateNode(
       return [createCode(node)];
     case "yaml":
       return [createYaml(node)];
+    case "toml":
+      return [createToml(node)];
     case "definition":
       return [createDefinition(node)];
     case "footnoteDefinition":
@@ -230,6 +232,16 @@ function createYaml(node: mdast.YAML) {
   };
 }
 
+export type Toml = ReturnType<typeof createToml>;
+
+function createToml(node: mdast.TOML) {
+  const { type, value } = node;
+  return {
+    type,
+    children: [{ text: value }],
+  };
+}
+
 export type Definition = ReturnType<typeof createDefinition>;
 
 function createDefinition(node: mdast.Definition) {
@@ -367,6 +379,7 @@ export type SlateNode =
   | Html
   | Code
   | Yaml
+  | Toml
   | Definition
   | FootnoteDefinition
   | Text

@@ -21,13 +21,13 @@ describe("e2e", () => {
     .use(markdown, { commonmark: true })
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
-    .use(frontmatter, ["yaml"])
+    .use(frontmatter, ["yaml", "toml"])
     .use(remarkToSlate);
   const toRemarkProcessor = unified()
     .use(slateToRemark)
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
-    .use(frontmatter, ["yaml"])
+    .use(frontmatter, ["yaml", "toml"])
     .use(stringify, { bullet: "-", emphasis: "_" });
 
   const fixtureDir = path.join(__dirname, FIXTURE_PATH);
@@ -56,13 +56,13 @@ describe("e2e legacy", () => {
     .use(markdown, { commonmark: true })
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
-    .use(frontmatter, ["yaml"])
+    .use(frontmatter, ["yaml", "toml"])
     .use(remarkToSlateLegacy);
   const toRemarkProcessor = unified()
     .use(slateToRemarkLegacy)
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
-    .use(frontmatter, ["yaml"])
+    .use(frontmatter, ["yaml", "toml"])
     .use(stringify, { bullet: "-", emphasis: "_" });
 
   const fixtureDir = path.join(__dirname, FIXTURE_PATH);

@@ -63,7 +63,8 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
     case "tableCell":
     case "html":
     case "code":
-    case "yaml": {
+    case "yaml":
+    case "toml": {
       const { type, children, ...rest } = node;
       const res: BlockJSON = {
         object: "block",
