@@ -1,4 +1,4 @@
-import * as slate from "slate";
+import * as slateLib from "slate";
 import * as mdast from "./models/mdast";
 
 export type Decoration = {
@@ -10,19 +10,19 @@ export type Decoration = {
   )["type"]]?: true;
 };
 
-export function remarkToSlate(node: any): slate.Node[] {
+export function remarkToSlate(node: any): slateLib.Node[] {
   return createSlateRoot(node as mdast.Root);
 }
 
-function createSlateRoot(root: mdast.Root): slate.Node[] {
+function createSlateRoot(root: mdast.Root): slateLib.Node[] {
   return convertNodes(root.children, {});
 }
 
 function convertNodes(
   nodes: mdast.Content[],
   decoration: Decoration
-): slate.Node[] {
-  return nodes.reduce<slate.Node[]>((acc, node) => {
+): slateLib.Node[] {
+  return nodes.reduce<slateLib.Node[]>((acc, node) => {
     acc.push(...createSlateNode(node, decoration));
     return acc;
   }, []);
@@ -102,7 +102,7 @@ function createVoidFields() {
   };
 }
 
-export type SlateParagraph = ReturnType<typeof createParagraph>;
+export type Paragraph = ReturnType<typeof createParagraph>;
 
 function createParagraph(node: mdast.Paragraph, decoration: Decoration) {
   const { type, children } = node;
@@ -112,7 +112,7 @@ function createParagraph(node: mdast.Paragraph, decoration: Decoration) {
   };
 }
 
-export type SlateHeading = ReturnType<typeof createHeading>;
+export type Heading = ReturnType<typeof createHeading>;
 
 function createHeading(node: mdast.Heading, decoration: Decoration) {
   const { type, children, depth } = node;
@@ -123,7 +123,7 @@ function createHeading(node: mdast.Heading, decoration: Decoration) {
   };
 }
 
-export type SlateThematicBreak = ReturnType<typeof createThematicBreak>;
+export type ThematicBreak = ReturnType<typeof createThematicBreak>;
 
 function createThematicBreak(node: mdast.ThematicBreak) {
   return {
@@ -132,7 +132,7 @@ function createThematicBreak(node: mdast.ThematicBreak) {
   };
 }
 
-export type SlateBlockquote = ReturnType<typeof createBlockquote>;
+export type Blockquote = ReturnType<typeof createBlockquote>;
 
 function createBlockquote(node: mdast.Blockquote, decoration: Decoration) {
   return {
@@ -141,7 +141,7 @@ function createBlockquote(node: mdast.Blockquote, decoration: Decoration) {
   };
 }
 
-export type SlateList = ReturnType<typeof createList>;
+export type List = ReturnType<typeof createList>;
 
 function createList(node: mdast.List, decoration: Decoration) {
   const { type, children, ordered, start, spread } = node;
@@ -154,7 +154,7 @@ function createList(node: mdast.List, decoration: Decoration) {
   };
 }
 
-export type SlateListItem = ReturnType<typeof createListItem>;
+export type ListItem = ReturnType<typeof createListItem>;
 
 function createListItem(node: mdast.ListItem, decoration: Decoration) {
   const { type, children, checked, spread } = node;
@@ -166,7 +166,7 @@ function createListItem(node: mdast.ListItem, decoration: Decoration) {
   };
 }
 
-export type SlateTable = ReturnType<typeof createTable>;
+export type Table = ReturnType<typeof createTable>;
 
 function createTable(node: mdast.Table, decoration: Decoration) {
   const { type, children, align } = node;
@@ -177,7 +177,7 @@ function createTable(node: mdast.Table, decoration: Decoration) {
   };
 }
 
-export type SlateTableRow = ReturnType<typeof createTableRow>;
+export type TableRow = ReturnType<typeof createTableRow>;
 
 function createTableRow(node: mdast.TableRow, decoration: Decoration) {
   const { type, children } = node;
@@ -187,7 +187,7 @@ function createTableRow(node: mdast.TableRow, decoration: Decoration) {
   };
 }
 
-export type SlateTableCell = ReturnType<typeof createTableCell>;
+export type TableCell = ReturnType<typeof createTableCell>;
 
 function createTableCell(node: mdast.TableCell, decoration: Decoration) {
   const { type, children } = node;
@@ -197,7 +197,7 @@ function createTableCell(node: mdast.TableCell, decoration: Decoration) {
   };
 }
 
-export type SlateHtml = ReturnType<typeof createHtml>;
+export type Html = ReturnType<typeof createHtml>;
 
 function createHtml(node: mdast.HTML) {
   const { type, value } = node;
@@ -207,7 +207,7 @@ function createHtml(node: mdast.HTML) {
   };
 }
 
-export type SlateCode = ReturnType<typeof createCode>;
+export type Code = ReturnType<typeof createCode>;
 
 function createCode(node: mdast.Code) {
   const { type, value, lang, meta } = node;
@@ -219,7 +219,7 @@ function createCode(node: mdast.Code) {
   };
 }
 
-export type SlateYaml = ReturnType<typeof createYaml>;
+export type Yaml = ReturnType<typeof createYaml>;
 
 function createYaml(node: mdast.YAML) {
   const { type, value } = node;
@@ -229,7 +229,7 @@ function createYaml(node: mdast.YAML) {
   };
 }
 
-export type SlateDefinition = ReturnType<typeof createDefinition>;
+export type Definition = ReturnType<typeof createDefinition>;
 
 function createDefinition(node: mdast.Definition) {
   const { type, identifier, label, url, title } = node;
@@ -243,9 +243,7 @@ function createDefinition(node: mdast.Definition) {
   };
 }
 
-export type SlateFootnoteDefinition = ReturnType<
-  typeof createFootnoteDefinition
->;
+export type FootnoteDefinition = ReturnType<typeof createFootnoteDefinition>;
 
 function createFootnoteDefinition(
   node: mdast.FootnoteDefinition,
@@ -260,7 +258,7 @@ function createFootnoteDefinition(
   };
 }
 
-export type SlateText = ReturnType<typeof createText>;
+export type Text = ReturnType<typeof createText>;
 
 function createText(text: string, decoration: Decoration) {
   return {
@@ -269,7 +267,7 @@ function createText(text: string, decoration: Decoration) {
   };
 }
 
-export type SlateBreak = ReturnType<typeof createBreak>;
+export type Break = ReturnType<typeof createBreak>;
 
 function createBreak(node: mdast.Break) {
   return {
@@ -278,7 +276,7 @@ function createBreak(node: mdast.Break) {
   };
 }
 
-export type SlateLink = ReturnType<typeof createLink>;
+export type Link = ReturnType<typeof createLink>;
 
 function createLink(node: mdast.Link, decoration: Decoration) {
   const { type, children, url, title } = node;
@@ -290,7 +288,7 @@ function createLink(node: mdast.Link, decoration: Decoration) {
   };
 }
 
-export type SlateImage = ReturnType<typeof createImage>;
+export type Image = ReturnType<typeof createImage>;
 
 function createImage(node: mdast.Image) {
   const { type, url, title, alt } = node;
@@ -303,7 +301,7 @@ function createImage(node: mdast.Image) {
   };
 }
 
-export type SlateLinkReference = ReturnType<typeof createLinkReference>;
+export type LinkReference = ReturnType<typeof createLinkReference>;
 
 function createLinkReference(
   node: mdast.LinkReference,
@@ -319,7 +317,7 @@ function createLinkReference(
   };
 }
 
-export type SlateImageReference = ReturnType<typeof createImageReference>;
+export type ImageReference = ReturnType<typeof createImageReference>;
 
 function createImageReference(node: mdast.ImageReference) {
   const { type, alt, referenceType, identifier, label } = node;
@@ -333,7 +331,7 @@ function createImageReference(node: mdast.ImageReference) {
   };
 }
 
-export type SlateFootnote = ReturnType<typeof createFootnote>;
+export type Footnote = ReturnType<typeof createFootnote>;
 
 function createFootnote(node: mdast.Footnote, decoration: Decoration) {
   const { type, children } = node;
@@ -343,7 +341,7 @@ function createFootnote(node: mdast.Footnote, decoration: Decoration) {
   };
 }
 
-export type SlateFootnoteReference = ReturnType<typeof createFootnoteReference>;
+export type FootnoteReference = ReturnType<typeof createFootnoteReference>;
 
 function createFootnoteReference(node: mdast.FootnoteReference) {
   const { type, identifier, label } = node;
@@ -356,25 +354,25 @@ function createFootnoteReference(node: mdast.FootnoteReference) {
 }
 
 export type SlateNode =
-  | SlateParagraph
-  | SlateHeading
-  | SlateThematicBreak
-  | SlateBlockquote
-  | SlateList
-  | SlateListItem
-  | SlateTable
-  | SlateTableRow
-  | SlateTableCell
-  | SlateHtml
-  | SlateCode
-  | SlateYaml
-  | SlateDefinition
-  | SlateFootnoteDefinition
-  | SlateText
-  | SlateBreak
-  | SlateLink
-  | SlateImage
-  | SlateLinkReference
-  | SlateImageReference
-  | SlateFootnote
-  | SlateFootnoteReference;
+  | Paragraph
+  | Heading
+  | ThematicBreak
+  | Blockquote
+  | List
+  | ListItem
+  | Table
+  | TableRow
+  | TableCell
+  | Html
+  | Code
+  | Yaml
+  | Definition
+  | FootnoteDefinition
+  | Text
+  | Break
+  | Link
+  | Image
+  | LinkReference
+  | ImageReference
+  | Footnote
+  | FootnoteReference;
