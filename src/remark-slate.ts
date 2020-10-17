@@ -67,9 +67,10 @@ function createSlateNode(
     case "strong":
     case "delete": {
       const { type, children } = node;
-      return children.flatMap((n) =>
-        createSlateNode(n, { ...decoration, [type]: true })
-      );
+      return children.reduce<SlateNode[]>((acc, n) => {
+        acc.push(...createSlateNode(n, { ...decoration, [type]: true }));
+        return acc;
+      }, []);
     }
     case "inlineCode": {
       const { type, value } = node;
