@@ -7,9 +7,6 @@ import {
 } from "slate_legacy";
 import { Decoration, SlateNode } from "./mdast-to-slate";
 
-type VoidBlockJSON = BlockJSON & { isVoid: boolean };
-type VoidInlineJSON = InlineJSON & { isVoid: boolean };
-
 export function slateToSlate047(nodes: SlateNode[]): ValueJSON {
   return {
     object: "value",
@@ -64,7 +61,10 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
     case "html":
     case "code":
     case "yaml":
-    case "toml": {
+    case "toml":
+    case "thematicBreak":
+    case "definition":
+    case "break": {
       const { type, children, ...rest } = node;
       const res: BlockJSON = {
         object: "block",
@@ -79,6 +79,9 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
     case "footnoteDefinition":
     case "link":
     case "linkReference":
+    case "image":
+    case "imageReference":
+    case "footnoteReference":
     case "footnote": {
       const { type, children, ...rest } = node;
       const res: InlineJSON = {
@@ -88,36 +91,6 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
         data: {
           ...rest,
         },
-      };
-      return res;
-    }
-    case "thematicBreak":
-    case "definition":
-    case "break": {
-      const { type, children, ...rest } = node;
-      const block: VoidBlockJSON = {
-        object: "block",
-        type,
-        nodes: convertNodes(children as SlateNode[]),
-        data: {
-          ...rest,
-        },
-        isVoid: true,
-      };
-      return block;
-    }
-    case "image":
-    case "imageReference":
-    case "footnoteReference": {
-      const { type, children, ...rest } = node;
-      const res: VoidInlineJSON = {
-        object: "inline",
-        type,
-        nodes: convertNodes(children as SlateNode[]) as InlineJSON[],
-        data: {
-          ...rest,
-        },
-        isVoid: true,
       };
       return res;
     }

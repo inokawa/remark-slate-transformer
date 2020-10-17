@@ -201,6 +201,13 @@ export default forwardRef(
       <div className="markdown-body" style={style}>
         <Editor
           value={value}
+          schema={{
+            inlines: {
+              image: {
+                isVoid: true,
+              },
+            },
+          }}
           onChange={onChange}
           renderBlock={renderBlock}
           renderInline={renderInline}

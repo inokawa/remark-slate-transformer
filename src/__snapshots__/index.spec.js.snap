@@ -422,7 +422,6 @@ categories: [JavaScript, React]",
         "title": null,
         "type": "image",
         "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-        "void": true,
       },
       Object {
         "text": ".",
@@ -702,7 +701,6 @@ This is <underline>HTML</underline>
       },
     ],
     "type": "thematicBreak",
-    "void": true,
   },
   Object {
     "children": Array [
@@ -711,7 +709,6 @@ This is <underline>HTML</underline>
       },
     ],
     "type": "thematicBreak",
-    "void": true,
   },
   Object {
     "children": Array [
@@ -2262,9 +2259,7 @@ categories: [JavaScript, React]",
               "alt": "image",
               "title": null,
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-              "void": true,
             },
-            "isVoid": true,
             "nodes": Array [
               Object {
                 "marks": Array [],
@@ -2673,10 +2668,7 @@ This is <underline>HTML</underline>
         "type": "html",
       },
       Object {
-        "data": Object {
-          "void": true,
-        },
-        "isVoid": true,
+        "data": Object {},
         "nodes": Array [
           Object {
             "marks": Array [],
@@ -2688,10 +2680,7 @@ This is <underline>HTML</underline>
         "type": "thematicBreak",
       },
       Object {
-        "data": Object {
-          "void": true,
-        },
-        "isVoid": true,
+        "data": Object {},
         "nodes": Array [
           Object {
             "marks": Array [],
@@ -3378,7 +3367,6 @@ categories: [JavaScript, React]",
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
               "title": null,
               "alt": "image",
-              "void": true,
             },
             "key": "84",
             "nodes": Immutable.List [
@@ -3787,9 +3775,7 @@ This is <underline>HTML</underline>
         "type": "html",
       },
       Immutable.Record {
-        "data": Immutable.Map {
-          "void": true,
-        },
+        "data": Immutable.Map {},
         "key": "148",
         "nodes": Immutable.List [
           Immutable.Record {
@@ -3801,9 +3787,7 @@ This is <underline>HTML</underline>
         "type": "thematicBreak",
       },
       Immutable.Record {
-        "data": Immutable.Map {
-          "void": true,
-        },
+        "data": Immutable.Map {},
         "key": "150",
         "nodes": Immutable.List [
           Immutable.Record {
@@ -4766,10 +4750,7 @@ Object {
   "document": Object {
     "nodes": Array [
       Object {
-        "data": Object {
-          "void": true,
-        },
-        "isVoid": true,
+        "data": Object {},
         "nodes": Array [
           Object {
             "marks": Array [],
@@ -4781,10 +4762,7 @@ Object {
         "type": "thematicBreak",
       },
       Object {
-        "data": Object {
-          "void": true,
-        },
-        "isVoid": true,
+        "data": Object {},
         "nodes": Array [
           Object {
             "marks": Array [],
@@ -4811,9 +4789,7 @@ Immutable.Record {
     "key": "154",
     "nodes": Immutable.List [
       Immutable.Record {
-        "data": Immutable.Map {
-          "void": true,
-        },
+        "data": Immutable.Map {},
         "key": "155",
         "nodes": Immutable.List [
           Immutable.Record {
@@ -4825,9 +4801,7 @@ Immutable.Record {
         "type": "thematicBreak",
       },
       Immutable.Record {
-        "data": Immutable.Map {
-          "void": true,
-        },
+        "data": Immutable.Map {},
         "key": "157",
         "nodes": Immutable.List [
           Immutable.Record {
@@ -5279,9 +5253,7 @@ Object {
             "data": Object {
               "identifier": "1",
               "label": "1",
-              "void": true,
             },
-            "isVoid": true,
             "nodes": Array [
               Object {
                 "marks": Array [],
@@ -5368,7 +5340,6 @@ Immutable.Record {
             "data": Immutable.Map {
               "identifier": "1",
               "label": "1",
-              "void": true,
             },
             "key": "169",
             "nodes": Immutable.List [
@@ -7072,9 +7043,7 @@ aaa**",
               "alt": "image",
               "title": null,
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-              "void": true,
             },
-            "isVoid": true,
             "nodes": Array [
               Object {
                 "marks": Array [],
@@ -7459,7 +7428,6 @@ aaa**",
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
               "title": null,
               "alt": "image",
-              "void": true,
             },
             "key": "271",
             "nodes": Immutable.List [
@@ -7810,9 +7778,7 @@ Object {
               "alt": "image",
               "title": "image-title",
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-              "void": true,
             },
-            "isVoid": true,
             "nodes": Array [
               Object {
                 "marks": Array [],
@@ -7859,9 +7825,7 @@ Object {
               "identifier": "image-ref",
               "label": "image-ref",
               "referenceType": "full",
-              "void": true,
             },
-            "isVoid": true,
             "nodes": Array [
               Object {
                 "marks": Array [],
@@ -7882,9 +7846,7 @@ Object {
           "label": "link-ref",
           "title": null,
           "url": "example.com",
-          "void": true,
         },
-        "isVoid": true,
         "nodes": Array [
           Object {
             "marks": Array [],
@@ -7901,9 +7863,7 @@ Object {
           "label": "image-ref",
           "title": null,
           "url": "example.gif",
-          "void": true,
         },
-        "isVoid": true,
         "nodes": Array [
           Object {
             "marks": Array [],
@@ -7965,7 +7925,6 @@ Immutable.Record {
               "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
               "title": "image-title",
               "alt": "image",
-              "void": true,
             },
             "key": "278",
             "nodes": Immutable.List [
@@ -8013,7 +7972,6 @@ Immutable.Record {
               "referenceType": "full",
               "identifier": "image-ref",
               "label": "image-ref",
-              "void": true,
             },
             "key": "284",
             "nodes": Immutable.List [
@@ -8034,7 +7992,6 @@ Immutable.Record {
           "label": "link-ref",
           "url": "example.com",
           "title": null,
-          "void": true,
         },
         "key": "286",
         "nodes": Immutable.List [
@@ -8052,7 +8009,6 @@ Immutable.Record {
           "label": "image-ref",
           "url": "example.gif",
           "title": null,
-          "void": true,
         },
         "key": "288",
         "nodes": Immutable.List [
@@ -8198,7 +8154,6 @@ Array [
       },
     ],
     "type": "thematicBreak",
-    "void": true,
   },
   Object {
     "children": Array [
@@ -8207,7 +8162,6 @@ Array [
       },
     ],
     "type": "thematicBreak",
-    "void": true,
   },
 ]
 `;
@@ -8478,7 +8432,6 @@ Array [
         "identifier": "1",
         "label": "1",
         "type": "footnoteReference",
-        "void": true,
       },
       Object {
         "text": ". And this is also ",
@@ -9333,7 +9286,6 @@ aaa**",
         "title": null,
         "type": "image",
         "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-        "void": true,
       },
     ],
     "type": "paragraph",
@@ -9643,7 +9595,6 @@ Array [
         "title": "image-title",
         "type": "image",
         "url": "https://github.githubassets.com/images/modules/logos_page/Octocat.png",
-        "void": true,
       },
     ],
     "type": "paragraph",
@@ -9677,7 +9628,6 @@ Array [
         "label": "image-ref",
         "referenceType": "full",
         "type": "imageReference",
-        "void": true,
       },
     ],
     "type": "paragraph",
@@ -9693,7 +9643,6 @@ Array [
     "title": null,
     "type": "definition",
     "url": "example.com",
-    "void": true,
   },
   Object {
     "children": Array [
@@ -9706,7 +9655,6 @@ Array [
     "title": null,
     "type": "definition",
     "url": "example.gif",
-    "void": true,
   },
 ]
 `;

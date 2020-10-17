@@ -98,13 +98,6 @@ function createSlateNode(
   return [];
 }
 
-function createVoidFields() {
-  return {
-    void: true,
-    children: [{ text: "" }],
-  };
-}
-
 export type Paragraph = ReturnType<typeof createParagraph>;
 
 function createParagraph(node: mdast.Paragraph, decoration: Decoration) {
@@ -131,7 +124,7 @@ export type ThematicBreak = ReturnType<typeof createThematicBreak>;
 function createThematicBreak(node: mdast.ThematicBreak) {
   return {
     type: node.type,
-    ...createVoidFields(),
+    children: [{ text: "" }],
   };
 }
 
@@ -252,7 +245,7 @@ function createDefinition(node: mdast.Definition) {
     label,
     url,
     title,
-    ...createVoidFields(),
+    children: [{ text: "" }],
   };
 }
 
@@ -285,7 +278,7 @@ export type Break = ReturnType<typeof createBreak>;
 function createBreak(node: mdast.Break) {
   return {
     type: node.type,
-    ...createVoidFields(),
+    children: [{ text: "" }],
   };
 }
 
@@ -310,7 +303,7 @@ function createImage(node: mdast.Image) {
     url,
     title,
     alt,
-    ...createVoidFields(),
+    children: [{ text: "" }],
   };
 }
 
@@ -340,7 +333,7 @@ function createImageReference(node: mdast.ImageReference) {
     referenceType,
     identifier,
     label,
-    ...createVoidFields(),
+    children: [{ text: "" }],
   };
 }
 
@@ -362,7 +355,7 @@ function createFootnoteReference(node: mdast.FootnoteReference) {
     type,
     identifier,
     label,
-    ...createVoidFields(),
+    children: [{ text: "" }],
   };
 }
 
