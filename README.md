@@ -2,10 +2,13 @@
 
 ![check](https://github.com/inokawa/slate-remark/workflows/check/badge.svg)
 
-[remark](https://github.com/remarkjs/remark) plugin to transform remark synthax tree ([mdast](https://github.com/syntax-tree/mdast)) to [slate](https://github.com/ianstormtaylor/slate) document tree, and also slate to remark.
+[remark](https://github.com/remarkjs/remark) plugin to transform remark synthax tree to [slate](https://github.com/ianstormtaylor/slate) document tree, and also slate to remark.
 
 This plugin supports slate 0.50+.
 And also support ~0.47.9 currently, but I don't know in the future.
+
+All nodes in [mdast](https://github.com/syntax-tree/mdast) synthax tree are supported, including nodes created with [remark-gfm](https://github.com/remarkjs/remark-gfm),
+[remark-footnotes](https://github.com/remarkjs/remark-footnotes) and [remark-frontmatter](https://github.com/remarkjs/remark-frontmatter).
 
 ## Demo
 
