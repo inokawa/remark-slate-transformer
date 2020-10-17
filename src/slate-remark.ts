@@ -123,7 +123,7 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
       mdastNodes.push(...((mergeTexts(mdastTexts) as any) as unistLib.Node[]));
       textQueue = [];
       if (!n) continue;
-      const node = createMdastNode(n as slate.SlateNode);
+      const node = createMdastNode(n);
       if (node) {
         mdastNodes.push(node);
       }
@@ -133,39 +133,9 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
   return mdastNodes;
 }
 
-function createMdastNode(node: slate.SlateNode): unistLib.Node | null {
-  if (isText(node)) {
-    let res: TextOrDecoration = {
-      type: "text",
-      value: node.text,
-    };
-    if (node.inlineCode) {
-      res = {
-        type: "inlineCode",
-        value: res.value,
-      };
-    }
-    if (node.emphasis) {
-      res = {
-        type: "emphasis",
-        children: [res],
-      };
-    }
-    if (node.strong) {
-      res = {
-        type: "strong",
-        children: [res],
-      };
-    }
-    if (node.delete) {
-      res = {
-        type: "delete",
-        children: [res],
-      };
-    }
-    return (res as any) as unistLib.Node;
-  }
-
+function createMdastNode(
+  node: Exclude<slate.SlateNode, slate.Text>
+): unistLib.Node | null {
   switch (node.type) {
     case "paragraph":
       return (createParagraph(node) as any) as unistLib.Node;
