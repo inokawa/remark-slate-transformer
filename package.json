@@ -2,15 +2,18 @@
   "name": "slate-remark",
   "version": "0.1.6",
   "description": "remark plugin to transform remark synthax tree (mdast) to slate document tree, and also slate to remark.",
-  "main": "lib/index.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/mjs/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "webpack",
+    "build": "npm run build:mjs && npm run build:cjs",
+    "build:mjs": "tsc -p .",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "test": "jest",
-    "tsc": "tsc --project . --noEmit",
+    "tsc": "tsc -p . --noEmit",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "prepublishOnly": "npm run build"
@@ -42,11 +45,8 @@
     "slate-react": "^0.59.0",
     "slate-react_legacy": "npm:slate-react@0.22.10",
     "slate_legacy": "npm:slate@0.47.9",
-    "ts-loader": "^8.0.4",
     "typescript": "^4.0.3",
-    "unified": "^9.2.0",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "unified": "^9.2.0"
   },
   "repository": {
     "type": "git",
