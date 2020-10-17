@@ -4,7 +4,7 @@
   "description": "remark plugin to transform remark synthax tree (mdast) to slate document tree, and also slate to remark.",
   "main": "lib/cjs/index.js",
   "module": "lib/mjs/index.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/mjs/index.d.ts",
   "files": [
     "lib"
   ],
