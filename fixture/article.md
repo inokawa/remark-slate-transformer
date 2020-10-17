@@ -62,6 +62,10 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 | left       |       right |    center    |
 | aligned    |     aligned |   aligned    |
 
+<div style="color:red;">
+This is <underline>HTML</underline>
+</div>
+
 ---
 
 ---

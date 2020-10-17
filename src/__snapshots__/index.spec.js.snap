@@ -688,6 +688,16 @@ quote",
   Object {
     "children": Array [
       Object {
+        "text": "<div style=\\"color:red;\\">
+This is <underline>HTML</underline>
+</div>",
+      },
+    ],
+    "type": "html",
+  },
+  Object {
+    "children": Array [
+      Object {
         "text": "",
       },
     ],
@@ -1481,6 +1491,12 @@ quote",
       "type": "table",
     },
     Object {
+      "type": "html",
+      "value": "<div style=\\"color:red;\\">
+This is <underline>HTML</underline>
+</div>",
+    },
+    Object {
       "type": "thematicBreak",
     },
     Object {
@@ -1582,6 +1598,10 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 | be         |          be |      be      |
 | left       |       right |    center    |
 | aligned    |     aligned |    aligned   |
+
+<div style=\\"color:red;\\">
+This is <underline>HTML</underline>
+</div>
 
 ***
 
@@ -2637,6 +2657,20 @@ quote",
         ],
         "object": "block",
         "type": "table",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "<div style=\\"color:red;\\">
+This is <underline>HTML</underline>
+</div>",
+          },
+        ],
+        "object": "block",
+        "type": "html",
       },
       Object {
         "data": Object {
@@ -3739,18 +3773,18 @@ quote",
         "type": "table",
       },
       Immutable.Record {
-        "data": Immutable.Map {
-          "void": true,
-        },
+        "data": Immutable.Map {},
         "key": "146",
         "nodes": Immutable.List [
           Immutable.Record {
             "key": "147",
             "marks": Immutable.Set [],
-            "text": "",
+            "text": "<div style=\\"color:red;\\">
+This is <underline>HTML</underline>
+</div>",
           },
         ],
-        "type": "thematicBreak",
+        "type": "html",
       },
       Immutable.Record {
         "data": Immutable.Map {
@@ -3768,13 +3802,27 @@ quote",
       },
       Immutable.Record {
         "data": Immutable.Map {
-          "lang": "javascript",
-          "meta": null,
+          "void": true,
         },
         "key": "150",
         "nodes": Immutable.List [
           Immutable.Record {
             "key": "151",
+            "marks": Immutable.Set [],
+            "text": "",
+          },
+        ],
+        "type": "thematicBreak",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "lang": "javascript",
+          "meta": null,
+        },
+        "key": "152",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "153",
             "marks": Immutable.Set [],
             "text": "function $initHighlight(block, cls) {
   try {
@@ -4571,6 +4619,12 @@ quote",
       "type": "table",
     },
     Object {
+      "type": "html",
+      "value": "<div style=\\"color:red;\\">
+This is <underline>HTML</underline>
+</div>",
+    },
+    Object {
       "type": "thematicBreak",
     },
     Object {
@@ -4673,6 +4727,10 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 | left       |       right |    center    |
 | aligned    |     aligned |    aligned   |
 
+<div style=\\"color:red;\\">
+This is <underline>HTML</underline>
+</div>
+
 ***
 
 ***
@@ -4750,22 +4808,8 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "152",
+    "key": "154",
     "nodes": Immutable.List [
-      Immutable.Record {
-        "data": Immutable.Map {
-          "void": true,
-        },
-        "key": "153",
-        "nodes": Immutable.List [
-          Immutable.Record {
-            "key": "154",
-            "marks": Immutable.Set [],
-            "text": "",
-          },
-        ],
-        "type": "thematicBreak",
-      },
       Immutable.Record {
         "data": Immutable.Map {
           "void": true,
@@ -4780,11 +4824,25 @@ Immutable.Record {
         ],
         "type": "thematicBreak",
       },
+      Immutable.Record {
+        "data": Immutable.Map {
+          "void": true,
+        },
+        "key": "157",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "158",
+            "marks": Immutable.Set [],
+            "text": "",
+          },
+        ],
+        "type": "thematicBreak",
+      },
     ],
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "154",
+      "key": "156",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -4792,7 +4850,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "154",
+      "key": "156",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -4939,17 +4997,17 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "157",
+    "key": "159",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {
           "lang": "css",
           "meta": "metadata=\\"12345\\"",
         },
-        "key": "158",
+        "key": "160",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "159",
+            "key": "161",
             "marks": Immutable.Set [],
             "text": "@font-face {
   font-family: Chunkfive;
@@ -4979,10 +5037,10 @@ body,
           "lang": "javascript",
           "meta": null,
         },
-        "key": "160",
+        "key": "162",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "161",
+            "key": "163",
             "marks": Immutable.Set [],
             "text": "function $initHighlight(block, cls) {
   try {
@@ -5014,10 +5072,10 @@ export  $initHighlight;",
           "lang": "typescript",
           "meta": null,
         },
-        "key": "162",
+        "key": "164",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "163",
+            "key": "165",
             "marks": Immutable.Set [],
             "text": "class MyClass {
   public static myValue: string;
@@ -5041,7 +5099,7 @@ myArray.forEach(() => { }); // fat arrow syntax",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "159",
+      "key": "161",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5049,7 +5107,7 @@ myArray.forEach(() => { }); // fat arrow syntax",
       ],
     },
     "focus": Immutable.Record {
-      "key": "159",
+      "key": "161",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5295,14 +5353,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "164",
+    "key": "166",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "165",
+        "key": "167",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "166",
+            "key": "168",
             "marks": Immutable.Set [],
             "text": "This is footnote",
           },
@@ -5312,10 +5370,10 @@ Immutable.Record {
               "label": "1",
               "void": true,
             },
-            "key": "167",
+            "key": "169",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "168",
+                "key": "170",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -5323,16 +5381,16 @@ Immutable.Record {
             "type": "footnoteReference",
           },
           Immutable.Record {
-            "key": "169",
+            "key": "171",
             "marks": Immutable.Set [],
             "text": ". And this is also ",
           },
           Immutable.Record {
             "data": Immutable.Map {},
-            "key": "170",
+            "key": "172",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "171",
+                "key": "173",
                 "marks": Immutable.Set [],
                 "text": "inline footnote",
               },
@@ -5340,7 +5398,7 @@ Immutable.Record {
             "type": "footnote",
           },
           Immutable.Record {
-            "key": "172",
+            "key": "174",
             "marks": Immutable.Set [],
             "text": ".",
           },
@@ -5352,14 +5410,14 @@ Immutable.Record {
           "identifier": "1",
           "label": "1",
         },
-        "key": "173",
+        "key": "175",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {},
-            "key": "174",
+            "key": "176",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "175",
+                "key": "177",
                 "marks": Immutable.Set [],
                 "text": "Here is the footnote.",
               },
@@ -5373,7 +5431,7 @@ Immutable.Record {
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "166",
+      "key": "168",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5381,7 +5439,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "166",
+      "key": "168",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5512,14 +5570,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "176",
+    "key": "178",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "177",
+        "key": "179",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "178",
+            "key": "180",
             "marks": Immutable.Set [],
             "text": "title = \\"This is toml\\"
 date = \\"2020-04-30 22:34\\"",
@@ -5531,10 +5589,10 @@ date = \\"2020-04-30 22:34\\"",
         "data": Immutable.Map {
           "depth": 1,
         },
-        "key": "179",
+        "key": "181",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "180",
+            "key": "182",
             "marks": Immutable.Set [],
             "text": "Other markdown",
           },
@@ -5543,10 +5601,10 @@ date = \\"2020-04-30 22:34\\"",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "181",
+        "key": "183",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "182",
+            "key": "184",
             "marks": Immutable.Set [],
             "text": "blablabla",
           },
@@ -5557,7 +5615,7 @@ date = \\"2020-04-30 22:34\\"",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "178",
+      "key": "180",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5565,7 +5623,7 @@ date = \\"2020-04-30 22:34\\"",
       ],
     },
     "focus": Immutable.Record {
-      "key": "178",
+      "key": "180",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5679,14 +5737,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "183",
+    "key": "185",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "184",
+        "key": "186",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "185",
+            "key": "187",
             "marks": Immutable.Set [],
             "text": "title: \\"This is yaml\\"
 date: 2020-04-30 22:34
@@ -5699,10 +5757,10 @@ categories: [JavaScript, React]",
         "data": Immutable.Map {
           "depth": 1,
         },
-        "key": "186",
+        "key": "188",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "187",
+            "key": "189",
             "marks": Immutable.Set [],
             "text": "Other markdown",
           },
@@ -5711,10 +5769,10 @@ categories: [JavaScript, React]",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "188",
+        "key": "190",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "189",
+            "key": "191",
             "marks": Immutable.Set [],
             "text": "blablabla",
           },
@@ -5725,7 +5783,7 @@ categories: [JavaScript, React]",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "185",
+      "key": "187",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5733,7 +5791,7 @@ categories: [JavaScript, React]",
       ],
     },
     "focus": Immutable.Record {
-      "key": "185",
+      "key": "187",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -5969,16 +6027,16 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "190",
+    "key": "192",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {
           "depth": 1,
         },
-        "key": "191",
+        "key": "193",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "192",
+            "key": "194",
             "marks": Immutable.Set [],
             "text": "Alpha",
           },
@@ -5987,10 +6045,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "193",
+        "key": "195",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "194",
+            "key": "196",
             "marks": Immutable.Set [],
             "text": "aaaa",
           },
@@ -6001,10 +6059,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 2,
         },
-        "key": "195",
+        "key": "197",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "196",
+            "key": "198",
             "marks": Immutable.Set [],
             "text": "Bravo",
           },
@@ -6013,10 +6071,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "197",
+        "key": "199",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "198",
+            "key": "200",
             "marks": Immutable.Set [],
             "text": "bbbb",
           },
@@ -6027,10 +6085,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 3,
         },
-        "key": "199",
+        "key": "201",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "200",
+            "key": "202",
             "marks": Immutable.Set [],
             "text": "Charlie",
           },
@@ -6039,10 +6097,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "201",
+        "key": "203",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "202",
+            "key": "204",
             "marks": Immutable.Set [],
             "text": "cccc",
           },
@@ -6053,10 +6111,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 2,
         },
-        "key": "203",
+        "key": "205",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "204",
+            "key": "206",
             "marks": Immutable.Set [],
             "text": "Delta",
           },
@@ -6065,10 +6123,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "205",
+        "key": "207",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "206",
+            "key": "208",
             "marks": Immutable.Set [],
             "text": "dddd",
           },
@@ -6079,10 +6137,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 3,
         },
-        "key": "207",
+        "key": "209",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "208",
+            "key": "210",
             "marks": Immutable.Set [],
             "text": "E",
           },
@@ -6093,10 +6151,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 4,
         },
-        "key": "209",
+        "key": "211",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "210",
+            "key": "212",
             "marks": Immutable.Set [],
             "text": "F",
           },
@@ -6107,10 +6165,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 5,
         },
-        "key": "211",
+        "key": "213",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "212",
+            "key": "214",
             "marks": Immutable.Set [],
             "text": "G",
           },
@@ -6121,10 +6179,10 @@ Immutable.Record {
         "data": Immutable.Map {
           "depth": 6,
         },
-        "key": "213",
+        "key": "215",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "214",
+            "key": "216",
             "marks": Immutable.Set [],
             "text": "H",
           },
@@ -6135,7 +6193,7 @@ Immutable.Record {
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "192",
+      "key": "194",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6143,7 +6201,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "192",
+      "key": "194",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6384,14 +6442,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "215",
+    "key": "217",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "216",
+        "key": "218",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "217",
+            "key": "219",
             "marks": Immutable.Set [],
             "text": "<div>
 <span>This is <b>html</b></span>
@@ -6402,10 +6460,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "218",
+        "key": "220",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "219",
+            "key": "221",
             "marks": Immutable.Set [],
             "text": "<!--comment-->",
           },
@@ -6414,17 +6472,17 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "220",
+        "key": "222",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "mailto:foobarbaz",
               "title": null,
             },
-            "key": "221",
+            "key": "223",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "222",
+                "key": "224",
                 "marks": Immutable.Set [],
                 "text": "mailto:foobarbaz",
               },
@@ -6436,10 +6494,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "223",
+        "key": "225",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "224",
+            "key": "226",
             "marks": Immutable.Set [],
             "text": "aaaaaa",
           },
@@ -6450,7 +6508,7 @@ Immutable.Record {
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "217",
+      "key": "219",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6458,7 +6516,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "217",
+      "key": "219",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6569,14 +6627,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "225",
+    "key": "227",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "226",
+        "key": "228",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "227",
+            "key": "229",
             "marks": Immutable.Set [],
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           },
@@ -6585,10 +6643,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "228",
+        "key": "230",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "229",
+            "key": "231",
             "marks": Immutable.Set [],
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -6600,7 +6658,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "227",
+      "key": "229",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6608,7 +6666,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       ],
     },
     "focus": Immutable.Record {
-      "key": "227",
+      "key": "229",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7044,19 +7102,19 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "230",
+    "key": "232",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "231",
+        "key": "233",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "232",
+            "key": "234",
             "marks": Immutable.Set [],
             "text": "aaa ",
           },
           Immutable.Record {
-            "key": "233",
+            "key": "235",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7066,12 +7124,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "234",
+            "key": "236",
             "marks": Immutable.Set [],
             "text": " aaaaaa ",
           },
           Immutable.Record {
-            "key": "235",
+            "key": "237",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7081,12 +7139,12 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "236",
+            "key": "238",
             "marks": Immutable.Set [],
             "text": " aaaaaaaa ",
           },
           Immutable.Record {
-            "key": "237",
+            "key": "239",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7096,12 +7154,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "238",
+            "key": "240",
             "marks": Immutable.Set [],
             "text": " aaaa ",
           },
           Immutable.Record {
-            "key": "239",
+            "key": "241",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7111,13 +7169,13 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "240",
+            "key": "242",
             "marks": Immutable.Set [],
             "text": " aaa
 aaa**",
           },
           Immutable.Record {
-            "key": "241",
+            "key": "243",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7127,7 +7185,7 @@ aaa**",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "242",
+            "key": "244",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7137,33 +7195,9 @@ aaa**",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "243",
+            "key": "245",
             "marks": Immutable.Set [],
             "text": "**aaa ",
-          },
-          Immutable.Record {
-            "key": "244",
-            "marks": Immutable.Set [
-              Immutable.Record {
-                "data": Immutable.Map {},
-                "type": "emphasis",
-              },
-            ],
-            "text": "aa ",
-          },
-          Immutable.Record {
-            "key": "245",
-            "marks": Immutable.Set [
-              Immutable.Record {
-                "data": Immutable.Map {},
-                "type": "emphasis",
-              },
-              Immutable.Record {
-                "data": Immutable.Map {},
-                "type": "strong",
-              },
-            ],
-            "text": "a ",
           },
           Immutable.Record {
             "key": "246",
@@ -7172,16 +7206,8 @@ aaa**",
                 "data": Immutable.Map {},
                 "type": "emphasis",
               },
-              Immutable.Record {
-                "data": Immutable.Map {},
-                "type": "strong",
-              },
-              Immutable.Record {
-                "data": Immutable.Map {},
-                "type": "delete",
-              },
             ],
-            "text": "aa",
+            "text": "aa ",
           },
           Immutable.Record {
             "key": "247",
@@ -7195,10 +7221,42 @@ aaa**",
                 "type": "strong",
               },
             ],
-            "text": " aa ",
+            "text": "a ",
           },
           Immutable.Record {
             "key": "248",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "delete",
+              },
+            ],
+            "text": "aa",
+          },
+          Immutable.Record {
+            "key": "249",
+            "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "emphasis",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
+            ],
+            "text": " aa ",
+          },
+          Immutable.Record {
+            "key": "250",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7216,7 +7274,7 @@ aaa**",
             "text": "aaa",
           },
           Immutable.Record {
-            "key": "249",
+            "key": "251",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7230,7 +7288,7 @@ aaa**",
             "text": " aaaaa",
           },
           Immutable.Record {
-            "key": "250",
+            "key": "252",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7240,12 +7298,12 @@ aaa**",
             "text": " aaaa",
           },
           Immutable.Record {
-            "key": "251",
+            "key": "253",
             "marks": Immutable.Set [],
             "text": " aa",
           },
           Immutable.Record {
-            "key": "252",
+            "key": "254",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7261,10 +7319,10 @@ aaa**",
         "data": Immutable.Map {
           "depth": 1,
         },
-        "key": "253",
+        "key": "255",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "254",
+            "key": "256",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7282,21 +7340,21 @@ aaa**",
           "start": null,
           "spread": false,
         },
-        "key": "255",
+        "key": "257",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "checked": null,
               "spread": false,
             },
-            "key": "256",
+            "key": "258",
             "nodes": Immutable.List [
               Immutable.Record {
                 "data": Immutable.Map {},
-                "key": "257",
+                "key": "259",
                 "nodes": Immutable.List [
                   Immutable.Record {
-                    "key": "258",
+                    "key": "260",
                     "marks": Immutable.Set [
                       Immutable.Record {
                         "data": Immutable.Map {},
@@ -7316,14 +7374,14 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "259",
+        "key": "261",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {},
-            "key": "260",
+            "key": "262",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "261",
+                "key": "263",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7340,17 +7398,17 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "262",
+        "key": "264",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "263",
+            "key": "265",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "264",
+                "key": "266",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7367,17 +7425,17 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "265",
+        "key": "267",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "266",
+            "key": "268",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "267",
+                "key": "269",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7394,7 +7452,7 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "268",
+        "key": "270",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7403,10 +7461,10 @@ aaa**",
               "alt": "image",
               "void": true,
             },
-            "key": "269",
+            "key": "271",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "270",
+                "key": "272",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7420,7 +7478,7 @@ aaa**",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "232",
+      "key": "234",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7428,7 +7486,7 @@ aaa**",
       ],
     },
     "focus": Immutable.Record {
-      "key": "232",
+      "key": "234",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7869,21 +7927,21 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "271",
+    "key": "273",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "272",
+        "key": "274",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": "link-title",
             },
-            "key": "273",
+            "key": "275",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "274",
+                "key": "276",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7900,7 +7958,7 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "275",
+        "key": "277",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7909,10 +7967,10 @@ Immutable.Record {
               "alt": "image",
               "void": true,
             },
-            "key": "276",
+            "key": "278",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "277",
+                "key": "279",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7924,7 +7982,7 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "278",
+        "key": "280",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7932,10 +7990,10 @@ Immutable.Record {
               "identifier": "link-ref",
               "label": "link-ref",
             },
-            "key": "279",
+            "key": "281",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "280",
+                "key": "282",
                 "marks": Immutable.Set [],
                 "text": "alpha",
               },
@@ -7947,7 +8005,7 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "281",
+        "key": "283",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7957,10 +8015,10 @@ Immutable.Record {
               "label": "image-ref",
               "void": true,
             },
-            "key": "282",
+            "key": "284",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "283",
+                "key": "285",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7978,10 +8036,10 @@ Immutable.Record {
           "title": null,
           "void": true,
         },
-        "key": "284",
+        "key": "286",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "285",
+            "key": "287",
             "marks": Immutable.Set [],
             "text": "",
           },
@@ -7996,10 +8054,10 @@ Immutable.Record {
           "title": null,
           "void": true,
         },
-        "key": "286",
+        "key": "288",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "287",
+            "key": "289",
             "marks": Immutable.Set [],
             "text": "",
           },
@@ -8010,7 +8068,7 @@ Immutable.Record {
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "274",
+      "key": "276",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -8019,7 +8077,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "274",
+      "key": "276",
       "offset": 0,
       "path": Immutable.List [
         0,

@@ -79,7 +79,11 @@ const renderElement = ({
     case "tableCell":
       return <td {...attributes}>{children}</td>;
     case "html":
-      break;
+      return (
+        <pre>
+          <code {...attributes}>{children}</code>
+        </pre>
+      );
     case "code":
       // TODO lang meta
       return (
