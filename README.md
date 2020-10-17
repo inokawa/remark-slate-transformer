@@ -28,9 +28,7 @@ import unified from "unified";
 import markdown from "remark-parse";
 import { remarkToSlate } from "slate-remark";
 
-const processor = unified()
-  .use(markdown, { commonmark: true })
-  .use(remarkToSlate);
+const processor = unified().use(markdown).use(remarkToSlate);
 
 const res = processor.processSync(text).result;
 console.log(res);
@@ -44,9 +42,7 @@ import unified from "unified";
 import markdown from "remark-parse";
 import { remarkToSlateLegacy } from "slate-remark";
 
-const processor = unified()
-  .use(markdown, { commonmark: true })
-  .use(remarkToSlateLegacy);
+const processor = unified().use(markdown).use(remarkToSlateLegacy);
 
 const res = Value.fromJSON(processor.processSync(text).result);
 console.log(res);
@@ -61,12 +57,7 @@ import unified from "unified";
 import stringify from "remark-stringify";
 import { slateToRemark } from "slate-remark";
 
-const processor = unified().use(slateToRemark).use(stringify, {
-  bullet: "*",
-  fence: "~",
-  fences: true,
-  incrementListMarker: false,
-});
+const processor = unified().use(slateToRemark).use(stringify);
 
 const value = ...; // value passed to slate editor
 
@@ -85,12 +76,7 @@ import unified from "unified";
 import stringify from "remark-stringify";
 import { slateToRemarkLegacy } from "slate-remark";
 
-const processor = unified().use(slateToRemarkLegacy).use(stringify, {
-  bullet: "*",
-  fence: "~",
-  fences: true,
-  incrementListMarker: false,
-});
+const processor = unified().use(slateToRemarkLegacy).use(stringify);
 
 const value = ...; // value passed to slate editor
 
