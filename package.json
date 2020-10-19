@@ -57,13 +57,10 @@
   "keywords": [
     "unist",
     "remark",
-    "retext",
-    "rehype",
-    "hast",
     "mdast",
-    "nlcst",
     "markdown",
     "slate",
+    "react",
     "wysiwyg",
     "richtext",
     "editor"
