@@ -111,7 +111,7 @@ const renderElement = ({
     case "footnoteDefinition":
       break;
     case "break":
-      break;
+      return <br />;
     case "link":
       return (
         <a
