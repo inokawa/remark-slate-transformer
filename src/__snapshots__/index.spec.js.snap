@@ -688,7 +688,7 @@ quote",
     "children": Array [
       Object {
         "text": "<div style=\\"color:red;\\">
-This is <underline>HTML</underline>
+This is <u>HTML</u>
 </div>",
       },
     ],
@@ -1490,7 +1490,7 @@ quote",
     Object {
       "type": "html",
       "value": "<div style=\\"color:red;\\">
-This is <underline>HTML</underline>
+This is <u>HTML</u>
 </div>",
     },
     Object {
@@ -1597,7 +1597,7 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 | aligned    |     aligned |    aligned   |
 
 <div style=\\"color:red;\\">
-This is <underline>HTML</underline>
+This is <u>HTML</u>
 </div>
 
 ***
@@ -2660,7 +2660,7 @@ quote",
             "marks": Array [],
             "object": "text",
             "text": "<div style=\\"color:red;\\">
-This is <underline>HTML</underline>
+This is <u>HTML</u>
 </div>",
           },
         ],
@@ -3768,7 +3768,7 @@ quote",
             "key": "147",
             "marks": Immutable.Set [],
             "text": "<div style=\\"color:red;\\">
-This is <underline>HTML</underline>
+This is <u>HTML</u>
 </div>",
           },
         ],
@@ -4605,7 +4605,7 @@ quote",
     Object {
       "type": "html",
       "value": "<div style=\\"color:red;\\">
-This is <underline>HTML</underline>
+This is <u>HTML</u>
 </div>",
     },
     Object {
@@ -4712,7 +4712,7 @@ This is ![image](https://github.githubassets.com/images/modules/logos_page/Octoc
 | aligned    |     aligned |    aligned   |
 
 <div style=\\"color:red;\\">
-This is <underline>HTML</underline>
+This is <u>HTML</u>
 </div>
 
 ***
