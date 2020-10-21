@@ -82,9 +82,12 @@ const renderElement = ({
       return <td {...attributes}>{children}</td>;
     case "html":
       return (
-        <pre>
-          <code {...attributes}>{children}</code>
-        </pre>
+        <div
+          {...attributes}
+          dangerouslySetInnerHTML={{
+            __html: element.children[0].text as string,
+          }}
+        />
       );
     case "code":
       return (
