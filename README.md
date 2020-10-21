@@ -1,6 +1,6 @@
 # slate-remark
 
-![check](https://github.com/inokawa/slate-remark/workflows/check/badge.svg)
+[![npm version](https://badge.fury.io/js/slate-remark.svg)](https://badge.fury.io/js/slate-remark) ![check](https://github.com/inokawa/slate-remark/workflows/check/badge.svg)
 
 [remark](https://github.com/remarkjs/remark) plugin to transform remark synthax tree ([mdast](https://github.com/syntax-tree/mdast)) to [Slate](https://github.com/ianstormtaylor/slate) document tree, and also Slate to remark.
 
