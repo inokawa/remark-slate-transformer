@@ -9,6 +9,8 @@ import {
 } from "slate-react";
 import { withHistory } from "slate-history";
 import "github-markdown-css";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const style: React.CSSProperties = {
   flex: 1,
@@ -85,11 +87,14 @@ const renderElement = ({
         </pre>
       );
     case "code":
-      // TODO lang meta
       return (
-        <pre>
-          <code {...attributes}>{children}</code>
-        </pre>
+        <SyntaxHighlighter
+          {...attributes}
+          style={dark}
+          language={element.lang as string}
+        >
+          {element.children[0].text}
+        </SyntaxHighlighter>
       );
     case "yaml":
     case "toml":
