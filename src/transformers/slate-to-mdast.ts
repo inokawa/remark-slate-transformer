@@ -125,7 +125,7 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
       if (!n) continue;
       const node = createMdastNode(n);
       if (node) {
-        mdastNodes.push(node);
+        mdastNodes.push(node as unistLib.Node);
       }
     }
   }
@@ -135,56 +135,56 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
 
 function createMdastNode(
   node: Exclude<slate.SlateNode, slate.Text>
-): unistLib.Node | null {
+): Exclude<mdast.Content, TextOrDecoration> | null {
   switch (node.type) {
     case "paragraph":
-      return (createParagraph(node) as any) as unistLib.Node;
+      return createParagraph(node);
     case "heading":
-      return (createHeading(node) as any) as unistLib.Node;
+      return createHeading(node);
     case "thematicBreak":
-      return (createThematicBreak(node) as any) as unistLib.Node;
+      return createThematicBreak(node);
     case "blockquote":
-      return (createBlockquote(node) as any) as unistLib.Node;
+      return createBlockquote(node);
     case "list":
-      return (createList(node) as any) as unistLib.Node;
+      return createList(node);
     case "listItem":
-      return (createListItem(node) as any) as unistLib.Node;
+      return createListItem(node);
     case "table":
-      return (createTable(node) as any) as unistLib.Node;
+      return createTable(node);
     case "tableRow":
-      return (createTableRow(node) as any) as unistLib.Node;
+      return createTableRow(node);
     case "tableCell":
-      return (createTableCell(node) as any) as unistLib.Node;
+      return createTableCell(node);
     case "html":
-      return (createHtml(node) as any) as unistLib.Node;
+      return createHtml(node);
     case "code":
-      return (createCode(node) as any) as unistLib.Node;
+      return createCode(node);
     case "yaml":
-      return (createYaml(node) as any) as unistLib.Node;
+      return createYaml(node);
     case "toml":
-      return (createToml(node) as any) as unistLib.Node;
+      return createToml(node);
     case "definition":
-      return (createDefinition(node) as any) as unistLib.Node;
+      return createDefinition(node);
     case "footnoteDefinition":
-      return (createFootnoteDefinition(node) as any) as unistLib.Node;
+      return createFootnoteDefinition(node);
     case "break":
-      return (createBreak(node) as any) as unistLib.Node;
+      return createBreak(node);
     case "link":
-      return (createLink(node) as any) as unistLib.Node;
+      return createLink(node);
     case "image":
-      return (createImage(node) as any) as unistLib.Node;
+      return createImage(node);
     case "linkReference":
-      return (createLinkReference(node) as any) as unistLib.Node;
+      return createLinkReference(node);
     case "imageReference":
-      return (createImageReference(node) as any) as unistLib.Node;
+      return createImageReference(node);
     case "footnote":
-      return (createFootnote(node) as any) as unistLib.Node;
+      return createFootnote(node);
     case "footnoteReference":
-      return (creatFootnoteReference(node) as any) as unistLib.Node;
+      return creatFootnoteReference(node);
     case "math":
-      return (createMath(node) as any) as unistLib.Node;
+      return createMath(node);
     case "inlineMath":
-      return (createInlineMath(node) as any) as unistLib.Node;
+      return createInlineMath(node);
     default:
       break;
   }
