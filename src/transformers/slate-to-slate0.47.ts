@@ -64,7 +64,8 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
     case "toml":
     case "thematicBreak":
     case "definition":
-    case "break": {
+    case "break":
+    case "math": {
       const { type, children, ...rest } = node;
       const res: BlockJSON = {
         object: "block",
@@ -82,7 +83,8 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
     case "image":
     case "imageReference":
     case "footnoteReference":
-    case "footnote": {
+    case "footnote":
+    case "inlineMath": {
       const { type, children, ...rest } = node;
       const res: InlineJSON = {
         object: "inline",

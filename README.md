@@ -11,8 +11,12 @@
 This plugin supports slate 0.50+.
 And also support ~0.47.9 currently, but I don't know in the future.
 
-All nodes in [mdast](https://github.com/syntax-tree/mdast) synthax tree are supported, including nodes created with [remark-gfm](https://github.com/remarkjs/remark-gfm),
-[remark-footnotes](https://github.com/remarkjs/remark-footnotes) and [remark-frontmatter](https://github.com/remarkjs/remark-frontmatter).
+All nodes in [mdast](https://github.com/syntax-tree/mdast) synthax tree are supported, including nodes created with...
+
+- [remark-gfm](https://github.com/remarkjs/remark-gfm)
+- [remark-footnotes](https://github.com/remarkjs/remark-footnotes)
+- [remark-frontmatter](https://github.com/remarkjs/remark-frontmatter)
+- `math` and `inlineMath` from [remark-math](https://github.com/remarkjs/remark-math).
 
 ## Demo
 

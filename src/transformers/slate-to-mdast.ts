@@ -181,6 +181,10 @@ function createMdastNode(
       return (createFootnote(node) as any) as unistLib.Node;
     case "footnoteReference":
       return (creatFootnoteReference(node) as any) as unistLib.Node;
+    case "math":
+      return (createMath(node) as any) as unistLib.Node;
+    case "inlineMath":
+      return (createInlineMath(node) as any) as unistLib.Node;
     default:
       break;
   }
@@ -421,5 +425,21 @@ function creatFootnoteReference(
     type,
     identifier,
     label,
+  };
+}
+
+function createMath(node: slate.Math): mdast.Math {
+  const { type, children } = node;
+  return {
+    type,
+    value: children[0].text,
+  };
+}
+
+function createInlineMath(node: slate.InlineMath): mdast.InlineMath {
+  const { type, children } = node;
+  return {
+    type,
+    value: children[0].text,
   };
 }

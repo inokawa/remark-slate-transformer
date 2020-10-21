@@ -6336,6 +6336,216 @@ dddd
 "
 `;
 
+exports[`e2e legacy node-math.md 1`] = `
+Object {
+  "document": Object {
+    "nodes": Array [
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "Lift(",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "L",
+              },
+            ],
+            "object": "inline",
+            "type": "inlineMath",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": ") can be determined by Lift Coefficient (",
+          },
+          Object {
+            "data": Object {},
+            "nodes": Array [
+              Object {
+                "marks": Array [],
+                "object": "text",
+                "text": "C_L",
+              },
+            ],
+            "object": "inline",
+            "type": "inlineMath",
+          },
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": ") like the following
+equation.",
+          },
+        ],
+        "object": "block",
+        "type": "paragraph",
+      },
+      Object {
+        "data": Object {},
+        "nodes": Array [
+          Object {
+            "marks": Array [],
+            "object": "text",
+            "text": "L = \\\\frac{1}{2} \\\\rho v^2 S C_L",
+          },
+        ],
+        "object": "block",
+        "type": "math",
+      },
+    ],
+    "object": "document",
+  },
+  "object": "value",
+}
+`;
+
+exports[`e2e legacy node-math.md 2`] = `
+Immutable.Record {
+  "annotations": Immutable.Map {},
+  "data": Immutable.Map {},
+  "document": Immutable.Record {
+    "data": Immutable.Map {},
+    "key": "217",
+    "nodes": Immutable.List [
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "218",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "219",
+            "marks": Immutable.Set [],
+            "text": "Lift(",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "220",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "221",
+                "marks": Immutable.Set [],
+                "text": "L",
+              },
+            ],
+            "type": "inlineMath",
+          },
+          Immutable.Record {
+            "key": "222",
+            "marks": Immutable.Set [],
+            "text": ") can be determined by Lift Coefficient (",
+          },
+          Immutable.Record {
+            "data": Immutable.Map {},
+            "key": "223",
+            "nodes": Immutable.List [
+              Immutable.Record {
+                "key": "224",
+                "marks": Immutable.Set [],
+                "text": "C_L",
+              },
+            ],
+            "type": "inlineMath",
+          },
+          Immutable.Record {
+            "key": "225",
+            "marks": Immutable.Set [],
+            "text": ") like the following
+equation.",
+          },
+        ],
+        "type": "paragraph",
+      },
+      Immutable.Record {
+        "data": Immutable.Map {},
+        "key": "226",
+        "nodes": Immutable.List [
+          Immutable.Record {
+            "key": "227",
+            "marks": Immutable.Set [],
+            "text": "L = \\\\frac{1}{2} \\\\rho v^2 S C_L",
+          },
+        ],
+        "type": "math",
+      },
+    ],
+  },
+  "selection": Immutable.Record {
+    "anchor": Immutable.Record {
+      "key": "219",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "focus": Immutable.Record {
+      "key": "219",
+      "offset": 0,
+      "path": Immutable.List [
+        0,
+        0,
+      ],
+    },
+    "isFocused": false,
+    "marks": null,
+  },
+}
+`;
+
+exports[`e2e legacy node-math.md 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Lift(",
+        },
+        Object {
+          "type": "inlineMath",
+          "value": "L",
+        },
+        Object {
+          "type": "text",
+          "value": ") can be determined by Lift Coefficient (",
+        },
+        Object {
+          "type": "inlineMath",
+          "value": "C_L",
+        },
+        Object {
+          "type": "text",
+          "value": ") like the following
+equation.",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "type": "math",
+      "value": "L = \\\\frac{1}{2} \\\\rho v^2 S C_L",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e legacy node-math.md 4`] = `
+"Lift($L$) can be determined by Lift Coefficient ($C_L$) like the following
+equation.
+
+$$
+L = \\\\frac{1}{2} \\\\rho v^2 S C_L
+$$
+"
+`;
+
 exports[`e2e legacy node-ml.md 1`] = `
 Object {
   "document": Object {
@@ -6413,14 +6623,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "217",
+    "key": "228",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "218",
+        "key": "229",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "219",
+            "key": "230",
             "marks": Immutable.Set [],
             "text": "<div>
 <span>This is <b>html</b></span>
@@ -6431,10 +6641,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "220",
+        "key": "231",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "221",
+            "key": "232",
             "marks": Immutable.Set [],
             "text": "<!--comment-->",
           },
@@ -6443,17 +6653,17 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "222",
+        "key": "233",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "mailto:foobarbaz",
               "title": null,
             },
-            "key": "223",
+            "key": "234",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "224",
+                "key": "235",
                 "marks": Immutable.Set [],
                 "text": "mailto:foobarbaz",
               },
@@ -6465,10 +6675,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "225",
+        "key": "236",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "226",
+            "key": "237",
             "marks": Immutable.Set [],
             "text": "aaaaaa",
           },
@@ -6479,7 +6689,7 @@ Immutable.Record {
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "219",
+      "key": "230",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6487,7 +6697,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "219",
+      "key": "230",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6598,14 +6808,14 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "227",
+    "key": "238",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "228",
+        "key": "239",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "229",
+            "key": "240",
             "marks": Immutable.Set [],
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
           },
@@ -6614,10 +6824,10 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "230",
+        "key": "241",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "231",
+            "key": "242",
             "marks": Immutable.Set [],
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -6629,7 +6839,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "229",
+      "key": "240",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -6637,7 +6847,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       ],
     },
     "focus": Immutable.Record {
-      "key": "229",
+      "key": "240",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7071,19 +7281,19 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "232",
+    "key": "243",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "233",
+        "key": "244",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "234",
+            "key": "245",
             "marks": Immutable.Set [],
             "text": "aaa ",
           },
           Immutable.Record {
-            "key": "235",
+            "key": "246",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7093,12 +7303,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "236",
+            "key": "247",
             "marks": Immutable.Set [],
             "text": " aaaaaa ",
           },
           Immutable.Record {
-            "key": "237",
+            "key": "248",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7108,12 +7318,12 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "238",
+            "key": "249",
             "marks": Immutable.Set [],
             "text": " aaaaaaaa ",
           },
           Immutable.Record {
-            "key": "239",
+            "key": "250",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7123,12 +7333,12 @@ Immutable.Record {
             "text": "aaaaaaa",
           },
           Immutable.Record {
-            "key": "240",
+            "key": "251",
             "marks": Immutable.Set [],
             "text": " aaaa ",
           },
           Immutable.Record {
-            "key": "241",
+            "key": "252",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7138,13 +7348,13 @@ Immutable.Record {
             "text": "aaaaaaaa",
           },
           Immutable.Record {
-            "key": "242",
+            "key": "253",
             "marks": Immutable.Set [],
             "text": " aaa
 aaa**",
           },
           Immutable.Record {
-            "key": "243",
+            "key": "254",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7154,7 +7364,7 @@ aaa**",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "244",
+            "key": "255",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7164,12 +7374,12 @@ aaa**",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "245",
+            "key": "256",
             "marks": Immutable.Set [],
             "text": "**aaa ",
           },
           Immutable.Record {
-            "key": "246",
+            "key": "257",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7179,7 +7389,7 @@ aaa**",
             "text": "aa ",
           },
           Immutable.Record {
-            "key": "247",
+            "key": "258",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7193,7 +7403,7 @@ aaa**",
             "text": "a ",
           },
           Immutable.Record {
-            "key": "248",
+            "key": "259",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7211,7 +7421,7 @@ aaa**",
             "text": "aa",
           },
           Immutable.Record {
-            "key": "249",
+            "key": "260",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7225,7 +7435,7 @@ aaa**",
             "text": " aa ",
           },
           Immutable.Record {
-            "key": "250",
+            "key": "261",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7243,7 +7453,7 @@ aaa**",
             "text": "aaa",
           },
           Immutable.Record {
-            "key": "251",
+            "key": "262",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7257,7 +7467,7 @@ aaa**",
             "text": " aaaaa",
           },
           Immutable.Record {
-            "key": "252",
+            "key": "263",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7267,12 +7477,12 @@ aaa**",
             "text": " aaaa",
           },
           Immutable.Record {
-            "key": "253",
+            "key": "264",
             "marks": Immutable.Set [],
             "text": " aa",
           },
           Immutable.Record {
-            "key": "254",
+            "key": "265",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7288,10 +7498,10 @@ aaa**",
         "data": Immutable.Map {
           "depth": 1,
         },
-        "key": "255",
+        "key": "266",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "256",
+            "key": "267",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
@@ -7309,21 +7519,21 @@ aaa**",
           "start": null,
           "spread": false,
         },
-        "key": "257",
+        "key": "268",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "checked": null,
               "spread": false,
             },
-            "key": "258",
+            "key": "269",
             "nodes": Immutable.List [
               Immutable.Record {
                 "data": Immutable.Map {},
-                "key": "259",
+                "key": "270",
                 "nodes": Immutable.List [
                   Immutable.Record {
-                    "key": "260",
+                    "key": "271",
                     "marks": Immutable.Set [
                       Immutable.Record {
                         "data": Immutable.Map {},
@@ -7343,14 +7553,14 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "261",
+        "key": "272",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {},
-            "key": "262",
+            "key": "273",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "263",
+                "key": "274",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7367,17 +7577,17 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "264",
+        "key": "275",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "265",
+            "key": "276",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "266",
+                "key": "277",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7394,17 +7604,17 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "267",
+        "key": "278",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": null,
             },
-            "key": "268",
+            "key": "279",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "269",
+                "key": "280",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7421,7 +7631,7 @@ aaa**",
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "270",
+        "key": "281",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7429,10 +7639,10 @@ aaa**",
               "title": null,
               "alt": "image",
             },
-            "key": "271",
+            "key": "282",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "272",
+                "key": "283",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7446,7 +7656,7 @@ aaa**",
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "234",
+      "key": "245",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7454,7 +7664,7 @@ aaa**",
       ],
     },
     "focus": Immutable.Record {
-      "key": "234",
+      "key": "245",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -7887,21 +8097,21 @@ Immutable.Record {
   "data": Immutable.Map {},
   "document": Immutable.Record {
     "data": Immutable.Map {},
-    "key": "273",
+    "key": "284",
     "nodes": Immutable.List [
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "274",
+        "key": "285",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
               "url": "https://github.com/",
               "title": "link-title",
             },
-            "key": "275",
+            "key": "286",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "276",
+                "key": "287",
                 "marks": Immutable.Set [
                   Immutable.Record {
                     "data": Immutable.Map {},
@@ -7918,7 +8128,7 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "277",
+        "key": "288",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7926,10 +8136,10 @@ Immutable.Record {
               "title": "image-title",
               "alt": "image",
             },
-            "key": "278",
+            "key": "289",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "279",
+                "key": "290",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7941,7 +8151,7 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "280",
+        "key": "291",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7949,10 +8159,10 @@ Immutable.Record {
               "identifier": "link-ref",
               "label": "link-ref",
             },
-            "key": "281",
+            "key": "292",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "282",
+                "key": "293",
                 "marks": Immutable.Set [],
                 "text": "alpha",
               },
@@ -7964,7 +8174,7 @@ Immutable.Record {
       },
       Immutable.Record {
         "data": Immutable.Map {},
-        "key": "283",
+        "key": "294",
         "nodes": Immutable.List [
           Immutable.Record {
             "data": Immutable.Map {
@@ -7973,10 +8183,10 @@ Immutable.Record {
               "identifier": "image-ref",
               "label": "image-ref",
             },
-            "key": "284",
+            "key": "295",
             "nodes": Immutable.List [
               Immutable.Record {
-                "key": "285",
+                "key": "296",
                 "marks": Immutable.Set [],
                 "text": "",
               },
@@ -7993,10 +8203,10 @@ Immutable.Record {
           "url": "example.com",
           "title": null,
         },
-        "key": "286",
+        "key": "297",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "287",
+            "key": "298",
             "marks": Immutable.Set [],
             "text": "",
           },
@@ -8010,10 +8220,10 @@ Immutable.Record {
           "url": "example.gif",
           "title": null,
         },
-        "key": "288",
+        "key": "299",
         "nodes": Immutable.List [
           Immutable.Record {
-            "key": "289",
+            "key": "300",
             "marks": Immutable.Set [],
             "text": "",
           },
@@ -8024,7 +8234,7 @@ Immutable.Record {
   },
   "selection": Immutable.Record {
     "anchor": Immutable.Record {
-      "key": "276",
+      "key": "287",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -8033,7 +8243,7 @@ Immutable.Record {
       ],
     },
     "focus": Immutable.Record {
-      "key": "276",
+      "key": "287",
       "offset": 0,
       "path": Immutable.List [
         0,
@@ -8940,6 +9150,98 @@ dddd
 ##### G
 
 ###### H
+"
+`;
+
+exports[`e2e node-math.md 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "text": "Lift(",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "L",
+          },
+        ],
+        "type": "inlineMath",
+      },
+      Object {
+        "text": ") can be determined by Lift Coefficient (",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "text": "C_L",
+          },
+        ],
+        "type": "inlineMath",
+      },
+      Object {
+        "text": ") like the following
+equation.",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "text": "L = \\\\frac{1}{2} \\\\rho v^2 S C_L",
+      },
+    ],
+    "type": "math",
+  },
+]
+`;
+
+exports[`e2e node-math.md 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Lift(",
+        },
+        Object {
+          "type": "inlineMath",
+          "value": "L",
+        },
+        Object {
+          "type": "text",
+          "value": ") can be determined by Lift Coefficient (",
+        },
+        Object {
+          "type": "inlineMath",
+          "value": "C_L",
+        },
+        Object {
+          "type": "text",
+          "value": ") like the following
+equation.",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "type": "math",
+      "value": "L = \\\\frac{1}{2} \\\\rho v^2 S C_L",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`e2e node-math.md 3`] = `
+"Lift($L$) can be determined by Lift Coefficient ($C_L$) like the following
+equation.
+
+$$
+L = \\\\frac{1}{2} \\\\rho v^2 S C_L
+$$
 "
 `;
 

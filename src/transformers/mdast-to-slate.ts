@@ -92,6 +92,10 @@ function createSlateNode(
       return [createFootnote(node, decoration)];
     case "footnoteReference":
       return [createFootnoteReference(node)];
+    case "math":
+      return [createMath(node)];
+    case "inlineMath":
+      return [createInlineMath(node)];
     default:
       break;
   }
@@ -228,6 +232,26 @@ function createYaml(node: mdast.YAML) {
 export type Toml = ReturnType<typeof createToml>;
 
 function createToml(node: mdast.TOML) {
+  const { type, value } = node;
+  return {
+    type,
+    children: [{ text: value }],
+  };
+}
+
+export type Math = ReturnType<typeof createMath>;
+
+function createMath(node: mdast.Math) {
+  const { type, value } = node;
+  return {
+    type,
+    children: [{ text: value }],
+  };
+}
+
+export type InlineMath = ReturnType<typeof createInlineMath>;
+
+function createInlineMath(node: mdast.InlineMath) {
   const { type, value } = node;
   return {
     type,
@@ -382,4 +406,6 @@ export type SlateNode =
   | LinkReference
   | ImageReference
   | Footnote
-  | FootnoteReference;
+  | FootnoteReference
+  | Math
+  | InlineMath;

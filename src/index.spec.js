@@ -5,6 +5,7 @@ import markdown from "remark-parse";
 import gfm from "remark-gfm";
 import footnotes from "remark-footnotes";
 import frontmatter from "remark-frontmatter";
+import math from "remark-math";
 import stringify from "remark-stringify";
 import {
   remarkToSlate,
@@ -22,12 +23,14 @@ describe("e2e", () => {
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
+    .use(math)
     .use(remarkToSlate);
   const toRemarkProcessor = unified()
     .use(slateToRemark)
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
+    .use(math)
     .use(stringify, { bullet: "-", emphasis: "_" });
 
   const fixtureDir = path.join(__dirname, FIXTURE_PATH);
@@ -57,12 +60,14 @@ describe("e2e legacy", () => {
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
+    .use(math)
     .use(remarkToSlateLegacy);
   const toRemarkProcessor = unified()
     .use(slateToRemarkLegacy)
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
+    .use(math)
     .use(stringify, { bullet: "-", emphasis: "_" });
 
   const fixtureDir = path.join(__dirname, FIXTURE_PATH);

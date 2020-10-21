@@ -144,6 +144,14 @@ export interface FootnoteReference extends Association {
   type: "footnoteReference";
 }
 
+export interface Math extends Literal {
+  type: "math";
+}
+
+export interface InlineMath extends Literal {
+  type: "inlineMath";
+}
+
 export interface Resource {
   url: string;
   title?: string;
@@ -182,7 +190,8 @@ export type BlockContent =
   | List
   | Table
   | HTML
-  | Code;
+  | Code
+  | Math;
 
 export type FrontmatterContent = YAML | TOML;
 
@@ -207,7 +216,8 @@ export type StaticPhrasingContent =
   | Image
   | ImageReference
   | Footnote
-  | FootnoteReference;
+  | FootnoteReference
+  | InlineMath;
 
 export type AlignType = "left" | "right" | "center" | null;
 
