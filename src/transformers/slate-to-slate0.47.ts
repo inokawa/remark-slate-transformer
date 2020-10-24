@@ -82,8 +82,8 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
     case "linkReference":
     case "image":
     case "imageReference":
-    case "footnoteReference":
     case "footnote":
+    case "footnoteReference":
     case "inlineMath": {
       const { type, children, ...rest } = node;
       const res: InlineJSON = {

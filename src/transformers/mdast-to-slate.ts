@@ -20,37 +20,34 @@ function createSlateRoot(root: mdast.Root): slateLib.Node[] {
 
 function convertNodes(
   nodes: mdast.Content[],
-  decoration: Decoration
+  deco: Decoration
 ): slateLib.Node[] {
   return nodes.reduce<slateLib.Node[]>((acc, node) => {
-    acc.push(...createSlateNode(node, decoration));
+    acc.push(...createSlateNode(node, deco));
     return acc;
   }, []);
 }
 
-function createSlateNode(
-  node: mdast.Content,
-  decoration: Decoration
-): SlateNode[] {
+function createSlateNode(node: mdast.Content, deco: Decoration): SlateNode[] {
   switch (node.type) {
     case "paragraph":
-      return [createParagraph(node, decoration)];
+      return [createParagraph(node, deco)];
     case "heading":
-      return [createHeading(node, decoration)];
+      return [createHeading(node, deco)];
     case "thematicBreak":
       return [createThematicBreak(node)];
     case "blockquote":
-      return [createBlockquote(node, decoration)];
+      return [createBlockquote(node, deco)];
     case "list":
-      return [createList(node, decoration)];
+      return [createList(node, deco)];
     case "listItem":
-      return [createListItem(node, decoration)];
+      return [createListItem(node, deco)];
     case "table":
-      return [createTable(node, decoration)];
+      return [createTable(node, deco)];
     case "tableRow":
-      return [createTableRow(node, decoration)];
+      return [createTableRow(node, deco)];
     case "tableCell":
-      return [createTableCell(node, decoration)];
+      return [createTableCell(node, deco)];
     case "html":
       return [createHtml(node)];
     case "code":
@@ -62,34 +59,34 @@ function createSlateNode(
     case "definition":
       return [createDefinition(node)];
     case "footnoteDefinition":
-      return [createFootnoteDefinition(node, decoration)];
+      return [createFootnoteDefinition(node, deco)];
     case "text":
-      return [createText(node.value, decoration)];
+      return [createText(node.value, deco)];
     case "emphasis":
     case "strong":
     case "delete": {
       const { type, children } = node;
       return children.reduce<SlateNode[]>((acc, n) => {
-        acc.push(...createSlateNode(n, { ...decoration, [type]: true }));
+        acc.push(...createSlateNode(n, { ...deco, [type]: true }));
         return acc;
       }, []);
     }
     case "inlineCode": {
       const { type, value } = node;
-      return [createText(value, { ...decoration, [type]: true })];
+      return [createText(value, { ...deco, [type]: true })];
     }
     case "break":
       return [createBreak(node)];
     case "link":
-      return [createLink(node, decoration)];
+      return [createLink(node, deco)];
     case "image":
       return [createImage(node)];
     case "linkReference":
-      return [createLinkReference(node, decoration)];
+      return [createLinkReference(node, deco)];
     case "imageReference":
       return [createImageReference(node)];
     case "footnote":
-      return [createFootnote(node, decoration)];
+      return [createFootnote(node, deco)];
     case "footnoteReference":
       return [createFootnoteReference(node)];
     case "math":
@@ -104,22 +101,22 @@ function createSlateNode(
 
 export type Paragraph = ReturnType<typeof createParagraph>;
 
-function createParagraph(node: mdast.Paragraph, decoration: Decoration) {
+function createParagraph(node: mdast.Paragraph, deco: Decoration) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
   };
 }
 
 export type Heading = ReturnType<typeof createHeading>;
 
-function createHeading(node: mdast.Heading, decoration: Decoration) {
+function createHeading(node: mdast.Heading, deco: Decoration) {
   const { type, children, depth } = node;
   return {
     type,
     depth,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
   };
 }
 
@@ -134,20 +131,20 @@ function createThematicBreak(node: mdast.ThematicBreak) {
 
 export type Blockquote = ReturnType<typeof createBlockquote>;
 
-function createBlockquote(node: mdast.Blockquote, decoration: Decoration) {
+function createBlockquote(node: mdast.Blockquote, deco: Decoration) {
   return {
     type: node.type,
-    children: convertNodes(node.children, decoration),
+    children: convertNodes(node.children, deco),
   };
 }
 
 export type List = ReturnType<typeof createList>;
 
-function createList(node: mdast.List, decoration: Decoration) {
+function createList(node: mdast.List, deco: Decoration) {
   const { type, children, ordered, start, spread } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
     ordered,
     start,
     spread,
@@ -156,11 +153,11 @@ function createList(node: mdast.List, decoration: Decoration) {
 
 export type ListItem = ReturnType<typeof createListItem>;
 
-function createListItem(node: mdast.ListItem, decoration: Decoration) {
+function createListItem(node: mdast.ListItem, deco: Decoration) {
   const { type, children, checked, spread } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
     checked,
     spread,
   };
@@ -168,32 +165,32 @@ function createListItem(node: mdast.ListItem, decoration: Decoration) {
 
 export type Table = ReturnType<typeof createTable>;
 
-function createTable(node: mdast.Table, decoration: Decoration) {
+function createTable(node: mdast.Table, deco: Decoration) {
   const { type, children, align } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
     align,
   };
 }
 
 export type TableRow = ReturnType<typeof createTableRow>;
 
-function createTableRow(node: mdast.TableRow, decoration: Decoration) {
+function createTableRow(node: mdast.TableRow, deco: Decoration) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
   };
 }
 
 export type TableCell = ReturnType<typeof createTableCell>;
 
-function createTableCell(node: mdast.TableCell, decoration: Decoration) {
+function createTableCell(node: mdast.TableCell, deco: Decoration) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
   };
 }
 
@@ -277,12 +274,12 @@ export type FootnoteDefinition = ReturnType<typeof createFootnoteDefinition>;
 
 function createFootnoteDefinition(
   node: mdast.FootnoteDefinition,
-  decoration: Decoration
+  deco: Decoration
 ) {
   const { type, children, identifier, label } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
     identifier,
     label,
   };
@@ -290,9 +287,9 @@ function createFootnoteDefinition(
 
 export type Text = ReturnType<typeof createText>;
 
-function createText(text: string, decoration: Decoration) {
+function createText(text: string, deco: Decoration) {
   return {
-    ...decoration,
+    ...deco,
     text,
   };
 }
@@ -308,11 +305,11 @@ function createBreak(node: mdast.Break) {
 
 export type Link = ReturnType<typeof createLink>;
 
-function createLink(node: mdast.Link, decoration: Decoration) {
+function createLink(node: mdast.Link, deco: Decoration) {
   const { type, children, url, title } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
     url,
     title,
   };
@@ -333,14 +330,11 @@ function createImage(node: mdast.Image) {
 
 export type LinkReference = ReturnType<typeof createLinkReference>;
 
-function createLinkReference(
-  node: mdast.LinkReference,
-  decoration: Decoration
-) {
+function createLinkReference(node: mdast.LinkReference, deco: Decoration) {
   const { type, children, referenceType, identifier, label } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
     referenceType,
     identifier,
     label,
@@ -363,11 +357,11 @@ function createImageReference(node: mdast.ImageReference) {
 
 export type Footnote = ReturnType<typeof createFootnote>;
 
-function createFootnote(node: mdast.Footnote, decoration: Decoration) {
+function createFootnote(node: mdast.Footnote, deco: Decoration) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, decoration),
+    children: convertNodes(children, deco),
   };
 }
 
