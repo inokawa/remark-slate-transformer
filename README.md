@@ -1,6 +1,6 @@
-# slate-remark
+# remark-slate-transformer
 
-[![npm version](https://badge.fury.io/js/slate-remark.svg)](https://badge.fury.io/js/slate-remark) ![check](https://github.com/inokawa/slate-remark/workflows/check/badge.svg)
+[![npm version](https://badge.fury.io/js/remark-slate-transformer.svg)](https://badge.fury.io/js/remark-slate-transformer) ![check](https://github.com/inokawa/remark-slate-transformer/workflows/check/badge.svg)
 
 [remark](https://github.com/remarkjs/remark) plugin to transform remark synthax tree ([mdast](https://github.com/syntax-tree/mdast)) to [Slate](https://github.com/ianstormtaylor/slate) document tree, and also Slate to remark.
 
@@ -20,12 +20,12 @@ All nodes in [mdast](https://github.com/syntax-tree/mdast) synthax tree are supp
 
 ## Demo
 
-https://inokawa.github.io/slate-remark/
+https://inokawa.github.io/remark-slate-transformer/
 
 ## Install
 
 ```
-npm install slate-remark
+npm install remark-slate-transformer
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ npm install slate-remark
 ```javascript
 import unified from "unified";
 import markdown from "remark-parse";
-import { remarkToSlate } from "slate-remark";
+import { remarkToSlate } from "remark-slate-transformer";
 
 const processor = unified().use(markdown).use(remarkToSlate);
 
@@ -51,7 +51,7 @@ console.log(res);
 import { Value } from "slate";
 import unified from "unified";
 import markdown from "remark-parse";
-import { remarkToSlateLegacy } from "slate-remark";
+import { remarkToSlateLegacy } from "remark-slate-transformer";
 
 const processor = unified().use(markdown).use(remarkToSlateLegacy);
 
@@ -66,7 +66,7 @@ console.log(res);
 ```javascript
 import unified from "unified";
 import stringify from "remark-stringify";
-import { slateToRemark } from "slate-remark";
+import { slateToRemark } from "remark-slate-transformer";
 
 const processor = unified().use(slateToRemark).use(stringify);
 
@@ -85,7 +85,7 @@ console.log(res);
 ```javascript
 import unified from "unified";
 import stringify from "remark-stringify";
-import { slateToRemarkLegacy } from "slate-remark";
+import { slateToRemarkLegacy } from "remark-slate-transformer";
 
 const processor = unified().use(slateToRemarkLegacy).use(stringify);
 

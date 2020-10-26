@@ -1,6 +1,6 @@
 {
-  "name": "slate-remark",
-  "version": "0.1.9",
+  "name": "remark-slate-transformer",
+  "version": "0.2.0",
   "description": "remark plugin to transform remark synthax tree (mdast) to Slate document tree, and also Slate to remark.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inokawa/slate-remark.git"
+    "url": "git+https://github.com/inokawa/remark-slate-transformer.git"
   },
   "keywords": [
     "unist",
@@ -70,7 +70,7 @@
   "author": "inokawa <stratoooo-taster@yahoo.co.jp> (https://github.com/inokawa/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/inokawa/slate-remark/issues"
+    "url": "https://github.com/inokawa/remark-slate-transformer/issues"
   },
-  "homepage": "https://github.com/inokawa/slate-remark#readme"
+  "homepage": "https://github.com/inokawa/remark-slate-transformer#readme"
 }
