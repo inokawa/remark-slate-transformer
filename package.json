@@ -1,7 +1,7 @@
 {
   "name": "remark-slate-transformer",
   "version": "0.2.0",
-  "description": "remark plugin to transform remark synthax tree (mdast) to Slate document tree, and also Slate to remark.",
+  "description": "remark plugin to transform remark synthax tree (mdast) to Slate document tree, and vice versa. Made for WYSIWYG markdown editor.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",

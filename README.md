@@ -2,13 +2,14 @@
 
 [![npm version](https://badge.fury.io/js/remark-slate-transformer.svg)](https://badge.fury.io/js/remark-slate-transformer) ![check](https://github.com/inokawa/remark-slate-transformer/workflows/check/badge.svg)
 
-[remark](https://github.com/remarkjs/remark) plugin to transform remark synthax tree ([mdast](https://github.com/syntax-tree/mdast)) to [Slate](https://github.com/ianstormtaylor/slate) document tree, and also Slate to remark.
+[remark](https://github.com/remarkjs/remark) plugin to transform remark synthax tree ([mdast](https://github.com/syntax-tree/mdast)) to [Slate](https://github.com/ianstormtaylor/slate) document tree, and vice versa. Made for WYSIWYG markdown editor.
 
 [remark](https://github.com/remarkjs/remark) is popular markdown parser/serializer which data structure can be converted to what used in [rehype](https://github.com/rehypejs/rehype), [retext](https://github.com/retextjs/retext) and so on. [Slate](https://github.com/ianstormtaylor/slate) is fully customizable rich text editor built on [React](https://github.com/facebook/react). Connect both 2 worlds should be great...
 
 ## Support
 
 This plugin supports slate 0.50+.
+The data structure is described [here](https://docs.slatejs.org/concepts/02-nodes).
 And also support ~0.47.9 currently, but I don't know in the future.
 
 All nodes in [mdast](https://github.com/syntax-tree/mdast) synthax tree are supported, including nodes created with...
