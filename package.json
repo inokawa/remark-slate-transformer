@@ -33,7 +33,7 @@
     "github-markdown-css": "4.0.0",
     "jest": "26.4.2",
     "react-is": "16.13.1",
-    "react-syntax-highlighter": "15.2.1",
+    "react-syntax-highlighter": "15.3.0",
     "remark-footnotes": "3.0.0",
     "remark-frontmatter": "3.0.0",
     "remark-gfm": "1.0.0",
