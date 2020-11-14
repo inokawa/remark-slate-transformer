@@ -41,7 +41,7 @@
     "remark-parse": "9.0.0",
     "remark-stringify": "9.0.0",
     "rimraf": "3.0.2",
-    "rollup": "2.33.1",
+    "rollup": "2.33.2",
     "slate": "0.59.0",
     "slate-history": "0.59.0",
     "slate-react": "0.59.0",
