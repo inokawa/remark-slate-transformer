@@ -19,9 +19,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "7.12.3",
-    "@babel/preset-env": "7.12.1",
-    "@babel/preset-typescript": "7.12.1",
+    "@babel/core": "7.12.7",
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-typescript": "7.12.7",
     "@rollup/plugin-typescript": "6.1.0",
     "@storybook/addon-essentials": "6.0.28",
     "@storybook/addon-links": "6.0.28",
