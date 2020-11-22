@@ -15,7 +15,7 @@ import {
 } from "./";
 import { Value } from "slate_legacy";
 
-const FIXTURE_PATH = "../fixture";
+const FIXTURE_PATH = "../fixtures";
 
 describe("e2e", () => {
   const toSlateProcessor = unified()
@@ -33,12 +33,12 @@ describe("e2e", () => {
     .use(math)
     .use(stringify, { bullet: "-", emphasis: "_" });
 
-  const fixtureDir = path.join(__dirname, FIXTURE_PATH);
-  const filenames = fs.readdirSync(fixtureDir);
+  const fixturesDir = path.join(__dirname, FIXTURE_PATH);
+  const filenames = fs.readdirSync(fixturesDir);
   filenames.forEach((filename) => {
     it(filename, () => {
       const slateNodes = toSlateProcessor.processSync(
-        fs.readFileSync(path.join(fixtureDir, filename))
+        fs.readFileSync(path.join(fixturesDir, filename))
       ).result;
       expect(slateNodes).toMatchSnapshot();
 
@@ -70,12 +70,12 @@ describe("e2e legacy", () => {
     .use(math)
     .use(stringify, { bullet: "-", emphasis: "_" });
 
-  const fixtureDir = path.join(__dirname, FIXTURE_PATH);
-  const filenames = fs.readdirSync(fixtureDir);
+  const fixturesDir = path.join(__dirname, FIXTURE_PATH);
+  const filenames = fs.readdirSync(fixturesDir);
   filenames.forEach((filename) => {
     it(filename, () => {
       const value = toSlateProcessor.processSync(
-        fs.readFileSync(path.join(fixtureDir, filename))
+        fs.readFileSync(path.join(fixturesDir, filename))
       ).result;
       expect(value).toMatchSnapshot();
       expect(Value.fromJSON(value)).toMatchSnapshot();

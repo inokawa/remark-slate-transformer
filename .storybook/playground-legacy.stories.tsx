@@ -9,7 +9,7 @@ import { remarkToSlateLegacy, slateToRemarkLegacy } from "../src";
 import SlateEditor from "./components/slate0.47-editor";
 import TextEditor from "./components/text-editor";
 import Text from "./components/text";
-import text from "../fixture/article.md";
+import text from "../fixtures/article.md";
 
 const toSlateProcessor = unified()
   .use(markdown)
