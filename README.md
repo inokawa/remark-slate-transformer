@@ -25,7 +25,7 @@ https://inokawa.github.io/remark-slate-transformer/
 
 ## Install
 
-```
+```sh
 npm install remark-slate-transformer
 ```
 
