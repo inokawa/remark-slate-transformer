@@ -77,12 +77,12 @@ const processor = unified().use(slateToRemark).use(stringify);
 
 const value = ...; // value passed to slate editor
 
-const tree = processor.runSync({
+const ast = processor.runSync({
   type: "root",
   children: value,
 });
-const res = processor.stringify(tree);
-console.log(res);
+const text = processor.stringify(ast);
+console.log(text);
 ```
 
 #### ~0.47.9
@@ -96,10 +96,10 @@ const processor = unified().use(slateToRemarkLegacy).use(stringify);
 
 const value = ...; // value passed to slate editor
 
-const tree = processor.runSync({
+const ast = processor.runSync({
   type: "root",
   children: value.toJSON().document.nodes,
 });
-const res = processor.stringify(tree);
-console.log(res);
+const text = processor.stringify(ast);
+console.log(text);
 ```
