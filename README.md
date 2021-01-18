@@ -42,6 +42,8 @@ import { remarkToSlate } from "remark-slate-transformer";
 
 const processor = unified().use(markdown).use(remarkToSlate);
 
+const text = "# hello world";
+
 const res = processor.processSync(text).result;
 console.log(res);
 ```
@@ -55,6 +57,8 @@ import markdown from "remark-parse";
 import { remarkToSlateLegacy } from "remark-slate-transformer";
 
 const processor = unified().use(markdown).use(remarkToSlateLegacy);
+
+const text = "# hello world";
 
 const res = Value.fromJSON(processor.processSync(text).result);
 console.log(res);
