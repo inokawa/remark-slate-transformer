@@ -44,8 +44,8 @@ const processor = unified().use(markdown).use(remarkToSlate);
 
 const text = "# hello world";
 
-const res = processor.processSync(text).result;
-console.log(res);
+const value = processor.processSync(text).result;
+console.log(value);
 ```
 
 #### ~0.47.9
@@ -60,8 +60,8 @@ const processor = unified().use(markdown).use(remarkToSlateLegacy);
 
 const text = "# hello world";
 
-const res = Value.fromJSON(processor.processSync(text).result);
-console.log(res);
+const value = Value.fromJSON(processor.processSync(text).result);
+console.log(value);
 ```
 
 ### Transform slate to remark
