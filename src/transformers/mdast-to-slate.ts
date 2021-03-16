@@ -22,6 +22,10 @@ function convertNodes(
   nodes: mdast.Content[],
   deco: Decoration
 ): slateLib.Node[] {
+  if (nodes.length === 0) {
+    return [{ text: "" }];
+  }
+
   return nodes.reduce<slateLib.Node[]>((acc, node) => {
     acc.push(...createSlateNode(node, deco));
     return acc;
