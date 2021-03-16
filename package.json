@@ -1,6 +1,6 @@
 {
   "name": "remark-slate-transformer",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "remark plugin to transform remark syntax tree (mdast) to Slate document tree, and vice versa. Made for WYSIWYG markdown editor.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
@@ -17,7 +17,6 @@
     "build-storybook": "build-storybook",
     "prepublishOnly": "rimraf lib && npm run build && npm run tsc:d"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.12.10",
     "@babel/preset-env": "7.12.11",
