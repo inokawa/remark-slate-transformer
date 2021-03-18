@@ -91,3 +91,27 @@ describe("e2e legacy", () => {
     });
   });
 });
+
+describe("issues", () => {
+  it("issue42", () => {
+    const mdText = `
+- list
+  - list
+- list
+- list
+- 
+  `;
+    const toSlateProcessor = unified().use(markdown).use(remarkToSlate);
+    const toRemarkProcessor = unified()
+      .use(slateToRemark)
+      .use(stringify, { bullet: "-" });
+    const slateTree = toSlateProcessor.processSync(mdText).result;
+    expect(slateTree).toMatchSnapshot();
+    const mdastTree = toRemarkProcessor.runSync({
+      type: "root",
+      children: slateTree,
+    });
+    const text = toRemarkProcessor.stringify(mdastTree);
+    expect(text).toMatchSnapshot();
+  });
+});
