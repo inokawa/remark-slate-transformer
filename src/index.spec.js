@@ -19,7 +19,7 @@ const FIXTURE_PATH = "../fixtures";
 
 describe("e2e", () => {
   const toSlateProcessor = unified()
-    .use(markdown, { commonmark: true })
+    .use(markdown)
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
@@ -56,7 +56,7 @@ describe("e2e", () => {
 
 describe("e2e legacy", () => {
   const toSlateProcessor = unified()
-    .use(markdown, { commonmark: true })
+    .use(markdown)
     .use(gfm)
     .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
