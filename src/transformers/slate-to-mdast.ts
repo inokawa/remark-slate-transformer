@@ -42,38 +42,19 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
         const prev = textQueue[j - 1];
         const next = textQueue[j + 1];
         const ends: DecorationType[] = [];
-        if (cur.inlineCode) {
-          if (!prev || !prev.inlineCode) {
-            starts.push("inlineCode");
+        (["inlineCode", "emphasis", "strong", "delete"] as const).forEach(
+          (k) => {
+            if (cur[k]) {
+              if (!prev || !prev[k]) {
+                starts.push(k);
+              }
+              if (!next || !next[k]) {
+                ends.push(k);
+              }
+            }
           }
-          if (!next || !next.inlineCode) {
-            ends.push("inlineCode");
-          }
-        }
-        if (cur.emphasis) {
-          if (!prev || !prev.emphasis) {
-            starts.push("emphasis");
-          }
-          if (!next || !next.emphasis) {
-            ends.push("emphasis");
-          }
-        }
-        if (cur.strong) {
-          if (!prev || !prev.strong) {
-            starts.push("strong");
-          }
-          if (!next || !next.strong) {
-            ends.push("strong");
-          }
-        }
-        if (cur.delete) {
-          if (!prev || !prev.delete) {
-            starts.push("delete");
-          }
-          if (!next || !next.delete) {
-            ends.push("delete");
-          }
-        }
+        );
+
         if (starts.length > 0) {
           let res: TextOrDecoration = {
             type: "text",
