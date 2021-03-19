@@ -10158,3 +10158,115 @@ exports[`issues issue42 2`] = `
 -
 "
 `;
+
+exports[`issues issue44 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "type": "text",
+          "value": "Naoki Urasawa is a ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "Japanese",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " manga artist and musician. He has been ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "drawing",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " manga since he  ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "was",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " four years old, and for most of his career has created two series simultaneously. ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "So there",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " ",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`issues issue44 2`] = `
+"Naoki Urasawa is a **Japanese** manga artist and musician. He has been *drawing* manga since he  **was** four years old, and for most of his career has created two series simultaneously. **So there** 
+"
+`;
+
+exports[`issues issue44 3`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "text": "Naoki Urasawa is a ",
+      },
+      Object {
+        "strong": true,
+        "text": "Japanese",
+      },
+      Object {
+        "text": " manga artist and musician. He has been ",
+      },
+      Object {
+        "emphasis": true,
+        "text": "drawing",
+      },
+      Object {
+        "text": " manga since he  ",
+      },
+      Object {
+        "strong": true,
+        "text": "was",
+      },
+      Object {
+        "text": " four years old, and for most of his career has created two series simultaneously. ",
+      },
+      Object {
+        "strong": true,
+        "text": "So there",
+      },
+    ],
+    "type": "paragraph",
+  },
+]
+`;

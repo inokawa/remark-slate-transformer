@@ -39,42 +39,50 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
         const cur = textQueue[j];
         textTemp += cur.text;
 
+        const prevStartsStr = starts.toString();
+
         const prev = textQueue[j - 1];
         const next = textQueue[j + 1];
         const ends: DecorationType[] = [];
-        if (cur.inlineCode) {
-          if (!prev || !prev.inlineCode) {
-            starts.push("inlineCode");
+        (["inlineCode", "emphasis", "strong", "delete"] as const).forEach(
+          (k) => {
+            if (cur[k]) {
+              if (!prev || !prev[k]) {
+                starts.push(k);
+              }
+              if (!next || !next[k]) {
+                ends.push(k);
+              }
+            }
           }
-          if (!next || !next.inlineCode) {
-            ends.push("inlineCode");
+        );
+
+        const endsToRemove = starts.reduce<
+          { key: DecorationType; index: number }[]
+        >((acc, k, kIndex) => {
+          if (ends.includes(k)) {
+            acc.push({ key: k, index: kIndex });
           }
-        }
-        if (cur.emphasis) {
-          if (!prev || !prev.emphasis) {
-            starts.push("emphasis");
-          }
-          if (!next || !next.emphasis) {
-            ends.push("emphasis");
-          }
-        }
-        if (cur.strong) {
-          if (!prev || !prev.strong) {
-            starts.push("strong");
-          }
-          if (!next || !next.strong) {
-            ends.push("strong");
-          }
-        }
-        if (cur.delete) {
-          if (!prev || !prev.delete) {
-            starts.push("delete");
-          }
-          if (!next || !next.delete) {
-            ends.push("delete");
-          }
-        }
+          return acc;
+        }, []);
+
         if (starts.length > 0) {
+          let bef = "";
+          let aft = "";
+          if (
+            endsToRemove.length === 1 &&
+            prevStartsStr !== starts.toString() &&
+            starts.length - endsToRemove.length === 0
+          ) {
+            while (textTemp.startsWith(" ")) {
+              bef += " ";
+              textTemp = textTemp.slice(1);
+            }
+            while (textTemp.endsWith(" ")) {
+              aft += " ";
+              textTemp = textTemp.slice(0, -1);
+            }
+          }
           let res: TextOrDecoration = {
             type: "text",
             value: textTemp,
@@ -82,31 +90,35 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
           textTemp = "";
           const startsReversed = starts.slice().reverse();
           startsReversed.forEach((k) => {
-            if (k === "inlineCode") {
-              res = {
-                type: k,
-                value: (res as any).value,
-              };
-            } else {
-              res = {
-                type: k,
-                children: [res],
-              };
+            switch (k) {
+              case "inlineCode":
+                res = {
+                  type: k,
+                  value: (res as any).value,
+                };
+                break;
+              case "strong":
+              case "emphasis":
+              case "delete":
+                res = {
+                  type: k,
+                  children: [res],
+                };
+                break;
             }
           });
-          mdastTexts.push(res);
+          const arr: TextOrDecoration[] = [];
+          if (bef.length > 0) {
+            arr.push({ type: "text", value: bef });
+          }
+          arr.push(res);
+          if (aft.length > 0) {
+            arr.push({ type: "text", value: aft });
+          }
+          mdastTexts.push(...arr);
         }
 
-        if (starts.length > 0 && ends.length > 0) {
-          const endsToRemove = starts.reduce<
-            { key: DecorationType; index: number }[]
-          >((acc, k, kIndex) => {
-            if (ends.includes(k)) {
-              acc.push({ key: k, index: kIndex });
-            }
-            return acc;
-          }, []);
-
+        if (endsToRemove.length > 0) {
           endsToRemove.reverse().forEach((e) => {
             starts.splice(e.index, 1);
           });
