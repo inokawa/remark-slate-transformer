@@ -39,6 +39,8 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
         const cur = textQueue[j];
         textTemp += cur.text;
 
+        const prevStartsStr = starts.toString();
+
         const prev = textQueue[j - 1];
         const next = textQueue[j + 1];
         const ends: DecorationType[] = [];
@@ -55,7 +57,32 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
           }
         );
 
+        const endsToRemove = starts.reduce<
+          { key: DecorationType; index: number }[]
+        >((acc, k, kIndex) => {
+          if (ends.includes(k)) {
+            acc.push({ key: k, index: kIndex });
+          }
+          return acc;
+        }, []);
+
         if (starts.length > 0) {
+          let bef = "";
+          let aft = "";
+          if (
+            endsToRemove.length === 1 &&
+            prevStartsStr !== starts.toString() &&
+            starts.length - endsToRemove.length === 0
+          ) {
+            while (textTemp.startsWith(" ")) {
+              bef += " ";
+              textTemp = textTemp.slice(1);
+            }
+            while (textTemp.endsWith(" ")) {
+              aft += " ";
+              textTemp = textTemp.slice(0, -1);
+            }
+          }
           let res: TextOrDecoration = {
             type: "text",
             value: textTemp,
@@ -63,31 +90,35 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
           textTemp = "";
           const startsReversed = starts.slice().reverse();
           startsReversed.forEach((k) => {
-            if (k === "inlineCode") {
-              res = {
-                type: k,
-                value: (res as any).value,
-              };
-            } else {
-              res = {
-                type: k,
-                children: [res],
-              };
+            switch (k) {
+              case "inlineCode":
+                res = {
+                  type: k,
+                  value: (res as any).value,
+                };
+                break;
+              case "strong":
+              case "emphasis":
+              case "delete":
+                res = {
+                  type: k,
+                  children: [res],
+                };
+                break;
             }
           });
-          mdastTexts.push(res);
+          const arr: TextOrDecoration[] = [];
+          if (bef.length > 0) {
+            arr.push({ type: "text", value: bef });
+          }
+          arr.push(res);
+          if (aft.length > 0) {
+            arr.push({ type: "text", value: aft });
+          }
+          mdastTexts.push(...arr);
         }
 
-        if (starts.length > 0 && ends.length > 0) {
-          const endsToRemove = starts.reduce<
-            { key: DecorationType; index: number }[]
-          >((acc, k, kIndex) => {
-            if (ends.includes(k)) {
-              acc.push({ key: k, index: kIndex });
-            }
-            return acc;
-          }, []);
-
+        if (endsToRemove.length > 0) {
           endsToRemove.reverse().forEach((e) => {
             starts.splice(e.index, 1);
           });

@@ -114,4 +114,56 @@ describe("issues", () => {
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
   });
+
+  it("issue44", () => {
+    const slateNodes = [
+      {
+        type: "paragraph",
+        children: [
+          {
+            text: "Naoki Urasawa is a ",
+          },
+          {
+            text: "Japanese ",
+            strong: true,
+          },
+          {
+            text: "manga artist and musician. He has been ",
+          },
+          {
+            emphasis: true,
+            text: "drawing ",
+          },
+          {
+            text: "manga since he ",
+          },
+          {
+            strong: true,
+            text: " was",
+          },
+          {
+            text:
+              " four years old, and for most of his career has created two series simultaneously. ",
+          },
+          {
+            strong: true,
+            text: "So there ",
+          },
+        ],
+      },
+    ];
+    const toSlateProcessor = unified().use(markdown).use(remarkToSlate);
+    const toRemarkProcessor = unified()
+      .use(slateToRemark)
+      .use(stringify, { emphasis: "*" });
+    const mdastTree = toRemarkProcessor.runSync({
+      type: "root",
+      children: slateNodes,
+    });
+    expect(mdastTree).toMatchSnapshot();
+    const text = toRemarkProcessor.stringify(mdastTree);
+    expect(text).toMatchSnapshot();
+    const slateTree = toSlateProcessor.processSync(text).result;
+    expect(slateTree).toMatchSnapshot();
+  });
 });
