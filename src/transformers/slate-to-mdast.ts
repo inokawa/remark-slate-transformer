@@ -105,6 +105,9 @@ function convertNodes(nodes: slateLib.Node[]): unistLib.Node[] {
                   children: [res],
                 };
                 break;
+              default:
+                const _: never = k;
+                break;
             }
           });
           const arr: TextOrDecoration[] = [];
@@ -198,6 +201,7 @@ function createMdastNode(
     case "inlineMath":
       return createInlineMath(node);
     default:
+      const _: never = node;
       break;
   }
   return null;

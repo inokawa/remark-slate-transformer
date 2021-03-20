@@ -98,6 +98,7 @@ function createSlateNode(node: mdast.Content, deco: Decoration): SlateNode[] {
     case "inlineMath":
       return [createInlineMath(node)];
     default:
+      const _: never = node;
       break;
   }
   return [];
