@@ -1,4 +1,4 @@
-import * as slateLib from "slate";
+import * as slate from "../models/slate";
 import * as mdast from "../models/mdast";
 
 export type Decoration = {
@@ -10,23 +10,20 @@ export type Decoration = {
   )["type"]]?: true;
 };
 
-export function mdastToSlate(node: mdast.Root): slateLib.Node[] {
+export function mdastToSlate(node: mdast.Root): slate.Node[] {
   return createSlateRoot(node);
 }
 
-function createSlateRoot(root: mdast.Root): slateLib.Node[] {
+function createSlateRoot(root: mdast.Root): slate.Node[] {
   return convertNodes(root.children, {});
 }
 
-function convertNodes(
-  nodes: mdast.Content[],
-  deco: Decoration
-): slateLib.Node[] {
+function convertNodes(nodes: mdast.Content[], deco: Decoration): slate.Node[] {
   if (nodes.length === 0) {
     return [{ text: "" }];
   }
 
-  return nodes.reduce<slateLib.Node[]>((acc, node) => {
+  return nodes.reduce<slate.Node[]>((acc, node) => {
     acc.push(...createSlateNode(node, deco));
     return acc;
   }, []);
