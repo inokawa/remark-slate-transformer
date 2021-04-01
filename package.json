@@ -48,7 +48,7 @@
     "slate-history": "0.62.0",
     "slate-react": "0.62.0",
     "slate-react_legacy": "npm:slate-react@0.22.10",
-    "typescript": "4.1.3",
+    "typescript": "4.2.3",
     "unified": "9.2.0"
   },
   "repository": {
