@@ -103,3 +103,5 @@ const ast = processor.runSync({
 const text = processor.stringify(ast);
 console.log(text);
 ```
+
+Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.
