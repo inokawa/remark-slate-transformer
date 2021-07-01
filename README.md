@@ -104,4 +104,6 @@ const text = processor.stringify(ast);
 console.log(text);
 ```
 
+### Utilities
+
 Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.
