@@ -6966,10 +6966,14 @@ Object {
             "marks": Array [],
             "object": "text",
             "text": " aaa
-aaa**",
+aaa",
           },
           Object {
             "marks": Array [
+              Object {
+                "object": "mark",
+                "type": "strong",
+              },
               Object {
                 "object": "mark",
                 "type": "emphasis",
@@ -6982,6 +6986,10 @@ aaa**",
             "marks": Array [
               Object {
                 "object": "mark",
+                "type": "strong",
+              },
+              Object {
+                "object": "mark",
                 "type": "delete",
               },
             ],
@@ -6991,7 +6999,7 @@ aaa**",
           Object {
             "marks": Array [],
             "object": "text",
-            "text": "**aaa ",
+            "text": "aaa ",
           },
           Object {
             "marks": Array [
@@ -7351,11 +7359,15 @@ Immutable.Record {
             "key": "253",
             "marks": Immutable.Set [],
             "text": " aaa
-aaa**",
+aaa",
           },
           Immutable.Record {
             "key": "254",
             "marks": Immutable.Set [
+              Immutable.Record {
+                "data": Immutable.Map {},
+                "type": "strong",
+              },
               Immutable.Record {
                 "data": Immutable.Map {},
                 "type": "emphasis",
@@ -7368,6 +7380,10 @@ aaa**",
             "marks": Immutable.Set [
               Immutable.Record {
                 "data": Immutable.Map {},
+                "type": "strong",
+              },
+              Immutable.Record {
+                "data": Immutable.Map {},
                 "type": "delete",
               },
             ],
@@ -7376,7 +7392,7 @@ aaa**",
           Immutable.Record {
             "key": "256",
             "marks": Immutable.Set [],
-            "text": "**aaa ",
+            "text": "aaa ",
           },
           Immutable.Record {
             "key": "257",
@@ -7732,13 +7748,18 @@ Object {
         Object {
           "type": "text",
           "value": " aaa
-aaa**",
+aaa",
         },
         Object {
           "children": Array [
             Object {
-              "type": "text",
-              "value": "aa",
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "aa",
+                },
+              ],
+              "type": "strong",
             },
           ],
           "type": "emphasis",
@@ -7746,15 +7767,20 @@ aaa**",
         Object {
           "children": Array [
             Object {
-              "type": "text",
-              "value": "aa",
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "aa",
+                },
+              ],
+              "type": "delete",
             },
           ],
-          "type": "delete",
+          "type": "strong",
         },
         Object {
           "type": "text",
-          "value": "**aaa ",
+          "value": "aaa ",
         },
         Object {
           "children": Array [
@@ -7933,7 +7959,7 @@ aaa**",
 
 exports[`e2e legacy node-phrasing-1.md 4`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaa\\\\*\\\\*_aa_~~aa~~\\\\*\\\\*aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aaa_**aa**_**~~aa~~**aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
@@ -9438,18 +9464,20 @@ Array [
       },
       Object {
         "text": " aaa
-aaa**",
+aaa",
       },
       Object {
         "emphasis": true,
+        "strong": true,
         "text": "aa",
       },
       Object {
         "delete": true,
+        "strong": true,
         "text": "aa",
       },
       Object {
-        "text": "**aaa ",
+        "text": "aaa ",
       },
       Object {
         "emphasis": true,
@@ -9650,13 +9678,18 @@ Object {
         Object {
           "type": "text",
           "value": " aaa
-aaa**",
+aaa",
         },
         Object {
           "children": Array [
             Object {
-              "type": "text",
-              "value": "aa",
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "aa",
+                },
+              ],
+              "type": "strong",
             },
           ],
           "type": "emphasis",
@@ -9664,15 +9697,20 @@ aaa**",
         Object {
           "children": Array [
             Object {
-              "type": "text",
-              "value": "aa",
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "aa",
+                },
+              ],
+              "type": "delete",
             },
           ],
-          "type": "delete",
+          "type": "strong",
         },
         Object {
           "type": "text",
-          "value": "**aaa ",
+          "value": "aaa ",
         },
         Object {
           "children": Array [
@@ -9851,7 +9889,7 @@ aaa**",
 
 exports[`e2e node-phrasing-1.md 3`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaa\\\\*\\\\*_aa_~~aa~~\\\\*\\\\*aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aaa_**aa**_**~~aa~~**aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
@@ -10229,7 +10267,7 @@ Object {
 `;
 
 exports[`issues issue44 2`] = `
-"Naoki Urasawa is a **Japanese** manga artist and musician. He has been *drawing* manga since he  **was** four years old, and for most of his career has created two series simultaneously. **So there** 
+"Naoki Urasawa is a **Japanese** manga artist and musician. He has been *drawing* manga since he  **was** four years old, and for most of his career has created two series simultaneously. **So there**&#x20;
 "
 `;
 
@@ -10264,6 +10302,9 @@ Array [
       Object {
         "strong": true,
         "text": "So there",
+      },
+      Object {
+        "text": " ",
       },
     ],
     "type": "paragraph",
