@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import unified from "unified";
+import { unified } from "unified";
 import markdown from "remark-parse";
 import gfm from "remark-gfm";
 import footnotes from "remark-footnotes";

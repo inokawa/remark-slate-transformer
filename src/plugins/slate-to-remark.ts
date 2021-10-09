@@ -1,4 +1,4 @@
-import { Plugin } from "unified";
+import type { Plugin } from "unified";
 import { slateToMdast } from "../transformers/slate-to-mdast";
 
 type Settings = {};

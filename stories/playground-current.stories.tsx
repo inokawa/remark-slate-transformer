@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from "react";
 import { Node } from "slate";
-import unified from "unified";
+import { unified } from "unified";
 import markdown from "remark-parse";
 import gfm from "remark-gfm";
 import frontmatter from "remark-frontmatter";
