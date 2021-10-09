@@ -36,7 +36,7 @@ npm install remark-slate-transformer
 #### 0.50+
 
 ```javascript
-import unified from "unified";
+import { unified } from "unified";
 import markdown from "remark-parse";
 import { remarkToSlate } from "remark-slate-transformer";
 
@@ -52,7 +52,7 @@ console.log(value);
 
 ```javascript
 import { Value } from "slate";
-import unified from "unified";
+import { unified } from "unified";
 import markdown from "remark-parse";
 import { remarkToSlateLegacy } from "remark-slate-transformer";
 
@@ -69,7 +69,7 @@ console.log(value);
 #### 0.50+
 
 ```javascript
-import unified from "unified";
+import { unified } from "unified";
 import stringify from "remark-stringify";
 import { slateToRemark } from "remark-slate-transformer";
 
@@ -88,7 +88,7 @@ console.log(text);
 #### ~0.47.9
 
 ```javascript
-import unified from "unified";
+import { unified } from "unified";
 import stringify from "remark-stringify";
 import { slateToRemarkLegacy } from "remark-slate-transformer";
 
