@@ -239,7 +239,7 @@ function createParagraph(node: slateInternal.Paragraph): mdast.Paragraph {
   const { type, children } = node;
   return {
     type,
-    children: (convertNodes(children) as any) as mdast.Paragraph["children"],
+    children: convertNodes(children) as mdast.Paragraph["children"],
   };
 }
 
@@ -248,7 +248,7 @@ function createHeading(node: slateInternal.Heading): mdast.Heading {
   return {
     type,
     depth,
-    children: (convertNodes(children) as any) as mdast.Heading["children"],
+    children: convertNodes(children) as mdast.Heading["children"],
   };
 }
 
@@ -265,7 +265,7 @@ function createBlockquote(node: slateInternal.Blockquote): mdast.Blockquote {
   const { type, children } = node;
   return {
     type,
-    children: (convertNodes(children) as any) as mdast.Blockquote["children"],
+    children: convertNodes(children) as mdast.Blockquote["children"],
   };
 }
 
@@ -276,7 +276,7 @@ function createList(node: slateInternal.List): mdast.List {
     ordered,
     start,
     spread,
-    children: (convertNodes(children) as any) as mdast.List["children"],
+    children: convertNodes(children) as mdast.List["children"],
   };
 }
 
@@ -286,7 +286,7 @@ function createListItem(node: slateInternal.ListItem): mdast.ListItem {
     type,
     checked,
     spread,
-    children: (convertNodes(children) as any) as mdast.ListItem["children"],
+    children: convertNodes(children) as mdast.ListItem["children"],
   };
 }
 
@@ -295,7 +295,7 @@ function createTable(node: slateInternal.Table): mdast.Table {
   return {
     type,
     align,
-    children: (convertNodes(children) as any) as mdast.Table["children"],
+    children: convertNodes(children) as mdast.Table["children"],
   };
 }
 
@@ -303,7 +303,7 @@ function createTableRow(node: slateInternal.TableRow): mdast.TableRow {
   const { type, children } = node;
   return {
     type,
-    children: (convertNodes(children) as any) as mdast.TableRow["children"],
+    children: convertNodes(children) as mdast.TableRow["children"],
   };
 }
 
@@ -311,7 +311,7 @@ function createTableCell(node: slateInternal.TableCell): mdast.TableCell {
   const { type, children } = node;
   return {
     type,
-    children: (convertNodes(children) as any) as mdast.TableCell["children"],
+    children: convertNodes(children) as mdast.TableCell["children"],
   };
 }
 
@@ -368,9 +368,7 @@ function createFootnoteDefinition(
     type,
     identifier,
     label,
-    children: (convertNodes(
-      children
-    ) as any) as mdast.FootnoteDefinition["children"],
+    children: convertNodes(children) as mdast.FootnoteDefinition["children"],
   };
 }
 
@@ -387,7 +385,7 @@ function createLink(node: slateInternal.Link): mdast.Link {
     type,
     url,
     title,
-    children: (convertNodes(children) as any) as mdast.Link["children"],
+    children: convertNodes(children) as mdast.Link["children"],
   };
 }
 
@@ -410,9 +408,7 @@ function createLinkReference(
     identifier,
     label,
     referenceType,
-    children: (convertNodes(
-      children
-    ) as any) as mdast.LinkReference["children"],
+    children: convertNodes(children) as mdast.LinkReference["children"],
   };
 }
 
@@ -433,7 +429,7 @@ function createFootnote(node: slateInternal.Footnote): mdast.Footnote {
   const { type, children } = node;
   return {
     type,
-    children: (convertNodes(children) as any) as mdast.Footnote["children"],
+    children: convertNodes(children) as mdast.Footnote["children"],
   };
 }
 
