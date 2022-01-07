@@ -135,8 +135,7 @@ const value = r2s.processSync(text).result;
 console.log(value);
 
 const s2r = unified()
-  .use(slateToRemark)
-  .use(stringify, {
+  .use(slateToRemark, {
     overrides: {
       head: (node, next) => ({
         type: "heading",
@@ -145,7 +144,8 @@ const s2r = unified()
       }),
       foo: (node, next) => ({ type: "foo", bar: node.value }),
     },
-  });
+  })
+  .use(stringify);
 const ast = s2r.runSync({
   type: "root",
   children: value,
