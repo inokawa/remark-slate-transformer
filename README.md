@@ -104,6 +104,54 @@ const text = processor.stringify(ast);
 console.log(text);
 ```
 
+### Support custom AST
+
+```js
+import { unified } from "unified";
+import markdown from "remark-parse";
+import stringify from "remark-stringify";
+import { remarkToSlate, slateToRemark } from "remark-slate-transformer";
+
+const text = "# hello world";
+const r2s = unified()
+  .use(markdown)
+  .use(remarkToSlate, {
+    // If you use TypeScript, install `@types/mdast` for autocomplete.
+    overrides: {
+      // This overrides `type: "heading"` builder of remarkToSlate
+      heading: (node, next) => ({
+        type: "head",
+        dep: node.depth,
+        // You have to call next if the node have children
+        children: next(node),
+      }),
+      // Unknown type from community plugins can be handled
+      foo: (node, next) => ({ type: "foo", value: node.bar }),
+    },
+  });
+const value = r2s.processSync(text).result;
+console.log(value);
+
+const s2r = unified()
+  .use(slateToRemark)
+  .use(stringify, {
+    overrides: {
+      head: (node, next) => ({
+        type: "heading",
+        depth: node.dep,
+        children: next(node),
+      }),
+      foo: (node, next) => ({ type: "foo", bar: node.value }),
+    },
+  });
+const ast = s2r.runSync({
+  type: "root",
+  children: value,
+});
+const text = s2r.stringify(ast);
+console.log(text);
+```
+
 ### Utilities
 
 Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.
