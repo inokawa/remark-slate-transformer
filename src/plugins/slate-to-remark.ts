@@ -4,7 +4,7 @@ import {
   OverridedSlateBuilders,
 } from "../transformers/slate-to-mdast";
 
-type Options = {
+export type Options = {
   overrides?: OverridedSlateBuilders;
 };
 
