@@ -123,7 +123,7 @@ const r2s = unified()
         type: "head",
         dep: node.depth,
         // You have to call next if the node have children
-        children: next(node),
+        children: next(node.children),
       }),
       // Unknown type from community plugins can be handled
       foo: (node, next) => ({ type: "foo", value: node.bar }),
@@ -139,7 +139,7 @@ const s2r = unified()
       head: (node, next) => ({
         type: "heading",
         depth: node.dep,
-        children: next(node),
+        children: next(node.children),
       }),
       foo: (node, next) => ({ type: "foo", bar: node.value }),
     },
