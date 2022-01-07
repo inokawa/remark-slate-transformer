@@ -92,6 +92,38 @@ describe("e2e legacy", () => {
   });
 });
 
+describe("options", () => {
+  it("override mdast builders", () => {
+    const mdText = `
+  - AAAA
+    - BBBB
+  - CCCC
+    `;
+    const toSlateProcessor = unified()
+      .use(markdown, {})
+      .use(remarkToSlate, {
+        overrides: {
+          list: (node, next) => ({
+            type: "foo",
+            children: next(node.children),
+          }),
+          text: (node) => ({ type: "bar", bar: node.value }),
+        },
+      });
+    const toRemarkProcessor = unified()
+      .use(slateToRemark)
+      .use(stringify, { bullet: "-" });
+    const slateTree = toSlateProcessor.processSync(mdText).result;
+    expect(slateTree).toMatchSnapshot();
+    const mdastTree = toRemarkProcessor.runSync({
+      type: "root",
+      children: slateTree,
+    });
+    const text = toRemarkProcessor.stringify(mdastTree);
+    expect(text).toMatchSnapshot();
+  });
+});
+
 describe("issues", () => {
   it("issue42", () => {
     const mdText = `
