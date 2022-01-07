@@ -8,8 +8,7 @@ export type Options = {
   overrides?: OverridedMdastBuilders;
 };
 
-const plugin: Plugin<[Options?]> = function ({ overrides = {} }: Options = {}) {
-  // @ts-ignore
+const plugin: Plugin<[Options?]> = function ({ overrides = {} } = {}) {
   this.Compiler = function (node: any) {
     return mdastToSlate(node, overrides);
   };

@@ -8,8 +8,7 @@ export type Options = {
   overrides?: OverridedSlateBuilders;
 };
 
-const plugin: Plugin<[Options?]> = ({ overrides = {} }: Options = {}) => {
-  // @ts-ignore
+const plugin: Plugin<[Options?]> = ({ overrides = {} } = {}) => {
   return function (node: any) {
     return slateToMdast(node, overrides);
   };
