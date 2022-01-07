@@ -19,6 +19,8 @@ All nodes in [mdast](https://github.com/syntax-tree/mdast) syntax tree are suppo
 - [remark-frontmatter](https://github.com/remarkjs/remark-frontmatter)
 - `math` and `inlineMath` from [remark-math](https://github.com/remarkjs/remark-math).
 
+And also have experimental support for [custom AST](https://github.com/inokawa/remark-slate-transformer#support-custom-ast).
+
 ## Demo
 
 https://inokawa.github.io/remark-slate-transformer/
