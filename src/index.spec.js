@@ -93,7 +93,7 @@ describe("e2e legacy", () => {
 });
 
 describe("options", () => {
-  it("override mdast builders", () => {
+  it("override builders", () => {
     const mdText = `
   - AAAA
     - BBBB
@@ -111,7 +111,15 @@ describe("options", () => {
         },
       });
     const toRemarkProcessor = unified()
-      .use(slateToRemark)
+      .use(slateToRemark, {
+        overrides: {
+          foo: (node, next) => ({
+            type: "list",
+            children: next(node.children),
+          }),
+          bar: (node) => ({ type: "text", value: node.bar }),
+        },
+      })
       .use(stringify, { bullet: "-" });
     const slateTree = toSlateProcessor.processSync(mdText).result;
     expect(slateTree).toMatchSnapshot();
@@ -119,6 +127,7 @@ describe("options", () => {
       type: "root",
       children: slateTree,
     });
+    expect(mdastTree).toMatchSnapshot();
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
   });
