@@ -10311,3 +10311,140 @@ Array [
   },
 ]
 `;
+
+exports[`options override builders 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "checked": null,
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "bar": "AAAA",
+                "type": "bar",
+              },
+            ],
+            "type": "paragraph",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "checked": null,
+                "children": Array [
+                  Object {
+                    "children": Array [
+                      Object {
+                        "bar": "BBBB",
+                        "type": "bar",
+                      },
+                    ],
+                    "type": "paragraph",
+                  },
+                ],
+                "spread": false,
+                "type": "listItem",
+              },
+            ],
+            "type": "foo",
+          },
+        ],
+        "spread": false,
+        "type": "listItem",
+      },
+      Object {
+        "checked": null,
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "bar": "CCCC",
+                "type": "bar",
+              },
+            ],
+            "type": "paragraph",
+          },
+        ],
+        "spread": false,
+        "type": "listItem",
+      },
+    ],
+    "type": "foo",
+  },
+]
+`;
+
+exports[`options override builders 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "AAAA",
+                },
+              ],
+              "type": "paragraph",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "checked": null,
+                  "children": Array [
+                    Object {
+                      "children": Array [
+                        Object {
+                          "type": "text",
+                          "value": "BBBB",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "spread": false,
+                  "type": "listItem",
+                },
+              ],
+              "type": "list",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+        Object {
+          "checked": null,
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "CCCC",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "spread": false,
+          "type": "listItem",
+        },
+      ],
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`options override builders 3`] = `
+"-   AAAA
+    -   BBBB
+
+-   CCCC
+"
+`;

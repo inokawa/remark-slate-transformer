@@ -10,45 +10,77 @@ export type Decoration = {
   )["type"]]?: true;
 };
 
-export function mdastToSlate(node: mdast.Root): slate.Node[] {
-  return buildSlateRoot(node);
+export type OverridedMdastBuilders = {
+  [key in mdast.Content["type"]]?: MdastBuilder<key>;
+} & { [key: string]: MdastBuilder<typeof key> };
+
+export type MdastBuilder<T extends string> = (
+  node: T extends mdast.Content["type"]
+    ? Extract<mdast.Content, { type: T }>
+    : unknown,
+  next: typeof convertNodes
+) => object | undefined;
+
+export function mdastToSlate(
+  node: mdast.Root,
+  overrides: OverridedMdastBuilders
+): slate.Node[] {
+  return buildSlateRoot(node, overrides);
 }
 
-function buildSlateRoot(root: mdast.Root): slate.Node[] {
-  return convertNodes(root.children, {});
+function buildSlateRoot(
+  root: mdast.Root,
+  overrides: OverridedMdastBuilders
+): slate.Node[] {
+  return convertNodes(root.children, {}, overrides);
 }
 
-function convertNodes(nodes: mdast.Content[], deco: Decoration): slate.Node[] {
+function convertNodes(
+  nodes: mdast.Content[],
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+): slate.Node[] {
   if (nodes.length === 0) {
     return [{ text: "" }];
   }
 
   return nodes.reduce<slate.Node[]>((acc, node) => {
-    acc.push(...buildSlateNode(node, deco));
+    acc.push(...buildSlateNode(node, deco, overrides));
     return acc;
   }, []);
 }
 
-function buildSlateNode(node: mdast.Content, deco: Decoration): SlateNode[] {
+function buildSlateNode(
+  node: mdast.Content,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+): SlateNode[] {
+  const customNode = overrides[node.type]?.(node as any, (children) =>
+    convertNodes(children, deco, overrides)
+  );
+  if (customNode != null) {
+    return [customNode as SlateNode];
+  }
+
   switch (node.type) {
     case "paragraph":
-      return [buildParagraph(node, deco)];
+      return [buildParagraph(node, deco, overrides)];
     case "heading":
-      return [buildHeading(node, deco)];
+      return [buildHeading(node, deco, overrides)];
     case "thematicBreak":
       return [buildThematicBreak(node)];
     case "blockquote":
-      return [buildBlockquote(node, deco)];
+      return [buildBlockquote(node, deco, overrides)];
     case "list":
-      return [buildList(node, deco)];
+      return [buildList(node, deco, overrides)];
     case "listItem":
-      return [buildListItem(node, deco)];
+      return [buildListItem(node, deco, overrides)];
     case "table":
-      return [buildTable(node, deco)];
+      return [buildTable(node, deco, overrides)];
     case "tableRow":
-      return [buildTableRow(node, deco)];
+      return [buildTableRow(node, deco, overrides)];
     case "tableCell":
-      return [buildTableCell(node, deco)];
+      return [buildTableCell(node, deco, overrides)];
     case "html":
       return [buildHtml(node)];
     case "code":
@@ -60,7 +92,7 @@ function buildSlateNode(node: mdast.Content, deco: Decoration): SlateNode[] {
     case "definition":
       return [buildDefinition(node)];
     case "footnoteDefinition":
-      return [buildFootnoteDefinition(node, deco)];
+      return [buildFootnoteDefinition(node, deco, overrides)];
     case "text":
       return [buildText(node.value, deco)];
     case "emphasis":
@@ -68,7 +100,7 @@ function buildSlateNode(node: mdast.Content, deco: Decoration): SlateNode[] {
     case "delete": {
       const { type, children } = node;
       return children.reduce<SlateNode[]>((acc, n) => {
-        acc.push(...buildSlateNode(n, { ...deco, [type]: true }));
+        acc.push(...buildSlateNode(n, { ...deco, [type]: true }, overrides));
         return acc;
       }, []);
     }
@@ -79,15 +111,15 @@ function buildSlateNode(node: mdast.Content, deco: Decoration): SlateNode[] {
     case "break":
       return [buildBreak(node)];
     case "link":
-      return [buildLink(node, deco)];
+      return [buildLink(node, deco, overrides)];
     case "image":
       return [buildImage(node)];
     case "linkReference":
-      return [buildLinkReference(node, deco)];
+      return [buildLinkReference(node, deco, overrides)];
     case "imageReference":
       return [buildImageReference(node)];
     case "footnote":
-      return [buildFootnote(node, deco)];
+      return [buildFootnote(node, deco, overrides)];
     case "footnoteReference":
       return [buildFootnoteReference(node)];
     case "math":
@@ -103,22 +135,30 @@ function buildSlateNode(node: mdast.Content, deco: Decoration): SlateNode[] {
 
 export type Paragraph = ReturnType<typeof buildParagraph>;
 
-function buildParagraph(node: mdast.Paragraph, deco: Decoration) {
+function buildParagraph(
+  node: mdast.Paragraph,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
   };
 }
 
 export type Heading = ReturnType<typeof buildHeading>;
 
-function buildHeading(node: mdast.Heading, deco: Decoration) {
+function buildHeading(
+  node: mdast.Heading,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children, depth } = node;
   return {
     type,
     depth,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
   };
 }
 
@@ -133,20 +173,28 @@ function buildThematicBreak(node: mdast.ThematicBreak) {
 
 export type Blockquote = ReturnType<typeof buildBlockquote>;
 
-function buildBlockquote(node: mdast.Blockquote, deco: Decoration) {
+function buildBlockquote(
+  node: mdast.Blockquote,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   return {
     type: node.type,
-    children: convertNodes(node.children, deco),
+    children: convertNodes(node.children, deco, overrides),
   };
 }
 
 export type List = ReturnType<typeof buildList>;
 
-function buildList(node: mdast.List, deco: Decoration) {
+function buildList(
+  node: mdast.List,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children, ordered, start, spread } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
     ordered,
     start,
     spread,
@@ -155,11 +203,15 @@ function buildList(node: mdast.List, deco: Decoration) {
 
 export type ListItem = ReturnType<typeof buildListItem>;
 
-function buildListItem(node: mdast.ListItem, deco: Decoration) {
+function buildListItem(
+  node: mdast.ListItem,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children, checked, spread } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
     checked,
     spread,
   };
@@ -167,32 +219,44 @@ function buildListItem(node: mdast.ListItem, deco: Decoration) {
 
 export type Table = ReturnType<typeof buildTable>;
 
-function buildTable(node: mdast.Table, deco: Decoration) {
+function buildTable(
+  node: mdast.Table,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children, align } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
     align,
   };
 }
 
 export type TableRow = ReturnType<typeof buildTableRow>;
 
-function buildTableRow(node: mdast.TableRow, deco: Decoration) {
+function buildTableRow(
+  node: mdast.TableRow,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
   };
 }
 
 export type TableCell = ReturnType<typeof buildTableCell>;
 
-function buildTableCell(node: mdast.TableCell, deco: Decoration) {
+function buildTableCell(
+  node: mdast.TableCell,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
   };
 }
 
@@ -276,12 +340,13 @@ export type FootnoteDefinition = ReturnType<typeof buildFootnoteDefinition>;
 
 function buildFootnoteDefinition(
   node: mdast.FootnoteDefinition,
-  deco: Decoration
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
 ) {
   const { type, children, identifier, label } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
     identifier,
     label,
   };
@@ -307,11 +372,15 @@ function buildBreak(node: mdast.Break) {
 
 export type Link = ReturnType<typeof buildLink>;
 
-function buildLink(node: mdast.Link, deco: Decoration) {
+function buildLink(
+  node: mdast.Link,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children, url, title } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
     url,
     title,
   };
@@ -332,11 +401,15 @@ function buildImage(node: mdast.Image) {
 
 export type LinkReference = ReturnType<typeof buildLinkReference>;
 
-function buildLinkReference(node: mdast.LinkReference, deco: Decoration) {
+function buildLinkReference(
+  node: mdast.LinkReference,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children, referenceType, identifier, label } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
     referenceType,
     identifier,
     label,
@@ -359,11 +432,15 @@ function buildImageReference(node: mdast.ImageReference) {
 
 export type Footnote = ReturnType<typeof buildFootnote>;
 
-function buildFootnote(node: mdast.Footnote, deco: Decoration) {
+function buildFootnote(
+  node: mdast.Footnote,
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+) {
   const { type, children } = node;
   return {
     type,
-    children: convertNodes(children, deco),
+    children: convertNodes(children, deco, overrides),
   };
 }
 
