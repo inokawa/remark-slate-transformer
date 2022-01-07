@@ -18,7 +18,7 @@ export type MdastBuilder<T extends string> = (
   node: T extends mdast.Content["type"]
     ? Extract<mdast.Content, { type: T }>
     : unknown,
-  next: typeof convertNodes
+  next: (children: any[]) => any
 ) => object | undefined;
 
 export function mdastToSlate(

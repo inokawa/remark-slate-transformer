@@ -16,7 +16,7 @@ export type OverridedSlateBuilders = { [key: string]: SlateBuilder };
 
 export type SlateBuilder = (
   node: unknown,
-  next: typeof convertNodes
+  next: (children: any[]) => any
 ) => object | undefined;
 
 export function slateToMdast(
