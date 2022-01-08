@@ -12,7 +12,8 @@ export type Decoration = {
 
 export type OverridedMdastBuilders = {
   [key in mdast.Content["type"]]?: MdastBuilder<key>;
-} & { [key: string]: MdastBuilder<typeof key> };
+} &
+  ({ [key: string]: MdastBuilder<typeof key> } | {});
 
 export type MdastBuilder<T extends string> = (
   node: T extends mdast.Content["type"]

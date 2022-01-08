@@ -109,7 +109,7 @@ describe("options", () => {
           }),
           text: (node) => ({ type: "bar", bar: node.value }),
         },
-      } as any);
+      });
     const toRemarkProcessor = unified()
       .use(slateToRemark, {
         overrides: {
