@@ -12,7 +12,7 @@ import {
   slateToRemark,
   remarkToSlateLegacy,
   slateToRemarkLegacy,
-} from "./";
+} from ".";
 import { Value } from "slate_legacy";
 
 const FIXTURE_PATH = "../fixtures";
@@ -45,7 +45,7 @@ describe("e2e", () => {
       const mdastTree = toRemarkProcessor.runSync({
         type: "root",
         children: slateNodes,
-      });
+      } as any);
       expect(mdastTree).toMatchSnapshot();
 
       const text = toRemarkProcessor.stringify(mdastTree);
@@ -74,7 +74,7 @@ describe("e2e legacy", () => {
   const filenames = fs.readdirSync(fixturesDir);
   filenames.forEach((filename) => {
     it(filename, () => {
-      const value = toSlateProcessor.processSync(
+      const value: any = toSlateProcessor.processSync(
         fs.readFileSync(path.join(fixturesDir, filename))
       ).result;
       expect(value).toMatchSnapshot();
@@ -83,7 +83,7 @@ describe("e2e legacy", () => {
       const mdastTree = toRemarkProcessor.runSync({
         type: "root",
         children: value.document.nodes,
-      });
+      } as any);
       expect(mdastTree).toMatchSnapshot();
 
       const text = toRemarkProcessor.stringify(mdastTree);
@@ -100,7 +100,7 @@ describe("options", () => {
   - CCCC
     `;
     const toSlateProcessor = unified()
-      .use(markdown, {})
+      .use(markdown)
       .use(remarkToSlate, {
         overrides: {
           list: (node, next) => ({
@@ -109,15 +109,15 @@ describe("options", () => {
           }),
           text: (node) => ({ type: "bar", bar: node.value }),
         },
-      });
+      } as any);
     const toRemarkProcessor = unified()
       .use(slateToRemark, {
         overrides: {
-          foo: (node, next) => ({
+          foo: (node: any, next) => ({
             type: "list",
             children: next(node.children),
           }),
-          bar: (node) => ({ type: "text", value: node.bar }),
+          bar: (node: any) => ({ type: "text", value: node.bar }),
         },
       })
       .use(stringify, { bullet: "-" });
@@ -126,7 +126,7 @@ describe("options", () => {
     const mdastTree = toRemarkProcessor.runSync({
       type: "root",
       children: slateTree,
-    });
+    } as any);
     expect(mdastTree).toMatchSnapshot();
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
@@ -151,7 +151,7 @@ describe("issues", () => {
     const mdastTree = toRemarkProcessor.runSync({
       type: "root",
       children: slateTree,
-    });
+    } as any);
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
   });
@@ -200,7 +200,7 @@ describe("issues", () => {
     const mdastTree = toRemarkProcessor.runSync({
       type: "root",
       children: slateNodes,
-    });
+    } as any);
     expect(mdastTree).toMatchSnapshot();
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
