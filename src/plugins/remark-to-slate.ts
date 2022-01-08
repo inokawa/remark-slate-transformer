@@ -9,8 +9,8 @@ export type Options = {
 };
 
 const plugin: Plugin<[Options?]> = function ({ overrides = {} } = {}) {
-  this.Compiler = function (node: any) {
-    return mdastToSlate(node, overrides);
+  this.Compiler = function (node) {
+    return mdastToSlate(node as any, overrides);
   };
 };
 export default plugin;

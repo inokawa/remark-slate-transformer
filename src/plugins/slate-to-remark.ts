@@ -9,8 +9,8 @@ export type Options = {
 };
 
 const plugin: Plugin<[Options?]> = ({ overrides = {} } = {}) => {
-  return function (node: any) {
-    return slateToMdast(node, overrides);
+  return function (node) {
+    return slateToMdast(node as any, overrides);
   };
 };
 export default plugin;
