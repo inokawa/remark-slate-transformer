@@ -136,11 +136,10 @@ function buildSlateNode(
 export type Paragraph = ReturnType<typeof buildParagraph>;
 
 function buildParagraph(
-  node: mdast.Paragraph,
+  { type, children }: mdast.Paragraph,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -150,11 +149,10 @@ function buildParagraph(
 export type Heading = ReturnType<typeof buildHeading>;
 
 function buildHeading(
-  node: mdast.Heading,
+  { type, children, depth }: mdast.Heading,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children, depth } = node;
   return {
     type,
     depth,
@@ -164,9 +162,9 @@ function buildHeading(
 
 export type ThematicBreak = ReturnType<typeof buildThematicBreak>;
 
-function buildThematicBreak(node: mdast.ThematicBreak) {
+function buildThematicBreak({ type }: mdast.ThematicBreak) {
   return {
-    type: node.type,
+    type,
     children: [{ text: "" }],
   };
 }
@@ -174,24 +172,23 @@ function buildThematicBreak(node: mdast.ThematicBreak) {
 export type Blockquote = ReturnType<typeof buildBlockquote>;
 
 function buildBlockquote(
-  node: mdast.Blockquote,
+  { type, children }: mdast.Blockquote,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
   return {
-    type: node.type,
-    children: convertNodes(node.children, deco, overrides),
+    type,
+    children: convertNodes(children, deco, overrides),
   };
 }
 
 export type List = ReturnType<typeof buildList>;
 
 function buildList(
-  node: mdast.List,
+  { type, children, ordered, start, spread }: mdast.List,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children, ordered, start, spread } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -204,11 +201,10 @@ function buildList(
 export type ListItem = ReturnType<typeof buildListItem>;
 
 function buildListItem(
-  node: mdast.ListItem,
+  { type, children, checked, spread }: mdast.ListItem,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children, checked, spread } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -220,11 +216,10 @@ function buildListItem(
 export type Table = ReturnType<typeof buildTable>;
 
 function buildTable(
-  node: mdast.Table,
+  { type, children, align }: mdast.Table,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children, align } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -235,11 +230,10 @@ function buildTable(
 export type TableRow = ReturnType<typeof buildTableRow>;
 
 function buildTableRow(
-  node: mdast.TableRow,
+  { type, children }: mdast.TableRow,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -249,11 +243,10 @@ function buildTableRow(
 export type TableCell = ReturnType<typeof buildTableCell>;
 
 function buildTableCell(
-  node: mdast.TableCell,
+  { type, children }: mdast.TableCell,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -262,8 +255,7 @@ function buildTableCell(
 
 export type Html = ReturnType<typeof buildHtml>;
 
-function buildHtml(node: mdast.HTML) {
-  const { type, value } = node;
+function buildHtml({ type, value }: mdast.HTML) {
   return {
     type,
     children: [{ text: value }],
@@ -272,8 +264,7 @@ function buildHtml(node: mdast.HTML) {
 
 export type Code = ReturnType<typeof buildCode>;
 
-function buildCode(node: mdast.Code) {
-  const { type, value, lang, meta } = node;
+function buildCode({ type, value, lang, meta }: mdast.Code) {
   return {
     type,
     lang,
@@ -284,8 +275,7 @@ function buildCode(node: mdast.Code) {
 
 export type Yaml = ReturnType<typeof buildYaml>;
 
-function buildYaml(node: mdast.YAML) {
-  const { type, value } = node;
+function buildYaml({ type, value }: mdast.YAML) {
   return {
     type,
     children: [{ text: value }],
@@ -294,8 +284,7 @@ function buildYaml(node: mdast.YAML) {
 
 export type Toml = ReturnType<typeof buildToml>;
 
-function buildToml(node: mdast.TOML) {
-  const { type, value } = node;
+function buildToml({ type, value }: mdast.TOML) {
   return {
     type,
     children: [{ text: value }],
@@ -304,8 +293,7 @@ function buildToml(node: mdast.TOML) {
 
 export type Math = ReturnType<typeof buildMath>;
 
-function buildMath(node: mdast.Math) {
-  const { type, value } = node;
+function buildMath({ type, value }: mdast.Math) {
   return {
     type,
     children: [{ text: value }],
@@ -314,8 +302,7 @@ function buildMath(node: mdast.Math) {
 
 export type InlineMath = ReturnType<typeof buildInlineMath>;
 
-function buildInlineMath(node: mdast.InlineMath) {
-  const { type, value } = node;
+function buildInlineMath({ type, value }: mdast.InlineMath) {
   return {
     type,
     children: [{ text: value }],
@@ -324,8 +311,13 @@ function buildInlineMath(node: mdast.InlineMath) {
 
 export type Definition = ReturnType<typeof buildDefinition>;
 
-function buildDefinition(node: mdast.Definition) {
-  const { type, identifier, label, url, title } = node;
+function buildDefinition({
+  type,
+  identifier,
+  label,
+  url,
+  title,
+}: mdast.Definition) {
   return {
     type,
     identifier,
@@ -339,11 +331,10 @@ function buildDefinition(node: mdast.Definition) {
 export type FootnoteDefinition = ReturnType<typeof buildFootnoteDefinition>;
 
 function buildFootnoteDefinition(
-  node: mdast.FootnoteDefinition,
+  { type, children, identifier, label }: mdast.FootnoteDefinition,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children, identifier, label } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -363,9 +354,9 @@ function buildText(text: string, deco: Decoration) {
 
 export type Break = ReturnType<typeof buildBreak>;
 
-function buildBreak(node: mdast.Break) {
+function buildBreak({ type }: mdast.Break) {
   return {
-    type: node.type,
+    type,
     children: [{ text: "" }],
   };
 }
@@ -373,11 +364,10 @@ function buildBreak(node: mdast.Break) {
 export type Link = ReturnType<typeof buildLink>;
 
 function buildLink(
-  node: mdast.Link,
+  { type, children, url, title }: mdast.Link,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children, url, title } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -388,8 +378,7 @@ function buildLink(
 
 export type Image = ReturnType<typeof buildImage>;
 
-function buildImage(node: mdast.Image) {
-  const { type, url, title, alt } = node;
+function buildImage({ type, url, title, alt }: mdast.Image) {
   return {
     type,
     url,
@@ -402,11 +391,10 @@ function buildImage(node: mdast.Image) {
 export type LinkReference = ReturnType<typeof buildLinkReference>;
 
 function buildLinkReference(
-  node: mdast.LinkReference,
+  { type, children, referenceType, identifier, label }: mdast.LinkReference,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children, referenceType, identifier, label } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -418,8 +406,13 @@ function buildLinkReference(
 
 export type ImageReference = ReturnType<typeof buildImageReference>;
 
-function buildImageReference(node: mdast.ImageReference) {
-  const { type, alt, referenceType, identifier, label } = node;
+function buildImageReference({
+  type,
+  alt,
+  referenceType,
+  identifier,
+  label,
+}: mdast.ImageReference) {
   return {
     type,
     alt,
@@ -433,11 +426,10 @@ function buildImageReference(node: mdast.ImageReference) {
 export type Footnote = ReturnType<typeof buildFootnote>;
 
 function buildFootnote(
-  node: mdast.Footnote,
+  { type, children }: mdast.Footnote,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ) {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -446,8 +438,11 @@ function buildFootnote(
 
 export type FootnoteReference = ReturnType<typeof buildFootnoteReference>;
 
-function buildFootnoteReference(node: mdast.FootnoteReference) {
-  const { type, identifier, label } = node;
+function buildFootnoteReference({
+  type,
+  identifier,
+  label,
+}: mdast.FootnoteReference) {
   return {
     type,
     identifier,

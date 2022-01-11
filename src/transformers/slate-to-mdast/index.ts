@@ -37,7 +37,7 @@ function buildMdastRoot(
       overrides
     ) as mdast.Root["children"],
   };
-  return (root as any) as unistLib.Node;
+  return root as any as unistLib.Node;
 }
 
 function convertNodes(
@@ -154,7 +154,7 @@ function convertNodes(
         textTemp = "";
       }
 
-      mdastNodes.push(...((mergeTexts(mdastTexts) as any) as unistLib.Node[]));
+      mdastNodes.push(...(mergeTexts(mdastTexts) as any as unistLib.Node[]));
       textQueue = [];
       if (!n) continue;
       const node = buildMdastNode(n, overrides);
@@ -263,10 +263,9 @@ function mergeTexts(nodes: TextOrDecoration[]): TextOrDecoration[] {
 }
 
 function buildParagraph(
-  node: slateInternal.Paragraph,
+  { type, children }: slateInternal.Paragraph,
   overrides: OverridedSlateBuilders
 ): mdast.Paragraph {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, overrides) as mdast.Paragraph["children"],
@@ -274,10 +273,9 @@ function buildParagraph(
 }
 
 function buildHeading(
-  node: slateInternal.Heading,
+  { type, depth, children }: slateInternal.Heading,
   overrides: OverridedSlateBuilders
 ): mdast.Heading {
-  const { type, depth, children } = node;
   return {
     type,
     depth,
@@ -285,20 +283,18 @@ function buildHeading(
   };
 }
 
-function buildThematicBreak(
-  node: slateInternal.ThematicBreak
-): mdast.ThematicBreak {
-  const { type } = node;
+function buildThematicBreak({
+  type,
+}: slateInternal.ThematicBreak): mdast.ThematicBreak {
   return {
     type,
   };
 }
 
 function buildBlockquote(
-  node: slateInternal.Blockquote,
+  { type, children }: slateInternal.Blockquote,
   overrides: OverridedSlateBuilders
 ): mdast.Blockquote {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, overrides) as mdast.Blockquote["children"],
@@ -306,10 +302,9 @@ function buildBlockquote(
 }
 
 function buildList(
-  node: slateInternal.List,
+  { type, ordered, start, spread, children }: slateInternal.List,
   overrides: OverridedSlateBuilders
 ): mdast.List {
-  const { type, ordered, start, spread, children } = node;
   return {
     type,
     ordered,
@@ -320,10 +315,9 @@ function buildList(
 }
 
 function buildListItem(
-  node: slateInternal.ListItem,
+  { type, checked, spread, children }: slateInternal.ListItem,
   overrides: OverridedSlateBuilders
 ): mdast.ListItem {
-  const { type, checked, spread, children } = node;
   return {
     type,
     checked,
@@ -333,10 +327,9 @@ function buildListItem(
 }
 
 function buildTable(
-  node: slateInternal.Table,
+  { type, align, children }: slateInternal.Table,
   overrides: OverridedSlateBuilders
 ): mdast.Table {
-  const { type, align, children } = node;
   return {
     type,
     align,
@@ -345,10 +338,9 @@ function buildTable(
 }
 
 function buildTableRow(
-  node: slateInternal.TableRow,
+  { type, children }: slateInternal.TableRow,
   overrides: OverridedSlateBuilders
 ): mdast.TableRow {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, overrides) as mdast.TableRow["children"],
@@ -356,26 +348,28 @@ function buildTableRow(
 }
 
 function buildTableCell(
-  node: slateInternal.TableCell,
+  { type, children }: slateInternal.TableCell,
   overrides: OverridedSlateBuilders
 ): mdast.TableCell {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, overrides) as mdast.TableCell["children"],
   };
 }
 
-function buildHtml(node: slateInternal.Html): mdast.HTML {
-  const { type, children } = node;
+function buildHtml({ type, children }: slateInternal.Html): mdast.HTML {
   return {
     type,
     value: children[0].text,
   };
 }
 
-function buildCode(node: slateInternal.Code): mdast.Code {
-  const { type, lang, meta, children } = node;
+function buildCode({
+  type,
+  lang,
+  meta,
+  children,
+}: slateInternal.Code): mdast.Code {
   return {
     type,
     lang,
@@ -384,24 +378,27 @@ function buildCode(node: slateInternal.Code): mdast.Code {
   };
 }
 
-function buildYaml(node: slateInternal.Yaml): mdast.YAML {
-  const { type, children } = node;
+function buildYaml({ type, children }: slateInternal.Yaml): mdast.YAML {
   return {
     type,
     value: children[0].text,
   };
 }
 
-function buildToml(node: slateInternal.Toml): mdast.TOML {
-  const { type, children } = node;
+function buildToml({ type, children }: slateInternal.Toml): mdast.TOML {
   return {
     type,
     value: children[0].text,
   };
 }
 
-function buildDefinition(node: slateInternal.Definition): mdast.Definition {
-  const { type, identifier, label, url, title } = node;
+function buildDefinition({
+  type,
+  identifier,
+  label,
+  url,
+  title,
+}: slateInternal.Definition): mdast.Definition {
   return {
     type,
     identifier,
@@ -412,10 +409,9 @@ function buildDefinition(node: slateInternal.Definition): mdast.Definition {
 }
 
 function buildFootnoteDefinition(
-  node: slateInternal.FootnoteDefinition,
+  { type, identifier, label, children }: slateInternal.FootnoteDefinition,
   overrides: OverridedSlateBuilders
 ): mdast.FootnoteDefinition {
-  const { type, identifier, label, children } = node;
   return {
     type,
     identifier,
@@ -427,18 +423,16 @@ function buildFootnoteDefinition(
   };
 }
 
-function buildBreak(node: slateInternal.Break): mdast.Break {
-  const { type } = node;
+function buildBreak({ type }: slateInternal.Break): mdast.Break {
   return {
     type,
   };
 }
 
 function buildLink(
-  node: slateInternal.Link,
+  { type, url, title, children }: slateInternal.Link,
   overrides: OverridedSlateBuilders
 ): mdast.Link {
-  const { type, url, title, children } = node;
   return {
     type,
     url,
@@ -447,8 +441,12 @@ function buildLink(
   };
 }
 
-function buildImage(node: slateInternal.Image): mdast.Image {
-  const { type, url, title, alt } = node;
+function buildImage({
+  type,
+  url,
+  title,
+  alt,
+}: slateInternal.Image): mdast.Image {
   return {
     type,
     url,
@@ -458,10 +456,15 @@ function buildImage(node: slateInternal.Image): mdast.Image {
 }
 
 function buildLinkReference(
-  node: slateInternal.LinkReference,
+  {
+    type,
+    identifier,
+    label,
+    referenceType,
+    children,
+  }: slateInternal.LinkReference,
   overrides: OverridedSlateBuilders
 ): mdast.LinkReference {
-  const { type, identifier, label, referenceType, children } = node;
   return {
     type,
     identifier,
@@ -474,10 +477,13 @@ function buildLinkReference(
   };
 }
 
-function buildImageReference(
-  node: slateInternal.ImageReference
-): mdast.ImageReference {
-  const { type, identifier, label, alt, referenceType } = node;
+function buildImageReference({
+  type,
+  identifier,
+  label,
+  alt,
+  referenceType,
+}: slateInternal.ImageReference): mdast.ImageReference {
   return {
     type,
     identifier,
@@ -488,20 +494,20 @@ function buildImageReference(
 }
 
 function buildFootnote(
-  node: slateInternal.Footnote,
+  { type, children }: slateInternal.Footnote,
   overrides: OverridedSlateBuilders
 ): mdast.Footnote {
-  const { type, children } = node;
   return {
     type,
     children: convertNodes(children, overrides) as mdast.Footnote["children"],
   };
 }
 
-function creatFootnoteReference(
-  node: slateInternal.FootnoteReference
-): mdast.FootnoteReference {
-  const { type, identifier, label } = node;
+function creatFootnoteReference({
+  type,
+  identifier,
+  label,
+}: slateInternal.FootnoteReference): mdast.FootnoteReference {
   return {
     type,
     identifier,
@@ -509,16 +515,17 @@ function creatFootnoteReference(
   };
 }
 
-function buildMath(node: slateInternal.Math): mdast.Math {
-  const { type, children } = node;
+function buildMath({ type, children }: slateInternal.Math): mdast.Math {
   return {
     type,
     value: children[0].text,
   };
 }
 
-function buildInlineMath(node: slateInternal.InlineMath): mdast.InlineMath {
-  const { type, children } = node;
+function buildInlineMath({
+  type,
+  children,
+}: slateInternal.InlineMath): mdast.InlineMath {
   return {
     type,
     value: children[0].text,
