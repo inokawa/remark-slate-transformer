@@ -10332,10 +10332,14 @@ Object {
           "type": "emphasis",
         },
         Object {
+          "type": "text",
+          "value": " ",
+        },
+        Object {
           "children": Array [
             Object {
               "type": "text",
-              "value": " in a bold paragraph",
+              "value": "in a bold paragraph",
             },
           ],
           "type": "strong",
@@ -10360,9 +10364,18 @@ Object {
               ],
               "type": "emphasis",
             },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " ",
+        },
+        Object {
+          "children": Array [
             Object {
               "type": "text",
-              "value": " in a bold paragraph",
+              "value": "in a bold paragraph",
             },
           ],
           "type": "strong",
@@ -10376,9 +10389,9 @@ Object {
 `;
 
 exports[`issues issue90 2`] = `
-"***Italic***** in a bold paragraph**
+"***Italic*** **in a bold paragraph**
 
-**This is an *Italic* in a bold paragraph**
+**This is an *Italic*** **in a bold paragraph**
 "
 `;
 
@@ -10392,7 +10405,11 @@ Array [
         "text": "Italic",
       },
       Object {
-        "text": "** in a bold paragraph**",
+        "text": " ",
+      },
+      Object {
+        "strong": true,
+        "text": "in a bold paragraph",
       },
     ],
     "type": "paragraph",
@@ -10409,8 +10426,11 @@ Array [
         "text": "Italic",
       },
       Object {
+        "text": " ",
+      },
+      Object {
         "strong": true,
-        "text": " in a bold paragraph",
+        "text": "in a bold paragraph",
       },
     ],
     "type": "paragraph",
