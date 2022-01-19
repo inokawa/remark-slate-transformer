@@ -183,12 +183,61 @@ describe("issues", () => {
             text: " was",
           },
           {
-            text:
-              " four years old, and for most of his career has created two series simultaneously. ",
+            text: " four years old, and for most of his career has created two series simultaneously. ",
           },
           {
             strong: true,
             text: "So there ",
+          },
+        ],
+      },
+    ];
+    const toSlateProcessor = unified().use(markdown).use(remarkToSlate);
+    const toRemarkProcessor = unified()
+      .use(slateToRemark)
+      .use(stringify, { emphasis: "*" });
+    const mdastTree = toRemarkProcessor.runSync({
+      type: "root",
+      children: slateNodes,
+    } as any);
+    expect(mdastTree).toMatchSnapshot();
+    const text = toRemarkProcessor.stringify(mdastTree);
+    expect(text).toMatchSnapshot();
+    const slateTree = toSlateProcessor.processSync(text).result;
+    expect(slateTree).toMatchSnapshot();
+  });
+
+  it("issue90", () => {
+    const slateNodes = [
+      {
+        type: "paragraph",
+        children: [
+          {
+            text: "Italic",
+            strong: true,
+            emphasis: true,
+          },
+          {
+            strong: true,
+            text: " in a bold paragraph",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        children: [
+          {
+            strong: true,
+            text: "This is an ",
+          },
+          {
+            text: "Italic",
+            strong: true,
+            emphasis: true,
+          },
+          {
+            strong: true,
+            text: " in a bold paragraph",
           },
         ],
       },
