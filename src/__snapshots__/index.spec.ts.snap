@@ -10312,6 +10312,132 @@ Array [
 ]
 `;
 
+exports[`issues issue90 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "Italic",
+                },
+              ],
+              "type": "strong",
+            },
+          ],
+          "type": "emphasis",
+        },
+        Object {
+          "type": "text",
+          "value": " ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "in a bold paragraph",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "type": "paragraph",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "This is an ",
+            },
+            Object {
+              "children": Array [
+                Object {
+                  "type": "text",
+                  "value": "Italic",
+                },
+              ],
+              "type": "emphasis",
+            },
+          ],
+          "type": "strong",
+        },
+        Object {
+          "type": "text",
+          "value": " ",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "type": "text",
+              "value": "in a bold paragraph",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`issues issue90 2`] = `
+"***Italic*** **in a bold paragraph**
+
+**This is an *Italic*** **in a bold paragraph**
+"
+`;
+
+exports[`issues issue90 3`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": "Italic",
+      },
+      Object {
+        "text": " ",
+      },
+      Object {
+        "strong": true,
+        "text": "in a bold paragraph",
+      },
+    ],
+    "type": "paragraph",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "strong": true,
+        "text": "This is an ",
+      },
+      Object {
+        "emphasis": true,
+        "strong": true,
+        "text": "Italic",
+      },
+      Object {
+        "text": " ",
+      },
+      Object {
+        "strong": true,
+        "text": "in a bold paragraph",
+      },
+    ],
+    "type": "paragraph",
+  },
+]
+`;
+
 exports[`options override builders 1`] = `
 Array [
   Object {

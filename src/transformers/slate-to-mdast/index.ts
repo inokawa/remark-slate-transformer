@@ -53,16 +53,18 @@ function convertNodes(
     } else {
       const mdastTexts: TextOrDecoration[] = [];
       const starts: DecorationType[] = [];
+      let ends: DecorationType[] = [];
       let textTemp: string = "";
       for (let j = 0; j < textQueue.length; j++) {
         const cur = textQueue[j];
         textTemp += cur.text;
 
-        const prevStartsStr = starts.toString();
+        const prevStarts = starts.slice();
+        const prevEnds = ends.slice();
 
         const prev = textQueue[j - 1];
         const next = textQueue[j + 1];
-        const ends: DecorationType[] = [];
+        ends = [];
         (["inlineCode", "emphasis", "strong", "delete"] as const).forEach(
           (k) => {
             if (cur[k]) {
@@ -90,7 +92,9 @@ function convertNodes(
           let aft = "";
           if (
             endsToRemove.length === 1 &&
-            prevStartsStr !== starts.toString() &&
+            (prevStarts.toString() !== starts.toString() ||
+              // https://github.com/inokawa/remark-slate-transformer/issues/90
+              (prevEnds.includes("emphasis") && ends.includes("strong"))) &&
             starts.length - endsToRemove.length === 0
           ) {
             while (textTemp.startsWith(" ")) {
