@@ -11,8 +11,8 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/**/*.spec.*"]
+  "exclude": ["node_modules"]
 }
