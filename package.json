@@ -12,16 +12,15 @@
     "build": "rollup -c",
     "test": "jest",
     "tsc": "tsc -p . --noEmit",
-    "tsc:d": "tsc -p ./tsconfig-build.json --outDir lib -d --emitDeclarationOnly",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "prepublishOnly": "rimraf lib && npm run build && npm run tsc:d"
+    "prepublishOnly": "rimraf lib && npm run build"
   },
   "devDependencies": {
     "@babel/core": "7.15.5",
     "@babel/preset-env": "7.15.6",
     "@babel/preset-typescript": "7.15.0",
-    "@rollup/plugin-typescript": "8.2.5",
+    "@rollup/plugin-typescript": "8.3.2",
     "@storybook/addon-essentials": "6.4.22",
     "@storybook/addon-links": "6.4.22",
     "@storybook/react": "6.4.22",
@@ -44,14 +43,14 @@
     "remark-parse": "10.0.1",
     "remark-stringify": "10.0.2",
     "rimraf": "3.0.2",
-    "rollup": "2.63.0",
+    "rollup": "2.72.0",
     "slate": "0.78.0",
     "slate_legacy": "npm:slate@0.47.9",
     "slate-history": "0.66.0",
     "slate-react": "0.78.1",
     "slate-react_legacy": "npm:slate-react@0.22.10",
-    "tslib": "2.3.1",
-    "typescript": "4.5.5",
+    "tslib": "2.4.0",
+    "typescript": "4.6.4",
     "unified": "10.1.2"
   },
   "repository": {
