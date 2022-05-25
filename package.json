@@ -17,9 +17,9 @@
     "prepublishOnly": "rimraf lib && npm run build"
   },
   "devDependencies": {
-    "@babel/core": "7.15.5",
-    "@babel/preset-env": "7.15.6",
-    "@babel/preset-typescript": "7.15.0",
+    "@babel/core": "7.18.2",
+    "@babel/preset-env": "7.18.2",
+    "@babel/preset-typescript": "7.17.12",
     "@rollup/plugin-typescript": "8.3.2",
     "@storybook/addon-essentials": "6.4.22",
     "@storybook/addon-links": "6.4.22",
