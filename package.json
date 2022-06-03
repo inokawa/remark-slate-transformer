@@ -43,7 +43,7 @@
     "remark-parse": "10.0.1",
     "remark-stringify": "10.0.2",
     "rimraf": "3.0.2",
-    "rollup": "2.72.0",
+    "rollup": "2.75.5",
     "slate": "0.81.0",
     "slate_legacy": "npm:slate@0.47.9",
     "slate-history": "0.66.0",
