@@ -164,32 +164,34 @@ const renderLeaf = ({ attributes, children, leaf }: RenderLeafProps) => {
   return <span {...attributes}>{children}</span>;
 };
 
-export default forwardRef(
-  ({ initialValue }: Props, ref: React.MutableRefObject<Node[]>) => {
-    const editor = useMemo(() => {
-      const e = withHistory(withReact(createEditor()));
-      e.isInline = (element) => {
-        const { type } = element;
-        return type === "link" || type === "image";
-      };
-      e.isVoid = (element) => {
-        return element.type === "image";
-      };
-      return e;
-    }, []);
+export default forwardRef<Node[], Props>(({ initialValue }, ref) => {
+  const editor = useState(() => {
+    const e = withHistory(withReact(createEditor()));
+    e.isInline = (element) => {
+      const { type } = element;
+      return type === "link" || type === "image";
+    };
+    e.isVoid = (element) => {
+      return element.type === "image";
+    };
+    return e;
+  })[0];
 
-    const [value, setValue] = useState<Node[]>(initialValue);
-    ref.current = value;
-    useEffect(() => {
-      setValue(initialValue);
-    }, [initialValue]);
+  const [value, setValue] = useState<Node[]>(initialValue);
+  ref.current = value;
 
-    return (
-      <div className="markdown-body" style={style}>
-        <Slate editor={editor} value={value} onChange={setValue}>
-          <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
-        </Slate>
-      </div>
-    );
-  }
-);
+  // Hack to update value externally
+  const [key, setKey] = useState(0);
+  useEffect(() => {
+    setValue(initialValue);
+    setKey((p) => p + 1);
+  }, [initialValue]);
+
+  return (
+    <div className="markdown-body" style={style}>
+      <Slate key={key} editor={editor} value={value} onChange={setValue}>
+        <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
+      </Slate>
+    </div>
+  );
+});

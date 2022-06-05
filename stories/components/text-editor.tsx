@@ -7,17 +7,13 @@ const style: React.CSSProperties = {
 };
 const textAreaStyle = { width: "100%", height: "100%" };
 
-export default forwardRef(
-  (
-    {
-      initialValue,
-    }: {
-      initialValue: string;
-    },
-    ref: React.MutableRefObject<HTMLTextAreaElement>
-  ) => (
-    <div style={style}>
-      <textarea ref={ref} style={textAreaStyle} defaultValue={initialValue} />
-    </div>
-  )
-);
+export default forwardRef<
+  HTMLTextAreaElement,
+  {
+    initialValue: string;
+  }
+>(({ initialValue }, ref) => (
+  <div style={style}>
+    <textarea ref={ref} style={textAreaStyle} defaultValue={initialValue} />
+  </div>
+));
