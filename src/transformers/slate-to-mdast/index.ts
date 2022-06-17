@@ -1,7 +1,7 @@
-import * as unistLib from "unist";
-import * as slate from "../../models/slate";
-import * as mdast from "../../models/mdast";
-import * as slateInternal from "../mdast-to-slate";
+import type * as unistLib from "unist";
+import type * as slate from "../../models/slate";
+import type * as mdast from "../../models/mdast";
+import type * as slateInternal from "../mdast-to-slate";
 
 type DecorationType = keyof slateInternal.Decoration;
 
@@ -56,7 +56,7 @@ function convertNodes(
       let ends: DecorationType[] = [];
       let textTemp: string = "";
       for (let j = 0; j < textQueue.length; j++) {
-        const cur = textQueue[j];
+        const cur = textQueue[j]!;
         textTemp += cur.text;
 
         const prevStarts = starts.slice();
@@ -129,6 +129,7 @@ function convertNodes(
                 };
                 break;
               default:
+                // @ts-expect-error
                 const _: never = k;
                 break;
             }
@@ -232,6 +233,7 @@ function buildMdastNode(
     case "inlineMath":
       return buildInlineMath(node);
     default:
+      // @ts-expect-error
       const _: never = node;
       break;
   }
@@ -364,7 +366,7 @@ function buildTableCell(
 function buildHtml({ type, children }: slateInternal.Html): mdast.HTML {
   return {
     type,
-    value: children[0].text,
+    value: children[0]!.text,
   };
 }
 
@@ -378,21 +380,21 @@ function buildCode({
     type,
     lang,
     meta,
-    value: children[0].text,
+    value: children[0]!.text,
   };
 }
 
 function buildYaml({ type, children }: slateInternal.Yaml): mdast.YAML {
   return {
     type,
-    value: children[0].text,
+    value: children[0]!.text,
   };
 }
 
 function buildToml({ type, children }: slateInternal.Toml): mdast.TOML {
   return {
     type,
-    value: children[0].text,
+    value: children[0]!.text,
   };
 }
 
@@ -522,7 +524,7 @@ function creatFootnoteReference({
 function buildMath({ type, children }: slateInternal.Math): mdast.Math {
   return {
     type,
-    value: children[0].text,
+    value: children[0]!.text,
   };
 }
 
@@ -532,6 +534,6 @@ function buildInlineMath({
 }: slateInternal.InlineMath): mdast.InlineMath {
   return {
     type,
-    value: children[0].text,
+    value: children[0]!.text,
   };
 }

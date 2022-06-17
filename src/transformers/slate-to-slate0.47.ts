@@ -1,11 +1,11 @@
-import {
+import type {
   ValueJSON,
   BlockJSON,
   InlineJSON,
   TextJSON,
   MarkJSON,
 } from "slate_legacy";
-import { Decoration, SlateNode } from "./mdast-to-slate";
+import type { Decoration, SlateNode } from "./mdast-to-slate";
 
 export function slateToSlate047(nodes: SlateNode[]): ValueJSON {
   return {

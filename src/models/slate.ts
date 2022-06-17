@@ -1,6 +1,6 @@
 // ref: https://docs.slatejs.org/concepts/11-typescript
 
-import * as slate from "slate";
+import type * as slate from "slate";
 
 export type Node = Editor | Element | Text;
 export type Editor = slate.Editor;
