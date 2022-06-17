@@ -8,6 +8,7 @@
   "files": [
     "lib"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
