@@ -1,6 +1,6 @@
 # remark-slate-transformer
 
-![npm](https://img.shields.io/npm/v/remark-slate-transformer) ![check](https://github.com/inokawa/remark-slate-transformer/workflows/check/badge.svg) ![demo](https://github.com/inokawa/remark-slate-transformer/workflows/demo/badge.svg)
+![npm](https://img.shields.io/npm/v/remark-slate-transformer) ![npm](https://img.shields.io/npm/dw/remark-slate-transformer) ![check](https://github.com/inokawa/remark-slate-transformer/workflows/check/badge.svg) ![demo](https://github.com/inokawa/remark-slate-transformer/workflows/demo/badge.svg)
 
 [remark](https://github.com/remarkjs/remark) plugin to transform remark syntax tree ([mdast](https://github.com/syntax-tree/mdast)) to [Slate](https://github.com/ianstormtaylor/slate) document tree, and vice versa. Made for WYSIWYG markdown editor.
 
