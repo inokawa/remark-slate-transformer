@@ -20,7 +20,7 @@ export default {
       tsconfig: "./tsconfig.json",
       outDir: ".",
       declaration: true,
-      exclude: ["src/**/*.spec.*"],
+      exclude: ["**/*.{spec,stories}.*"],
     }),
   ],
 };
