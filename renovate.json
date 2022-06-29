@@ -10,6 +10,10 @@
   },
   "packageRules": [
     {
+      "matchPackageNames": ["slate", "slate-react", "slate-history"],
+      "automerge": false
+    },
+    {
       "packagePatterns": ["slate_legacy", "slate-react_legacy"],
       "enabled": false
     }
