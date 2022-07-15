@@ -15,6 +15,7 @@
     "tsc": "tsc -p . --noEmit",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
+    "storybook:test": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook -- --quiet --no-open\" \"wait-on tcp:6006 && test-storybook\"",
     "prepublishOnly": "rimraf lib && npm run build"
   },
   "devDependencies": {
@@ -25,12 +26,14 @@
     "@storybook/addon-essentials": "6.5.6",
     "@storybook/addon-links": "6.5.6",
     "@storybook/react": "6.5.6",
+    "@storybook/test-runner": "0.4.0",
     "@types/jest": "27.5.2",
     "@types/mdast": "^3.0.10",
     "@types/slate_legacy": "npm:@types/slate@0.47.7",
     "@types/slate-react_legacy": "npm:@types/slate-react@0.22.9",
     "@types/unist": "2.0.6",
     "babel-jest": "27.5.1",
+    "concurrently": "7.2.2",
     "github-markdown-css": "4.0.0",
     "jest": "27.5.1",
     "react": "18.1.0",
