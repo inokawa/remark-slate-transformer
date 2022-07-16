@@ -157,3 +157,8 @@ console.log(text);
 ### Utilities
 
 Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.
+
+## Related projects
+
+- [remark-docx](https://github.com/inokawa/remark-docx)
+- [remark-pdf](https://github.com/inokawa/remark-pdf)
