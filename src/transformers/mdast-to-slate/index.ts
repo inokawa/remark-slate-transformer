@@ -25,25 +25,25 @@ export type MdastBuilder<T extends string> = (
   next: (children: any[]) => any
 ) => object | undefined;
 
-export function mdastToSlate(
+export const mdastToSlate = (
   node: mdast.Root,
   overrides: OverridedMdastBuilders
-): slate.Node[] {
+): slate.Node[] => {
   return buildSlateRoot(node, overrides);
-}
+};
 
-function buildSlateRoot(
+const buildSlateRoot = (
   root: mdast.Root,
   overrides: OverridedMdastBuilders
-): slate.Node[] {
+): slate.Node[] => {
   return convertNodes(root.children, {}, overrides);
-}
+};
 
-function convertNodes(
+const convertNodes = (
   nodes: mdast.Content[],
   deco: Decoration,
   overrides: OverridedMdastBuilders
-): slate.Node[] {
+): slate.Node[] => {
   if (nodes.length === 0) {
     return [{ text: "" }];
   }
@@ -52,13 +52,13 @@ function convertNodes(
     acc.push(...buildSlateNode(node, deco, overrides));
     return acc;
   }, []);
-}
+};
 
-function buildSlateNode(
+const buildSlateNode = (
   node: mdast.Content,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-): SlateNode[] {
+): SlateNode[] => {
   const customNode = overrides[node.type]?.(node as any, (children) =>
     convertNodes(children, deco, overrides)
   );
@@ -135,64 +135,64 @@ function buildSlateNode(
       break;
   }
   return [];
-}
+};
 
 export type Paragraph = ReturnType<typeof buildParagraph>;
 
-function buildParagraph(
+const buildParagraph = (
   { type, children }: mdast.Paragraph,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
   };
-}
+};
 
 export type Heading = ReturnType<typeof buildHeading>;
 
-function buildHeading(
+const buildHeading = (
   { type, children, depth }: mdast.Heading,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     depth,
     children: convertNodes(children, deco, overrides),
   };
-}
+};
 
 export type ThematicBreak = ReturnType<typeof buildThematicBreak>;
 
-function buildThematicBreak({ type }: mdast.ThematicBreak) {
+const buildThematicBreak = ({ type }: mdast.ThematicBreak) => {
   return {
     type,
     children: [{ text: "" }],
   };
-}
+};
 
 export type Blockquote = ReturnType<typeof buildBlockquote>;
 
-function buildBlockquote(
+const buildBlockquote = (
   { type, children }: mdast.Blockquote,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
   };
-}
+};
 
 export type List = ReturnType<typeof buildList>;
 
-function buildList(
+const buildList = (
   { type, children, ordered, start, spread }: mdast.List,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -200,128 +200,128 @@ function buildList(
     start,
     spread,
   };
-}
+};
 
 export type ListItem = ReturnType<typeof buildListItem>;
 
-function buildListItem(
+const buildListItem = (
   { type, children, checked, spread }: mdast.ListItem,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
     checked,
     spread,
   };
-}
+};
 
 export type Table = ReturnType<typeof buildTable>;
 
-function buildTable(
+const buildTable = (
   { type, children, align }: mdast.Table,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
     align,
   };
-}
+};
 
 export type TableRow = ReturnType<typeof buildTableRow>;
 
-function buildTableRow(
+const buildTableRow = (
   { type, children }: mdast.TableRow,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
   };
-}
+};
 
 export type TableCell = ReturnType<typeof buildTableCell>;
 
-function buildTableCell(
+const buildTableCell = (
   { type, children }: mdast.TableCell,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
   };
-}
+};
 
 export type Html = ReturnType<typeof buildHtml>;
 
-function buildHtml({ type, value }: mdast.HTML) {
+const buildHtml = ({ type, value }: mdast.HTML) => {
   return {
     type,
     children: [{ text: value }],
   };
-}
+};
 
 export type Code = ReturnType<typeof buildCode>;
 
-function buildCode({ type, value, lang, meta }: mdast.Code) {
+const buildCode = ({ type, value, lang, meta }: mdast.Code) => {
   return {
     type,
     lang,
     meta,
     children: [{ text: value }],
   };
-}
+};
 
 export type Yaml = ReturnType<typeof buildYaml>;
 
-function buildYaml({ type, value }: mdast.YAML) {
+const buildYaml = ({ type, value }: mdast.YAML) => {
   return {
     type,
     children: [{ text: value }],
   };
-}
+};
 
 export type Toml = ReturnType<typeof buildToml>;
 
-function buildToml({ type, value }: mdast.TOML) {
+const buildToml = ({ type, value }: mdast.TOML) => {
   return {
     type,
     children: [{ text: value }],
   };
-}
+};
 
 export type Math = ReturnType<typeof buildMath>;
 
-function buildMath({ type, value }: mdast.Math) {
+const buildMath = ({ type, value }: mdast.Math) => {
   return {
     type,
     children: [{ text: value }],
   };
-}
+};
 
 export type InlineMath = ReturnType<typeof buildInlineMath>;
 
-function buildInlineMath({ type, value }: mdast.InlineMath) {
+const buildInlineMath = ({ type, value }: mdast.InlineMath) => {
   return {
     type,
     children: [{ text: value }],
   };
-}
+};
 
 export type Definition = ReturnType<typeof buildDefinition>;
 
-function buildDefinition({
+const buildDefinition = ({
   type,
   identifier,
   label,
   url,
   title,
-}: mdast.Definition) {
+}: mdast.Definition) => {
   return {
     type,
     identifier,
@@ -330,59 +330,59 @@ function buildDefinition({
     title,
     children: [{ text: "" }],
   };
-}
+};
 
 export type FootnoteDefinition = ReturnType<typeof buildFootnoteDefinition>;
 
-function buildFootnoteDefinition(
+const buildFootnoteDefinition = (
   { type, children, identifier, label }: mdast.FootnoteDefinition,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
     identifier,
     label,
   };
-}
+};
 
 export type Text = ReturnType<typeof buildText>;
 
-function buildText(text: string, deco: Decoration) {
+const buildText = (text: string, deco: Decoration) => {
   return {
     ...deco,
     text,
   };
-}
+};
 
 export type Break = ReturnType<typeof buildBreak>;
 
-function buildBreak({ type }: mdast.Break) {
+const buildBreak = ({ type }: mdast.Break) => {
   return {
     type,
     children: [{ text: "" }],
   };
-}
+};
 
 export type Link = ReturnType<typeof buildLink>;
 
-function buildLink(
+const buildLink = (
   { type, children, url, title }: mdast.Link,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
     url,
     title,
   };
-}
+};
 
 export type Image = ReturnType<typeof buildImage>;
 
-function buildImage({ type, url, title, alt }: mdast.Image) {
+const buildImage = ({ type, url, title, alt }: mdast.Image) => {
   return {
     type,
     url,
@@ -390,15 +390,15 @@ function buildImage({ type, url, title, alt }: mdast.Image) {
     alt,
     children: [{ text: "" }],
   };
-}
+};
 
 export type LinkReference = ReturnType<typeof buildLinkReference>;
 
-function buildLinkReference(
+const buildLinkReference = (
   { type, children, referenceType, identifier, label }: mdast.LinkReference,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
@@ -406,17 +406,17 @@ function buildLinkReference(
     identifier,
     label,
   };
-}
+};
 
 export type ImageReference = ReturnType<typeof buildImageReference>;
 
-function buildImageReference({
+const buildImageReference = ({
   type,
   alt,
   referenceType,
   identifier,
   label,
-}: mdast.ImageReference) {
+}: mdast.ImageReference) => {
   return {
     type,
     alt,
@@ -425,35 +425,35 @@ function buildImageReference({
     label,
     children: [{ text: "" }],
   };
-}
+};
 
 export type Footnote = ReturnType<typeof buildFootnote>;
 
-function buildFootnote(
+const buildFootnote = (
   { type, children }: mdast.Footnote,
   deco: Decoration,
   overrides: OverridedMdastBuilders
-) {
+) => {
   return {
     type,
     children: convertNodes(children, deco, overrides),
   };
-}
+};
 
 export type FootnoteReference = ReturnType<typeof buildFootnoteReference>;
 
-function buildFootnoteReference({
+const buildFootnoteReference = ({
   type,
   identifier,
   label,
-}: mdast.FootnoteReference) {
+}: mdast.FootnoteReference) => {
   return {
     type,
     identifier,
     label,
     children: [{ text: "" }],
   };
-}
+};
 
 export type SlateNode =
   | Paragraph

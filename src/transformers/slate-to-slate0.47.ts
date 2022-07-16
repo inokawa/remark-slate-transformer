@@ -7,7 +7,7 @@ import type {
 } from "slate_legacy";
 import type { Decoration, SlateNode } from "./mdast-to-slate";
 
-export function slateToSlate047(nodes: SlateNode[]): ValueJSON {
+export const slateToSlate047 = (nodes: SlateNode[]): ValueJSON => {
   return {
     object: "value",
     document: {
@@ -15,11 +15,11 @@ export function slateToSlate047(nodes: SlateNode[]): ValueJSON {
       nodes: convertNodes(nodes),
     },
   };
-}
+};
 
-function convertNodes(
+const convertNodes = (
   nodes: SlateNode[]
-): (BlockJSON | InlineJSON | TextJSON)[] {
+): (BlockJSON | InlineJSON | TextJSON)[] => {
   return nodes.reduce<(BlockJSON | InlineJSON | TextJSON)[]>((acc, n) => {
     const node = convert(n as SlateNode);
     if (node) {
@@ -27,9 +27,9 @@ function convertNodes(
     }
     return acc;
   }, []);
-}
+};
 
-function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
+const convert = (node: SlateNode): BlockJSON | InlineJSON | TextJSON | null => {
   if ("text" in node) {
     const { text, ...rest } = node;
     const marks: MarkJSON[] = Object.keys(rest).reduce<
@@ -100,4 +100,4 @@ function convert(node: SlateNode): BlockJSON | InlineJSON | TextJSON | null {
       break;
   }
   return null;
-}
+};

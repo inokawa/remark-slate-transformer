@@ -1,15 +1,15 @@
 import type { BlockJSON, InlineJSON, TextJSON } from "slate_legacy";
 import type * as slate from "../models/slate";
 
-export function slate047ToSlate(
+export const slate047ToSlate = (
   nodes: (BlockJSON | InlineJSON | TextJSON)[]
-): slate.Node[] {
+): slate.Node[] => {
   return convertNodes(nodes);
-}
+};
 
-function convertNodes(
+const convertNodes = (
   nodes: (BlockJSON | InlineJSON | TextJSON)[]
-): slate.Node[] {
+): slate.Node[] => {
   return nodes.reduce<slate.Node[]>((acc, n) => {
     const node = convert(n as BlockJSON);
     if (node) {
@@ -17,9 +17,11 @@ function convertNodes(
     }
     return acc;
   }, []);
-}
+};
 
-function convert(node: BlockJSON | InlineJSON | TextJSON): slate.Node | null {
+const convert = (
+  node: BlockJSON | InlineJSON | TextJSON
+): slate.Node | null => {
   switch (node.object) {
     case "block": {
       const { type, nodes, data } = node;
@@ -51,4 +53,4 @@ function convert(node: BlockJSON | InlineJSON | TextJSON): slate.Node | null {
       break;
   }
   return null;
-}
+};
