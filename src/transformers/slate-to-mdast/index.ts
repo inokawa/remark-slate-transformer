@@ -2,6 +2,7 @@ import type * as unistLib from "unist";
 import type * as slate from "../../models/slate";
 import type * as mdast from "../../models/mdast";
 import type * as slateInternal from "../mdast-to-slate";
+import { unreachable } from "../../utils";
 
 type DecorationType = keyof slateInternal.Decoration;
 
@@ -129,8 +130,7 @@ function convertNodes(
                 };
                 break;
               default:
-                // @ts-expect-error
-                const _: never = k;
+                unreachable(k);
                 break;
             }
           });
@@ -233,8 +233,7 @@ function buildMdastNode(
     case "inlineMath":
       return buildInlineMath(node);
     default:
-      // @ts-expect-error
-      const _: never = node;
+      unreachable(node);
       break;
   }
   return null;

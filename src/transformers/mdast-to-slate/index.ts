@@ -1,5 +1,6 @@
 import type * as slate from "../../models/slate";
 import type * as mdast from "../../models/mdast";
+import { unreachable } from "../../utils";
 
 export type Decoration = Readonly<
   {
@@ -130,8 +131,7 @@ function buildSlateNode(
     case "inlineMath":
       return [buildInlineMath(node)];
     default:
-      // @ts-expect-error
-      const _: never = node;
+      unreachable(node);
       break;
   }
   return [];
