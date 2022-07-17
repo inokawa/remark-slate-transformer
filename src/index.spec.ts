@@ -199,7 +199,7 @@ describe("issues", () => {
     const mdastTree = toRemarkProcessor.runSync({
       type: "root",
       children: slateNodes,
-    } as any);
+    });
     expect(mdastTree).toMatchSnapshot();
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();

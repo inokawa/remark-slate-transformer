@@ -23,22 +23,21 @@ export type SlateBuilder = (
 export const slateToMdast = (
   node: slate.Node,
   overrides: OverridedSlateBuilders
-): unistLib.Node => {
+): mdast.Root => {
   return buildMdastRoot(node, overrides);
 };
 
 const buildMdastRoot = (
   node: slate.Node,
   overrides: OverridedSlateBuilders
-): unistLib.Node => {
-  const root: mdast.Root = {
+): mdast.Root => {
+  return <mdast.Root>{
     type: "root",
     children: convertNodes(
       (node as any).children,
       overrides
     ) as mdast.Root["children"],
   };
-  return root as any as unistLib.Node;
 };
 
 const convertNodes = (
