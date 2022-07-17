@@ -31,6 +31,14 @@ https://inokawa.github.io/remark-slate-transformer/
 npm install remark-slate-transformer
 ```
 
+### Supported unified versions
+
+| remark-slate-transformer | unified  |
+| ------------------------ | -------- |
+| >=0.7.0                  | >=10.1.0 |
+| >=0.5.0 <0.7.0           | >=10.0.0 |
+| <0.5.0                   | <10.0.0  |
+
 ## Usage
 
 ### Transform remark to slate
