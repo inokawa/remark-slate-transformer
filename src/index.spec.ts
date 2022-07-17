@@ -45,7 +45,7 @@ describe("e2e", () => {
       const mdastTree = toRemarkProcessor.runSync({
         type: "root",
         children: slateNodes,
-      } as any);
+      });
       expect(mdastTree).toMatchSnapshot();
 
       const text = toRemarkProcessor.stringify(mdastTree);
@@ -126,7 +126,7 @@ describe("options", () => {
     const mdastTree = toRemarkProcessor.runSync({
       type: "root",
       children: slateTree,
-    } as any);
+    });
     expect(mdastTree).toMatchSnapshot();
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
@@ -151,7 +151,7 @@ describe("issues", () => {
     const mdastTree = toRemarkProcessor.runSync({
       type: "root",
       children: slateTree,
-    } as any);
+    });
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
   });
@@ -249,7 +249,7 @@ describe("issues", () => {
     const mdastTree = toRemarkProcessor.runSync({
       type: "root",
       children: slateNodes,
-    } as any);
+    });
     expect(mdastTree).toMatchSnapshot();
     const text = toRemarkProcessor.stringify(mdastTree);
     expect(text).toMatchSnapshot();
