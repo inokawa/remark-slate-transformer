@@ -57,6 +57,9 @@
     "typescript": "4.6.4",
     "unified": "10.1.2"
   },
+  "peerDependencies": {
+    "unified": ">= 10.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inokawa/remark-slate-transformer.git"
