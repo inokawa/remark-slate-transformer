@@ -166,6 +166,18 @@ console.log(text);
 
 Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.
 
+## Contribute
+
+All contributions are welcome!
+If you have any feature requests or improvements, please create a [issue](https://github.com/inokawa/remark-slate-transformer/issues) or [PR](https://github.com/inokawa/remark-slate-transformer/pulls).
+
+### Making a Pull Request
+
+1. Clone this repo.
+2. Run `npm install`.
+3. Commit your fix.
+4. Make a PR and confirm all the CI checks passed.
+
 ## Related projects
 
 - [remark-docx](https://github.com/inokawa/remark-docx)
