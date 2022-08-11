@@ -168,8 +168,8 @@ Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for mo
 
 ## Contribute
 
-All contributions are welcome!
-If you have any feature requests or improvements, please create a [issue](https://github.com/inokawa/remark-slate-transformer/issues) or [PR](https://github.com/inokawa/remark-slate-transformer/pulls).
+All contributions are welcome.
+If you find a problem, feel free to create an [issue](https://github.com/inokawa/remark-slate-transformer/issues) or a [PR](https://github.com/inokawa/remark-slate-transformer/pulls).
 
 ### Making a Pull Request
 
