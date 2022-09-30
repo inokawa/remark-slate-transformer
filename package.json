@@ -27,7 +27,7 @@
     "@storybook/addon-essentials": "6.5.10",
     "@storybook/addon-links": "6.5.10",
     "@storybook/react": "6.5.10",
-    "@storybook/test-runner": "0.7.0",
+    "@storybook/test-runner": "0.7.2",
     "@types/mdast": "3.0.10",
     "@types/slate_legacy": "npm:@types/slate@0.47.7",
     "@types/slate-react_legacy": "npm:@types/slate-react@0.22.9",
