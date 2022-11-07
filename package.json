@@ -28,10 +28,12 @@
     "@babel/preset-env": "7.18.10",
     "@babel/preset-typescript": "7.18.6",
     "@rollup/plugin-typescript": "8.3.4",
-    "@storybook/addon-essentials": "6.5.12",
-    "@storybook/addon-links": "6.5.12",
-    "@storybook/react": "6.5.12",
-    "@storybook/test-runner": "0.7.2",
+    "@storybook/addon-essentials": "6.5.13",
+    "@storybook/addon-links": "6.5.13",
+    "@storybook/builder-webpack5": "6.5.13",
+    "@storybook/manager-webpack5": "6.5.13",
+    "@storybook/react": "6.5.13",
+    "@storybook/test-runner": "0.9.0",
     "@types/slate_legacy": "npm:@types/slate@0.47.7",
     "@types/slate-react_legacy": "npm:@types/slate-react@0.22.9",
     "@types/unist": "2.0.6",
@@ -57,7 +59,8 @@
     "slate-react": "0.81.0",
     "slate-react_legacy": "npm:slate-react@0.22.10",
     "typescript": "4.6.4",
-    "unified": "10.1.2"
+    "unified": "10.1.2",
+    "webpack": "5.74.0"
   },
   "peerDependencies": {
     "unified": ">=10.1.0"
