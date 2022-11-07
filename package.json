@@ -18,7 +18,10 @@
     "storybook:test": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook -- --quiet --no-open\" \"wait-on tcp:6006 && test-storybook\"",
     "prepublishOnly": "rimraf lib && npm run build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/mdast": "3.0.10",
+    "tslib": "2.4.0"
+  },
   "devDependencies": {
     "@babel/core": "7.18.13",
     "@babel/preset-env": "7.18.10",
@@ -28,7 +31,6 @@
     "@storybook/addon-links": "6.5.12",
     "@storybook/react": "6.5.12",
     "@storybook/test-runner": "0.7.2",
-    "@types/mdast": "3.0.10",
     "@types/slate_legacy": "npm:@types/slate@0.47.7",
     "@types/slate-react_legacy": "npm:@types/slate-react@0.22.9",
     "@types/unist": "2.0.6",
@@ -53,7 +55,6 @@
     "slate-history": "0.66.0",
     "slate-react": "0.81.0",
     "slate-react_legacy": "npm:slate-react@0.22.10",
-    "tslib": "2.4.0",
     "typescript": "4.6.4",
     "unified": "10.1.2"
   },
