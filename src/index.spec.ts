@@ -257,4 +257,12 @@ describe("issues", () => {
     const slateTree = toSlateProcessor.processSync(text).result;
     expect(slateTree).toMatchSnapshot();
   });
+
+  it("issue129", () => {
+    const toSlateProcessor = unified().use(markdown).use(remarkToSlate);
+    const slateTree = toSlateProcessor.processSync("").result;
+    expect(slateTree).toMatchSnapshot();
+    const slateTreeWithSpace = toSlateProcessor.processSync(" ").result;
+    expect(slateTreeWithSpace).toMatchSnapshot();
+  });
 });
