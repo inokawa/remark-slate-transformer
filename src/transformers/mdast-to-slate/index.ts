@@ -2,21 +2,18 @@ import type * as slate from "../../models/slate";
 import type * as mdast from "../../models/mdast";
 import { unreachable } from "../../utils";
 
-export type Decoration = Readonly<
-  {
-    [key in (
-      | mdast.Emphasis
-      | mdast.Strong
-      | mdast.Delete
-      | mdast.InlineCode
-    )["type"]]?: true;
-  }
->;
+export type Decoration = Readonly<{
+  [key in (
+    | mdast.Emphasis
+    | mdast.Strong
+    | mdast.Delete
+    | mdast.InlineCode
+  )["type"]]?: true;
+}>;
 
 export type OverridedMdastBuilders = {
   [key in mdast.Content["type"]]?: MdastBuilder<key>;
-} &
-  ({ [key: string]: MdastBuilder<typeof key> } | {});
+} & ({ [key: string]: MdastBuilder<typeof key> } | {});
 
 export type MdastBuilder<T extends string> = (
   node: T extends mdast.Content["type"]
@@ -44,10 +41,6 @@ const convertNodes = (
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ): slate.Node[] => {
-  if (nodes.length === 0) {
-    return [{ text: "" }];
-  }
-
   return nodes.reduce<slate.Node[]>((acc, node) => {
     acc.push(...buildSlateNode(node, deco, overrides));
     return acc;
@@ -211,7 +204,12 @@ const buildListItem = (
 ) => {
   return {
     type,
-    children: convertNodes(children, deco, overrides),
+    children:
+      // https://github.com/inokawa/remark-slate-transformer/issues/42
+      // https://github.com/inokawa/remark-slate-transformer/issues/129
+      children.length === 0
+        ? [{ text: "" }]
+        : convertNodes(children, deco, overrides),
     checked,
     spread,
   };
