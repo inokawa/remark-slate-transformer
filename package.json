@@ -31,7 +31,7 @@
     "@storybook/addon-docs": "7.0.0-beta.44",
     "@storybook/react": "7.0.0-beta.44",
     "@storybook/react-webpack5": "7.0.0-beta.44",
-    "@storybook/test-runner": "1.0.0--canary.224.3c57b66.0",
+    "@storybook/test-runner": "0.10.0-next.8",
     "@types/slate_legacy": "npm:@types/slate@0.47.7",
     "@types/slate-react_legacy": "npm:@types/slate-react@0.22.9",
     "@types/unist": "2.0.6",
