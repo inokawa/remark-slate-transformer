@@ -24,9 +24,9 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@babel/core": "7.21.4",
-    "@babel/preset-env": "7.21.4",
-    "@babel/preset-typescript": "7.21.4",
+    "@babel/core": "7.21.5",
+    "@babel/preset-env": "7.21.5",
+    "@babel/preset-typescript": "7.21.5",
     "@rollup/plugin-typescript": "8.5.0",
     "@storybook/addon-docs": "7.0.4",
     "@storybook/react": "7.0.4",
