@@ -1,29 +1,18 @@
-module.exports = {
+import { mergeConfig } from "vite";
+
+export default {
   stories: [
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   addons: ["@storybook/addon-docs"],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: "@storybook/react-vite",
     options: {},
   },
-  webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.tsx?$/,
-      use: [
-        {
-          loader: "ts-loader",
-          options: {
-            transpileOnly: true,
-          },
-        },
-      ],
+  viteFinal: async (config) => {
+    return mergeConfig(config, {
+      assetsInclude: ["**/*.md"],
     });
-    config.resolve.fallback = {
-      // For micromark
-      assert: "assert",
-    };
-    return config;
   },
 };

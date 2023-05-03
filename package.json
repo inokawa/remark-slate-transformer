@@ -30,12 +30,11 @@
     "@rollup/plugin-typescript": "8.5.0",
     "@storybook/addon-docs": "7.0.7",
     "@storybook/react": "7.0.7",
-    "@storybook/react-webpack5": "7.0.7",
+    "@storybook/react-vite": "7.0.7",
     "@storybook/test-runner": "0.10.0",
     "@types/slate_legacy": "npm:@types/slate@0.47.7",
     "@types/slate-react_legacy": "npm:@types/slate-react@0.22.9",
     "@types/unist": "2.0.6",
-    "assert": "2.0.0",
     "babel-jest": "29.0.2",
     "concurrently": "7.6.0",
     "github-markdown-css": "4.0.0",
@@ -58,10 +57,9 @@
     "slate-react": "0.93.0",
     "slate-react_legacy": "npm:slate-react@0.22.10",
     "storybook": "^7.0.4",
-    "ts-loader": "9.4.2",
     "typescript": "5.0.4",
     "unified": "10.1.2",
-    "webpack": "5.74.0"
+    "vite": "4.3.4"
   },
   "peerDependencies": {
     "unified": ">=10.1.0"
