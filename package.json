@@ -59,7 +59,7 @@
     "storybook": "^7.0.4",
     "typescript": "5.0.4",
     "unified": "10.1.2",
-    "vite": "4.3.4"
+    "vite": "4.3.9"
   },
   "peerDependencies": {
     "unified": ">=10.1.0"
