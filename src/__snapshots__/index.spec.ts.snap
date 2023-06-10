@@ -10464,6 +10464,11 @@ exports[`issues issue145 1`] = `
 }
 `;
 
+exports[`issues issue145 2`] = `
+"_**inline code**_
+"
+`;
+
 exports[`options override builders 1`] = `
 [
   {

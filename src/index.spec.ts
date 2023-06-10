@@ -267,11 +267,15 @@ describe("issues", () => {
   });
 
   it("issue145", () => {
-    const processor = unified().use(slateToRemark);
+    const processor = unified()
+      .use(slateToRemark)
+      .use(stringify, { emphasis: "_" });
     const ast = processor.runSync({
       type: "root",
       children: [{ text: "inline code", strong: true, emphasis: true }],
     } as any);
     expect(ast).toMatchSnapshot();
+    const text = processor.stringify(ast);
+    expect(text).toMatchSnapshot();
   });
 });
