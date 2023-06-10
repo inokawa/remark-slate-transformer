@@ -265,4 +265,13 @@ describe("issues", () => {
     const slateTreeWithSpace = toSlateProcessor.processSync(" ").result;
     expect(slateTreeWithSpace).toMatchSnapshot();
   });
+
+  it("issue145", () => {
+    const processor = unified().use(slateToRemark);
+    const ast = processor.runSync({
+      type: "root",
+      children: [{ text: "inline code", strong: true, emphasis: true }],
+    } as any);
+    expect(ast).toMatchSnapshot();
+  });
 });

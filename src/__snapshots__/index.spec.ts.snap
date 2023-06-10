@@ -10442,6 +10442,28 @@ exports[`issues issue129 1`] = `[]`;
 
 exports[`issues issue129 2`] = `[]`;
 
+exports[`issues issue145 1`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "inline code",
+            },
+          ],
+          "type": "strong",
+        },
+      ],
+      "type": "emphasis",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`options override builders 1`] = `
 [
   {
