@@ -10475,8 +10475,13 @@ exports[`issues issue145-2 1`] = `
     {
       "children": [
         {
-          "type": "inlineCode",
-          "value": undefined,
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "code",
+            },
+          ],
+          "type": "emphasis",
         },
       ],
       "type": "paragraph",
@@ -10487,7 +10492,7 @@ exports[`issues issue145-2 1`] = `
 `;
 
 exports[`issues issue145-2 2`] = `
-"\`\`
+"_\`code\`_
 "
 `;
 
