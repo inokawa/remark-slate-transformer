@@ -134,28 +134,30 @@ const convertTexts = (
         value: textTemp,
       };
       textTemp = "";
-      const startsReversed = starts.slice().reverse();
-      startsReversed.forEach((k) => {
-        switch (k) {
-          case "inlineCode":
-            res = {
-              type: k,
-              value: (res as any).value,
-            };
-            break;
-          case "strong":
-          case "emphasis":
-          case "delete":
-            res = {
-              type: k,
-              children: [res],
-            };
-            break;
-          default:
-            unreachable(k);
-            break;
-        }
-      });
+      starts
+        .slice()
+        .reverse()
+        .forEach((k) => {
+          switch (k) {
+            case "inlineCode":
+              res = {
+                type: k,
+                value: (res as any).value,
+              };
+              break;
+            case "strong":
+            case "emphasis":
+            case "delete":
+              res = {
+                type: k,
+                children: [res],
+              };
+              break;
+            default:
+              unreachable(k);
+              break;
+          }
+        });
       const arr: TextOrDecoration[] = [];
       if (bef.length > 0) {
         arr.push({ type: "text", value: bef });
