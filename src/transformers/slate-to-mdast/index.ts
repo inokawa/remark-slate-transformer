@@ -51,114 +51,7 @@ const convertNodes = (
     if (n && isText(n)) {
       textQueue.push(n);
     } else {
-      const mdastTexts: TextOrDecoration[] = [];
-      const starts: DecorationType[] = [];
-      let ends: DecorationType[] = [];
-      let textTemp: string = "";
-      for (let j = 0; j < textQueue.length; j++) {
-        const cur = textQueue[j]!;
-        textTemp += cur.text;
-
-        const prevStarts = starts.slice();
-        const prevEnds = ends.slice();
-
-        const prev = textQueue[j - 1];
-        const next = textQueue[j + 1];
-        ends = [];
-        (["inlineCode", "emphasis", "strong", "delete"] as const).forEach(
-          (k) => {
-            if (cur[k]) {
-              if (!prev || !prev[k]) {
-                starts.push(k);
-              }
-              if (!next || !next[k]) {
-                ends.push(k);
-              }
-            }
-          }
-        );
-
-        const endsToRemove = starts.reduce<
-          { key: DecorationType; index: number }[]
-        >((acc, k, kIndex) => {
-          if (ends.includes(k)) {
-            acc.push({ key: k, index: kIndex });
-          }
-          return acc;
-        }, []);
-
-        if (starts.length > 0) {
-          let bef = "";
-          let aft = "";
-          if (
-            endsToRemove.length === 1 &&
-            (prevStarts.toString() !== starts.toString() ||
-              // https://github.com/inokawa/remark-slate-transformer/issues/90
-              (prevEnds.includes("emphasis") && ends.includes("strong"))) &&
-            starts.length - endsToRemove.length === 0
-          ) {
-            while (textTemp.startsWith(" ")) {
-              bef += " ";
-              textTemp = textTemp.slice(1);
-            }
-            while (textTemp.endsWith(" ")) {
-              aft += " ";
-              textTemp = textTemp.slice(0, -1);
-            }
-          }
-          let res: TextOrDecoration = {
-            type: "text",
-            value: textTemp,
-          };
-          textTemp = "";
-          const startsReversed = starts.slice().reverse();
-          startsReversed.forEach((k) => {
-            switch (k) {
-              case "inlineCode":
-                res = {
-                  type: k,
-                  value: (res as any).value,
-                };
-                break;
-              case "strong":
-              case "emphasis":
-              case "delete":
-                res = {
-                  type: k,
-                  children: [res],
-                };
-                break;
-              default:
-                unreachable(k);
-                break;
-            }
-          });
-          const arr: TextOrDecoration[] = [];
-          if (bef.length > 0) {
-            arr.push({ type: "text", value: bef });
-          }
-          arr.push(res);
-          if (aft.length > 0) {
-            arr.push({ type: "text", value: aft });
-          }
-          mdastTexts.push(...arr);
-        }
-
-        if (endsToRemove.length > 0) {
-          endsToRemove.reverse().forEach((e) => {
-            starts.splice(e.index, 1);
-          });
-        } else {
-          mdastTexts.push({ type: "text", value: textTemp });
-          textTemp = "";
-        }
-      }
-      if (textTemp) {
-        mdastTexts.push({ type: "text", value: textTemp });
-        textTemp = "";
-      }
-
-      mdastNodes.push(...(mergeTexts(mdastTexts) as any as unistLib.Node[]));
+      mdastNodes.push(...(convertTexts(textQueue) as any as unistLib.Node[]));
       textQueue = [];
       if (!n) continue;
       const node = buildMdastNode(n, overrides);
@@ -169,6 +62,116 @@ const convertNodes = (
   }
 
   return mdastNodes;
+};
+
+const convertTexts = (
+  slateTexts: readonly slateInternal.Text[]
+): TextOrDecoration[] => {
+  const mdastTexts: TextOrDecoration[] = [];
+  const starts: DecorationType[] = [];
+  let ends: DecorationType[] = [];
+  let textTemp: string = "";
+  for (let j = 0; j < slateTexts.length; j++) {
+    const cur = slateTexts[j]!;
+    textTemp += cur.text;
+
+    const prevStarts = starts.slice();
+    const prevEnds = ends.slice();
+
+    const prev = slateTexts[j - 1];
+    const next = slateTexts[j + 1];
+    ends = [];
+    (["inlineCode", "emphasis", "strong", "delete"] as const).forEach((k) => {
+      if (cur[k]) {
+        if (!prev || !prev[k]) {
+          starts.push(k);
+        }
+        if (!next || !next[k]) {
+          ends.push(k);
+        }
+      }
+    });
+
+    const endsToRemove = starts.reduce<
+      { key: DecorationType; index: number }[]
+    >((acc, k, kIndex) => {
+      if (ends.includes(k)) {
+        acc.push({ key: k, index: kIndex });
+      }
+      return acc;
+    }, []);
+
+    if (starts.length > 0) {
+      let bef = "";
+      let aft = "";
+      if (
+        endsToRemove.length === 1 &&
+        (prevStarts.toString() !== starts.toString() ||
+          // https://github.com/inokawa/remark-slate-transformer/issues/90
+          (prevEnds.includes("emphasis") && ends.includes("strong"))) &&
+        starts.length - endsToRemove.length === 0
+      ) {
+        while (textTemp.startsWith(" ")) {
+          bef += " ";
+          textTemp = textTemp.slice(1);
+        }
+        while (textTemp.endsWith(" ")) {
+          aft += " ";
+          textTemp = textTemp.slice(0, -1);
+        }
+      }
+      let res: TextOrDecoration = {
+        type: "text",
+        value: textTemp,
+      };
+      textTemp = "";
+      const startsReversed = starts.slice().reverse();
+      startsReversed.forEach((k) => {
+        switch (k) {
+          case "inlineCode":
+            res = {
+              type: k,
+              value: (res as any).value,
+            };
+            break;
+          case "strong":
+          case "emphasis":
+          case "delete":
+            res = {
+              type: k,
+              children: [res],
+            };
+            break;
+          default:
+            unreachable(k);
+            break;
+        }
+      });
+      const arr: TextOrDecoration[] = [];
+      if (bef.length > 0) {
+        arr.push({ type: "text", value: bef });
+      }
+      arr.push(res);
+      if (aft.length > 0) {
+        arr.push({ type: "text", value: aft });
+      }
+      mdastTexts.push(...arr);
+    }
+
+    if (endsToRemove.length > 0) {
+      endsToRemove.reverse().forEach((e) => {
+        starts.splice(e.index, 1);
+      });
+    } else {
+      mdastTexts.push({ type: "text", value: textTemp });
+      textTemp = "";
+    }
+  }
+  if (textTemp) {
+    mdastTexts.push({ type: "text", value: textTemp });
+    textTemp = "";
+  }
+  return mergeTexts(mdastTexts);
 };
 
 const buildMdastNode = (
