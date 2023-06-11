@@ -81,7 +81,16 @@ const convertTexts = (
     const prev = slateTexts[j - 1];
     const next = slateTexts[j + 1];
     ends = [];
-    (["inlineCode", "emphasis", "strong", "delete"] as const).forEach((k) => {
+    (
+      [
+        "emphasis",
+        "strong",
+        "delete",
+        // inlineCode should be last because of the spec in mdast
+        // https://github.com/inokawa/remark-slate-transformer/issues/145
+        "inlineCode",
+      ] as const
+    ).forEach((k) => {
       if (cur[k]) {
         if (!prev || !prev[k]) {
           starts.push(k);

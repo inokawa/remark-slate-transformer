@@ -278,4 +278,23 @@ describe("issues", () => {
     const text = processor.stringify(ast);
     expect(text).toMatchSnapshot();
   });
+
+  it("issue145-2", () => {
+    const processor = unified()
+      .use(markdown)
+      .use(slateToRemark)
+      .use(stringify, { emphasis: "_" });
+    const ast = processor.runSync({
+      type: "root",
+      children: [
+        {
+          type: "paragraph",
+          children: [{ emphasis: true, inlineCode: true, text: "code" }],
+        },
+      ],
+    } as any);
+    expect(ast).toMatchSnapshot();
+    const text = processor.stringify(ast);
+    expect(text).toMatchSnapshot();
+  });
 });

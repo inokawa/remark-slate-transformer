@@ -10469,6 +10469,33 @@ exports[`issues issue145 2`] = `
 "
 `;
 
+exports[`issues issue145-2 1`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "code",
+            },
+          ],
+          "type": "emphasis",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`issues issue145-2 2`] = `
+"_\`code\`_
+"
+`;
+
 exports[`options override builders 1`] = `
 [
   {
