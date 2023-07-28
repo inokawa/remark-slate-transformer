@@ -28,7 +28,7 @@
     "@babel/preset-env": "7.22.5",
     "@babel/preset-typescript": "7.22.5",
     "@rollup/plugin-typescript": "11.1.2",
-    "@storybook/addon-docs": "7.0.24",
+    "@storybook/addon-storysource": "7.0.24",
     "@storybook/react": "7.0.24",
     "@storybook/react-vite": "7.0.24",
     "@storybook/test-runner": "0.11.0",
