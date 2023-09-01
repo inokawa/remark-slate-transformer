@@ -40,7 +40,7 @@
     "@storybook/addon-storysource": "7.0.24",
     "@storybook/react": "7.0.24",
     "@storybook/react-vite": "7.0.24",
-    "@storybook/test-runner": "0.12.0",
+    "@storybook/test-runner": "0.13.0",
     "@types/slate_legacy": "npm:@types/slate@0.47.7",
     "@types/slate-react_legacy": "npm:@types/slate-react@0.22.9",
     "@types/unist": "2.0.8",
