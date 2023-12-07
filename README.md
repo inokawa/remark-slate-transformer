@@ -10,12 +10,11 @@
 
 This plugin supports slate 0.50+.
 The data structure is described [here](https://docs.slatejs.org/concepts/02-nodes).
-And also support ~0.47.9 currently, but I don't know in the future.
+slate ~0.47.9 was supported until 0.8.1.
 
 All nodes in [mdast](https://github.com/syntax-tree/mdast) syntax tree are supported, including nodes created with...
 
 - [remark-gfm](https://github.com/remarkjs/remark-gfm)
-- [remark-footnotes](https://github.com/remarkjs/remark-footnotes)
 - [remark-frontmatter](https://github.com/remarkjs/remark-frontmatter)
 - `math` and `inlineMath` from [remark-math](https://github.com/remarkjs/remark-math).
 
@@ -33,17 +32,16 @@ npm install remark-slate-transformer
 
 ### Supported unified versions
 
-| remark-slate-transformer | unified  |
-| ------------------------ | -------- |
-| >=0.7.0                  | >=10.1.0 |
-| >=0.5.0 <0.7.0           | >=10.0.0 |
-| <0.5.0                   | <10.0.0  |
+| remark-slate-transformer | unified          |
+| ------------------------ | ---------------- |
+| >=0.9.0                  | >=11.0.0         |
+| >=0.7.0 <0.9.0           | >=10.1.0 <11.0.0 |
+| >=0.5.0 <0.7.0           | >=10.0.0         |
+| <0.5.0                   | <10.0.0          |
 
 ## Usage
 
 ### Transform remark to slate
-
-#### 0.50+
 
 ```javascript
 import { unified } from "unified";
@@ -58,58 +56,18 @@ const value = processor.processSync(text).result;
 console.log(value);
 ```
 
-#### ~0.47.9
-
-```javascript
-import { Value } from "slate";
-import { unified } from "unified";
-import markdown from "remark-parse";
-import { remarkToSlateLegacy } from "remark-slate-transformer";
-
-const processor = unified().use(markdown).use(remarkToSlateLegacy);
-
-const text = "# hello world";
-
-const value = Value.fromJSON(processor.processSync(text).result);
-console.log(value);
-```
-
 ### Transform slate to remark
-
-#### 0.50+
 
 ```javascript
 import { unified } from "unified";
 import stringify from "remark-stringify";
 import { slateToRemark } from "remark-slate-transformer";
 
-const processor = unified().use(slateToRemark).use(stringify);
+const processor = unified().use(stringify);
 
 const value = ...; // value passed to slate editor
 
-const ast = processor.runSync({
-  type: "root",
-  children: value,
-});
-const text = processor.stringify(ast);
-console.log(text);
-```
-
-#### ~0.47.9
-
-```javascript
-import { unified } from "unified";
-import stringify from "remark-stringify";
-import { slateToRemarkLegacy } from "remark-slate-transformer";
-
-const processor = unified().use(slateToRemarkLegacy).use(stringify);
-
-const value = ...; // value passed to slate editor
-
-const ast = processor.runSync({
-  type: "root",
-  children: value.toJSON().document.nodes,
-});
+const ast = processor.runSync(slateToRemark(value));
 const text = processor.stringify(ast);
 console.log(text);
 ```
@@ -142,8 +100,9 @@ const r2s = unified()
 const value = r2s.processSync(text).result;
 console.log(value);
 
-const s2r = unified()
-  .use(slateToRemark, {
+const s2r = unified().use(stringify);
+const ast = s2r.runSync(
+  slateToRemark(value, {
     overrides: {
       head: (node, next) => ({
         type: "heading",
@@ -153,11 +112,7 @@ const s2r = unified()
       foo: (node, next) => ({ type: "foo", bar: node.value }),
     },
   })
-  .use(stringify);
-const ast = s2r.runSync({
-  type: "root",
-  children: value,
-});
+);
 const text = s2r.stringify(ast);
 console.log(text);
 ```

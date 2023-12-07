@@ -1,3 +1,3 @@
-This is footnote[^1]. And this is also ^[inline footnote].
+This is footnote[^1].
 
 [^1]: Here is the footnote.

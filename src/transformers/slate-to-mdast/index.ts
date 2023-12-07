@@ -1,4 +1,6 @@
 import type * as unistLib from "unist";
+import type { Root } from "mdast";
+import type { Node } from "slate";
 import type * as slate from "../../models/slate";
 import type * as mdast from "../../models/mdast";
 import type * as slateInternal from "../mdast-to-slate";
@@ -21,22 +23,15 @@ export type SlateBuilder = (
 ) => object | undefined;
 
 export const slateToMdast = (
-  node: slate.Node,
+  nodes: Node[],
   overrides: OverridedSlateBuilders
-): mdast.Root => {
-  return buildMdastRoot(node, overrides);
-};
-
-const buildMdastRoot = (
-  node: slate.Node,
-  overrides: OverridedSlateBuilders
-): mdast.Root => {
-  return <mdast.Root>{
+): Root => {
+  return <Root>{
     type: "root",
     children: convertNodes(
-      (node as any).children,
+      nodes as slate.Node[],
       overrides
-    ) as mdast.Root["children"],
+    ) as Root["children"],
   };
 };
 
@@ -189,7 +184,7 @@ const buildMdastNode = (
   node: Exclude<slateInternal.SlateNode, slateInternal.Text>,
   overrides: OverridedSlateBuilders
 ): Exclude<
-  mdast.Content | mdast.Math | mdast.InlineMath,
+  mdast.RootContent | mdast.Math | mdast.InlineMath,
   TextOrDecoration
 > | null => {
   const customNode = overrides[node.type]?.(node as any, (children) =>
@@ -240,8 +235,6 @@ const buildMdastNode = (
       return buildLinkReference(node, overrides);
     case "imageReference":
       return buildImageReference(node);
-    case "footnote":
-      return buildFootnote(node, overrides);
     case "footnoteReference":
       return creatFootnoteReference(node);
     case "math":
@@ -511,16 +504,6 @@ const buildImageReference = ({
     label,
     alt,
     referenceType,
-  };
-};
-
-const buildFootnote = (
-  { type, children }: slateInternal.Footnote,
-  overrides: OverridedSlateBuilders
-): mdast.Footnote => {
-  return {
-    type,
-    children: convertNodes(children, overrides) as mdast.Footnote["children"],
   };
 };
 

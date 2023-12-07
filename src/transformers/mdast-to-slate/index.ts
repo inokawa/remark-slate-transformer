@@ -1,7 +1,12 @@
+import type { Root, RootContent } from "mdast";
+import type { Node } from "slate";
 import type * as slate from "../../models/slate";
 import type * as mdast from "../../models/mdast";
 import { unreachable } from "../../utils";
 
+/**
+ * @internal
+ */
 export type Decoration = Readonly<{
   [key in (
     | mdast.Emphasis
@@ -12,20 +17,20 @@ export type Decoration = Readonly<{
 }>;
 
 export type OverridedMdastBuilders = {
-  [key in mdast.Content["type"]]?: MdastBuilder<key>;
+  [key in RootContent["type"]]?: MdastBuilder<key>;
 } & ({ [key: string]: MdastBuilder<typeof key> } | {});
 
 export type MdastBuilder<T extends string> = (
-  node: T extends mdast.Content["type"]
-    ? Extract<mdast.Content, { type: T }>
+  node: T extends RootContent["type"]
+    ? Extract<RootContent, { type: T }>
     : unknown,
   next: (children: any[]) => any
 ) => object | undefined;
 
 export const mdastToSlate = (
-  node: mdast.Root,
+  node: Root,
   overrides: OverridedMdastBuilders
-): slate.Node[] => {
+): Node[] => {
   return buildSlateRoot(node, overrides);
 };
 
@@ -37,7 +42,7 @@ const buildSlateRoot = (
 };
 
 const convertNodes = (
-  nodes: mdast.Content[],
+  nodes: mdast.RootContent[],
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ): slate.Node[] => {
@@ -48,7 +53,7 @@ const convertNodes = (
 };
 
 const buildSlateNode = (
-  node: mdast.Content,
+  node: mdast.RootContent,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ): SlateNode[] => {
@@ -115,8 +120,6 @@ const buildSlateNode = (
       return [buildLinkReference(node, deco, overrides)];
     case "imageReference":
       return [buildImageReference(node)];
-    case "footnote":
-      return [buildFootnote(node, deco, overrides)];
     case "footnoteReference":
       return [buildFootnoteReference(node)];
     case "math":
@@ -130,6 +133,9 @@ const buildSlateNode = (
   return [];
 };
 
+/**
+ * @internal
+ */
 export type Paragraph = ReturnType<typeof buildParagraph>;
 
 const buildParagraph = (
@@ -143,6 +149,9 @@ const buildParagraph = (
   };
 };
 
+/**
+ * @internal
+ */
 export type Heading = ReturnType<typeof buildHeading>;
 
 const buildHeading = (
@@ -157,6 +166,9 @@ const buildHeading = (
   };
 };
 
+/**
+ * @internal
+ */
 export type ThematicBreak = ReturnType<typeof buildThematicBreak>;
 
 const buildThematicBreak = ({ type }: mdast.ThematicBreak) => {
@@ -166,6 +178,9 @@ const buildThematicBreak = ({ type }: mdast.ThematicBreak) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Blockquote = ReturnType<typeof buildBlockquote>;
 
 const buildBlockquote = (
@@ -179,6 +194,9 @@ const buildBlockquote = (
   };
 };
 
+/**
+ * @internal
+ */
 export type List = ReturnType<typeof buildList>;
 
 const buildList = (
@@ -195,6 +213,9 @@ const buildList = (
   };
 };
 
+/**
+ * @internal
+ */
 export type ListItem = ReturnType<typeof buildListItem>;
 
 const buildListItem = (
@@ -215,6 +236,9 @@ const buildListItem = (
   };
 };
 
+/**
+ * @internal
+ */
 export type Table = ReturnType<typeof buildTable>;
 
 const buildTable = (
@@ -229,6 +253,9 @@ const buildTable = (
   };
 };
 
+/**
+ * @internal
+ */
 export type TableRow = ReturnType<typeof buildTableRow>;
 
 const buildTableRow = (
@@ -242,6 +269,9 @@ const buildTableRow = (
   };
 };
 
+/**
+ * @internal
+ */
 export type TableCell = ReturnType<typeof buildTableCell>;
 
 const buildTableCell = (
@@ -255,6 +285,9 @@ const buildTableCell = (
   };
 };
 
+/**
+ * @internal
+ */
 export type Html = ReturnType<typeof buildHtml>;
 
 const buildHtml = ({ type, value }: mdast.HTML) => {
@@ -264,6 +297,9 @@ const buildHtml = ({ type, value }: mdast.HTML) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Code = ReturnType<typeof buildCode>;
 
 const buildCode = ({ type, value, lang, meta }: mdast.Code) => {
@@ -275,6 +311,9 @@ const buildCode = ({ type, value, lang, meta }: mdast.Code) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Yaml = ReturnType<typeof buildYaml>;
 
 const buildYaml = ({ type, value }: mdast.YAML) => {
@@ -284,6 +323,9 @@ const buildYaml = ({ type, value }: mdast.YAML) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Toml = ReturnType<typeof buildToml>;
 
 const buildToml = ({ type, value }: mdast.TOML) => {
@@ -293,6 +335,9 @@ const buildToml = ({ type, value }: mdast.TOML) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Math = ReturnType<typeof buildMath>;
 
 const buildMath = ({ type, value }: mdast.Math) => {
@@ -302,6 +347,9 @@ const buildMath = ({ type, value }: mdast.Math) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type InlineMath = ReturnType<typeof buildInlineMath>;
 
 const buildInlineMath = ({ type, value }: mdast.InlineMath) => {
@@ -311,6 +359,9 @@ const buildInlineMath = ({ type, value }: mdast.InlineMath) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Definition = ReturnType<typeof buildDefinition>;
 
 const buildDefinition = ({
@@ -330,6 +381,9 @@ const buildDefinition = ({
   };
 };
 
+/**
+ * @internal
+ */
 export type FootnoteDefinition = ReturnType<typeof buildFootnoteDefinition>;
 
 const buildFootnoteDefinition = (
@@ -345,6 +399,9 @@ const buildFootnoteDefinition = (
   };
 };
 
+/**
+ * @internal
+ */
 export type Text = ReturnType<typeof buildText>;
 
 const buildText = (text: string, deco: Decoration) => {
@@ -354,6 +411,9 @@ const buildText = (text: string, deco: Decoration) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Break = ReturnType<typeof buildBreak>;
 
 const buildBreak = ({ type }: mdast.Break) => {
@@ -363,6 +423,9 @@ const buildBreak = ({ type }: mdast.Break) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type Link = ReturnType<typeof buildLink>;
 
 const buildLink = (
@@ -378,6 +441,9 @@ const buildLink = (
   };
 };
 
+/**
+ * @internal
+ */
 export type Image = ReturnType<typeof buildImage>;
 
 const buildImage = ({ type, url, title, alt }: mdast.Image) => {
@@ -390,6 +456,9 @@ const buildImage = ({ type, url, title, alt }: mdast.Image) => {
   };
 };
 
+/**
+ * @internal
+ */
 export type LinkReference = ReturnType<typeof buildLinkReference>;
 
 const buildLinkReference = (
@@ -406,6 +475,9 @@ const buildLinkReference = (
   };
 };
 
+/**
+ * @internal
+ */
 export type ImageReference = ReturnType<typeof buildImageReference>;
 
 const buildImageReference = ({
@@ -425,19 +497,9 @@ const buildImageReference = ({
   };
 };
 
-export type Footnote = ReturnType<typeof buildFootnote>;
-
-const buildFootnote = (
-  { type, children }: mdast.Footnote,
-  deco: Decoration,
-  overrides: OverridedMdastBuilders
-) => {
-  return {
-    type,
-    children: convertNodes(children, deco, overrides),
-  };
-};
-
+/**
+ * @internal
+ */
 export type FootnoteReference = ReturnType<typeof buildFootnoteReference>;
 
 const buildFootnoteReference = ({
@@ -453,6 +515,9 @@ const buildFootnoteReference = ({
   };
 };
 
+/**
+ * @internal
+ */
 export type SlateNode =
   | Paragraph
   | Heading
@@ -475,7 +540,6 @@ export type SlateNode =
   | Image
   | LinkReference
   | ImageReference
-  | Footnote
   | FootnoteReference
   | Math
   | InlineMath;
