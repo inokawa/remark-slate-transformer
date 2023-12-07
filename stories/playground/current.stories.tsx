@@ -17,18 +17,11 @@ const toSlateProcessor = unified()
   .use(gfm)
   .use(frontmatter)
   .use(remarkToSlate);
-const toRemarkProcessor = unified()
-  .use(slateToRemark)
-  .use(gfm)
-  .use(frontmatter)
-  .use(stringify);
+const toRemarkProcessor = unified().use(gfm).use(frontmatter).use(stringify);
 
 const toSlate = (s: string) => toSlateProcessor.processSync(s).result as Node[];
 const toMd = (value: Node[]) => {
-  const mdast = toRemarkProcessor.runSync({
-    type: "root",
-    children: value,
-  });
+  const mdast = toRemarkProcessor.runSync(slateToRemark(value));
   return toRemarkProcessor.stringify(mdast);
 };
 
