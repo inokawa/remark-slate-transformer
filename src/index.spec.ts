@@ -4,7 +4,6 @@ import path from "path";
 import { unified } from "unified";
 import markdown from "remark-parse";
 import gfm from "remark-gfm";
-import footnotes from "remark-footnotes";
 import frontmatter from "remark-frontmatter";
 import math from "remark-math";
 import stringify from "remark-stringify";
@@ -22,14 +21,12 @@ describe("e2e", () => {
   const toSlateProcessor = unified()
     .use(markdown)
     .use(gfm)
-    .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(math)
     .use(remarkToSlate);
   const toRemarkProcessor = unified()
     .use(slateToRemark)
     .use(gfm)
-    .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(math)
     .use(stringify, { bullet: "-", emphasis: "_" });
@@ -59,14 +56,12 @@ describe("e2e legacy", () => {
   const toSlateProcessor = unified()
     .use(markdown)
     .use(gfm)
-    .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(math)
     .use(remarkToSlateLegacy);
   const toRemarkProcessor = unified()
     .use(slateToRemarkLegacy)
     .use(gfm)
-    .use(footnotes, { inlineNotes: true })
     .use(frontmatter, ["yaml", "toml"])
     .use(math)
     .use(stringify, { bullet: "-", emphasis: "_" });

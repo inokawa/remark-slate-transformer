@@ -189,7 +189,7 @@ const buildMdastNode = (
   node: Exclude<slateInternal.SlateNode, slateInternal.Text>,
   overrides: OverridedSlateBuilders
 ): Exclude<
-  mdast.Content | mdast.Math | mdast.InlineMath,
+  mdast.RootContent | mdast.Math | mdast.InlineMath,
   TextOrDecoration
 > | null => {
   const customNode = overrides[node.type]?.(node as any, (children) =>

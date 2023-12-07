@@ -13,7 +13,7 @@ export type Options = {
 const plugin: Plugin<[Options?], mdast.Root, slate.Node[]> = function ({
   overrides = {},
 } = {}) {
-  this.Compiler = function (node) {
+  this.compiler = function (node) {
     return mdastToSlate(node, overrides);
   };
 };

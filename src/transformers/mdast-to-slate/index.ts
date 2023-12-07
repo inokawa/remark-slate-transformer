@@ -12,12 +12,12 @@ export type Decoration = Readonly<{
 }>;
 
 export type OverridedMdastBuilders = {
-  [key in mdast.Content["type"]]?: MdastBuilder<key>;
+  [key in mdast.RootContent["type"]]?: MdastBuilder<key>;
 } & ({ [key: string]: MdastBuilder<typeof key> } | {});
 
 export type MdastBuilder<T extends string> = (
-  node: T extends mdast.Content["type"]
-    ? Extract<mdast.Content, { type: T }>
+  node: T extends mdast.RootContent["type"]
+    ? Extract<mdast.RootContent, { type: T }>
     : unknown,
   next: (children: any[]) => any
 ) => object | undefined;
@@ -37,7 +37,7 @@ const buildSlateRoot = (
 };
 
 const convertNodes = (
-  nodes: mdast.Content[],
+  nodes: mdast.RootContent[],
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ): slate.Node[] => {
@@ -48,7 +48,7 @@ const convertNodes = (
 };
 
 const buildSlateNode = (
-  node: mdast.Content,
+  node: mdast.RootContent,
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ): SlateNode[] => {

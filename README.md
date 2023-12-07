@@ -15,7 +15,6 @@ And also support ~0.47.9 currently, but I don't know in the future.
 All nodes in [mdast](https://github.com/syntax-tree/mdast) syntax tree are supported, including nodes created with...
 
 - [remark-gfm](https://github.com/remarkjs/remark-gfm)
-- [remark-footnotes](https://github.com/remarkjs/remark-footnotes)
 - [remark-frontmatter](https://github.com/remarkjs/remark-frontmatter)
 - `math` and `inlineMath` from [remark-math](https://github.com/remarkjs/remark-math).
 
