@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@types/mdast": "^3.0.10",
-    "mdast-util-math": "^2.0.1",
+    "mdast-util-math": "^3.0.0",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
