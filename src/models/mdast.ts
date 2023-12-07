@@ -3,7 +3,7 @@
 import type { Literal } from "mdast";
 
 export * from "mdast";
-export * from "mdast-util-math/complex-types";
+export * from "mdast-util-math";
 
 export interface TOML extends Literal {
   type: "toml";

@@ -188,7 +188,10 @@ const convertTexts = (
 const buildMdastNode = (
   node: Exclude<slateInternal.SlateNode, slateInternal.Text>,
   overrides: OverridedSlateBuilders
-): Exclude<mdast.Content, TextOrDecoration> | null => {
+): Exclude<
+  mdast.Content | mdast.Math | mdast.InlineMath,
+  TextOrDecoration
+> | null => {
   const customNode = overrides[node.type]?.(node as any, (children) =>
     convertNodes(children, overrides)
   );
