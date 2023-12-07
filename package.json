@@ -29,7 +29,7 @@
   "dependencies": {
     "@types/mdast": "^3.0.10",
     "mdast-util-math": "^3.0.0",
-    "tslib": "^2.4.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@babel/core": "7.23.5",
@@ -49,9 +49,9 @@
     "concurrently": "7.6.0",
     "github-markdown-css": "4.0.0",
     "jest": "29.0.2",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-is": "18.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-is": "18.2.0",
     "react-syntax-highlighter": "15.5.0",
     "remark-footnotes": "4.0.1",
     "remark-frontmatter": "4.0.1",
@@ -60,16 +60,16 @@
     "remark-parse": "10.0.2",
     "remark-stringify": "10.0.3",
     "rimraf": "5.0.5",
-    "rollup": "3.21.3",
+    "rollup": "4.6.1",
     "slate": "0.93.0",
     "slate_legacy": "npm:slate@0.47.9",
     "slate-history": "0.93.0",
     "slate-react": "0.93.0",
     "slate-react_legacy": "npm:slate-react@0.22.10",
     "storybook": "^7.6.0",
-    "typescript": "5.0.4",
+    "typescript": "5.3.3",
     "unified": "10.1.2",
-    "vite": "4.3.9"
+    "vite": "5.0.6"
   },
   "peerDependencies": {
     "unified": ">=10.1.0"
