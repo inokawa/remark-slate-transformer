@@ -41,7 +41,7 @@
     "@storybook/react": "7.6.17",
     "@storybook/react-vite": "7.6.17",
     "@storybook/source-loader": "7.6.17",
-    "@storybook/test-runner": "0.16.0",
+    "@storybook/test-runner": "0.17.0",
     "@types/unist": "3.0.2",
     "babel-jest": "29.7.0",
     "concurrently": "7.6.0",
