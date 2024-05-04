@@ -9,11 +9,5 @@
   "automerge": true,
   "major": {
     "automerge": false
-  },
-  "packageRules": [
-    {
-      "matchPackageNames": ["slate", "slate-react", "slate-history"],
-      "automerge": false
-    }
-  ]
+  }
 }
