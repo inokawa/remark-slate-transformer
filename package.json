@@ -61,7 +61,7 @@
     "rimraf": "^6.0.0",
     "rollup": "^4.17.2",
     "slate": "^0.103.0",
-    "slate-history": "^0.100.0",
+    "slate-history": "^0.109.0",
     "slate-react": "^0.93.0",
     "storybook": "^8.0.9",
     "typescript": "^5.4.5",
