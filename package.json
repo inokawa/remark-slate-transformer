@@ -1,6 +1,6 @@
 {
-  "name": "remark-slate-transformer",
-  "version": "0.9.0",
+  "name": "@applyboard/remark-slate-transformer",
+  "version": "0.9.1",
   "description": "remark plugin to transform remark syntax tree (mdast) to Slate document tree, and vice versa. Made for WYSIWYG markdown editor.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
