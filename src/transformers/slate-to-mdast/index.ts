@@ -26,7 +26,7 @@ export const slateToMdast = (
   nodes: Node[],
   overrides: OverridedSlateBuilders
 ): Root => {
-  return <Root>{
+  return {
     type: "root",
     children: convertNodes(
       nodes as slate.Node[],
