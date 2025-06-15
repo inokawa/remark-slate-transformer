@@ -57,7 +57,7 @@
     "rollup": "^4.17.2",
     "slate": "^0.112.0",
     "slate-history": "^0.110.0",
-    "slate-react": "^0.93.0",
+    "slate-react": "^0.117.0",
     "storybook": "^8.4.0",
     "typescript": "^5.4.5",
     "unified": "^11.0.4",
