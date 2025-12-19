@@ -187,7 +187,7 @@ export default forwardRef<Node[], Props>(({ initialValue }, ref) => {
 
   return (
     <div className="markdown-body" style={style}>
-      <Slate key={key} editor={editor} value={value} onChange={setValue}>
+      <Slate key={key} editor={editor} initialValue={value} onChange={setValue}>
         <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
       </Slate>
     </div>

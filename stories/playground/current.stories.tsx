@@ -10,6 +10,7 @@ import { remarkToSlate, slateToRemark } from "../../src";
 import SlateEditor from "../components/slate-editor";
 import TextEditor from "../components/text-editor";
 import Text from "../components/text";
+// @ts-expect-error
 import text from "../../fixtures/article.md?raw";
 
 const toSlateProcessor = unified()
