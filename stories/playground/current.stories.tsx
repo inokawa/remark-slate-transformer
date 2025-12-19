@@ -1,4 +1,4 @@
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 import React, { useMemo, useRef, useState } from "react";
 import { Node } from "slate";
 import { unified } from "unified";

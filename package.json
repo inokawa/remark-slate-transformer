@@ -28,15 +28,14 @@
   "dependencies": {
     "@types/mdast": "^4.0.3",
     "mdast-util-math": "^3.0.0",
-    "tslib": "^2.6.2"
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@storybook/addon-storysource": "^8.4.0",
-    "@storybook/react": "^8.4.0",
-    "@storybook/react-vite": "^8.4.0",
-    "@storybook/source-loader": "^8.4.0",
+    "@storybook/addon-docs": "^10.1.10",
+    "@storybook/react-vite": "^10.1.10",
+    "@types/node": "^25.0.3",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/unist": "^3.0.2",
@@ -51,15 +50,15 @@
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "rimraf": "^6.0.0",
-    "rollup": "^4.17.2",
+    "rollup": "^4.53.5",
     "slate": "^0.112.0",
     "slate-history": "^0.110.0",
-    "slate-react": "^0.93.0",
-    "storybook": "^8.4.0",
-    "typescript": "^5.4.5",
+    "slate-react": "^0.112.0",
+    "storybook": "^10.1.10",
+    "typescript": "^5.9.0",
     "unified": "^11.0.4",
-    "vite": "^5.4.10",
-    "vitest": "^3.0.0"
+    "vite": "^7.3.0",
+    "vitest": "^4.0.0"
   },
   "peerDependencies": {
     "unified": ">=11.0.0"
