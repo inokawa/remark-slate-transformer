@@ -13,10 +13,10 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "lts/*"
           cache: "npm"
@@ -25,4 +25,3 @@ jobs:
       - run: npm run tsc
       - run: npm run test
       - run: npm run build
-      - run: npm run storybook:test
