@@ -3114,7 +3114,7 @@ aaa",
 
 exports[`e2e > node-phrasing-1.md 3`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aaa_**aa**_**~~aa~~**aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aa&#x61;_**aa**_**~~aa~~**&#x61;aa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
