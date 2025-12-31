@@ -1,11 +1,13 @@
 import typescript from "@rollup/plugin-typescript";
-import terser from "@rollup/plugin-terser";
 import pkg from "./package.json" with { type: "json" };
+import { dirname } from "node:path";
 
-const externals = [
+const publishDir = dirname(pkg.module)
+
+const external = (id) => [
   ...Object.keys(pkg.dependencies),
   ...Object.keys(pkg.devDependencies),
-];
+].some((d) => id.startsWith(d));
 
 export default {
   input: "src/index.ts",
@@ -21,22 +23,15 @@ export default {
       sourcemap: true,
     },
   ],
-  external: (id) => externals.some((d) => id.startsWith(d)),
+  external,
   plugins: [
     typescript({
       tsconfig: "./tsconfig.json",
-      outDir: ".",
+      rootDir: "./src",
+      outDir: publishDir,
       declaration: true,
-      exclude: ["**/*.{spec,stories}.*"],
-    }),
-    terser({
-      ecma: 2015,
-      module: true,
-      compress: { passes: 5, unsafe: true, keep_fargs: false },
-      mangle: { properties: { regex: "^_" } },
-      format: {
-        preserve_annotations: true,
-      },
+      declarationDir: publishDir,
+      exclude: ["src/**/*.spec.*"],
     }),
   ],
 };
