@@ -136,7 +136,7 @@ editor.isInline = (element) =>
 
 ### Editor setup
 
-Slate needs to know which elements are inline and which are void, or normalization removes them from paragraphs. `withMdast` sets `isInline` and `isVoid` for the elements this package creates and wraps stray list children in `listItem`:
+Slate needs to know which elements are inline and which are void, or normalization removes them from paragraphs. `withMdast` sets `isInline` and `isVoid` for the elements this package creates, wraps stray list children in `listItem`, and makes Enter inside a list item start a new item:
 
 ```js
 import { createEditor } from "slate";

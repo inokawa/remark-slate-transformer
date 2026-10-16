@@ -33,16 +33,48 @@ export const isMdastVoid = (element: Element): boolean =>
   VOID_TYPES.has((element as MdastElement).type ?? "");
 
 export const withMdast = <T extends Editor>(editor: T): T => {
-  const { isInline, isVoid, normalizeNode } = editor;
+  const { insertBreak, isInline, isVoid, normalizeNode } = editor;
 
   editor.isInline = (element) => isMdastInline(element) || isInline(element);
   editor.isVoid = (element) => isMdastVoid(element) || isVoid(element);
+
+  editor.insertBreak = () => {
+    editor.deleteFragment();
+    const item = editor.above({
+      match: (n) => isElement(n) && n.type === "listItem",
+    });
+    const block = editor.above({
+      match: (n) => isElement(n) && editor.isBlock(n),
+      mode: "lowest",
+    });
+    if (item && block && block[1].length === item[1].length + 1) {
+      editor.splitNodes({
+        always: true,
+        match: (n) => isElement(n) && n.type === "listItem",
+      });
+      const [next] = editor.nodes({
+        match: (n) => isElement(n) && n.type === "listItem",
+        mode: "lowest",
+      });
+      if (
+        next &&
+        typeof (next[0] as MdastElement & { checked?: unknown }).checked ===
+          "boolean"
+      ) {
+        editor.setNodes({ checked: false } as Partial<Element>, {
+          at: next[1],
+        });
+      }
+      return;
+    }
+    insertBreak();
+  };
 
   editor.normalizeNode = (entry, options) => {
     const [node, path] = entry;
     if (isElement(node) && node.type === "list") {
       const index = node.children.findIndex(
-        (child) => !isElement(child) || child.type !== "listItem"
+        (child) => !isElement(child) || child.type !== "listItem",
       );
       if (index !== -1) {
         editor.wrapNodes({ type: "listItem", children: [] } as Element, {
