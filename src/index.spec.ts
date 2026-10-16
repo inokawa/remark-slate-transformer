@@ -7,7 +7,8 @@ import gfm from "remark-gfm";
 import frontmatter from "remark-frontmatter";
 import math from "remark-math";
 import stringify from "remark-stringify";
-import { remarkToSlate, slateToRemark } from ".";
+import { remarkToSlate, slateToRemark, withMdast } from ".";
+import { createEditor, Editor } from "slate";
 import { Root } from "mdast";
 
 const FIXTURE_PATH = "../fixtures";
@@ -254,5 +255,52 @@ describe("html", () => {
     const slateNodes = toSlateProcessor.processSync(md).result;
     const mdastTree = toRemarkProcessor.runSync(slateToRemark(slateNodes));
     expect(toRemarkProcessor.stringify(mdastTree as Root)).toBe(md);
+  });
+});
+
+describe("withMdast", () => {
+  const toSlateProcessor = unified().use(markdown).use(gfm).use(remarkToSlate);
+  const toRemarkProcessor = unified().use(gfm).use(stringify);
+
+  const normalize = (md: string, editor = withMdast(createEditor())) => {
+    editor.children = toSlateProcessor.processSync(md).result as any;
+    Editor.normalize(editor, { force: true });
+    const mdastTree = toRemarkProcessor.runSync(slateToRemark(editor.children));
+    return toRemarkProcessor.stringify(mdastTree as Root);
+  };
+
+  it("keeps inline nodes inside paragraphs through normalization", () => {
+    const md =
+      "a <b>`bold`</b> [link](u) ![img](i.png) [^1] x\\\ny\n\n<div>block</div>\n\n***\n\n[^1]: note\n";
+    expect(normalize(md)).toBe(md);
+  });
+
+  it("loses inline html without it", () => {
+    const md = "a <b>`bold`</b> c\n";
+    expect(normalize(md, createEditor())).not.toBe(md);
+  });
+
+  it("wraps list children that are not list items", () => {
+    const editor = withMdast(createEditor());
+    editor.children = [
+      {
+        type: "list",
+        ordered: false,
+        children: [{ type: "paragraph", children: [{ text: "a" }] }],
+      } as any,
+    ];
+    Editor.normalize(editor, { force: true });
+    expect(editor.children).toEqual([
+      {
+        type: "list",
+        ordered: false,
+        children: [
+          {
+            type: "listItem",
+            children: [{ type: "paragraph", children: [{ text: "a" }] }],
+          },
+        ],
+      },
+    ]);
   });
 });
