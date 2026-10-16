@@ -225,3 +225,34 @@ describe("issues", () => {
     expect(text).toMatchSnapshot();
   });
 });
+
+describe("html", () => {
+  const toSlateProcessor = unified().use(markdown).use(remarkToSlate);
+  const toRemarkProcessor = unified().use(stringify);
+
+  it("marks html inside phrasing content as inline", () => {
+    const slateNodes = toSlateProcessor.processSync(
+      "a <b>bold</b> [x <i>y</i>](u)\n\n<div>block</div>\n"
+    ).result as any[];
+
+    const [paragraph, block] = slateNodes;
+    const htmlInParagraph = paragraph.children.filter(
+      (n: any) => n.type === "html"
+    );
+    const htmlInLink = paragraph.children
+      .find((n: any) => n.type === "link")
+      .children.filter((n: any) => n.type === "html");
+
+    expect(htmlInParagraph.map((n: any) => n.inline)).toEqual([true, true]);
+    expect(htmlInLink.map((n: any) => n.inline)).toEqual([true, true]);
+    expect(block.type).toBe("html");
+    expect(block.inline).toBeUndefined();
+  });
+
+  it("round-trips inline html", () => {
+    const md = "a <b>bold</b> c\n\n<div>block</div>\n";
+    const slateNodes = toSlateProcessor.processSync(md).result;
+    const mdastTree = toRemarkProcessor.runSync(slateToRemark(slateNodes));
+    expect(toRemarkProcessor.stringify(mdastTree as Root)).toBe(md);
+  });
+});

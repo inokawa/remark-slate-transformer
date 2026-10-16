@@ -52,6 +52,16 @@ const convertNodes = (
   }, []);
 };
 
+const convertPhrasing = (
+  nodes: mdast.PhrasingContent[],
+  deco: Decoration,
+  overrides: OverridedMdastBuilders
+): slate.Node[] => {
+  return convertNodes(nodes, deco, overrides).map((node) =>
+    "type" in node && node.type === "html" ? { ...node, inline: true } : node
+  );
+};
+
 const buildSlateNode = (
   node: mdast.RootContent,
   deco: Decoration,
@@ -145,7 +155,7 @@ const buildParagraph = (
 ) => {
   return {
     type,
-    children: convertNodes(children, deco, overrides),
+    children: convertPhrasing(children, deco, overrides),
   };
 };
 
@@ -162,7 +172,7 @@ const buildHeading = (
   return {
     type,
     depth,
-    children: convertNodes(children, deco, overrides),
+    children: convertPhrasing(children, deco, overrides),
   };
 };
 
@@ -281,14 +291,14 @@ const buildTableCell = (
 ) => {
   return {
     type,
-    children: convertNodes(children, deco, overrides),
+    children: convertPhrasing(children, deco, overrides),
   };
 };
 
 /**
  * @internal
  */
-export type Html = ReturnType<typeof buildHtml>;
+export type Html = ReturnType<typeof buildHtml> & { inline?: true };
 
 const buildHtml = ({ type, value }: mdast.HTML) => {
   return {
@@ -435,7 +445,7 @@ const buildLink = (
 ) => {
   return {
     type,
-    children: convertNodes(children, deco, overrides),
+    children: convertPhrasing(children, deco, overrides),
     url,
     title,
   };
@@ -468,7 +478,7 @@ const buildLinkReference = (
 ) => {
   return {
     type,
-    children: convertNodes(children, deco, overrides),
+    children: convertPhrasing(children, deco, overrides),
     referenceType,
     identifier,
     label,
