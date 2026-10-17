@@ -134,6 +134,19 @@ editor.isInline = (element) =>
   element.type === "html" ? !!element.inline : isInline(element);
 ```
 
+### Editor setup
+
+Slate needs to know which elements are inline and which are void, or normalization removes them from paragraphs. `withMdast` sets `isInline` and `isVoid` for the elements this package creates and wraps stray list children in `listItem`:
+
+```js
+import { createEditor } from "slate";
+import { withMdast } from "remark-slate-transformer";
+
+const editor = withMdast(createEditor());
+```
+
+`isMdastInline` and `isMdastVoid` are exported too, for editors that set up `isInline` and `isVoid` themselves.
+
 ## Contribute
 
 All contributions are welcome.
