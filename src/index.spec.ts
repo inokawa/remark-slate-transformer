@@ -246,6 +246,22 @@ describe("issues", () => {
       ],
     });
   });
+  it("mark on whitespace only", () => {
+    const processor = unified().use(stringify);
+    const ast = processor.runSync(
+      slateToRemark([
+        {
+          type: "paragraph",
+          children: [{ text: "a" }, { text: " ", strong: true }, { text: "b" }],
+        } as any,
+      ])
+    );
+    expect((ast as Root).children[0]).toEqual({
+      type: "paragraph",
+      children: [{ type: "text", value: "a b" }],
+    });
+    expect(processor.stringify(ast as Root)).toBe("a b\n");
+  });
 });
 
 describe("html", () => {

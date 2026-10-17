@@ -124,6 +124,7 @@ const convertTexts = (
           textTemp = textTemp.slice(0, -1);
         }
       }
+      const hasText = textTemp !== "";
       let res: TextOrDecoration = {
         type: "text",
         value: textTemp,
@@ -159,7 +160,9 @@ const convertTexts = (
       if (bef.length > 0) {
         arr.push({ type: "text", value: bef });
       }
-      arr.push(res);
+      if (hasText) {
+        arr.push(res);
+      }
       if (aft.length > 0) {
         arr.push({ type: "text", value: aft });
       }
