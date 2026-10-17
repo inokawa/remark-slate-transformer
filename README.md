@@ -124,6 +124,16 @@ console.log(text);
 
 Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.
 
+### Inline HTML
+
+mdast uses `type: "html"` for both block and inline HTML. When `html` appears inside phrasing content (a paragraph, heading, table cell or link), the Slate element gets `inline: true`. Use it in `isInline` so Slate doesn't treat inline HTML as a block:
+
+```js
+const { isInline } = editor;
+editor.isInline = (element) =>
+  element.type === "html" ? !!element.inline : isInline(element);
+```
+
 ## Contribute
 
 All contributions are welcome.
