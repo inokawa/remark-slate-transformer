@@ -224,4 +224,25 @@ describe("issues", () => {
     const text = processor.stringify(ast as Root /* FIXME */);
     expect(text).toMatchSnapshot();
   });
+  it("inline code that continues into another mark", () => {
+    const processor = unified().use(stringify);
+    const ast = processor.runSync(
+      slateToRemark([
+        {
+          type: "paragraph",
+          children: [
+            { text: "a", inlineCode: true },
+            { text: "b", inlineCode: true, delete: true },
+          ],
+        } as any,
+      ])
+    );
+    expect((ast as Root).children[0]).toEqual({
+      type: "paragraph",
+      children: [
+        { type: "inlineCode", value: "a" },
+        { type: "delete", children: [{ type: "inlineCode", value: "b" }] },
+      ],
+    });
+  });
 });

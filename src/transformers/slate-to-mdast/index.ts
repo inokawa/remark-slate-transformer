@@ -129,30 +129,32 @@ const convertTexts = (
         value: textTemp,
       };
       textTemp = "";
-      starts
-        .slice()
-        .reverse()
-        .forEach((k) => {
-          switch (k) {
-            case "inlineCode":
-              res = {
-                type: k,
-                value: (res as any).value,
-              };
-              break;
-            case "strong":
-            case "emphasis":
-            case "delete":
-              res = {
-                type: k,
-                children: [res],
-              };
-              break;
-            default:
-              unreachable(k);
-              break;
-          }
-        });
+      const wrapOrder = starts.slice().reverse();
+      if (wrapOrder.includes("inlineCode")) {
+        wrapOrder.splice(wrapOrder.indexOf("inlineCode"), 1);
+        wrapOrder.unshift("inlineCode");
+      }
+      wrapOrder.forEach((k) => {
+        switch (k) {
+          case "inlineCode":
+            res = {
+              type: k,
+              value: (res as any).value,
+            };
+            break;
+          case "strong":
+          case "emphasis":
+          case "delete":
+            res = {
+              type: k,
+              children: [res],
+            };
+            break;
+          default:
+            unreachable(k);
+            break;
+        }
+      });
       const arr: TextOrDecoration[] = [];
       if (bef.length > 0) {
         arr.push({ type: "text", value: bef });
