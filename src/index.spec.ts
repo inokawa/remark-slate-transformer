@@ -304,3 +304,35 @@ describe("withMdast", () => {
     ]);
   });
 });
+
+describe("withMdast insertBreak", () => {
+  const toSlateProcessor = unified().use(markdown).use(gfm).use(remarkToSlate);
+  const toRemarkProcessor = unified()
+    .use(gfm)
+    .use(stringify, { bullet: "-" });
+
+  const breakAt = (md: string, path: number[], offset: number) => {
+    const editor = withMdast(createEditor());
+    editor.children = toSlateProcessor.processSync(md).result as any;
+    editor.select({ path, offset });
+    editor.insertBreak();
+    const mdastTree = toRemarkProcessor.runSync(slateToRemark(editor.children));
+    return toRemarkProcessor.stringify(mdastTree as Root);
+  };
+
+  it("splits a list item instead of its paragraph", () => {
+    expect(breakAt("- ab\n- c\n", [0, 0, 0, 0], 1)).toBe("- a\n- b\n- c\n");
+  });
+
+  it("splits an ordered list item", () => {
+    expect(breakAt("1. ab\n", [0, 0, 0, 0], 1)).toBe("1. a\n2. b\n");
+  });
+
+  it("starts the new task list item unchecked", () => {
+    expect(breakAt("- [x] ab\n", [0, 0, 0, 0], 1)).toBe("- [x] a\n- [ ] b\n");
+  });
+
+  it("splits a paragraph outside lists as before", () => {
+    expect(breakAt("ab\n", [0, 0], 1)).toBe("a\n\nb\n");
+  });
+});
