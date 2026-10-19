@@ -60,94 +60,139 @@ const toSlateMarks = (deco: Marks, ctx: Context): Marks =>
 
 const HTML_TAG = /^<(\/?)([a-z][a-z0-9]*)>$/i;
 
-const htmlTag = (node: mdast.RootContent) => {
-  const match = node.type === "html" ? HTML_TAG.exec(node.value.trim()) : null;
-  return match && { closing: match[1] === "/", name: match[2]!.toLowerCase() };
-};
+class HtmlMarkTag {
+  constructor(
+    readonly closing: boolean,
+    readonly mark: string,
+    readonly node: mdast.Html
+  ) {}
+}
 
-const htmlMarkOf = (node: mdast.RootContent, ctx: Context) => {
-  const tag = htmlTag(node);
-  return tag && !tag.closing && Object.prototype.hasOwnProperty.call(ctx.htmlMarks, tag.name)
-    ? { name: tag.name, mark: ctx.htmlMarks[tag.name]! }
+type Inline = MdastNode | HtmlMarkTag;
+
+const htmlMarkTagOf = (node: mdast.RootContent, ctx: Context) => {
+  if (node.type !== "html") return null;
+  const match = HTML_TAG.exec(node.value.trim());
+  const name = match?.[2]?.toLowerCase();
+  return name && Object.prototype.hasOwnProperty.call(ctx.htmlMarks, name)
+    ? new HtmlMarkTag(match![1] === "/", ctx.htmlMarks[name]!, node)
     : null;
 };
 
-const findClosingTag = (
-  nodes: readonly mdast.RootContent[],
-  start: number,
-  name: string
-) => {
-  let depth = 0;
-  for (let i = start + 1; i < nodes.length; i++) {
-    const tag = htmlTag(nodes[i]!);
-    if (tag?.name !== name) continue;
-    if (!tag.closing) {
-      depth++;
-    } else if (depth === 0) {
-      return i;
-    } else {
-      depth--;
-    }
+const withMarks = (node: MdastNode, marks: readonly string[]): MdastNode => {
+  if (marks.length === 0) return node;
+  if ("text" in node) {
+    return { ...node, ...Object.fromEntries(marks.map((mark) => [mark, true])) };
   }
-  return -1;
+  if (node.type !== "link" && node.type !== "linkReference") return node;
+  return { ...node, children: node.children.map((c) => withMarks(c, marks)) };
 };
 
-const convertInline = (
-  nodes: readonly mdast.RootContent[],
-  deco: Marks,
-  ctx: Context
-): MdastNode[] => {
+const sameMarks = (a: Text, b: Text) => {
+  const keys = Object.keys(a).filter((key) => key !== "text");
+  return (
+    keys.length === Object.keys(b).length - 1 &&
+    keys.every(
+      (key) => key in b && a[key as keyof Text] === b[key as keyof Text]
+    )
+  );
+};
+
+const applyHtmlMarks = (nodes: readonly Inline[]): MdastNode[] => {
+  const open: string[] = [];
   const result: MdastNode[] = [];
-  for (let i = 0; i < nodes.length; i++) {
-    const node = nodes[i]!;
-    const htmlMark = htmlMarkOf(node, ctx);
-    const end = htmlMark ? findClosingTag(nodes, i, htmlMark.name) : -1;
-    if (htmlMark && end !== -1) {
-      result.push(
-        ...convertInline(
-          nodes.slice(i + 1, end),
-          { ...deco, [htmlMark.mark]: true },
-          ctx
-        )
-      );
-      i = end;
-    } else {
-      result.push(...buildSlateNode(node, deco, ctx));
+  let joinNext = false;
+  for (const node of nodes) {
+    if (node instanceof HtmlMarkTag) {
+      const index = open.lastIndexOf(node.mark);
+      if (!node.closing) {
+        open.push(node.mark);
+      } else if (index !== -1) {
+        open.splice(index, 1);
+      }
+      joinNext = true;
+      continue;
     }
+    const marked = withMarks(node, open);
+    const last = result[result.length - 1];
+    if (
+      joinNext &&
+      last &&
+      "text" in last &&
+      "text" in marked &&
+      sameMarks(last, marked)
+    ) {
+      result[result.length - 1] = { ...last, text: last.text + marked.text };
+    } else {
+      result.push(marked);
+    }
+    joinNext = false;
   }
   return result;
 };
 
-const convertNodes = (
-  nodes: mdast.RootContent[],
+const isPhrasing = (nodes: readonly mdast.RootContent[]) =>
+  nodes.every((node) => PHRASING_TYPES.has(node.type));
+
+const PHRASING_TYPES = new Set<string>([
+  "text",
+  "emphasis",
+  "strong",
+  "delete",
+  "inlineCode",
+  "break",
+  "link",
+  "image",
+  "linkReference",
+  "imageReference",
+  "footnoteReference",
+  "html",
+  "inlineMath",
+]);
+
+const convertInlines = (
+  nodes: readonly mdast.RootContent[],
   deco: Marks,
   ctx: Context
-): MdastNode[] => {
-  return nodes.reduce<MdastNode[]>((acc, node) => {
-    acc.push(...buildSlateNode(node, deco, ctx));
-    return acc;
-  }, []);
-};
+): Inline[] => nodes.flatMap((node) => buildSlateNode(node, deco, ctx, true));
+
+const convertNodes = (
+  nodes: readonly mdast.RootContent[],
+  deco: Marks,
+  ctx: Context
+): MdastNode[] =>
+  nodes.flatMap((node) =>
+    buildSlateNode(node, deco, ctx, false).flatMap((built) =>
+      built instanceof HtmlMarkTag ? [] : [built]
+    )
+  );
 
 const convertPhrasing = (
-  nodes: mdast.PhrasingContent[],
+  nodes: readonly mdast.RootContent[],
   deco: Marks,
   ctx: Context
-): MdastNode[] => {
-  return convertInline(nodes, deco, ctx).map((node) =>
+): MdastNode[] =>
+  applyHtmlMarks(convertInlines(nodes, deco, ctx)).map((node) =>
     "type" in node && node.type === "html" ? { ...node, inline: true } : node
   );
-};
 
 const buildSlateNode = (
   node: mdast.RootContent,
   deco: Marks,
-  ctx: Context
-): MdastNode[] => {
+  ctx: Context,
+  inPhrasing: boolean
+): Inline[] => {
+  const tag = inPhrasing ? htmlMarkTagOf(node, ctx) : null;
+  if (tag) {
+    return [tag];
+  }
   const build = ctx.overrides[node.type] as MdastBuilder<string> | undefined;
   const customNode = build?.(
     node,
-    (children) => convertNodes(children, deco, ctx),
+    (children) =>
+      isPhrasing(children)
+        ? applyHtmlMarks(convertInlines(children, deco, ctx))
+        : convertNodes(children, deco, ctx),
     toSlateMarks(deco, ctx)
   );
   if (customNode != null) {
@@ -191,7 +236,7 @@ const buildSlateNode = (
     case "strong":
     case "delete": {
       const { type, children } = node;
-      return convertInline(children, { ...deco, [type]: true }, ctx);
+      return convertInlines(children, { ...deco, [type]: true }, ctx);
     }
     case "inlineCode": {
       const { type, value } = node;

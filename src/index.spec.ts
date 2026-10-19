@@ -410,13 +410,60 @@ describe("htmlMarks option", () => {
     ]);
   });
 
-  it("keeps unpaired and unknown tags as html", () => {
+  it("pairs tags in children built by an override", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate, {
+        htmlMarks,
+        overrides: {
+          paragraph: (node, next) => ({
+            type: "p",
+            children: next(node.children),
+          }),
+        },
+      })
+      .processSync("a <u>b</u>\n").result;
+    expect(slateTree).toEqual([
+      { type: "p", children: [{ text: "a " }, { underline: true, text: "b" }] },
+    ]);
+  });
+
+  it("reads tags before an html override sees them", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate, {
+        htmlMarks,
+        overrides: {
+          html: (node) => ({ type: "raw", value: node.value, children: [] }),
+          paragraph: (node, next) => ({
+            type: "p",
+            children: next(node.children),
+          }),
+        },
+      })
+      .processSync("<u>a <b>b</b></u> c</sub>\n\n<u>\n").result;
+    expect(slateTree).toEqual([
+      {
+        type: "p",
+        children: [
+          { underline: true, text: "a " },
+          { type: "raw", value: "<b>", children: [] },
+          { underline: true, text: "b" },
+          { type: "raw", value: "</b>", children: [] },
+          { text: " c" },
+        ],
+      },
+      { type: "raw", value: "<u>", children: [] },
+    ]);
+  });
+
+  it("keeps unknown tags as html", () => {
     const html = (text: string) => ({
       type: "html",
       inline: true,
       children: [{ text }],
     });
-    expect(toSlate("<u>a <b>b</b></u> c <u>d\n")).toEqual([
+    expect(toSlate("<u>a <b>b</b></u>\n")).toEqual([
       {
         type: "paragraph",
         children: [
@@ -424,9 +471,50 @@ describe("htmlMarks option", () => {
           html("<b>"),
           { underline: true, text: "b" },
           html("</b>"),
-          { text: " c " },
-          html("<u>"),
-          { text: "d" },
+        ],
+      },
+    ]);
+  });
+
+  it("follows browsers for unpaired tags", () => {
+    expect(toSlate("a <u>b\n\nc</u>d\n")).toEqual([
+      { type: "paragraph", children: [{ text: "a " }, { underline: true, text: "b" }] },
+      { type: "paragraph", children: [{ text: "cd" }] },
+    ]);
+  });
+
+  it("ends an unclosed tag with its heading and drops a stray close", () => {
+    expect(toSlate("# <sub>h\n\na</u> b\n")).toEqual([
+      { type: "heading", depth: 1, children: [{ subscript: true, text: "h" }] },
+      { type: "paragraph", children: [{ text: "a b" }] },
+    ]);
+  });
+
+  it("follows browsers for tags crossing emphasis", () => {
+    expect(toSlate("<u>a **b</u> c**\n")).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { underline: true, text: "a " },
+          { underline: true, strong: true, text: "b" },
+          { strong: true, text: " c" },
+        ],
+      },
+    ]);
+  });
+
+  it("keeps marks from tags around a link out of later links", () => {
+    expect(toSlate("[<u>a](b) c\n")).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          {
+            type: "link",
+            url: "b",
+            title: null,
+            children: [{ underline: true, text: "a" }],
+          },
+          { text: " c" },
         ],
       },
     ]);
