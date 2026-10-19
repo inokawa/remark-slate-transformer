@@ -144,6 +144,20 @@ slateToRemark(value, { marks });
 
 Once a mark is renamed, `slateToRemark` reads only the new name.
 
+### HTML marks
+
+Markdown has no underline, subscript or superscript, so they're usually written as inline HTML like `<u>a</u>`. Pass `htmlMarks` to both sides to turn paired tags into marks and back:
+
+```js
+const htmlMarks = { u: "underline", sub: "subscript", sup: "superscript" };
+
+unified().use(markdown).use(remarkToSlate, { htmlMarks });
+slateToRemark(value, { htmlMarks });
+```
+
+- `remarkToSlate` marks the text between an opening and a closing tag in the same paragraph, heading, table cell or link, matching tag names case-insensitively. A tag without its pair stays `html`.
+- `slateToRemark` wraps each marked text in the tags, skipping text that is only whitespace.
+
 ### Utilities
 
 Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.

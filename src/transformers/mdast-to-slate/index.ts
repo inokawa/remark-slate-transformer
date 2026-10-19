@@ -24,37 +24,103 @@ export type MdastBuilder<T extends string> = (
     ? Extract<RootContent, { type: T }>
     : unknown,
   next: (children: RootContent[]) => Descendant[],
-  marks: Readonly<{ [key: string]: true }>
+  marks: Marks
 ) => object | undefined;
 
 export type MarkNames = {
   [key in "emphasis" | "strong" | "delete" | "inlineCode"]?: string;
 };
 
+export type HtmlMarkNames = { [tag: string]: string };
+
+type Marks = Readonly<{ [key: string]: true }>;
+
 type Context = {
   overrides: OverridedMdastBuilders;
   marks: MarkNames;
+  htmlMarks: HtmlMarkNames;
 };
 
 export const mdastToSlate = (
   node: Root,
   overrides: OverridedMdastBuilders,
-  marks: MarkNames = {}
+  marks: MarkNames = {},
+  htmlMarks: HtmlMarkNames = {}
 ): Descendant[] => {
-  return convertNodes(node.children, {}, { overrides, marks });
+  return convertNodes(node.children, {}, { overrides, marks, htmlMarks });
 };
 
-const toSlateMarks = (deco: Decoration, ctx: Context) =>
+const toSlateMarks = (deco: Marks, ctx: Context): Marks =>
   Object.fromEntries(
     Object.keys(deco).map((key) => [
-      ctx.marks[key as keyof Decoration] ?? key,
+      ctx.marks[key as keyof MarkNames] ?? key,
       true as const,
     ])
   );
 
+const HTML_TAG = /^<(\/?)([a-z][a-z0-9]*)>$/i;
+
+const htmlTag = (node: mdast.RootContent) => {
+  const match = node.type === "html" ? HTML_TAG.exec(node.value.trim()) : null;
+  return match && { closing: match[1] === "/", name: match[2]!.toLowerCase() };
+};
+
+const htmlMarkOf = (node: mdast.RootContent, ctx: Context) => {
+  const tag = htmlTag(node);
+  return tag && !tag.closing && Object.prototype.hasOwnProperty.call(ctx.htmlMarks, tag.name)
+    ? { name: tag.name, mark: ctx.htmlMarks[tag.name]! }
+    : null;
+};
+
+const findClosingTag = (
+  nodes: readonly mdast.RootContent[],
+  start: number,
+  name: string
+) => {
+  let depth = 0;
+  for (let i = start + 1; i < nodes.length; i++) {
+    const tag = htmlTag(nodes[i]!);
+    if (tag?.name !== name) continue;
+    if (!tag.closing) {
+      depth++;
+    } else if (depth === 0) {
+      return i;
+    } else {
+      depth--;
+    }
+  }
+  return -1;
+};
+
+const convertInline = (
+  nodes: readonly mdast.RootContent[],
+  deco: Marks,
+  ctx: Context
+): MdastNode[] => {
+  const result: MdastNode[] = [];
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i]!;
+    const htmlMark = htmlMarkOf(node, ctx);
+    const end = htmlMark ? findClosingTag(nodes, i, htmlMark.name) : -1;
+    if (htmlMark && end !== -1) {
+      result.push(
+        ...convertInline(
+          nodes.slice(i + 1, end),
+          { ...deco, [htmlMark.mark]: true },
+          ctx
+        )
+      );
+      i = end;
+    } else {
+      result.push(...buildSlateNode(node, deco, ctx));
+    }
+  }
+  return result;
+};
+
 const convertNodes = (
   nodes: mdast.RootContent[],
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): MdastNode[] => {
   return nodes.reduce<MdastNode[]>((acc, node) => {
@@ -65,17 +131,17 @@ const convertNodes = (
 
 const convertPhrasing = (
   nodes: mdast.PhrasingContent[],
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): MdastNode[] => {
-  return convertNodes(nodes, deco, ctx).map((node) =>
+  return convertInline(nodes, deco, ctx).map((node) =>
     "type" in node && node.type === "html" ? { ...node, inline: true } : node
   );
 };
 
 const buildSlateNode = (
   node: mdast.RootContent,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): MdastNode[] => {
   const build = ctx.overrides[node.type] as MdastBuilder<string> | undefined;
@@ -125,10 +191,7 @@ const buildSlateNode = (
     case "strong":
     case "delete": {
       const { type, children } = node;
-      return children.reduce<MdastNode[]>((acc, n) => {
-        acc.push(...buildSlateNode(n, { ...deco, [type]: true }, ctx));
-        return acc;
-      }, []);
+      return convertInline(children, { ...deco, [type]: true }, ctx);
     }
     case "inlineCode": {
       const { type, value } = node;
@@ -163,7 +226,7 @@ export interface Paragraph extends Pick<mdast.Paragraph, "type"> {
 
 const buildParagraph = (
   { type, children }: mdast.Paragraph,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): Paragraph => {
   return {
@@ -178,7 +241,7 @@ export interface Heading extends Pick<mdast.Heading, "type" | "depth"> {
 
 const buildHeading = (
   { type, children, depth }: mdast.Heading,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): Heading => {
   return {
@@ -205,7 +268,7 @@ export interface Blockquote extends Pick<mdast.Blockquote, "type"> {
 
 const buildBlockquote = (
   { type, children }: mdast.Blockquote,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): Blockquote => {
   return {
@@ -221,7 +284,7 @@ export interface List
 
 const buildList = (
   { type, children, ordered, start, spread }: mdast.List,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): List => {
   return {
@@ -240,7 +303,7 @@ export interface ListItem
 
 const buildListItem = (
   { type, children, checked, spread }: mdast.ListItem,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): ListItem => {
   return {
@@ -262,7 +325,7 @@ export interface Table extends Pick<mdast.Table, "type" | "align"> {
 
 const buildTable = (
   { type, children, align }: mdast.Table,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): Table => {
   return {
@@ -278,7 +341,7 @@ export interface TableRow extends Pick<mdast.TableRow, "type"> {
 
 const buildTableRow = (
   { type, children }: mdast.TableRow,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): TableRow => {
   return {
@@ -293,7 +356,7 @@ export interface TableCell extends Pick<mdast.TableCell, "type"> {
 
 const buildTableCell = (
   { type, children }: mdast.TableCell,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): TableCell => {
   return {
@@ -403,7 +466,7 @@ export interface FootnoteDefinition
 
 const buildFootnoteDefinition = (
   { type, children, identifier, label }: mdast.FootnoteDefinition,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): FootnoteDefinition => {
   return {
@@ -449,7 +512,7 @@ export interface Link extends Pick<mdast.Link, "type" | "url" | "title"> {
 
 const buildLink = (
   { type, children, url, title }: mdast.Link,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): Link => {
   return {
@@ -485,7 +548,7 @@ export interface LinkReference
 
 const buildLinkReference = (
   { type, children, referenceType, identifier, label }: mdast.LinkReference,
-  deco: Decoration,
+  deco: Marks,
   ctx: Context
 ): LinkReference => {
   return {
