@@ -8,13 +8,17 @@ export type OverridedMdastBuilders = {
 } | {});
 export type MdastBuilder<T extends string> = (node: T extends RootContent["type"] ? Extract<RootContent, {
     type: T;
-}> : unknown, next: (children: RootContent[]) => Descendant[], marks: Readonly<{
-    [key: string]: true;
-}>) => object | undefined;
+}> : unknown, next: (children: RootContent[]) => Descendant[], marks: Marks) => object | undefined;
 export type MarkNames = {
     [key in "emphasis" | "strong" | "delete" | "inlineCode"]?: string;
 };
-export declare const mdastToSlate: (node: Root, overrides: OverridedMdastBuilders, marks?: MarkNames) => Descendant[];
+export type HtmlMarkNames = {
+    [tag: string]: string;
+};
+type Marks = Readonly<{
+    [key: string]: true;
+}>;
+export declare const mdastToSlate: (node: Root, overrides: OverridedMdastBuilders, marks?: MarkNames, htmlMarks?: HtmlMarkNames) => Descendant[];
 export interface Paragraph extends Pick<mdast.Paragraph, "type"> {
     children: MdastNode[];
 }
@@ -94,3 +98,4 @@ export interface FootnoteReference extends Pick<mdast.FootnoteReference, "type" 
 }
 export type MdastElement = Paragraph | Heading | ThematicBreak | Blockquote | List | ListItem | Table | TableRow | TableCell | Html | Code | Yaml | Toml | Definition | FootnoteDefinition | Break | Link | Image | LinkReference | ImageReference | FootnoteReference | Math | InlineMath;
 export type MdastNode = MdastElement | Text;
+export {};
