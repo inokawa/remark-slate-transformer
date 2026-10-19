@@ -7,5 +7,10 @@ export type OverridedMdastBuilders = {
 } | {});
 export type MdastBuilder<T extends string> = (node: T extends RootContent["type"] ? Extract<RootContent, {
     type: T;
-}> : unknown, next: (children: any[]) => any) => object | undefined;
-export declare const mdastToSlate: (node: Root, overrides: OverridedMdastBuilders) => Node[];
+}> : unknown, next: (children: RootContent[]) => Node[], marks: Readonly<{
+    [key: string]: true;
+}>) => object | undefined;
+export type MarkNames = {
+    [key in "emphasis" | "strong" | "delete" | "inlineCode"]?: string;
+};
+export declare const mdastToSlate: (node: Root, overrides: OverridedMdastBuilders, marks?: MarkNames) => Node[];
