@@ -1,10 +1,8 @@
-import type * as unistLib from "unist";
 import type { Root, RootContent } from "mdast";
-import type { Node } from "slate";
-import type * as slate from "../../models/slate";
+import type { Descendant, Element, Node } from "slate";
 import type * as mdast from "../../models/mdast";
 import type * as slateInternal from "../mdast-to-slate";
-import type { MarkNames } from "../mdast-to-slate";
+import type { MarkNames, MdastElement, MdastNode } from "../mdast-to-slate";
 import { unreachable } from "../../utils";
 
 type DecorationType = keyof slateInternal.Decoration;
@@ -16,11 +14,15 @@ type TextOrDecoration =
   | mdast.Delete
   | mdast.InlineCode;
 
-export type OverridedSlateBuilders = { [key: string]: SlateBuilder };
+export type OverridedSlateBuilders = {
+  [key in MdastElement["type"]]?: SlateBuilder<
+    Extract<MdastElement, { type: key }>
+  >;
+} & ({ [key: string]: SlateBuilder } | {});
 
-export type SlateBuilder = (
-  node: unknown,
-  next: (children: Node[]) => RootContent[]
+export type SlateBuilder<T = Element> = (
+  node: T,
+  next: (children: readonly Descendant[]) => RootContent[]
 ) => object | undefined;
 
 type Context = {
@@ -29,51 +31,54 @@ type Context = {
 };
 
 export const slateToMdast = (
-  nodes: Node[],
+  nodes: readonly (Node | MdastNode)[],
   overrides: OverridedSlateBuilders,
   marks: MarkNames = {}
 ): Root => {
   return {
     type: "root",
-    children: convertNodes(nodes as slate.Node[], {
-      overrides,
-      marks,
-    }) as Root["children"],
+    children: convertNodes(nodes, { overrides, marks }) as Root["children"],
   };
 };
 
+const DECORATION_TYPES = ["emphasis", "strong", "delete", "inlineCode"] as const;
+
 const fromSlateMarks = (
-  text: slateInternal.Text,
+  text: { text: string },
   ctx: Context
 ): slateInternal.Text => {
-  const result: { [key: string]: unknown } = { ...text };
-  Object.entries(ctx.marks).forEach(([mdastName, slateName]) => {
-    delete result[mdastName];
-    delete result[slateName];
-    if ((text as { [key: string]: unknown })[slateName]) {
-      result[mdastName] = true;
+  const props = new Map(Object.entries(text));
+  const result: slateInternal.Text = { text: text.text };
+  DECORATION_TYPES.forEach((type) => {
+    if (props.get(ctx.marks[type] ?? type)) {
+      result[type] = true;
     }
   });
-  return result as slateInternal.Text;
+  return result;
 };
 
+const textContent = (nodes: readonly (Node | MdastNode)[]): string =>
+  nodes
+    .map((node) => ("text" in node ? node.text : textContent(node.children)))
+    .join("");
+
 const convertNodes = (
-  nodes: slate.Node[],
+  nodes: readonly (Node | MdastNode)[],
   ctx: Context
-): unistLib.Node[] => {
-  const mdastNodes: unistLib.Node[] = [];
+): RootContent[] => {
+  const mdastNodes: RootContent[] = [];
   let textQueue: slateInternal.Text[] = [];
   for (let i = 0; i <= nodes.length; i++) {
-    const n = nodes[i] as slateInternal.SlateNode;
+    const n = nodes[i] as MdastNode | undefined;
     if (n && isText(n)) {
       textQueue.push(fromSlateMarks(n, ctx));
     } else {
-      mdastNodes.push(...(convertTexts(textQueue) as any as unistLib.Node[]));
+      mdastNodes.push(...convertTexts(textQueue));
       textQueue = [];
       if (!n) continue;
       const node = buildMdastNode(n, ctx);
       if (node) {
-        mdastNodes.push(node as unistLib.Node);
+        mdastNodes.push(node);
       }
     }
   }
@@ -146,10 +151,11 @@ const convertTexts = (
           textTemp = textTemp.slice(0, -1);
         }
       }
-      const hasText = textTemp !== "";
+      const value = textTemp;
+      const hasText = value !== "";
       let res: TextOrDecoration = {
         type: "text",
-        value: textTemp,
+        value,
       };
       textTemp = "";
       const wrapOrder = starts.slice().reverse();
@@ -162,7 +168,7 @@ const convertTexts = (
           case "inlineCode":
             res = {
               type: k,
-              value: (res as any).value,
+              value,
             };
             break;
           case "strong":
@@ -208,18 +214,15 @@ const convertTexts = (
 };
 
 const buildMdastNode = (
-  node: Exclude<slateInternal.SlateNode, slateInternal.Text>,
+  node: Exclude<MdastNode, slateInternal.Text>,
   ctx: Context
-): Exclude<
-  mdast.RootContent | mdast.Math | mdast.InlineMath,
-  TextOrDecoration
-> | null => {
-  const customNode = ctx.overrides[node.type]?.(
-    node,
-    (children) => convertNodes(children as slate.Node[], ctx) as RootContent[]
-  );
+): RootContent | null => {
+  const build = (ctx.overrides as { [key: string]: SlateBuilder<MdastElement> })[
+    node.type
+  ];
+  const customNode = build?.(node, (children) => convertNodes(children, ctx));
   if (customNode != null) {
-    return customNode as any;
+    return customNode as RootContent;
   }
 
   switch (node.type) {
@@ -276,7 +279,7 @@ const buildMdastNode = (
   return null;
 };
 
-const isText = (node: slateInternal.SlateNode): node is slateInternal.Text => {
+const isText = (node: MdastNode): node is slateInternal.Text => {
   return "text" in node;
 };
 
@@ -402,7 +405,7 @@ const buildTableCell = (
 const buildHtml = ({ type, children }: slateInternal.Html): mdast.HTML => {
   return {
     type,
-    value: children[0]!.text,
+    value: textContent(children),
   };
 };
 
@@ -416,21 +419,21 @@ const buildCode = ({
     type,
     lang,
     meta,
-    value: children[0]!.text,
+    value: textContent(children),
   };
 };
 
 const buildYaml = ({ type, children }: slateInternal.Yaml): mdast.YAML => {
   return {
     type,
-    value: children[0]!.text,
+    value: textContent(children),
   };
 };
 
 const buildToml = ({ type, children }: slateInternal.Toml): mdast.TOML => {
   return {
     type,
-    value: children[0]!.text,
+    value: textContent(children),
   };
 };
 
@@ -550,7 +553,7 @@ const creatFootnoteReference = ({
 const buildMath = ({ type, children }: slateInternal.Math): mdast.Math => {
   return {
     type,
-    value: children[0]!.text,
+    value: textContent(children),
   };
 };
 
@@ -560,6 +563,6 @@ const buildInlineMath = ({
 }: slateInternal.InlineMath): mdast.InlineMath => {
   return {
     type,
-    value: children[0]!.text,
+    value: textContent(children),
   };
 };

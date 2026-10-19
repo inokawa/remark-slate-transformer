@@ -8,7 +8,8 @@ import frontmatter from "remark-frontmatter";
 import math from "remark-math";
 import stringify from "remark-stringify";
 import { remarkToSlate, slateToRemark, withMdast } from ".";
-import { createEditor, Editor } from "slate";
+import type { MdastElement, MdastNode } from ".";
+import { createEditor, Editor, Element } from "slate";
 import { Root } from "mdast";
 
 const FIXTURE_PATH = "../fixtures";
@@ -68,11 +69,14 @@ describe("options", () => {
     const mdastTree = toRemarkProcessor.runSync(
       slateToRemark(slateTree, {
         overrides: {
-          foo: (node: any, next) => ({
+          foo: (node, next) => ({
             type: "list",
             children: next(node.children),
           }),
-          bar: (node: any) => ({ type: "text", value: node.bar }),
+          bar: (node: Element & { bar?: string }) => ({
+            type: "text",
+            value: node.bar,
+          }),
         },
       })
     );
@@ -298,7 +302,7 @@ describe("issues", () => {
     const processor = unified().use(stringify, { emphasis: "_" });
     const ast = processor.runSync(
       slateToRemark([
-        { text: "inline code", strong: true, emphasis: true } as any,
+        { text: "inline code", strong: true, emphasis: true },
       ])
     );
     expect(ast).toMatchSnapshot();
@@ -313,7 +317,7 @@ describe("issues", () => {
         {
           type: "paragraph",
           children: [{ emphasis: true, inlineCode: true, text: "code" }],
-        } as any,
+        },
       ])
     );
     expect(ast).toMatchSnapshot();
@@ -330,7 +334,7 @@ describe("issues", () => {
             { text: "a", inlineCode: true },
             { text: "b", inlineCode: true, delete: true },
           ],
-        } as any,
+        },
       ])
     );
     expect((ast as Root).children[0]).toEqual({
@@ -348,7 +352,7 @@ describe("issues", () => {
         {
           type: "paragraph",
           children: [{ text: "a" }, { text: " ", strong: true }, { text: "b" }],
-        } as any,
+        },
       ])
     );
     expect((ast as Root).children[0]).toEqual({
@@ -359,27 +363,38 @@ describe("issues", () => {
   });
 });
 
+describe("text content", () => {
+  it("keeps every text in a code block", () => {
+    const processor = unified().use(stringify);
+    const ast = processor.runSync(
+      slateToRemark([
+        { type: "code", lang: "js", children: [{ text: "a" }, { text: "b" }] },
+      ])
+    );
+    expect(processor.stringify(ast as Root)).toBe("```js\nab\n```\n");
+  });
+});
+
 describe("html", () => {
   const toSlateProcessor = unified().use(markdown).use(remarkToSlate);
   const toRemarkProcessor = unified().use(stringify);
 
   it("marks html inside phrasing content as inline", () => {
-    const slateNodes = toSlateProcessor.processSync(
+    const [paragraph, block] = toSlateProcessor.processSync(
       "a <b>bold</b> [x <i>y</i>](u)\n\n<div>block</div>\n"
-    ).result as any[];
+    ).result as MdastNode[];
 
-    const [paragraph, block] = slateNodes;
-    const htmlInParagraph = paragraph.children.filter(
-      (n: any) => n.type === "html"
+    const childrenOf = (node: MdastNode | undefined) =>
+      node && "children" in node ? node.children : [];
+    const htmlInline = (nodes: MdastNode[]) =>
+      nodes.flatMap((n) => ("type" in n && n.type === "html" ? [n.inline] : []));
+    const link = childrenOf(paragraph).find(
+      (n) => "type" in n && n.type === "link"
     );
-    const htmlInLink = paragraph.children
-      .find((n: any) => n.type === "link")
-      .children.filter((n: any) => n.type === "html");
 
-    expect(htmlInParagraph.map((n: any) => n.inline)).toEqual([true, true]);
-    expect(htmlInLink.map((n: any) => n.inline)).toEqual([true, true]);
-    expect(block.type).toBe("html");
-    expect(block.inline).toBeUndefined();
+    expect(htmlInline(childrenOf(paragraph))).toEqual([true, true]);
+    expect(htmlInline(childrenOf(link))).toEqual([true, true]);
+    expect(htmlInline(block ? [block] : [])).toEqual([undefined]);
   });
 
   it("round-trips inline html", () => {
@@ -395,7 +410,7 @@ describe("withMdast", () => {
   const toRemarkProcessor = unified().use(gfm).use(stringify);
 
   const normalize = (md: string, editor = withMdast(createEditor())) => {
-    editor.children = toSlateProcessor.processSync(md).result as any;
+    editor.children = toSlateProcessor.processSync(md).result;
     Editor.normalize(editor, { force: true });
     const mdastTree = toRemarkProcessor.runSync(slateToRemark(editor.children));
     return toRemarkProcessor.stringify(mdastTree as Root);
@@ -414,13 +429,14 @@ describe("withMdast", () => {
 
   it("wraps list children that are not list items", () => {
     const editor = withMdast(createEditor());
-    editor.children = [
+    const value: MdastElement[] = [
       {
         type: "list",
         ordered: false,
         children: [{ type: "paragraph", children: [{ text: "a" }] }],
-      } as any,
+      },
     ];
+    editor.children = value;
     Editor.normalize(editor, { force: true });
     expect(editor.children).toEqual([
       {
@@ -445,7 +461,7 @@ describe("withMdast insertBreak", () => {
 
   const breakAt = (md: string, path: number[], offset: number) => {
     const editor = withMdast(createEditor());
-    editor.children = toSlateProcessor.processSync(md).result as any;
+    editor.children = toSlateProcessor.processSync(md).result;
     editor.select({ path, offset });
     editor.insertBreak();
     const mdastTree = toRemarkProcessor.runSync(slateToRemark(editor.children));
