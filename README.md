@@ -120,6 +120,12 @@ const text = s2r.stringify(ast);
 console.log(text);
 ```
 
+`remarkToSlate` builders also get the marks around the node, like `{ strong: true }`, as a third argument. Spread them into a text you return so it keeps them:
+
+```js
+inlineCode: (node, next, marks) => ({ ...marks, code: true, text: node.value }),
+```
+
 ### Utilities
 
 Transformer utilities `mdastToSlate` and `slateToMdast` are also exported for more fine-tuned control.

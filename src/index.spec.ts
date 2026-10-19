@@ -80,6 +80,33 @@ describe("options", () => {
     const text = toRemarkProcessor.stringify(mdastTree as Root /* FIXME */);
     expect(text).toMatchSnapshot();
   });
+
+  it("passes the surrounding marks to override builders", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate, {
+        overrides: {
+          inlineCode: (node, _next, marks) => ({
+            ...marks,
+            code: true,
+            text: node.value,
+          }),
+        },
+      })
+      .processSync("a **b `c`** _`d`_\n").result;
+    expect(slateTree).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { text: "a " },
+          { strong: true, text: "b " },
+          { strong: true, code: true, text: "c" },
+          { text: " " },
+          { emphasis: true, code: true, text: "d" },
+        ],
+      },
+    ]);
+  });
 });
 
 describe("issues", () => {

@@ -4,9 +4,6 @@ import type * as slate from "../../models/slate";
 import type * as mdast from "../../models/mdast";
 import { unreachable } from "../../utils";
 
-/**
- * @internal
- */
 export type Decoration = Readonly<{
   [key in (
     | mdast.Emphasis
@@ -24,7 +21,8 @@ export type MdastBuilder<T extends string> = (
   node: T extends RootContent["type"]
     ? Extract<RootContent, { type: T }>
     : unknown,
-  next: (children: any[]) => any
+  next: (children: any[]) => any,
+  marks: Decoration
 ) => object | undefined;
 
 export const mdastToSlate = (
@@ -67,8 +65,10 @@ const buildSlateNode = (
   deco: Decoration,
   overrides: OverridedMdastBuilders
 ): SlateNode[] => {
-  const customNode = overrides[node.type]?.(node as any, (children) =>
-    convertNodes(children, deco, overrides)
+  const customNode = overrides[node.type]?.(
+    node as any,
+    (children) => convertNodes(children, deco, overrides),
+    deco
   );
   if (customNode != null) {
     return [customNode as SlateNode];
