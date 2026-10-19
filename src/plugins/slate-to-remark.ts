@@ -1,5 +1,9 @@
 import type { Node } from "slate";
-import type { MarkNames, MdastNode } from "../transformers/mdast-to-slate";
+import type {
+  HtmlMarkNames,
+  MarkNames,
+  MdastNode,
+} from "../transformers/mdast-to-slate";
 import {
   slateToMdast,
   OverridedSlateBuilders,
@@ -8,11 +12,12 @@ import {
 export type Options = {
   overrides?: OverridedSlateBuilders;
   marks?: MarkNames;
+  htmlMarks?: HtmlMarkNames;
 };
 
 export default (
   nodes: readonly (Node | MdastNode)[],
-  { overrides = {}, marks = {} }: Options = {}
+  { overrides = {}, marks = {}, htmlMarks = {} }: Options = {}
 ) => {
-  return slateToMdast(nodes, overrides, marks);
+  return slateToMdast(nodes, overrides, marks, htmlMarks);
 };

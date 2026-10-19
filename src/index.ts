@@ -4,6 +4,7 @@ export { default as slateToRemark } from "./plugins/slate-to-remark";
 export type { Options as SlateToRemarkOptions } from "./plugins/slate-to-remark";
 export { mdastToSlate } from "./transformers/mdast-to-slate";
 export type {
+  HtmlMarkNames,
   MarkNames,
   MdastElement,
   MdastNode,

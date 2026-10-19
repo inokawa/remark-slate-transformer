@@ -2,7 +2,12 @@ import type { Root, RootContent } from "mdast";
 import type { Descendant, Element, Node } from "slate";
 import type * as mdast from "../../models/mdast";
 import type * as slateInternal from "../mdast-to-slate";
-import type { MarkNames, MdastElement, MdastNode } from "../mdast-to-slate";
+import type {
+  HtmlMarkNames,
+  MarkNames,
+  MdastElement,
+  MdastNode,
+} from "../mdast-to-slate";
 import { unreachable } from "../../utils";
 
 type DecorationType = keyof slateInternal.Decoration;
@@ -28,16 +33,22 @@ export type SlateBuilder<T = Element> = (
 type Context = {
   overrides: OverridedSlateBuilders;
   marks: MarkNames;
+  htmlMarks: HtmlMarkNames;
 };
 
 export const slateToMdast = (
   nodes: readonly (Node | MdastNode)[],
   overrides: OverridedSlateBuilders,
-  marks: MarkNames = {}
+  marks: MarkNames = {},
+  htmlMarks: HtmlMarkNames = {}
 ): Root => {
   return {
     type: "root",
-    children: convertNodes(nodes, { overrides, marks }) as Root["children"],
+    children: convertNodes(nodes, {
+      overrides,
+      marks,
+      htmlMarks,
+    }) as Root["children"],
   };
 };
 
@@ -57,6 +68,16 @@ const fromSlateMarks = (
   return result;
 };
 
+const htmlTagsOf = (text: { text: string }, ctx: Context): string[] => {
+  if (text.text.trim() === "") return [];
+  const props = new Map(Object.entries(text));
+  return Object.entries(ctx.htmlMarks)
+    .filter(([, mark]) => props.get(mark))
+    .map(([tag]) => tag);
+};
+
+const html = (value: string): mdast.Html => ({ type: "html", value });
+
 const textContent = (nodes: readonly (Node | MdastNode)[]): string =>
   nodes
     .map((node) => ("text" in node ? node.text : textContent(node.children)))
@@ -70,8 +91,17 @@ const convertNodes = (
   let textQueue: slateInternal.Text[] = [];
   for (let i = 0; i <= nodes.length; i++) {
     const n = nodes[i] as MdastNode | undefined;
-    if (n && isText(n)) {
+    const tags = n && isText(n) ? htmlTagsOf(n, ctx) : [];
+    if (n && isText(n) && tags.length === 0) {
       textQueue.push(fromSlateMarks(n, ctx));
+    } else if (n && isText(n)) {
+      mdastNodes.push(
+        ...convertTexts(textQueue),
+        ...tags.map((tag) => html(`<${tag}>`)),
+        ...convertTexts([fromSlateMarks(n, ctx)]),
+        ...tags.reverse().map((tag) => html(`</${tag}>`))
+      );
+      textQueue = [];
     } else {
       mdastNodes.push(...convertTexts(textQueue));
       textQueue = [];

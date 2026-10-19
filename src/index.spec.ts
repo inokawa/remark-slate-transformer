@@ -363,6 +363,115 @@ describe("issues", () => {
   });
 });
 
+describe("htmlMarks option", () => {
+  const htmlMarks = { u: "underline", sub: "subscript", sup: "superscript" };
+  const toSlate = (md: string) =>
+    unified()
+      .use(markdown)
+      .use(remarkToSlate, { htmlMarks })
+      .processSync(md).result;
+  const toMarkdown = (value: Parameters<typeof slateToRemark>[0]) => {
+    const processor = unified().use(stringify);
+    return processor.stringify(
+      processor.runSync(slateToRemark(value, { htmlMarks })) as Root
+    );
+  };
+
+  it("reads paired tags as marks", () => {
+    expect(toSlate("a <u>b **c**</u> H<SUB>2</SUB>O x<sup>2</sup>\n")).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { text: "a " },
+          { underline: true, text: "b " },
+          { underline: true, strong: true, text: "c" },
+          { text: " H" },
+          { subscript: true, text: "2" },
+          { text: "O x" },
+          { superscript: true, text: "2" },
+        ],
+      },
+    ]);
+  });
+
+  it("marks the text of inline elements between the tags", () => {
+    expect(toSlate("<u>[a](b)</u>\n")).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          {
+            type: "link",
+            url: "b",
+            title: null,
+            children: [{ underline: true, text: "a" }],
+          },
+        ],
+      },
+    ]);
+  });
+
+  it("keeps unpaired and unknown tags as html", () => {
+    const html = (text: string) => ({
+      type: "html",
+      inline: true,
+      children: [{ text }],
+    });
+    expect(toSlate("<u>a <b>b</b></u> c <u>d\n")).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { underline: true, text: "a " },
+          html("<b>"),
+          { underline: true, text: "b" },
+          html("</b>"),
+          { text: " c " },
+          html("<u>"),
+          { text: "d" },
+        ],
+      },
+    ]);
+  });
+
+  it("writes marks as tags and reads them back", () => {
+    const md = "a <u>b</u> <u>**c**</u> H<sub>2</sub>O x<sup>2</sup>\n";
+    expect(toMarkdown(toSlate(md))).toBe(md);
+  });
+
+  it("writes marks as tags", () => {
+    const b = { text: "b", underline: true };
+    const c = { text: "c", strong: true, underline: true, superscript: true };
+    expect(
+      toMarkdown([{ type: "paragraph", children: [{ text: "a " }, b, c] }])
+    ).toBe("a <u>b</u><u><sup>**c**</sup></u>\n");
+  });
+
+  it("skips tags around whitespace-only text", () => {
+    const space = { text: " ", underline: true };
+    expect(
+      toMarkdown([
+        { type: "paragraph", children: [{ text: "a" }, space, { text: "b" }] },
+      ])
+    ).toBe("a b\n");
+  });
+
+  it("leaves tags alone without the option", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate)
+      .processSync("<u>a</u>\n").result;
+    expect(slateTree).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { type: "html", inline: true, children: [{ text: "<u>" }] },
+          { text: "a" },
+          { type: "html", inline: true, children: [{ text: "</u>" }] },
+        ],
+      },
+    ]);
+  });
+});
+
 describe("text content", () => {
   it("keeps every text in a code block", () => {
     const processor = unified().use(stringify);
