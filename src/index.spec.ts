@@ -80,6 +80,101 @@ describe("options", () => {
     const text = toRemarkProcessor.stringify(mdastTree as Root /* FIXME */);
     expect(text).toMatchSnapshot();
   });
+
+  it("passes the surrounding marks to override builders", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate, {
+        overrides: {
+          inlineCode: (node, _next, marks) => ({
+            ...marks,
+            code: true,
+            text: node.value,
+          }),
+        },
+      })
+      .processSync("a **b `c`** _`d`_\n").result;
+    expect(slateTree).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { text: "a " },
+          { strong: true, text: "b " },
+          { strong: true, code: true, text: "c" },
+          { text: " " },
+          { emphasis: true, code: true, text: "d" },
+        ],
+      },
+    ]);
+  });
+});
+
+describe("marks option", () => {
+  const marks = {
+    strong: "bold",
+    emphasis: "italic",
+    delete: "strikethrough",
+    inlineCode: "code",
+  };
+  const value = [
+    {
+      type: "paragraph",
+      children: [
+        { text: "a " },
+        { bold: true, text: "b " },
+        { bold: true, code: true, text: "c" },
+        { text: " " },
+        { italic: true, text: "d" },
+        { text: " " },
+        { strikethrough: true, text: "e" },
+      ],
+    },
+  ];
+
+  it("renames marks in remarkToSlate", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(gfm)
+      .use(remarkToSlate, { marks })
+      .processSync("a **b `c`** _d_ ~~e~~\n").result;
+    expect(slateTree).toEqual(value);
+  });
+
+  it("reads renamed marks in slateToRemark", () => {
+    const processor = unified().use(gfm).use(stringify);
+    const mdastTree = processor.runSync(slateToRemark(value, { marks }));
+    expect(processor.stringify(mdastTree as Root)).toBe(
+      "a **b `c`** *d* ~~e~~\n"
+    );
+  });
+
+  it("ignores the mdast name once a mark is renamed", () => {
+    const processor = unified().use(stringify);
+    const doc = [
+      { type: "paragraph", children: [{ text: "a", strong: true }] },
+    ];
+    const mdastTree = processor.runSync(slateToRemark(doc, { marks }));
+    expect(processor.stringify(mdastTree as Root)).toBe("a\n");
+  });
+
+  it("passes renamed marks to override builders", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate, {
+        marks,
+        overrides: {
+          inlineCode: (node, _next, marks) => ({
+            ...marks,
+            mono: true,
+            text: node.value,
+          }),
+        },
+      })
+      .processSync("**`c`**\n").result;
+    expect(slateTree).toEqual([
+      { type: "paragraph", children: [{ bold: true, mono: true, text: "c" }] },
+    ]);
+  });
 });
 
 describe("issues", () => {
