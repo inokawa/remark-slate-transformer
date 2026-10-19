@@ -428,6 +428,35 @@ describe("htmlMarks option", () => {
     ]);
   });
 
+  it("reads tags before an html override sees them", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate, {
+        htmlMarks,
+        overrides: {
+          html: (node) => ({ type: "raw", value: node.value, children: [] }),
+          paragraph: (node, next) => ({
+            type: "p",
+            children: next(node.children),
+          }),
+        },
+      })
+      .processSync("<u>a <b>b</b></u> c</sub>\n\n<u>\n").result;
+    expect(slateTree).toEqual([
+      {
+        type: "p",
+        children: [
+          { underline: true, text: "a " },
+          { type: "raw", value: "<b>", children: [] },
+          { underline: true, text: "b" },
+          { type: "raw", value: "</b>", children: [] },
+          { text: " c" },
+        ],
+      },
+      { type: "raw", value: "<u>", children: [] },
+    ]);
+  });
+
   it("keeps unknown tags as html", () => {
     const html = (text: string) => ({
       type: "html",
@@ -451,6 +480,13 @@ describe("htmlMarks option", () => {
     expect(toSlate("a <u>b\n\nc</u>d\n")).toEqual([
       { type: "paragraph", children: [{ text: "a " }, { underline: true, text: "b" }] },
       { type: "paragraph", children: [{ text: "cd" }] },
+    ]);
+  });
+
+  it("ends an unclosed tag with its heading and drops a stray close", () => {
+    expect(toSlate("# <sub>h\n\na</u> b\n")).toEqual([
+      { type: "heading", depth: 1, children: [{ subscript: true, text: "h" }] },
+      { type: "paragraph", children: [{ text: "a b" }] },
     ]);
   });
 
