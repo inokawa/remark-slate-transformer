@@ -123,8 +123,26 @@ console.log(text);
 `remarkToSlate` builders also get the marks around the node, like `{ strong: true }`, as a third argument. Spread them into a text you return so it keeps them:
 
 ```js
-inlineCode: (node, next, marks) => ({ ...marks, code: true, text: node.value }),
+inlineCode: (node, next, marks) => ({ ...marks, mono: true, text: node.value }),
 ```
+
+### Mark names
+
+Texts get marks named after the mdast types: `strong`, `emphasis`, `delete` and `inlineCode`. Pass `marks` to both sides to use your editor's names instead:
+
+```js
+const marks = {
+  strong: "bold",
+  emphasis: "italic",
+  delete: "strikethrough",
+  inlineCode: "code",
+};
+
+unified().use(markdown).use(remarkToSlate, { marks });
+slateToRemark(value, { marks });
+```
+
+Once a mark is renamed, `slateToRemark` reads only the new name.
 
 ### Utilities
 
