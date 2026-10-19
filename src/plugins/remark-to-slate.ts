@@ -1,5 +1,5 @@
 import type { Plugin } from "unified";
-import type { Node } from "slate";
+import type { Descendant } from "slate";
 import type { Root } from "mdast";
 import {
   OverridedMdastBuilders,
@@ -9,7 +9,7 @@ import {
 
 declare module "unified" {
   interface CompileResultMap {
-    remarkToSlateNode: Node[];
+    remarkToSlateNode: Descendant[];
   }
 }
 
@@ -18,7 +18,7 @@ export type Options = {
   marks?: MarkNames;
 };
 
-const plugin: Plugin<[Options?], Root, Node[]> = function ({
+const plugin: Plugin<[Options?], Root, Descendant[]> = function ({
   overrides = {},
   marks = {},
 } = {}) {

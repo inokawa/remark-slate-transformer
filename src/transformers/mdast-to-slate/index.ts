@@ -1,6 +1,5 @@
 import type { Root, RootContent } from "mdast";
-import type { Node } from "slate";
-import type * as slate from "../../models/slate";
+import type { Descendant } from "slate";
 import type * as mdast from "../../models/mdast";
 import { unreachable } from "../../utils";
 
@@ -24,7 +23,7 @@ export type MdastBuilder<T extends string> = (
   node: T extends RootContent["type"]
     ? Extract<RootContent, { type: T }>
     : unknown,
-  next: (children: RootContent[]) => Node[],
+  next: (children: RootContent[]) => Descendant[],
   marks: Readonly<{ [key: string]: true }>
 ) => object | undefined;
 
@@ -41,8 +40,8 @@ export const mdastToSlate = (
   node: Root,
   overrides: OverridedMdastBuilders,
   marks: MarkNames = {}
-): Node[] => {
-  return buildSlateRoot(node, { overrides, marks });
+): Descendant[] => {
+  return convertNodes(node.children, {}, { overrides, marks });
 };
 
 const toSlateMarks = (deco: Decoration, ctx: Context) =>
@@ -53,19 +52,12 @@ const toSlateMarks = (deco: Decoration, ctx: Context) =>
     ])
   );
 
-const buildSlateRoot = (
-  root: mdast.Root,
-  ctx: Context
-): slate.Node[] => {
-  return convertNodes(root.children, {}, ctx);
-};
-
 const convertNodes = (
   nodes: mdast.RootContent[],
   deco: Decoration,
   ctx: Context
-): slate.Node[] => {
-  return nodes.reduce<slate.Node[]>((acc, node) => {
+): MdastNode[] => {
+  return nodes.reduce<MdastNode[]>((acc, node) => {
     acc.push(...buildSlateNode(node, deco, ctx));
     return acc;
   }, []);
@@ -75,7 +67,7 @@ const convertPhrasing = (
   nodes: mdast.PhrasingContent[],
   deco: Decoration,
   ctx: Context
-): slate.Node[] => {
+): MdastNode[] => {
   return convertNodes(nodes, deco, ctx).map((node) =>
     "type" in node && node.type === "html" ? { ...node, inline: true } : node
   );
@@ -85,14 +77,15 @@ const buildSlateNode = (
   node: mdast.RootContent,
   deco: Decoration,
   ctx: Context
-): SlateNode[] => {
-  const customNode = ctx.overrides[node.type]?.(
-    node as any,
+): MdastNode[] => {
+  const build = ctx.overrides[node.type] as MdastBuilder<string> | undefined;
+  const customNode = build?.(
+    node,
     (children) => convertNodes(children, deco, ctx),
     toSlateMarks(deco, ctx)
   );
   if (customNode != null) {
-    return [customNode as SlateNode];
+    return [customNode as MdastNode];
   }
 
   switch (node.type) {
@@ -132,7 +125,7 @@ const buildSlateNode = (
     case "strong":
     case "delete": {
       const { type, children } = node;
-      return children.reduce<SlateNode[]>((acc, n) => {
+      return children.reduce<MdastNode[]>((acc, n) => {
         acc.push(...buildSlateNode(n, { ...deco, [type]: true }, ctx));
         return acc;
       }, []);
@@ -164,32 +157,30 @@ const buildSlateNode = (
   return [];
 };
 
-/**
- * @internal
- */
-export type Paragraph = ReturnType<typeof buildParagraph>;
+export interface Paragraph extends Pick<mdast.Paragraph, "type"> {
+  children: MdastNode[];
+}
 
 const buildParagraph = (
   { type, children }: mdast.Paragraph,
   deco: Decoration,
   ctx: Context
-) => {
+): Paragraph => {
   return {
     type,
     children: convertPhrasing(children, deco, ctx),
   };
 };
 
-/**
- * @internal
- */
-export type Heading = ReturnType<typeof buildHeading>;
+export interface Heading extends Pick<mdast.Heading, "type" | "depth"> {
+  children: MdastNode[];
+}
 
 const buildHeading = (
   { type, children, depth }: mdast.Heading,
   deco: Decoration,
   ctx: Context
-) => {
+): Heading => {
   return {
     type,
     depth,
@@ -197,44 +188,42 @@ const buildHeading = (
   };
 };
 
-/**
- * @internal
- */
-export type ThematicBreak = ReturnType<typeof buildThematicBreak>;
+export interface ThematicBreak extends Pick<mdast.ThematicBreak, "type"> {
+  children: MdastNode[];
+}
 
-const buildThematicBreak = ({ type }: mdast.ThematicBreak) => {
+const buildThematicBreak = ({ type }: mdast.ThematicBreak): ThematicBreak => {
   return {
     type,
     children: [{ text: "" }],
   };
 };
 
-/**
- * @internal
- */
-export type Blockquote = ReturnType<typeof buildBlockquote>;
+export interface Blockquote extends Pick<mdast.Blockquote, "type"> {
+  children: MdastNode[];
+}
 
 const buildBlockquote = (
   { type, children }: mdast.Blockquote,
   deco: Decoration,
   ctx: Context
-) => {
+): Blockquote => {
   return {
     type,
     children: convertNodes(children, deco, ctx),
   };
 };
 
-/**
- * @internal
- */
-export type List = ReturnType<typeof buildList>;
+export interface List
+  extends Pick<mdast.List, "type" | "ordered" | "start" | "spread"> {
+  children: MdastNode[];
+}
 
 const buildList = (
   { type, children, ordered, start, spread }: mdast.List,
   deco: Decoration,
   ctx: Context
-) => {
+): List => {
   return {
     type,
     children: convertNodes(children, deco, ctx),
@@ -244,16 +233,16 @@ const buildList = (
   };
 };
 
-/**
- * @internal
- */
-export type ListItem = ReturnType<typeof buildListItem>;
+export interface ListItem
+  extends Pick<mdast.ListItem, "type" | "checked" | "spread"> {
+  children: MdastNode[];
+}
 
 const buildListItem = (
   { type, children, checked, spread }: mdast.ListItem,
   deco: Decoration,
   ctx: Context
-) => {
+): ListItem => {
   return {
     type,
     children:
@@ -267,16 +256,15 @@ const buildListItem = (
   };
 };
 
-/**
- * @internal
- */
-export type Table = ReturnType<typeof buildTable>;
+export interface Table extends Pick<mdast.Table, "type" | "align"> {
+  children: MdastNode[];
+}
 
 const buildTable = (
   { type, children, align }: mdast.Table,
   deco: Decoration,
   ctx: Context
-) => {
+): Table => {
   return {
     type,
     children: convertNodes(children, deco, ctx),
@@ -284,56 +272,53 @@ const buildTable = (
   };
 };
 
-/**
- * @internal
- */
-export type TableRow = ReturnType<typeof buildTableRow>;
+export interface TableRow extends Pick<mdast.TableRow, "type"> {
+  children: MdastNode[];
+}
 
 const buildTableRow = (
   { type, children }: mdast.TableRow,
   deco: Decoration,
   ctx: Context
-) => {
+): TableRow => {
   return {
     type,
     children: convertNodes(children, deco, ctx),
   };
 };
 
-/**
- * @internal
- */
-export type TableCell = ReturnType<typeof buildTableCell>;
+export interface TableCell extends Pick<mdast.TableCell, "type"> {
+  children: MdastNode[];
+}
 
 const buildTableCell = (
   { type, children }: mdast.TableCell,
   deco: Decoration,
   ctx: Context
-) => {
+): TableCell => {
   return {
     type,
     children: convertPhrasing(children, deco, ctx),
   };
 };
 
-/**
- * @internal
- */
-export type Html = ReturnType<typeof buildHtml> & { inline?: true };
+export interface Html extends Pick<mdast.Html, "type"> {
+  children: MdastNode[];
+  inline?: true;
+}
 
-const buildHtml = ({ type, value }: mdast.HTML) => {
+const buildHtml = ({ type, value }: mdast.HTML): Html => {
   return {
     type,
     children: [{ text: value }],
   };
 };
 
-/**
- * @internal
- */
-export type Code = ReturnType<typeof buildCode>;
+export interface Code extends Pick<mdast.Code, "type" | "lang" | "meta"> {
+  children: MdastNode[];
+}
 
-const buildCode = ({ type, value, lang, meta }: mdast.Code) => {
+const buildCode = ({ type, value, lang, meta }: mdast.Code): Code => {
   return {
     type,
     lang,
@@ -342,58 +327,57 @@ const buildCode = ({ type, value, lang, meta }: mdast.Code) => {
   };
 };
 
-/**
- * @internal
- */
-export type Yaml = ReturnType<typeof buildYaml>;
+export interface Yaml extends Pick<mdast.Yaml, "type"> {
+  children: MdastNode[];
+}
 
-const buildYaml = ({ type, value }: mdast.YAML) => {
+const buildYaml = ({ type, value }: mdast.YAML): Yaml => {
   return {
     type,
     children: [{ text: value }],
   };
 };
 
-/**
- * @internal
- */
-export type Toml = ReturnType<typeof buildToml>;
+export interface Toml extends Pick<mdast.TOML, "type"> {
+  children: MdastNode[];
+}
 
-const buildToml = ({ type, value }: mdast.TOML) => {
+const buildToml = ({ type, value }: mdast.TOML): Toml => {
   return {
     type,
     children: [{ text: value }],
   };
 };
 
-/**
- * @internal
- */
-export type Math = ReturnType<typeof buildMath>;
+export interface Math extends Pick<mdast.Math, "type"> {
+  children: MdastNode[];
+}
 
-const buildMath = ({ type, value }: mdast.Math) => {
+const buildMath = ({ type, value }: mdast.Math): Math => {
   return {
     type,
     children: [{ text: value }],
   };
 };
 
-/**
- * @internal
- */
-export type InlineMath = ReturnType<typeof buildInlineMath>;
+export interface InlineMath extends Pick<mdast.InlineMath, "type"> {
+  children: MdastNode[];
+}
 
-const buildInlineMath = ({ type, value }: mdast.InlineMath) => {
+const buildInlineMath = ({ type, value }: mdast.InlineMath): InlineMath => {
   return {
     type,
     children: [{ text: value }],
   };
 };
 
-/**
- * @internal
- */
-export type Definition = ReturnType<typeof buildDefinition>;
+export interface Definition
+  extends Pick<
+    mdast.Definition,
+    "type" | "identifier" | "label" | "url" | "title"
+  > {
+  children: MdastNode[];
+}
 
 const buildDefinition = ({
   type,
@@ -401,7 +385,7 @@ const buildDefinition = ({
   label,
   url,
   title,
-}: mdast.Definition) => {
+}: mdast.Definition): Definition => {
   return {
     type,
     identifier,
@@ -412,16 +396,16 @@ const buildDefinition = ({
   };
 };
 
-/**
- * @internal
- */
-export type FootnoteDefinition = ReturnType<typeof buildFootnoteDefinition>;
+export interface FootnoteDefinition
+  extends Pick<mdast.FootnoteDefinition, "type" | "identifier" | "label"> {
+  children: MdastNode[];
+}
 
 const buildFootnoteDefinition = (
   { type, children, identifier, label }: mdast.FootnoteDefinition,
   deco: Decoration,
   ctx: Context
-) => {
+): FootnoteDefinition => {
   return {
     type,
     children: convertNodes(children, deco, ctx),
@@ -430,40 +414,44 @@ const buildFootnoteDefinition = (
   };
 };
 
-/**
- * @internal
- */
-export type Text = ReturnType<typeof buildText>;
+export interface Text {
+  text: string;
+  emphasis?: true;
+  strong?: true;
+  delete?: true;
+  inlineCode?: true;
+}
 
-const buildText = (text: string, deco: Decoration) => {
+const buildText = (
+  text: string,
+  marks: Readonly<{ [key: string]: true }>
+): Text => {
   return {
-    ...deco,
+    ...marks,
     text,
   };
 };
 
-/**
- * @internal
- */
-export type Break = ReturnType<typeof buildBreak>;
+export interface Break extends Pick<mdast.Break, "type"> {
+  children: MdastNode[];
+}
 
-const buildBreak = ({ type }: mdast.Break) => {
+const buildBreak = ({ type }: mdast.Break): Break => {
   return {
     type,
     children: [{ text: "" }],
   };
 };
 
-/**
- * @internal
- */
-export type Link = ReturnType<typeof buildLink>;
+export interface Link extends Pick<mdast.Link, "type" | "url" | "title"> {
+  children: MdastNode[];
+}
 
 const buildLink = (
   { type, children, url, title }: mdast.Link,
   deco: Decoration,
   ctx: Context
-) => {
+): Link => {
   return {
     type,
     children: convertPhrasing(children, deco, ctx),
@@ -472,12 +460,12 @@ const buildLink = (
   };
 };
 
-/**
- * @internal
- */
-export type Image = ReturnType<typeof buildImage>;
+export interface Image
+  extends Pick<mdast.Image, "type" | "url" | "title" | "alt"> {
+  children: MdastNode[];
+}
 
-const buildImage = ({ type, url, title, alt }: mdast.Image) => {
+const buildImage = ({ type, url, title, alt }: mdast.Image): Image => {
   return {
     type,
     url,
@@ -487,16 +475,19 @@ const buildImage = ({ type, url, title, alt }: mdast.Image) => {
   };
 };
 
-/**
- * @internal
- */
-export type LinkReference = ReturnType<typeof buildLinkReference>;
+export interface LinkReference
+  extends Pick<
+    mdast.LinkReference,
+    "type" | "referenceType" | "identifier" | "label"
+  > {
+  children: MdastNode[];
+}
 
 const buildLinkReference = (
   { type, children, referenceType, identifier, label }: mdast.LinkReference,
   deco: Decoration,
   ctx: Context
-) => {
+): LinkReference => {
   return {
     type,
     children: convertPhrasing(children, deco, ctx),
@@ -506,10 +497,13 @@ const buildLinkReference = (
   };
 };
 
-/**
- * @internal
- */
-export type ImageReference = ReturnType<typeof buildImageReference>;
+export interface ImageReference
+  extends Pick<
+    mdast.ImageReference,
+    "type" | "alt" | "referenceType" | "identifier" | "label"
+  > {
+  children: MdastNode[];
+}
 
 const buildImageReference = ({
   type,
@@ -517,7 +511,7 @@ const buildImageReference = ({
   referenceType,
   identifier,
   label,
-}: mdast.ImageReference) => {
+}: mdast.ImageReference): ImageReference => {
   return {
     type,
     alt,
@@ -528,16 +522,16 @@ const buildImageReference = ({
   };
 };
 
-/**
- * @internal
- */
-export type FootnoteReference = ReturnType<typeof buildFootnoteReference>;
+export interface FootnoteReference
+  extends Pick<mdast.FootnoteReference, "type" | "identifier" | "label"> {
+  children: MdastNode[];
+}
 
 const buildFootnoteReference = ({
   type,
   identifier,
   label,
-}: mdast.FootnoteReference) => {
+}: mdast.FootnoteReference): FootnoteReference => {
   return {
     type,
     identifier,
@@ -546,10 +540,7 @@ const buildFootnoteReference = ({
   };
 };
 
-/**
- * @internal
- */
-export type SlateNode =
+export type MdastElement =
   | Paragraph
   | Heading
   | ThematicBreak
@@ -565,7 +556,6 @@ export type SlateNode =
   | Toml
   | Definition
   | FootnoteDefinition
-  | Text
   | Break
   | Link
   | Image
@@ -574,3 +564,5 @@ export type SlateNode =
   | FootnoteReference
   | Math
   | InlineMath;
+
+export type MdastNode = MdastElement | Text;

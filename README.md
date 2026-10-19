@@ -171,6 +171,25 @@ const editor = withMdast(createEditor());
 
 `isMdastInline` and `isMdastVoid` are exported too, for editors that set up `isInline` and `isVoid` themselves.
 
+### TypeScript
+
+`MdastElement` and `MdastText` describe the nodes `remarkToSlate` creates, with the default mark names. Use them as Slate's custom types to get element types you can switch on:
+
+```ts
+import type { BaseEditor } from "slate";
+import type { MdastElement, MdastText } from "remark-slate-transformer";
+
+declare module "slate" {
+  interface CustomTypes {
+    Editor: BaseEditor;
+    Element: MdastElement;
+    Text: MdastText;
+  }
+}
+```
+
+`slateToRemark` overrides for these element types get the matching node type.
+
 ## Contribute
 
 All contributions are welcome.

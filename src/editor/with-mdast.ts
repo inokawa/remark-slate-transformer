@@ -19,18 +19,23 @@ const VOID_TYPES = new Set([
   "definition",
 ]);
 
-type MdastElement = Element & { type?: string; inline?: boolean };
+type TypedElement = Element & { type?: string };
 
-const isElement = (node: Node): node is MdastElement =>
+const isElement = (node: Node): node is TypedElement =>
   "children" in node && !("text" in node) && !("operations" in node);
 
+const typeOf = (element: Element): string =>
+  "type" in element && typeof element.type === "string" ? element.type : "";
+
 export const isMdastInline = (element: Element): boolean => {
-  const { type, inline } = element as MdastElement;
-  return type === "html" ? !!inline : INLINE_TYPES.has(type ?? "");
+  const type = typeOf(element);
+  return type === "html"
+    ? "inline" in element && !!element.inline
+    : INLINE_TYPES.has(type);
 };
 
 export const isMdastVoid = (element: Element): boolean =>
-  VOID_TYPES.has((element as MdastElement).type ?? "");
+  VOID_TYPES.has(typeOf(element));
 
 export const withMdast = <T extends Editor>(editor: T): T => {
   const { insertBreak, isInline, isVoid, normalizeNode } = editor;
@@ -58,8 +63,8 @@ export const withMdast = <T extends Editor>(editor: T): T => {
       });
       if (
         next &&
-        typeof (next[0] as MdastElement & { checked?: unknown }).checked ===
-          "boolean"
+        "checked" in next[0] &&
+        typeof next[0].checked === "boolean"
       ) {
         editor.setNodes({ checked: false } as Partial<Element>, {
           at: next[1],
