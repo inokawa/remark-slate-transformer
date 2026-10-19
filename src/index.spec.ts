@@ -428,13 +428,13 @@ describe("htmlMarks option", () => {
     ]);
   });
 
-  it("keeps unpaired and unknown tags as html", () => {
+  it("keeps unknown tags as html", () => {
     const html = (text: string) => ({
       type: "html",
       inline: true,
       children: [{ text }],
     });
-    expect(toSlate("<u>a <b>b</b></u> c <u>d\n")).toEqual([
+    expect(toSlate("<u>a <b>b</b></u>\n")).toEqual([
       {
         type: "paragraph",
         children: [
@@ -442,9 +442,43 @@ describe("htmlMarks option", () => {
           html("<b>"),
           { underline: true, text: "b" },
           html("</b>"),
-          { text: " c " },
-          html("<u>"),
-          { text: "d" },
+        ],
+      },
+    ]);
+  });
+
+  it("follows browsers for unpaired tags", () => {
+    expect(toSlate("a <u>b\n\nc</u>d\n")).toEqual([
+      { type: "paragraph", children: [{ text: "a " }, { underline: true, text: "b" }] },
+      { type: "paragraph", children: [{ text: "cd" }] },
+    ]);
+  });
+
+  it("follows browsers for tags crossing emphasis", () => {
+    expect(toSlate("<u>a **b</u> c**\n")).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { underline: true, text: "a " },
+          { underline: true, strong: true, text: "b" },
+          { strong: true, text: " c" },
+        ],
+      },
+    ]);
+  });
+
+  it("keeps marks from tags around a link out of later links", () => {
+    expect(toSlate("[<u>a](b) c\n")).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          {
+            type: "link",
+            url: "b",
+            title: null,
+            children: [{ underline: true, text: "a" }],
+          },
+          { text: " c" },
         ],
       },
     ]);

@@ -155,7 +155,7 @@ unified().use(markdown).use(remarkToSlate, { htmlMarks });
 slateToRemark(value, { htmlMarks });
 ```
 
-- `remarkToSlate` marks the text between an opening and a closing tag in the same paragraph, heading, table cell or link, matching tag names case-insensitively. A tag without its pair stays `html`.
+- `remarkToSlate` follows how browsers render the tags: an opening tag marks the text after it until its closing tag or the end of the paragraph, heading, table cell or link, and a stray closing tag is dropped. Tag names match case-insensitively, and other tags stay `html`.
 - `slateToRemark` wraps each marked text in the tags, skipping text that is only whitespace.
 
 ### Utilities
