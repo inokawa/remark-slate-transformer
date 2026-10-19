@@ -21,7 +21,7 @@
   "scripts": {
     "build": "vite build",
     "test": "vitest run",
-    "tsc": "tsc -p . --noEmit && tsc -p type-tests --noEmit",
+    "tsc": "node node_modules/typescript/bin/tsc -p . --noEmit && node node_modules/typescript/bin/tsc -p type-tests --noEmit",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "prepublishOnly": "rimraf lib && npm run build"
