@@ -2689,20 +2689,18 @@ exports[`e2e > node-phrasing-1.md 1`] = `
       },
       {
         "text": " aaa
-aaa",
+aaa**",
       },
       {
         "emphasis": true,
-        "strong": true,
         "text": "aa",
       },
       {
         "delete": true,
-        "strong": true,
         "text": "aa",
       },
       {
-        "text": "aaa ",
+        "text": "**aaa ",
       },
       {
         "emphasis": true,
@@ -2903,18 +2901,13 @@ exports[`e2e > node-phrasing-1.md 2`] = `
         {
           "type": "text",
           "value": " aaa
-aaa",
+aaa**",
         },
         {
           "children": [
             {
-              "children": [
-                {
-                  "type": "text",
-                  "value": "aa",
-                },
-              ],
-              "type": "strong",
+              "type": "text",
+              "value": "aa",
             },
           ],
           "type": "emphasis",
@@ -2922,20 +2915,15 @@ aaa",
         {
           "children": [
             {
-              "children": [
-                {
-                  "type": "text",
-                  "value": "aa",
-                },
-              ],
-              "type": "delete",
+              "type": "text",
+              "value": "aa",
             },
           ],
-          "type": "strong",
+          "type": "delete",
         },
         {
           "type": "text",
-          "value": "aaa ",
+          "value": "**aaa ",
         },
         {
           "children": [
@@ -3114,7 +3102,7 @@ aaa",
 
 exports[`e2e > node-phrasing-1.md 3`] = `
 "aaa **aaaaaaa** aaaaaa _aaaaaaaa_ aaaaaaaa ~~aaaaaaa~~ aaaa \`aaaaaaaa\` aaa
-aa&#x61;_**aa**_**~~aa~~**&#x61;aa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
+aaa\\*\\*_aa_~~aa~~\\*\\*aaa _aa **a ~~aa~~ aa \`aaa\` aaaaa** aaaa_ aa\`a*aa*aa_aa_a~~aa~~a\`
 
 # **heading**
 
