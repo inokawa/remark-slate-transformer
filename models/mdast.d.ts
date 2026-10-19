@@ -1,1 +1,11 @@
-export {};
+import { Literal } from 'mdast';
+export * from 'mdast';
+export * from 'mdast-util-math';
+export interface TOML extends Literal {
+    type: "toml";
+}
+declare module "mdast" {
+    interface RootContentMap {
+        toml: TOML;
+    }
+}

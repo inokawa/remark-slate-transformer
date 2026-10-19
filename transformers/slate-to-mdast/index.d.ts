@@ -1,8 +1,12 @@
 import { Root, RootContent } from 'mdast';
-import { Node } from 'slate';
-import { MarkNames } from '../mdast-to-slate';
+import { Descendant, Element, Node } from 'slate';
+import { MarkNames, MdastElement, MdastNode } from '../mdast-to-slate';
 export type OverridedSlateBuilders = {
+    [key in MdastElement["type"]]?: SlateBuilder<Extract<MdastElement, {
+        type: key;
+    }>>;
+} & ({
     [key: string]: SlateBuilder;
-};
-export type SlateBuilder = (node: unknown, next: (children: Node[]) => RootContent[]) => object | undefined;
-export declare const slateToMdast: (nodes: Node[], overrides: OverridedSlateBuilders, marks?: MarkNames) => Root;
+} | {});
+export type SlateBuilder<T = Element> = (node: T, next: (children: readonly Descendant[]) => RootContent[]) => object | undefined;
+export declare const slateToMdast: (nodes: readonly (Node | MdastNode)[], overrides: OverridedSlateBuilders, marks?: MarkNames) => Root;
