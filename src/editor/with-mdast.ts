@@ -66,9 +66,10 @@ export const withMdast = <T extends Editor>(editor: T): T => {
         "checked" in next[0] &&
         typeof next[0].checked === "boolean"
       ) {
-        editor.setNodes({ checked: false } as Partial<Element>, {
-          at: next[1],
-        });
+        editor.setNodes<Element & { checked?: boolean }>(
+          { checked: false },
+          { at: next[1] }
+        );
       }
       return;
     }
