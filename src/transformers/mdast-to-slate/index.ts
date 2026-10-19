@@ -147,7 +147,7 @@ const buildSlateNode = (
   const build = ctx.overrides[node.type] as MdastBuilder<string> | undefined;
   const customNode = build?.(
     node,
-    (children) => convertNodes(children, deco, ctx),
+    (children) => convertInline(children, deco, ctx),
     toSlateMarks(deco, ctx)
   );
   if (customNode != null) {

@@ -410,6 +410,24 @@ describe("htmlMarks option", () => {
     ]);
   });
 
+  it("pairs tags in children built by an override", () => {
+    const slateTree = unified()
+      .use(markdown)
+      .use(remarkToSlate, {
+        htmlMarks,
+        overrides: {
+          paragraph: (node, next) => ({
+            type: "p",
+            children: next(node.children),
+          }),
+        },
+      })
+      .processSync("a <u>b</u>\n").result;
+    expect(slateTree).toEqual([
+      { type: "p", children: [{ text: "a " }, { underline: true, text: "b" }] },
+    ]);
+  });
+
   it("keeps unpaired and unknown tags as html", () => {
     const html = (text: string) => ({
       type: "html",
