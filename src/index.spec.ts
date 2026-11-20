@@ -361,6 +361,45 @@ describe("issues", () => {
     });
     expect(processor.stringify(ast as Root)).toBe("a b\n");
   });
+  it("keeps spaces inside inline code", () => {
+    const toSlateProcessor = unified().use(markdown).use(remarkToSlate);
+    const processor = unified().use(stringify);
+    const ast = processor.runSync(
+      slateToRemark([
+        {
+          type: "paragraph",
+          children: [
+            { text: "x " },
+            { text: " ", inlineCode: true },
+            { text: " y " },
+            { text: " a ", inlineCode: true },
+          ],
+        },
+      ])
+    );
+    expect((ast as Root).children[0]).toEqual({
+      type: "paragraph",
+      children: [
+        { type: "text", value: "x " },
+        { type: "inlineCode", value: " " },
+        { type: "text", value: " y " },
+        { type: "inlineCode", value: " a " },
+      ],
+    });
+    const text = processor.stringify(ast as Root);
+    expect(text).toBe("x ` ` y `  a  `\n");
+    expect(toSlateProcessor.processSync(text).result).toEqual([
+      {
+        type: "paragraph",
+        children: [
+          { text: "x " },
+          { text: " ", inlineCode: true },
+          { text: " y " },
+          { text: " a ", inlineCode: true },
+        ],
+      },
+    ]);
+  });
 });
 
 describe("htmlMarks option", () => {

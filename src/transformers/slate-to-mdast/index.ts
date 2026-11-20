@@ -170,7 +170,8 @@ const convertTexts = (
         (prevStarts.toString() !== starts.toString() ||
           // https://github.com/inokawa/remark-slate-transformer/issues/90
           (prevEnds.includes("emphasis") && ends.includes("strong"))) &&
-        starts.length - endsToRemove.length === 0
+        starts.length - endsToRemove.length === 0 &&
+        !starts.includes("inlineCode")
       ) {
         while (textTemp.startsWith(" ")) {
           bef += " ";
